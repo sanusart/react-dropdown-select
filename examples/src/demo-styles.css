@@ -6,4 +6,5 @@
 #root {
   margin: 20px auto;
   max-width: 350px;
+	box-sizing: border-box;
 }

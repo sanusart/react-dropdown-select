@@ -22,7 +22,11 @@ export class Select extends React.Component {
     clearable: PropTypes.bool,
     separator: PropTypes.bool,
     handle: PropTypes.bool,
-    searchBy: PropTypes.string
+    searchBy: PropTypes.string,
+    noDataRenderer: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node
+    ])
   };
 
   constructor(props) {
@@ -43,7 +47,8 @@ export class Select extends React.Component {
       setSearch: this.setSearch,
       getInputSize: this.getInputSize,
       toggleSelectAll: this.toggleSelectAll,
-      clearAll: this.clearAll
+      clearAll: this.clearAll,
+      searchResults: this.searchResults
     };
 
     this.select = React.createRef();
@@ -147,7 +152,7 @@ export class Select extends React.Component {
       return this.state.search.length;
     }
 
-    if (this.state.values.length === 0) {
+    if (this.state.values.length > 0) {
       return this.props.addPlaceholder.length;
     }
 
@@ -166,8 +171,15 @@ export class Select extends React.Component {
 
   isSelected = (option) => this.state.values.indexOf(option) !== -1;
 
-  render() {
+  searchResults = () => {
     const regexp = new RegExp(this.state.search, 'i');
+
+    return this.state.options.filter((item) =>
+      regexp.test(item[this.props.searchBy] || item.label)
+    );
+  };
+
+  render() {
     const placeHolder =
       (this.state.values.length > 0 && this.props.addPlaceholder) || this.props.placeholder;
 
@@ -205,7 +217,7 @@ export class Select extends React.Component {
                 <Input
                   tabIndex="1"
                   className="react-dropdown-select-input"
-                  size={this.getInputSize}
+                  size={this.getInputSize()}
                   value={this.state.search}
                   onClick={() => this.dropDown('open')}
                   onChange={this.setSearch}
@@ -245,19 +257,23 @@ export class Select extends React.Component {
                 this.props.dropdownRenderer(this.props, this.state, this.methods)
               ) : (
                 <React.Fragment>
-                  {this.state.options
-                    .filter((item) => regexp.test(item[this.props.searchBy] || item.label))
-                    .map((option, index) => (
-                      <Item
-                        tabIndex={index + 4}
-                        className={`react-dropdown-select-item ${
-                          this.isSelected(option) ? 'react-dropdown-select-item-selected' : ''
-                        }`}
-                        onClick={() => this.addItem(option)}
-                        onKeyPress={() => this.addItem(option)}>
-                        {option.label}
-                      </Item>
-                    ))}
+                  {this.searchResults().length === 0 ? (
+                    <NoData>{this.props.noDataRenderer}</NoData>
+                  ) : (
+                    this.searchResults().map((option, index) => {
+                      return (
+                        <Item
+                          tabIndex={index + 4}
+                          className={`react-dropdown-select-item ${
+                            this.isSelected(option) ? 'react-dropdown-select-item-selected' : ''
+                          }`}
+                          onClick={() => this.addItem(option)}
+                          onKeyPress={() => this.addItem(option)}>
+                          {option.label}
+                        </Item>
+                      );
+                    })
+                  )}
                 </React.Fragment>
               )}
             </DropDown>
@@ -276,7 +292,8 @@ Select.defaultProps = {
   disabled: false,
   searchBy: 'label',
   clearable: true,
-  forceOpen: undefined
+  forceOpen: undefined,
+  noDataRenderer: 'No matches'
 };
 
 const ReactDropdownSelect = styled.div`
@@ -431,6 +448,12 @@ const Clear = styled.div`
   line-height: 25px;
   margin: 0 10px;
   cursor: pointer;
+`;
+
+const NoData = styled.div`
+  padding: 10px;
+  text-align: center;
+  color: deepskyblue;
 `;
 
 export default Select;

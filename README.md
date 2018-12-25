@@ -1,14 +1,21 @@
 # react-dropdown-select
 Customizable dropdown select for react
 
-### installation
+![](https://badgen.net/bundlephobia/minzip/react-dropdown-select)
+![](https://img.shields.io/npm/v/react-dropdown-select.svg)
+
+### Installation
 
 > `npm install --save react-dropdown-select`
 
 ### Usage
 
+```import Select from "react-dropdown-select";```
+
+and use as:
+ 
 ```jsx
-<SelectComponent
+<Select
 	placeholder="Sasha's family members"
 	addPlaceholder="+ click to add"
 	disabled={this.state.disabled}
@@ -18,24 +25,24 @@ Customizable dropdown select for react
 	clearable={this.state.clearable}
 	forceOpen={this.state.forceOpen}
 	handle={this.state.handle}
-	contentRenderer={
-		this.state.contentRenderer
-			? (props, state) => this.contentRenderer(props, state)
-			: undefined
-	}
-	dropdownRenderer={
-		this.state.dropdownRenderer
-			? (props, state, methods) =>
-					this.dropdownRenderer(props, state, methods)
-			: undefined
-	}
 	multi={this.state.multi}
 	values={[options[0]]}
 	options={options}
 	onDropdownOpen={() => undefined}
 	onDropdownClose={() => undefined}
-	onChange={values => this.setValues(values)}
-/>
+	onChange={(values) => this.setValues(values)}
+	contentRenderer={
+		this.state.contentRenderer
+			? (innerProps, innerState) => this.contentRenderer(innerProps, innerState)
+			: undefined
+	}
+	dropdownRenderer={
+		this.state.dropdownRenderer
+			? (innerProps, innerState, innerMethods) =>
+					this.dropdownRenderer(innerProps, innerState, innerMethods)
+			: undefined
+	}
+	/>
 ```
 
 ### Demo
