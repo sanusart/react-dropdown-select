@@ -39,10 +39,10 @@ export class App extends React.Component {
 
   setValues = (selectValues) => this.setState({ selectValues });
 
-  contentRenderer = (props, state) => {
+  contentRenderer = (innerProps, innerState) => {
     return (
       <div>
-        {state.values.length} of {props.options.length} Selected
+        {innerProps.values.length} of {innerState.options.length} Selected
       </div>
     );
   };
@@ -100,7 +100,7 @@ export class App extends React.Component {
             onChange={ (values) => this.setValues(values) }
             contentRenderer={
               this.state.contentRenderer
-                ? (props, state) => this.contentRenderer(props, state)
+                ? (innerProps, innerState) => this.contentRenderer(innerProps, innerState)
                 : undefined
             }
             dropdownRenderer={
