@@ -82,6 +82,8 @@ export class App extends React.Component {
     return (
       <React.Fragment>
         <div>
+          <p>react-dropdown-select demo | <a href="https://github.com/sanusart/react-dropdown-select">GitHub</a></p>
+
           <Select
             placeholder="Sasha's family members"
             addPlaceholder="+ click to add"

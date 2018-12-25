@@ -40,6 +40,7 @@ Customizable dropdown select for react
 
 ### Demo
 
-> https://codesandbox.io/s/p54p8y1987
+[![Edit react-dropdown-select](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/p54p8y1987?autoresize=1)
 
+### Preview
 > https://sanusart.github.io/react-dropdown-select
