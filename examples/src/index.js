@@ -52,24 +52,25 @@ export class App extends React.Component {
 
     return (
       <div>
-        <input type="text"
-          size={ methods.getInputSize }
-          value={ state.search }
-          onChange={ methods.setSearch }
-          placeholder="Type anything"/>
-        <button onClick={ () => methods.toggleSelectAll() }>
+        <input
+          type="text"
+          size={methods.getInputSize}
+          value={state.search}
+          onChange={methods.setSearch}
+          placeholder="Type anything"
+        />
+        <button onClick={() => methods.toggleSelectAll()}>
           {state.values.length === 0 ? 'Select all' : 'Clear all'}
         </button>
         {state.options
           .filter((item) => regexp.test(item[props.searchBy] || item.label))
           .map((option) => (
-            <div
-              className="sa-select-item"
-              onClick={ () => methods.addItem(option) }>
+            <div className="sa-select-item" onClick={() => methods.addItem(option)}>
               <input
                 type="checkbox"
-                onChange={ () => methods.addItem(option) }
-                checked={ state.values.indexOf(option) !== -1 }/>
+                onChange={() => methods.addItem(option)}
+                checked={state.values.indexOf(option) !== -1}
+              />
               {option.label}
             </div>
           ))}
@@ -77,29 +78,31 @@ export class App extends React.Component {
     );
   };
 
-
   render() {
     return (
       <React.Fragment>
         <div>
-          <p>react-dropdown-select demo | <a href="https://github.com/sanusart/react-dropdown-select">GitHub</a></p>
+          <p>
+            react-dropdown-select demo |{' '}
+            <a href="https://github.com/sanusart/react-dropdown-select">GitHub</a>
+          </p>
 
           <Select
             placeholder="Sasha's family members"
             addPlaceholder="+ click to add"
-            disabled={ this.state.disabled }
-            loading={ this.state.loading }
-            searchBy={ this.state.searchBy }
-            separator={ this.state.separator }
-            clearable={ this.state.clearable }
-            forceOpen={ this.state.forceOpen }
-            handle={ this.state.handle }
-            multi={ this.state.multi }
-            values={ [options[0]] }
-            options={ options }
-            onDropdownOpen={ () => undefined }
-            onDropdownClose={ () => undefined }
-            onChange={ (values) => this.setValues(values) }
+            disabled={this.state.disabled}
+            loading={this.state.loading}
+            searchBy={this.state.searchBy}
+            separator={this.state.separator}
+            clearable={this.state.clearable}
+            forceOpen={this.state.forceOpen}
+            handle={this.state.handle}
+            multi={this.state.multi}
+            values={[options[0]]}
+            options={options}
+            onDropdownOpen={() => undefined}
+            onDropdownClose={() => undefined}
+            onChange={(values) => this.setValues(values)}
             contentRenderer={
               this.state.contentRenderer
                 ? (innerProps, innerState) => this.contentRenderer(innerProps, innerState)
@@ -107,98 +110,120 @@ export class App extends React.Component {
             }
             dropdownRenderer={
               this.state.dropdownRenderer
-                ? (innerProps, innerState, innerMethods) => this.dropdownRenderer(innerProps, innerState, innerMethods)
-                : undefined }/>
+                ? (innerProps, innerState, innerMethods) =>
+                    this.dropdownRenderer(innerProps, innerState, innerMethods)
+                : undefined
+            }
+          />
         </div>
 
         <p>
           <input
             type="checkbox"
-            checked={ this.state.multi }
-            onChange={ () => this.setState({
-              multi: !this.state.multi
-            })
-            }/>{' '}
+            checked={this.state.multi}
+            onChange={() =>
+              this.setState({
+                multi: !this.state.multi
+              })
+            }
+          />{' '}
           Multi
-          <br/>
+          <br />
           <input
             type="checkbox"
-            checked={ this.state.disabled }
-            onChange={ () => this.setState({
-              disabled: !this.state.disabled
-            })
-            }/>{' '}
+            checked={this.state.disabled}
+            onChange={() =>
+              this.setState({
+                disabled: !this.state.disabled
+              })
+            }
+          />{' '}
           Disabled
-          <br/>
+          <br />
           <input
             type="checkbox"
-            checked={ this.state.loading }
-            onChange={ () => this.setState({
-              loading: !this.state.loading
-            })
-            }/>{' '}
+            checked={this.state.loading}
+            onChange={() =>
+              this.setState({
+                loading: !this.state.loading
+              })
+            }
+          />{' '}
           Loading
-          <br/>
+          <br />
           <input
             type="checkbox"
-            checked={ this.state.clearable }
-            onChange={ () => this.setState({
-              clearable: !this.state.clearable
-            })
-            }/>{' '}
+            checked={this.state.clearable}
+            onChange={() =>
+              this.setState({
+                clearable: !this.state.clearable
+              })
+            }
+          />{' '}
           Clearable
-          <br/>
+          <br />
           <input
             type="checkbox"
-            checked={ this.state.separator }
-            onChange={ () => this.setState({
-              separator: !this.state.separator
-            })
-            }/>{' '}
+            checked={this.state.separator}
+            onChange={() =>
+              this.setState({
+                separator: !this.state.separator
+              })
+            }
+          />{' '}
           Separator
-          <br/>
+          <br />
           <input
             type="checkbox"
-            checked={ this.state.handle }
-            onChange={ () => this.setState({
-              handle: !this.state.handle
-            })
-            }/>{' '}
+            checked={this.state.handle}
+            onChange={() =>
+              this.setState({
+                handle: !this.state.handle
+              })
+            }
+          />{' '}
           Dropdown handle
-          <br/>
+          <br />
           <input
             type="checkbox"
-            checked={ this.state.forceOpen }
-            onChange={ () => this.setState({
-              forceOpen: !this.state.forceOpen
-            })
-            }/>{' '}
+            checked={this.state.forceOpen}
+            onChange={() =>
+              this.setState({
+                forceOpen: !this.state.forceOpen
+              })
+            }
+          />{' '}
           Stay open
-          <br/>
+          <br />
           <input
             type="checkbox"
-            checked={ this.state.contentRenderer }
-            onChange={ () => this.setState({
-              contentRenderer: !this.state.contentRenderer
-            })
-            }/>{' '}
+            checked={this.state.contentRenderer}
+            onChange={() =>
+              this.setState({
+                contentRenderer: !this.state.contentRenderer
+              })
+            }
+          />{' '}
           Custom content renderer
-          <br/>
+          <br />
           <input
             type="checkbox"
-            checked={ this.state.dropdownRenderer }
-            onChange={ () => this.setState({
-              dropdownRenderer: !this.state.dropdownRenderer
-            })
-            }/>{' '}
+            checked={this.state.dropdownRenderer}
+            onChange={() =>
+              this.setState({
+                dropdownRenderer: !this.state.dropdownRenderer
+              })
+            }
+          />{' '}
           Custom dropdown renderer
-          <br/>
+          <br />
           Search by field:{' '}
           <select
-            selected={ this.state.searchBy }
-            onChange={ (searchBy) => this.setState({
-              searchBy
-            })
+            selected={this.state.searchBy}
+            onChange={(searchBy) =>
+              this.setState({
+                searchBy
+              })
             }>
             <option value="label">label</option>
             <option value="customProperty">customProperty</option>
@@ -209,9 +234,8 @@ export class App extends React.Component {
         <pre>{JSON.stringify(this.state.selectValues, false, 2)}</pre>
 
         <p>
-          I am text, I am text, I am text, I am text, I am text, I am text, I am
-          text, I am text, I am text, I am text, I am text, I am text, I am
-          text, I am text, I am text,{' '}
+          I am text, I am text, I am text, I am text, I am text, I am text, I am text, I am text, I
+          am text, I am text, I am text, I am text, I am text, I am text, I am text,{' '}
         </p>
       </React.Fragment>
     );
@@ -220,4 +244,4 @@ export class App extends React.Component {
 
 const rootElement = document.getElementById('root');
 
-ReactDOM.render(<App/>, rootElement);
+ReactDOM.render(<App />, rootElement);
