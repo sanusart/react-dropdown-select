@@ -42,4 +42,4 @@ Customizable dropdown select for react
 
 > https://codesandbox.io/s/p54p8y1987
 
-> https://sanusart.github.io/react-dropdown-select/index.html
+> https://sanusart.github.io/react-dropdown-select
