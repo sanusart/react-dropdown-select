@@ -51,8 +51,11 @@ export class Select extends React.Component {
 
   componentDidMount() {
     window.addEventListener('resize', this.updateSelectBounds);
+
     this.props.onChange(this.state.values);
+
     this.dropDown('close');
+
     if (this.select) {
       this.updateSelectBounds();
     }
@@ -157,6 +160,8 @@ export class Select extends React.Component {
     values: []
   });
 
+  isSelected = (option) => this.state.values.indexOf(option) !== -1;
+
   render() {
     const regexp = new RegExp(this.state.search, 'i');
     const placeHolder = (this.state.values.length > 0 && this.props.addPlaceholder)
@@ -231,14 +236,13 @@ export class Select extends React.Component {
               this.props.dropdownRenderer(this.props, this.state, this.methods)
               ) : (
                 <React.Fragment>
-                  <Button onClick={ () => this.toggleSelectAll() }>
-                    {this.state.values.length === 0 ? 'Select all' : 'Clear all'}
-                  </Button>
                   {this.state.options
                   .filter((item) => regexp.test(item[this.props.searchBy] || item.label))
                   .map((option) => (
                     <Item
-                      className="react-dropdown-select-item"
+                      className={`react-dropdown-select-item ${this.isSelected(option)
+                        ? 'react-dropdown-select-item-selected'
+                        : ''}`}
                       onClick={ () => this.addItem(option) }>
                       {option.label}
                     </Item>
@@ -270,7 +274,6 @@ const ReactDropdownSelect = styled.div`
   width: 100%;
   border-radius: 2px;
   padding: 2px 5px;
-  border-radius: 2px;
   flex-direction: row;
   align-items: center;
   min-height: 36px;
@@ -296,8 +299,8 @@ const Option = styled.span`
 
   .react-dropdown-select-option-remove {
     cursor: pointer;
-    width: 21px;
-    height: 21px;
+    width: 22px;
+    height: 22px;
     display: inline-block;
     text-align: center;
     margin: 0 -5px 0 0px;
@@ -382,6 +385,7 @@ const DropDown = styled.div`
   box-shadow: 0 0 10px 0 #0000003b;
   max-height: 300px;
   overflow: auto;
+}
 `;
 
 const Item = styled.span`
@@ -390,6 +394,12 @@ const Item = styled.span`
 
   :hover {
     background: #f2f2f2;
+  }
+  
+  &.react-dropdown-select-item-selected {
+    background: deepskyblue;
+    color: #fff;
+    border-bottom: 1px solid #fff;
   }
 
   input {

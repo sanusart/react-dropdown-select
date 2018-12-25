@@ -105,7 +105,7 @@ export class App extends React.Component {
             }
             dropdownRenderer={
               this.state.dropdownRenderer
-                ? (props, state, methods) => this.dropdownRenderer(props, state, methods)
+                ? (innerProps, innerState, innerMethods) => this.dropdownRenderer(innerProps, innerState, innerMethods)
                 : undefined }/>
         </div>
 
