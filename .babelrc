@@ -4,17 +4,10 @@
 		"@babel/preset-react"
 	],
 	"plugins": [
+		"emotion",
 		"@babel/plugin-proposal-class-properties",
 		"@babel/plugin-proposal-object-rest-spread",
 		"@babel/plugin-syntax-dynamic-import",
-		"transform-dynamic-import",
-		[
-			"babel-plugin-styled-components",
-			{
-				"fileName": false,
-				"ssr": false,
-				"pure": true
-			}
-		]
+		"transform-dynamic-import"
 	]
 }
