@@ -202,7 +202,10 @@ export class Select extends React.Component {
               <React.Fragment>
                 {this.props.multi &&
                   this.state.values.map((item) => (
-                    <Option disabled={this.props.disabled} className="react-dropdown-select-option">
+                    <Option
+                      key={`${item.value}${item.label}`}
+                      disabled={this.props.disabled}
+                      className="react-dropdown-select-option">
                       {item.label}{' '}
                       <span
                         className="react-dropdown-select-option-remove"
@@ -263,6 +266,7 @@ export class Select extends React.Component {
                     this.searchResults().map((option, index) => {
                       return (
                         <Item
+                          key={`${option.value}${option.label}`}
                           tabIndex={index + 4}
                           className={`react-dropdown-select-item ${
                             this.isSelected(option) ? 'react-dropdown-select-item-selected' : ''
