@@ -1,4 +1,5 @@
 node_modules
 dist
 .idea
-.idea/
+/src/helpers.js
+.DS_Store

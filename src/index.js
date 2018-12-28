@@ -1,32 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 import ClickOutHandler from 'react-onclickout';
+
+import Content from './components/Content';
+import Dropdown from './components/Dropdown';
+import Loading from './components/Loading';
+import Clear from './components/Clear';
+import Separator from './components/Separator';
+import DropdownHandle from './components/DropdownHandle';
 
 export class Select extends React.Component {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
-    onDropdownClose: PropTypes.func.isRequired,
-    onDropdownOpen: PropTypes.func.isRequired,
+    onDropdownClose: PropTypes.func,
+    onDropdownOpen: PropTypes.func,
+    onClearAll: PropTypes.func,
+    onSelectAll: PropTypes.func,
     values: PropTypes.array,
     options: PropTypes.array.isRequired,
-    forceOpen: PropTypes.bool,
+    keepOpen: PropTypes.bool,
+    dropdownGap: PropTypes.number,
     multi: PropTypes.bool,
     placeholder: PropTypes.string,
     addPlaceholder: PropTypes.string,
     disabled: PropTypes.bool,
     className: PropTypes.string,
-    contentRenderer: PropTypes.func,
-    dropdownRenderer: PropTypes.func,
     loading: PropTypes.bool,
     clearable: PropTypes.bool,
     separator: PropTypes.bool,
-    handle: PropTypes.bool,
+    dropdownHandle: PropTypes.bool,
     searchBy: PropTypes.string,
-    noDataRenderer: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node
-    ])
+    contentRenderer: PropTypes.func,
+    dropdownRenderer: PropTypes.func,
+    itemRenderer: PropTypes.func,
+    noDataRenderer: PropTypes.func,
+    optionRenderer: PropTypes.func,
+    inputRenderer: PropTypes.func,
+    loadingRenderer: PropTypes.func,
+    clearRenderer: PropTypes.func,
+    separatorRenderer: PropTypes.func,
+    dropdownHandleRenderer: PropTypes.func
   };
 
   constructor(props) {
@@ -48,7 +62,11 @@ export class Select extends React.Component {
       getInputSize: this.getInputSize,
       toggleSelectAll: this.toggleSelectAll,
       clearAll: this.clearAll,
-      searchResults: this.searchResults
+      selectAll: this.selectAll,
+      searchResults: this.searchResults,
+      selectRef: this.getSelectRef,
+      isSelected: this.isSelected,
+      getSelectBounds: this.getSelectBounds
     };
 
     this.select = React.createRef();
@@ -67,7 +85,7 @@ export class Select extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.values !== this.state.values) {
+    if (prevState.values !== this.state.values || prevProps.multi !== this.props.multi) {
       this.props.onChange(this.state.values);
       this.updateSelectBounds();
     }
@@ -90,8 +108,10 @@ export class Select extends React.Component {
       selectBounds: this.select.current.getBoundingClientRect()
     });
 
+  getSelectBounds = () => this.state.selectBounds;
+
   dropDown = (action = 'toggle') => {
-    if (this.props.forceOpen) {
+    if (this.props.keepOpen) {
       return this.setState({ dropdown: true });
     }
 
@@ -109,6 +129,8 @@ export class Select extends React.Component {
 
     return false;
   };
+
+  getSelectRef = () => this.select.current;
 
   addItem = (item) => {
     if (this.props.multi) {
@@ -159,15 +181,25 @@ export class Select extends React.Component {
     return this.props.placeholder.length;
   };
 
-  toggleSelectAll = () =>
-    this.setState({
-      values: this.state.values.length === 0 ? this.props.options : []
+  toggleSelectAll = () => {
+    return this.setState({
+      values: this.state.values.length === 0 ? this.selectAll() : this.clearAll()
     });
+  };
 
-  clearAll = () =>
+  clearAll = () => {
+    this.props.onClearAll();
     this.setState({
       values: []
     });
+  };
+
+  selectAll = () => {
+    this.props.onSelectAll();
+    return this.setState({
+      values: this.props.options
+    });
+  };
 
   isSelected = (option) => this.state.values.indexOf(option) !== -1;
 
@@ -180,107 +212,41 @@ export class Select extends React.Component {
   };
 
   render() {
-    const placeHolder =
-      (this.state.values.length > 0 && this.props.addPlaceholder) || this.props.placeholder;
-
     return (
       <ClickOutHandler onClickOut={() => this.dropDown('close')}>
         <ReactDropdownSelect
           ref={this.select}
           disabled={this.props.disabled}
           className={this.props.className}>
-          <Content
-            className={`react-dropdown-select-content ${
-              this.props.multi
-                ? 'react-dropdown-select-type-multi'
-                : 'react-dropdown-select-type-single'
-            }`}
-            onClick={() => this.dropDown('open')}>
-            {this.props.contentRenderer ? (
-              this.props.contentRenderer(this.props, this.state, this.methods)
-            ) : (
-              <React.Fragment>
-                {this.props.multi &&
-                  this.state.values.map((item) => (
-                    <Option
-                      key={`${item.value}${item.label}`}
-                      disabled={this.props.disabled}
-                      className="react-dropdown-select-option">
-                      {item.label}{' '}
-                      <span
-                        className="react-dropdown-select-option-remove"
-                        onClick={(event) => this.removeItem(event, item, true)}>
-                        &times;
-                      </span>
-                    </Option>
-                  ))}
-                {!this.props.multi && this.state.values.length > 0 && (
-                  <span>{this.state.values[0].label}</span>
-                )}
-                <Input
-                  tabIndex="1"
-                  className="react-dropdown-select-input"
-                  size={this.getInputSize()}
-                  value={this.state.search}
-                  onClick={() => this.dropDown('open')}
-                  onChange={this.setSearch}
-                  placeholder={placeHolder}
-                />
-              </React.Fragment>
-            )}
-          </Content>
-          {this.props.loading && <Loading className="react-dropdown-select-loading" />}
-          {this.props.clearable && (
-            <Clear tabIndex="2" onClick={() => this.clearAll()} onKeyPress={() => this.clearAll()}>
-              &times;
-            </Clear>
-          )}
-          {this.props.separator && <Separator className="react-dropdown-select-separator" />}
+          <Content parentProps={this.props} parentState={this.state} parentMethods={this.methods} />
 
-          {this.props.handle && (
-            <Handle
-              tabIndex="3"
-              onClick={() => this.dropDown()}
-              onKeyPress={() => this.dropDown()}
-              className="react-dropdown-select-handle">
-              {this.state.dropdown ? (
-                <React.Fragment>&rsaquo;</React.Fragment>
-              ) : (
-                <React.Fragment>&lsaquo;</React.Fragment>
-              )}
-            </Handle>
+          {this.props.loading && <Loading parentProps={this.props} />}
+
+          {this.props.clearable && (
+            <Clear parentProps={this.props} parentState={this.state} parentMethods={this.methods} />
+          )}
+
+          {this.props.separator && (
+            <Separator
+              parentProps={this.props}
+              parentState={this.state}
+              parentMethods={this.methods}
+            />
+          )}
+
+          {this.props.dropdownHandle && (
+            <DropdownHandle
+              parentProps={this.props}
+              parentState={this.state}
+              parentMethods={this.methods}/>
           )}
 
           {this.state.dropdown && (
-            <DropDown
-              tabIndex="4"
-              selectBounds={this.state.selectBounds}
-              className="react-dropdown-select-dropdown">
-              {this.props.dropdownRenderer ? (
-                this.props.dropdownRenderer(this.props, this.state, this.methods)
-              ) : (
-                <React.Fragment>
-                  {this.searchResults().length === 0 ? (
-                    <NoData>{this.props.noDataRenderer}</NoData>
-                  ) : (
-                    this.searchResults().map((option, index) => {
-                      return (
-                        <Item
-                          key={`${option.value}${option.label}`}
-                          tabIndex={index + 4}
-                          className={`react-dropdown-select-item ${
-                            this.isSelected(option) ? 'react-dropdown-select-item-selected' : ''
-                          }`}
-                          onClick={() => this.addItem(option)}
-                          onKeyPress={() => this.addItem(option)}>
-                          {option.label}
-                        </Item>
-                      );
-                    })
-                  )}
-                </React.Fragment>
-              )}
-            </DropDown>
+            <Dropdown
+              parentProps={this.props}
+              parentState={this.state}
+              parentMethods={this.methods}
+            />
           )}
         </ReactDropdownSelect>
       </ClickOutHandler>
@@ -296,8 +262,9 @@ Select.defaultProps = {
   disabled: false,
   searchBy: 'label',
   clearable: true,
-  forceOpen: undefined,
-  noDataRenderer: 'No matches'
+  keepOpen: undefined,
+  noDataLabel: 'No matches found',
+  dropdownGap: 5
 };
 
 const ReactDropdownSelect = styled.div`
@@ -318,82 +285,6 @@ const ReactDropdownSelect = styled.div`
   background: linear-gradient(#eee, #fff, #eee);
 `;
 
-const Option = styled.span`
-  padding: 0 5px;
-  border-radius: 2px;
-  line-height: 21px;
-  margin: 3px 0 3px 5px;
-  background: deepskyblue;
-  color: #fff;
-  white-space: nowrap;
-  display: inline-block;
-
-  .react-dropdown-select-option-remove {
-    cursor: pointer;
-    width: 22px;
-    height: 22px;
-    display: inline-block;
-    text-align: center;
-    margin: 0 -5px 0 0px;
-    border-radius: 0 3px 3px 0;
-  }
-
-  :hover,
-  :hover > span {
-    background: #00c4ee;
-  }
-`;
-
-const Content = styled.div`
-  flex: 1;
-`;
-
-const Input = styled.input`
-  width: auto;
-  border: none;
-  margin-left: 5px;
-  background: transparent;
-  :focus {
-    outline: transparent;
-  }
-  font-size: smaller;
-`;
-
-const Separator = styled.div`
-  border-left: 1px solid #ccc;
-  width: 1px;
-  height: 25px;
-  display: block;
-`;
-
-const Loading = styled.div`
-  @keyframes dual-ring-spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(180deg);
-    }
-  }
-
-  padding: 0 5px;
-  display: block;
-  width: auto;
-  height: auto;
-
-  :after {
-    content: ' ';
-    display: block;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    border: 1px solid red;
-    border-color: deepskyblue transparent;
-    animation: dual-ring-spin 0.7s ease-in-out infinite;
-    margin: 0 0 0 -10px;
-  }
-`;
-
 const Handle = styled.div`
   width: 20px;
   text-align: center;
@@ -401,63 +292,6 @@ const Handle = styled.div`
   transform: rotate(-90deg);
   cursor: pointer;
   font-size: 26px;
-`;
-
-const DropDown = styled.div`
-  position: absolute;
-  top: ${({ selectBounds }) => selectBounds.bottom + 5}px;
-  left: ${({ selectBounds }) => selectBounds.left}px;
-  border: 1px solid #ccc;
-  width: ${({ selectBounds }) => selectBounds.width}px;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  border-radius: 2px;
-  box-shadow: 0 0 10px 0 #0000003b;
-  max-height: 300px;
-  overflow: auto;
-}
-`;
-
-const Item = styled.span`
-  padding: 10px;
-  cursor: pointer;
-  outline: none;
-
-  :hover,
-  :focus {
-    background: #f2f2f2;
-  }
-
-  &.react-dropdown-select-item-selected {
-    background: deepskyblue;
-    color: #fff;
-    border-bottom: 1px solid #fff;
-  }
-
-  input {
-    &[type='checkbox'] {
-      vertical-align: baseline;
-      margin: 0 10px 0 0;
-    }
-  }
-`;
-
-const Button = styled.button`
-  margin: 10px;
-`;
-
-const Clear = styled.div`
-  line-height: 25px;
-  margin: 0 10px;
-  cursor: pointer;
-`;
-
-const NoData = styled.div`
-  padding: 10px;
-  text-align: center;
-  color: deepskyblue;
 `;
 
 export default Select;
