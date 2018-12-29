@@ -34,4 +34,4 @@ const InputComponent = styled.input`
   }
 `;
 
-export default React.memo(Input);
+export default Input;
