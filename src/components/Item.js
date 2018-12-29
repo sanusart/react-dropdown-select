@@ -25,6 +25,7 @@ Item.propTypes = {};
 const ItemComponent = styled.span`
   padding: 10px;
   cursor: pointer;
+  border-bottom: 1px solid #fff;
 
   :hover,
   :focus {

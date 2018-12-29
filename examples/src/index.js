@@ -51,7 +51,7 @@ export class App extends React.Component {
   contentRenderer = (innerProps, innerState) => {
     return (
       <div>
-        {innerState.values.length} of {innerState.options.length} Selected
+        {innerState.values.length} of {innerProps.options.length} Selected
       </div>
     );
   };
@@ -65,10 +65,10 @@ export class App extends React.Component {
   };
 
   itemRenderer = (item, itemIndex, props, state, methods) => (
-    <div key={item.value} onClick={() => methods.addItem(item)}>
+    <div key={item.value}>
       <div style={{ margin: '10px' }}>
-        <input type="checkbox" checked={methods.isSelected(item)} />
-        &nbsp;&nbsp;&nbsp;{item.label}
+        <input onChange={() => methods.addItem(item)} type="checkbox" checked={methods.isSelected(item)} />
+        <span onClick={() => methods.addItem(item)}>&nbsp;&nbsp;&nbsp;{item.label}</span>
       </div>
     </div>
   );

@@ -28,6 +28,7 @@ const Dropdown = ({ parentProps, parentState, parentMethods }) => (
             .searchResults()
             .map((item, itemIndex) => (
               <Item
+                key={item.value}
                 item={item}
                 index={itemIndex}
                 parentState={parentState}
@@ -57,6 +58,7 @@ const DropDown = styled.div`
   box-shadow: 0 0 10px 0 #0000003b;
   max-height: 300px;
   overflow: auto;
+  
   :focus {
     outline: none;
   }
