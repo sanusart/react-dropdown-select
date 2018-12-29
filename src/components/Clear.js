@@ -6,7 +6,7 @@ const Clear = ({ parentProps, parentState, parentMethods }) =>
     parentProps.clearRenderer(parentProps, parentState, parentMethods)
   ) : (
     <ClearComponent
-      tabIndex="2"
+      tabIndex="-1"
       onClick={() => parentMethods.clearAll()}
       onKeyPress={() => parentMethods.clearAll()}>
       &times;
@@ -19,7 +19,10 @@ const ClearComponent = styled.div`
   line-height: 25px;
   margin: 0 10px;
   cursor: pointer;
-  outline: none;
+  
+  :focus {
+    outline: none;
+  }
 
   :hover {
     color: tomato;

@@ -6,7 +6,9 @@ import Item from './Item';
 
 const Dropdown = ({ parentProps, parentState, parentMethods }) => (
   <DropDown
-    tabIndex="4"
+    tabIndex="-1"
+    aria-expanded="true"
+    role="listbox"
     selectBounds={parentState.selectBounds}
     dropdownGap={parentProps.dropdownGap}
     className="react-dropdown-select-dropdown">
@@ -55,7 +57,9 @@ const DropDown = styled.div`
   box-shadow: 0 0 10px 0 #0000003b;
   max-height: 300px;
   overflow: auto;
-  outline: none;
+  :focus {
+    outline: none;
+  }
 }
 `;
 

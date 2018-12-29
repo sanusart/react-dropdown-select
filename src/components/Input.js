@@ -10,7 +10,7 @@ const Input = ({ parentProps, parentState, parentMethods }) => {
     parentProps.inputRenderer(parentProps, parentState, parentMethods)
   ) : (
     <InputComponent
-      tabIndex="1"
+      tabIndex="-1"
       className="react-dropdown-select-input"
       size={parentMethods.getInputSize()}
       value={parentState.search}
@@ -28,10 +28,10 @@ const InputComponent = styled.input`
   border: none;
   margin-left: 5px;
   background: transparent;
-  :focus {
-    outline: transparent;
-  }
   font-size: smaller;
+  :focus {
+    outline: none;
+  }
 `;
 
 export default React.memo(Input);

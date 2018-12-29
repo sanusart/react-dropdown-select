@@ -5,7 +5,10 @@ const Option = ({ parentProps, parentState, parentMethods, parentItem }) =>
   parentItem && parentProps.optionRenderer ? (
     parentProps.optionRenderer(parentItem, parentProps, parentState, parentMethods)
   ) : (
-    <OptionComponent disabled={parentProps.disabled} className="react-dropdown-select-option">
+    <OptionComponent
+      role="list-item"
+      disabled={parentProps.disabled}
+      className="react-dropdown-select-option">
       <span className="react-dropdown-select-option-label">{parentItem.label}</span>
       <span
         className="react-dropdown-select-option-remove"

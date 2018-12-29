@@ -5,9 +5,10 @@ const dropdownHandle = ({ parentProps, parentState, parentMethods }) => parentPr
   parentProps.dropdownHandleRenderer(parentProps, parentState, parentMethods)
 ) : (
   <DropdownHandleComponent
-    tabIndex="3"
+    tabIndex="-1"
     onClick={() => parentMethods.dropDown()}
     onKeyPress={() => parentMethods.dropDown()}
+    onKeyDown={() => parentMethods.dropDown()}
     className="react-dropdown-select-dropdown-handle">
     {parentState.dropdown ? (
       <React.Fragment>&rsaquo;</React.Fragment>
@@ -26,7 +27,10 @@ const DropdownHandleComponent = styled.div`
   transform: rotate(-90deg);
   cursor: pointer;
   font-size: 26px;
-  outline: none;
+  :focus {
+    outline: none;
+    color: deepskyblue;
+  }
 `;
 
 export default dropdownHandle;

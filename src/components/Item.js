@@ -6,8 +6,11 @@ const Item = ({ parentProps, parentState, parentMethods, item, itemIndex }) =>
     parentProps.itemRenderer(item, itemIndex, parentProps, parentState, parentMethods)
   ) : (
     <ItemComponent
+      role="option"
+      aria-selected={parentMethods.isSelected(item)}
+      aria-label={item.label}
       key={`${item.value}${item.label}`}
-      tabIndex={itemIndex + 4}
+      tabIndex="-1"
       className={`react-dropdown-select-item ${
         parentMethods.isSelected(item) ? 'react-dropdown-select-item-selected' : ''
       }`}
@@ -22,11 +25,11 @@ Item.propTypes = {};
 const ItemComponent = styled.span`
   padding: 10px;
   cursor: pointer;
-  outline: none;
 
   :hover,
   :focus {
     background: #f2f2f2;
+    outline: none;
   }
 
   &.react-dropdown-select-item-selected {
