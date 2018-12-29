@@ -6,45 +6,6 @@ import './demo-styles.css';
 
 import Select from '../../src';
 
-const options = [
-  {
-    value: '5c23e2fb4f3801c34cd976b5',
-    label: 'Kennedy Thomas'
-  },
-  {
-    value: '5c23e2fbcdc84527d218caca',
-    label: 'Zelma Boyer'
-  },
-  {
-    value: '5c23e2fb60c7814e787d8b09',
-    label: 'Carter Chapman'
-  },
-  {
-    value: '5c23e2fb2d6b939c5059eb4f',
-    label: 'Ida Dunn'
-  },
-  {
-    value: '5c23e2fbd35b006de4b977cf',
-    label: 'Barlow Spence'
-  },
-  {
-    value: '5c23e2fb165946d26073846f',
-    label: 'Elnora Lane'
-  },
-  {
-    value: '5c23e2fb1e8d68045cddaa86',
-    label: 'Kelli Hines'
-  },
-  {
-    value: '5c23e2fb9cb97207ff60d97f',
-    label: 'Cooke Ray'
-  },
-  {
-    value: '5c23e2fb919074d4f00cf11f',
-    label: 'Linda Young'
-  }
-];
-
 export class App extends React.Component {
   constructor(props) {
     super(props);
@@ -64,11 +25,28 @@ export class App extends React.Component {
       clearable: true,
       separator: true,
       forceOpen: false,
-      handle: true
+      handle: true,
+      options: []
     };
   }
 
+  componentDidMount() {
+    window
+      .fetch('https://jsonplaceholder.typicode.com/users')
+      .then((responce) => responce.json())
+      .then((result) => {
+        this.setOptions(
+          result.map((user) => ({
+            label: user.username,
+            value: user.email
+          }))
+        );
+      });
+  }
+
   setValues = (selectValues) => this.setState({ selectValues });
+
+  setOptions = (options) => this.setState({ options });
 
   contentRenderer = (innerProps, innerState) => {
     return (
@@ -109,7 +87,7 @@ export class App extends React.Component {
         />
         <button onClick={methods.selectAll}>Select all</button>
         <button onClick={methods.clearAll}>Clear all</button>
-        {state.options
+        {props.options
           .filter((item) => regexp.test(item[props.searchBy] || item.label))
           .map((option) => (
             <div key={option.value} onClick={() => methods.addItem(option)}>
@@ -151,20 +129,19 @@ export class App extends React.Component {
             react-dropdown-select demo |{' '}
             <a href="https://github.com/sanusart/react-dropdown-select">GitHub</a>
           </p>
-
           <Select
-            placeholder="Sasha's family members"
+            placeholder="Select user"
             addPlaceholder="+ click to add"
             disabled={this.state.disabled}
-            loading={this.state.loading}
+            loading={!this.state.options.length || this.state.loading}
             searchBy={this.state.searchBy}
             separator={this.state.separator}
             clearable={this.state.clearable}
             keepOpen={this.state.forceOpen}
             dropdownHandle={this.state.handle}
             multi={this.state.multi}
-            values={[options[0]]}
-            options={options}
+            values={[]}
+            options={this.state.options}
             dropdownGap={5}
             onDropdownOpen={() => undefined}
             onDropdownClose={() => undefined}
@@ -330,6 +307,9 @@ export class App extends React.Component {
 
         <p>Current value(s):</p>
         <pre>{JSON.stringify(this.state.selectValues, false, 2)}</pre>
+
+        <p>Options <small>(loaded from: https://jsonplaceholder.typicode.com/users)</small>:</p>
+        <pre>{JSON.stringify(this.state.options, false, 2)}</pre>
 
         <p>
           I am text, I am text, I am text, I am text, I am text, I am text, I am text, I am text, I

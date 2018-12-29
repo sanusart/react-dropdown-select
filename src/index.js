@@ -48,8 +48,7 @@ export class Select extends React.Component {
 
     this.state = {
       dropdown: false,
-      values: this.props.values,
-      options: this.props.options,
+      values: [],
       search: '',
       selectBounds: {}
     };
@@ -206,7 +205,7 @@ export class Select extends React.Component {
   searchResults = () => {
     const regexp = new RegExp(this.state.search, 'i');
 
-    return this.state.options.filter((item) =>
+    return this.props.options.filter((item) =>
       regexp.test(item[this.props.searchBy] || item.label)
     );
   };
@@ -283,15 +282,6 @@ const ReactDropdownSelect = styled.div`
     border-color: deepskyblue;
   }
   background: linear-gradient(#eee, #fff, #eee);
-`;
-
-const Handle = styled.div`
-  width: 20px;
-  text-align: center;
-  line-height: 25px;
-  transform: rotate(-90deg);
-  cursor: pointer;
-  font-size: 26px;
 `;
 
 export default Select;

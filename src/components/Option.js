@@ -47,4 +47,4 @@ const OptionComponent = styled.span`
   }
 `;
 
-export default React.memo(Option);
+export default Option;
