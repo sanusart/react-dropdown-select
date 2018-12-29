@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development",
-    "transpile": "babel src -d dist",
+    "transpile": "BABEL_ENV=production babel src -d dist",
     "prepublishOnly": "npm run transpile",
     "build": "webpack --mode production",
     "deploy": "gh-pages -d examples/dist",
@@ -40,6 +40,7 @@
     "babel-loader": "^8.0.4",
     "babel-plugin-emotion": "^10.0.5",
     "babel-plugin-transform-dynamic-import": "^2.1.0",
+    "babel-preset-minify": "^0.5.0",
     "css-loader": "^2.0.2",
     "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",

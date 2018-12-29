@@ -263,7 +263,12 @@ Select.defaultProps = {
   clearable: true,
   keepOpen: undefined,
   noDataLabel: 'No matches found',
-  dropdownGap: 5
+  dropdownGap: 5,
+  dropdownHandle: true,
+  onDropdownOpen: () => undefined,
+  onDropdownClose: () => undefined,
+  onClearAll: () => undefined,
+  onSelectAll: () => undefined,
 };
 
 const ReactDropdownSelect = styled.div`
