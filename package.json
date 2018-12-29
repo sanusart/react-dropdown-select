@@ -2,11 +2,11 @@
   "name": "react-dropdown-select",
   "version": "1.1.4",
   "description": "Customizable dropdown select for react",
-  "main": "dist/index.js",
+  "main": "dist/react-dropdown-select.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development",
-    "transpile": "BABEL_ENV=production babel src -d dist",
+    "transpile": "rm -rf ./dist && webpack --mode production --config webpack.dist.config.js",
     "prepublishOnly": "npm run transpile",
     "build": "webpack --mode production",
     "deploy": "gh-pages -d examples/dist",
@@ -25,8 +25,8 @@
   "author": "Sasha Khamkov <sanusart@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "react": ">= 16.3.0",
-    "react-dom": ">= 16.3.0",
+    "react": ">= 16.7.0",
+    "react-dom": ">= 16.7.0",
     "prop-types": ">= 15.6.2"
   },
   "devDependencies": {
@@ -40,7 +40,6 @@
     "babel-loader": "^8.0.4",
     "babel-plugin-emotion": "^10.0.5",
     "babel-plugin-transform-dynamic-import": "^2.1.0",
-    "babel-preset-minify": "^0.5.0",
     "css-loader": "^2.0.2",
     "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
