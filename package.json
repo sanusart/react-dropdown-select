@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development",
-    "transpile": "rm -rf ./dist && webpack --mode production --config webpack.dist.config.js",
+    "transpile": "BABEL_ENV=production rm -rf ./dist && babel src -d dist",
     "prepublishOnly": "npm run transpile",
     "build": "webpack --mode production",
     "deploy": "gh-pages -d examples/dist",
@@ -25,8 +25,8 @@
   "author": "Sasha Khamkov <sanusart@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "react": ">= 16.7.0",
-    "react-dom": ">= 16.7.0",
+    "react": ">= 16.3.0",
+    "react-dom": ">= 16.3.0",
     "prop-types": ">= 15.6.2"
   },
   "devDependencies": {
