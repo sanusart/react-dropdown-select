@@ -30,12 +30,12 @@ title: "Props"
 | onClearAll             | func   |             | fires upon clearing all values (via custom renderers)                                       |
 | onSelectAll            | func   |             | fires upon selecting all values (via custom renderers)                                      |
 | [contentRenderer](/prop/content-renderer)        | func   |             | Overrides internal content component (the contents of the select component)                |
-| dropdownRenderer       | func   |             | Overrides internal dropdown component                                                       |
-| itemRenderer           | func   |             | Overrides internal item in a dropdown                                                       |
-| noDataRenderer         | func   |             | Overrides internal "no data" (shown where search has no results)                            |
-| optionRenderer         | func   |             | Overrides internal option (the pillow with an "x") on the select content                    |
-| inputRenderer          | func   |             | Overrides internal input text                                                               |
-| loadingRenderer        | func   |             | Overrides internal loading                                                                  |
+| [itemRenderer](/prop/item-renderer)           | func   |             | Overrides internal item in a dropdown                                                       |
+| [noDataRenderer](/prop/no-data-renderer)         | func   |             | Overrides internal "no data" (shown where search has no results)                            |
+| [optionRenderer](/prop/option-renderer)         | func   |             | Overrides internal option (the pillow with an "x") on the select content                    |
+| [inputRenderer](/prop/input-renderer)          | func   |             | Overrides internal input text                                                               |
+| [loadingRenderer](/prop/loading-renderer)        | func   |             | Overrides internal loading                                                                  |
 | clearRenderer          | func   |             | Overrides internal clear button                                                             |
 | separatorRenderer      | func   |             | Overrides internal separator                                                                |
+| dropdownRenderer       | func   |             | Overrides internal dropdown component                                                       |
 | dropdownHandleRenderer | func   |             | Overrides internal dropdown handle                                                          |

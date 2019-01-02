@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const Option = ({ parentProps, parentState, parentMethods, parentItem }) =>
+const Option = ({ parentItem, parentProps, parentState, parentMethods }) =>
   parentItem && parentProps.optionRenderer ? (
     parentProps.optionRenderer(parentItem, parentProps, parentState, parentMethods)
   ) : (

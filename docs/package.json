@@ -10,7 +10,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "site-deploy": "git push origin `git subtree split --prefix public src`:gh-pages --force"
+    "site-deploy": "cd docs && gatsby build && git push origin `git subtree split --prefix public src`:gh-pages --force"
   },
   "dependencies": {
     "gatsby": "^2.0.76",

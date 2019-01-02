@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const Loading = (parentProps) =>
+const Loading = ({ parentProps }) =>
   parentProps.loadingRenderer ? (
     parentProps.loadingRenderer()
   ) : (
