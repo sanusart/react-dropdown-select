@@ -67,7 +67,11 @@ export class App extends React.Component {
   itemRenderer = (item, itemIndex, props, state, methods) => (
     <div key={item.value}>
       <div style={{ margin: '10px' }}>
-        <input onChange={() => methods.addItem(item)} type="checkbox" checked={methods.isSelected(item)} />
+        <input
+          onChange={() => methods.addItem(item)}
+          type="checkbox"
+          checked={methods.isSelected(item)}
+        />
         <span onClick={() => methods.addItem(item)}>&nbsp;&nbsp;&nbsp;{item.label}</span>
       </div>
     </div>
@@ -308,7 +312,9 @@ export class App extends React.Component {
         <p>Current value(s):</p>
         <pre>{JSON.stringify(this.state.selectValues, false, 2)}</pre>
 
-        <p>Options <small>(loaded from: https://jsonplaceholder.typicode.com/users)</small>:</p>
+        <p>
+          Options <small>(loaded from: https://jsonplaceholder.typicode.com/users)</small>:
+        </p>
         <pre>{JSON.stringify(this.state.options, false, 2)}</pre>
 
         <p>

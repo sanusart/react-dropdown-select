@@ -1,11 +1,10 @@
 src
 examples
+docs
+styles.css
+webpack.config.js
 .babelrc
 .gitignore
 .editorconfig
-webpack.config.js
-webpack.dist.config.js
-styles.css
 .prettierrc
 .idea
-

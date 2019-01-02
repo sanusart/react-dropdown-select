@@ -8,7 +8,7 @@ const Dropdown = ({ parentProps, parentState, parentMethods }) => (
   <DropDown
     tabIndex="-1"
     aria-expanded="true"
-    role="listbox"
+    role="list"
     selectBounds={parentState.selectBounds}
     dropdownGap={parentProps.dropdownGap}
     className="react-dropdown-select-dropdown">
@@ -45,7 +45,7 @@ const Dropdown = ({ parentProps, parentState, parentMethods }) => (
 Dropdown.propTypes = {};
 
 const DropDown = styled.div`
-  position: absolute;
+  position: fixed;
   top: ${({ selectBounds, dropdownGap }) => selectBounds.bottom + dropdownGap}px;
   left: ${({ selectBounds }) => selectBounds.left}px;
   border: 1px solid #ccc;

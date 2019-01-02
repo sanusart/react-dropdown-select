@@ -50,6 +50,7 @@ and use as:
 	separator: PropTypes.bool,
 	dropdownHandle: PropTypes.bool,
 	searchBy: PropTypes.string,
+	closeOnScroll: PropTypes.bool,
 
 #### Callbacks
 	

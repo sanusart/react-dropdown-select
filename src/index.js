@@ -10,6 +10,20 @@ import Clear from './components/Clear';
 import Separator from './components/Separator';
 import DropdownHandle from './components/DropdownHandle';
 
+const debounce = (fn, delay = 0) => {
+  let timerId;
+
+  return (...args) => {
+    if (timerId) {
+      clearTimeout(timerId);
+    }
+    timerId = setTimeout(() => {
+      fn(...args);
+      timerId = null;
+    }, delay);
+  };
+};
+
 export class Select extends React.Component {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
@@ -31,6 +45,8 @@ export class Select extends React.Component {
     separator: PropTypes.bool,
     dropdownHandle: PropTypes.bool,
     searchBy: PropTypes.string,
+    closeOnScroll: PropTypes.bool,
+    style: PropTypes.object,
     contentRenderer: PropTypes.func,
     dropdownRenderer: PropTypes.func,
     itemRenderer: PropTypes.func,
@@ -63,7 +79,7 @@ export class Select extends React.Component {
       clearAll: this.clearAll,
       selectAll: this.selectAll,
       searchResults: this.searchResults,
-      selectRef: this.getSelectRef,
+      getSelectRef: this.getSelectRef,
       isSelected: this.isSelected,
       getSelectBounds: this.getSelectBounds
     };
@@ -72,7 +88,8 @@ export class Select extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.updateSelectBounds);
+    window.addEventListener('resize', debounce(this.updateSelectBounds));
+    window.addEventListener('scroll', debounce(this.onScroll));
 
     this.props.onChange(this.state.values);
 
@@ -89,21 +106,30 @@ export class Select extends React.Component {
       this.updateSelectBounds();
     }
 
-    if (prevState.dropdown && prevState.dropdown !== this.state.dropdown) {
+    if (prevState.dropdown && prevState.dropdown !== this.state.dropdown, this.props.debounceDelay) {
       this.props.onDropdownClose();
     }
 
-    if (!prevState.dropdown && prevState.dropdown !== this.state.dropdown) {
+    if (!prevState.dropdown && prevState.dropdown !== this.state.dropdown, this.props.debounceDelay) {
       this.props.onDropdownOpen();
     }
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.updateSelectBounds);
+    window.removeEventListener('resize', debounce(this.updateSelectBounds, this.props.debounceDelay));
+    window.removeEventListener('scroll', debounce(this.onScroll, this.props.debounceDelay));
   }
 
+  onScroll = () => {
+    if(this.props.closeOnScroll) {
+      this.dropDown('close');
+    }
+
+    this.updateSelectBounds();
+  };
+
   updateSelectBounds = () =>
-    this.setState({
+    this.select.current && this.setState({
       selectBounds: this.select.current.getBoundingClientRect()
     });
 
@@ -214,6 +240,7 @@ export class Select extends React.Component {
     return (
       <ClickOutHandler onClickOut={() => this.dropDown('close')}>
         <ReactDropdownSelect
+          style={this.props.style}
           ref={this.select}
           disabled={this.props.disabled}
           className={this.props.className}>
@@ -237,7 +264,8 @@ export class Select extends React.Component {
             <DropdownHandle
               parentProps={this.props}
               parentState={this.state}
-              parentMethods={this.methods}/>
+              parentMethods={this.methods}
+            />
           )}
 
           {this.state.dropdown && (
@@ -254,21 +282,24 @@ export class Select extends React.Component {
 }
 
 Select.defaultProps = {
-  addPlaceholder: '+ add',
+  addPlaceholder: '+',
   placeholder: 'Select...',
   values: [],
   multi: false,
   disabled: false,
   searchBy: 'label',
   clearable: true,
-  keepOpen: undefined,
-  noDataLabel: 'No matches found',
-  dropdownGap: 5,
   dropdownHandle: true,
+  separator: true,
+  keepOpen: undefined,
+  noDataLabel: 'No data',
+  dropdownGap: 5,
+  closeOnScroll: false,
+  debounceDelay: 0,
   onDropdownOpen: () => undefined,
   onDropdownClose: () => undefined,
   onClearAll: () => undefined,
-  onSelectAll: () => undefined,
+  onSelectAll: () => undefined
 };
 
 const ReactDropdownSelect = styled.div`
