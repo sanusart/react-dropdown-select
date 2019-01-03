@@ -1,5 +1,6 @@
 import React from 'react';
 import {version} from '../../../package';
+import { Link } from 'gatsby';
 
 export default ({ page, title }) =>
   page === 'home' ? (
@@ -29,9 +30,9 @@ export default ({ page, title }) =>
         </div>
       </header>
       <div className="h5 mxn1">
-        <a href="/" title="Home" className="btn compact btn-link p1 regular">
+        <Link to="/" title="Home" className="btn compact btn-link p1 regular">
           Home
-        </a>
+        </Link>
         <span className="">
           <span className="muted">/</span>
           <span className="muted m1">{title}</span>

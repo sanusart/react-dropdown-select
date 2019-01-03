@@ -317,7 +317,7 @@ const ReactDropdownSelect = styled.div`
   :focus-within {
     border-color: deepskyblue;
   }
-  background: linear-gradient(#eee, #fff, #eee);
+  //background: linear-gradient(#eee, #fff, #eee);
 `;
 
 export default Select;
