@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import styled from '@emotion/styled';
 import 'normalize.css';
 import './demo-styles.css';
 
@@ -133,7 +133,7 @@ export class App extends React.Component {
             react-dropdown-select demo |{' '}
             <a href="https://github.com/sanusart/react-dropdown-select">GitHub</a>
           </p>
-          <Select
+          <StyledSelect
             placeholder="Select user"
             addPlaceholder="+ click to add"
             disabled={this.state.disabled}
@@ -325,6 +325,16 @@ export class App extends React.Component {
     );
   }
 }
+
+const StyledSelect = styled(Select)`
+.react-dropdown-select-dropdown {
+    background: green;
+    // overflow: auto;
+  }
+  .react-dropdown-select-dropdown-handle {
+    color: green !important;
+  }
+`;
 
 const rootElement = document.getElementById('root');
 

@@ -35,7 +35,7 @@ title: "Props"
 | [optionRenderer](/prop/option-renderer)         | func   |             | Overrides internal option (the pillow with an "x") on the select content                    |
 | [inputRenderer](/prop/input-renderer)          | func   |             | Overrides internal input text                                                               |
 | [loadingRenderer](/prop/loading-renderer)        | func   |             | Overrides internal loading                                                                  |
-| clearRenderer          | func   |             | Overrides internal clear button                                                             |
-| separatorRenderer      | func   |             | Overrides internal separator                                                                |
-| dropdownRenderer       | func   |             | Overrides internal dropdown component                                                       |
-| dropdownHandleRenderer | func   |             | Overrides internal dropdown handle                                                          |
+| [clearRenderer](/prop/clear-renderer)          | func   |             | Overrides internal clear button                                                             |
+| [separatorRenderer](/prop/separator-renderer)      | func   |             | Overrides internal separator                                                                |
+| [dropdownRenderer](/prop/dropdown-renderer)       | func   |             | Overrides internal dropdown component                                                       |
+| [dropdownHandleRenderer](/prop/dropdown-handle-renderer) | func   |             | Overrides internal dropdown handle                                                          |

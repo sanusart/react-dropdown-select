@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/react-dropdown-select",
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
