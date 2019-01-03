@@ -155,10 +155,6 @@ export class Home extends React.Component {
             <Link to="props" className="m1 btn btn-outline center">
               Prop types
             </Link>
-
-            <Link to="demo" className="m1 btn btn-outline center">
-              More demos
-            </Link>
           </p>
 
           <StyledWrapper>
