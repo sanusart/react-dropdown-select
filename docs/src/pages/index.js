@@ -308,7 +308,7 @@ export class Home extends React.Component {
                 })
               }
             />{' '}
-            Custom dropdown renderer
+            Custom dropdown renderer | <a href="https://codesandbox.io/s/5k0y843684">demo @ codesandbox</a>
             <br />
             <input
               type="checkbox"
