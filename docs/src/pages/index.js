@@ -308,7 +308,8 @@ export class Home extends React.Component {
                 })
               }
             />{' '}
-            Custom dropdown renderer | <a href="https://codesandbox.io/s/5k0y843684">demo @ codesandbox</a>
+            Custom dropdown renderer |{' '}
+            <a href="https://codesandbox.io/s/5k0y843684">demo @ codesandbox</a>
             <br />
             <input
               type="checkbox"
@@ -341,7 +342,6 @@ export class Home extends React.Component {
             Options <small>(loaded from: https://jsonplaceholder.typicode.com/users)</small>:
           </p>
           <pre>{JSON.stringify(this.state.options, false, 2)}</pre>
-
         </article>
 
         <Footer />

@@ -64,7 +64,7 @@ export class Select extends React.Component {
 
     this.state = {
       dropdown: false,
-      values: this.props.values,
+      values: props.values,
       search: '',
       selectBounds: {}
     };
@@ -101,7 +101,7 @@ export class Select extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.values !== this.state.values) {
+    if (prevState.values !== this.state.values) {
       this.props.onChange(this.state.values);
       this.updateSelectBounds();
     }
