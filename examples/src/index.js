@@ -26,7 +26,8 @@ export class App extends React.Component {
       separator: true,
       forceOpen: false,
       handle: true,
-      options: []
+      options: [],
+      values: [],
     };
   }
 
@@ -42,6 +43,14 @@ export class App extends React.Component {
           }))
         );
       });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.options !== this.state.options && this.state.options.length) {
+      this.setState({
+        values:  [this.state.options[1]]
+      })
+    }
   }
 
   setValues = (selectValues) => this.setState({ selectValues });
@@ -133,7 +142,7 @@ export class App extends React.Component {
             react-dropdown-select demo |{' '}
             <a href="https://github.com/sanusart/react-dropdown-select">GitHub</a>
           </p>
-          <StyledSelect
+          <Select
             placeholder="Select user"
             addPlaceholder="+ click to add"
             disabled={this.state.disabled}
@@ -144,7 +153,7 @@ export class App extends React.Component {
             keepOpen={this.state.forceOpen}
             dropdownHandle={this.state.handle}
             multi={this.state.multi}
-            values={[]}
+            values={this.state.values}
             options={this.state.options}
             dropdownGap={5}
             onDropdownOpen={() => undefined}
@@ -325,16 +334,6 @@ export class App extends React.Component {
     );
   }
 }
-
-const StyledSelect = styled(Select)`
-.react-dropdown-select-dropdown {
-    background: green;
-    // overflow: auto;
-  }
-  .react-dropdown-select-dropdown-handle {
-    color: green !important;
-  }
-`;
 
 const rootElement = document.getElementById('root');
 

@@ -101,8 +101,16 @@ export class Select extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.values !== this.state.values || prevProps.multi !== this.props.multi) {
+    if (prevState.values !== this.state.values) {
       this.props.onChange(this.state.values);
+      this.updateSelectBounds();
+    }
+
+    if (prevProps.values !== this.props.values) {
+      this.setState({ values: this.props.values});
+    }
+
+    if (prevProps.multi !== this.props.multi) {
       this.updateSelectBounds();
     }
 
@@ -285,6 +293,7 @@ Select.defaultProps = {
   addPlaceholder: '+',
   placeholder: 'Select...',
   values: [],
+  options: [],
   multi: false,
   disabled: false,
   searchBy: 'label',

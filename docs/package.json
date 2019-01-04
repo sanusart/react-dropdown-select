@@ -18,7 +18,7 @@
     "gatsby-transformer-remark": "^2.1.18",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
-    "react-dropdown-select": "^1.1.7",
+    "react-dropdown-select": "^1.2.1",
     "react-markdown": "^4.0.4",
     "styled-components": "^4.1.3"
   },
