@@ -107,7 +107,7 @@ export class Select extends React.Component {
     }
 
     if (prevProps.values !== this.props.values) {
-      this.setState({ values: this.props.values});
+      this.setValues(this.props.values)
     }
 
     if (prevProps.multi !== this.props.multi) {
@@ -127,6 +127,8 @@ export class Select extends React.Component {
     window.removeEventListener('resize', debounce(this.updateSelectBounds, this.props.debounceDelay));
     window.removeEventListener('scroll', debounce(this.onScroll, this.props.debounceDelay));
   }
+
+  setValues = () => this.setState({ values: this.props.values});
 
   onScroll = () => {
     if(this.props.closeOnScroll) {

@@ -1,10 +1,49 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import styled from '@emotion/styled';
-import 'normalize.css';
-import './demo-styles.css';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import Select from '../../src';
+import "normalize.css";
+import "./demo-styles.css";
+
+import Select from "react-dropdown-select";
+
+const options = [
+  {
+    value: "5c23e2fb4f3801c34cd976b5",
+    label: "Kennedy Thomas"
+  },
+  {
+    value: "5c23e2fbcdc84527d218caca",
+    label: "Zelma Boyer"
+  },
+  {
+    value: "5c23e2fb60c7814e787d8b09",
+    label: "Carter Chapman"
+  },
+  {
+    value: "5c23e2fb2d6b939c5059eb4f",
+    label: "Ida Dunn"
+  },
+  {
+    value: "5c23e2fbd35b006de4b977cf",
+    label: "Barlow Spence"
+  },
+  {
+    value: "5c23e2fb165946d26073846f",
+    label: "Elnora Lane"
+  },
+  {
+    value: "5c23e2fb1e8d68045cddaa86",
+    label: "Kelli Hines"
+  },
+  {
+    value: "5c23e2fb9cb97207ff60d97f",
+    label: "Cooke Ray"
+  },
+  {
+    value: "5c23e2fb919074d4f00cf11f",
+    label: "Linda Young"
+  }
+];
 
 export class App extends React.Component {
   constructor(props) {
@@ -21,41 +60,15 @@ export class App extends React.Component {
       optionRenderer: false,
       noDataRenderer: false,
       selectValues: [],
-      searchBy: 'label',
+      searchBy: "label",
       clearable: true,
       separator: true,
       forceOpen: false,
-      handle: true,
-      options: [],
-      values: [],
+      handle: true
     };
   }
 
-  componentDidMount() {
-    window
-      .fetch('https://jsonplaceholder.typicode.com/users')
-      .then((responce) => responce.json())
-      .then((result) => {
-        this.setOptions(
-          result.map((user) => ({
-            label: user.username,
-            value: user.email
-          }))
-        );
-      });
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.options !== this.state.options && this.state.options.length) {
-      this.setState({
-        values:  [this.state.options[1]]
-      })
-    }
-  }
-
-  setValues = (selectValues) => this.setState({ selectValues });
-
-  setOptions = (options) => this.setState({ options });
+  setValues = selectValues => this.setState({ selectValues });
 
   contentRenderer = (innerProps, innerState) => {
     return (
@@ -67,27 +80,23 @@ export class App extends React.Component {
 
   noDataRenderer = () => {
     return (
-      <p style={{ textAlign: 'center' }}>
+      <p style={{ textAlign: "center" }}>
         <strong>Ooops!</strong> No data found
       </p>
     );
   };
 
   itemRenderer = (item, itemIndex, props, state, methods) => (
-    <div key={item.value}>
-      <div style={{ margin: '10px' }}>
-        <input
-          onChange={() => methods.addItem(item)}
-          type="checkbox"
-          checked={methods.isSelected(item)}
-        />
-        <span onClick={() => methods.addItem(item)}>&nbsp;&nbsp;&nbsp;{item.label}</span>
+    <div key={item.value} onClick={() => methods.addItem(item)}>
+      <div style={{ margin: "10px" }}>
+        <input type="checkbox" checked={methods.isSelected(item)} />
+        &nbsp;&nbsp;&nbsp;{item.label}
       </div>
     </div>
   );
 
   dropdownRenderer = (props, state, methods) => {
-    const regexp = new RegExp(state.search, 'i');
+    const regexp = new RegExp(state.search, "i");
 
     return (
       <div>
@@ -101,8 +110,8 @@ export class App extends React.Component {
         <button onClick={methods.selectAll}>Select all</button>
         <button onClick={methods.clearAll}>Clear all</button>
         {props.options
-          .filter((item) => regexp.test(item[props.searchBy] || item.label))
-          .map((option) => (
+          .filter(item => regexp.test(item[props.searchBy] || item.label))
+          .map(option => (
             <div key={option.value} onClick={() => methods.addItem(option)}>
               <input
                 type="checkbox"
@@ -118,7 +127,9 @@ export class App extends React.Component {
 
   optionRenderer = (option, props, state, methods) => (
     <React.Fragment>
-      <div onClick={(event) => methods.removeItem(event, option, true)}>{option.label}</div>
+      <div onClick={event => methods.removeItem(event, option, true)}>
+        {option.label}
+      </div>
     </React.Fragment>
   );
 
@@ -128,7 +139,7 @@ export class App extends React.Component {
       className="react-dropdown-select-input"
       size={methods.getInputSize()}
       value={state.search}
-      onClick={() => methods.dropDown('open')}
+      onClick={() => methods.dropDown("open")}
       onChange={methods.setSearch}
       placeholder="Type in"
     />
@@ -139,56 +150,65 @@ export class App extends React.Component {
       <React.Fragment>
         <div>
           <p>
-            react-dropdown-select demo |{' '}
-            <a href="https://github.com/sanusart/react-dropdown-select">GitHub</a>
+            react-dropdown-select demo |{" "}
+            <a href="https://github.com/sanusart/react-dropdown-select">
+              GitHub
+            </a>
           </p>
+
           <Select
-            placeholder="Select user"
+            placeholder="Select peoples"
             addPlaceholder="+ click to add"
             disabled={this.state.disabled}
-            loading={!this.state.options.length || this.state.loading}
+            loading={this.state.loading}
             searchBy={this.state.searchBy}
             separator={this.state.separator}
             clearable={this.state.clearable}
             keepOpen={this.state.forceOpen}
             dropdownHandle={this.state.handle}
             multi={this.state.multi}
-            values={this.state.values}
-            options={this.state.options}
+            values={[options[0]]}
+            options={options}
             dropdownGap={5}
             onDropdownOpen={() => undefined}
             onDropdownClose={() => undefined}
             onClearAll={() => undefined}
             onSelectAll={() => undefined}
-            onChange={(values) => this.setValues(values)}
+            onChange={values => this.setValues(values)}
             noDataLabel="No matches found"
-            noDataRenderer={this.state.noDataRenderer ? () => this.noDataRenderer() : undefined}
+            noDataRenderer={
+              this.state.noDataRenderer
+                ? () => this.noDataRenderer()
+                : undefined
+            }
             itemRenderer={
               this.state.itemRenderer
                 ? (item, itemIndex, props, state, methods) =>
-                    this.itemRenderer(item, itemIndex, props, state, methods)
+                  this.itemRenderer(item, itemIndex, props, state, methods)
                 : undefined
             }
             inputRenderer={
               this.state.inputRenderer
-                ? (props, state, methods) => this.inputRenderer(props, state, methods)
+                ? (props, state, methods) =>
+                  this.inputRenderer(props, state, methods)
                 : undefined
             }
             optionRenderer={
               this.state.optionRenderer
                 ? (option, props, state, methods) =>
-                    this.optionRenderer(option, props, state, methods)
+                  this.optionRenderer(option, props, state, methods)
                 : undefined
             }
             contentRenderer={
               this.state.contentRenderer
-                ? (innerProps, innerState) => this.contentRenderer(innerProps, innerState)
+                ? (innerProps, innerState) =>
+                  this.contentRenderer(innerProps, innerState)
                 : undefined
             }
             dropdownRenderer={
               this.state.dropdownRenderer
                 ? (innerProps, innerState, innerMethods) =>
-                    this.dropdownRenderer(innerProps, innerState, innerMethods)
+                  this.dropdownRenderer(innerProps, innerState, innerMethods)
                 : undefined
             }
           />
@@ -203,7 +223,7 @@ export class App extends React.Component {
                 multi: !this.state.multi
               })
             }
-          />{' '}
+          />{" "}
           Multi
           <br />
           <input
@@ -214,7 +234,7 @@ export class App extends React.Component {
                 disabled: !this.state.disabled
               })
             }
-          />{' '}
+          />{" "}
           Disabled
           <br />
           <input
@@ -225,7 +245,7 @@ export class App extends React.Component {
                 loading: !this.state.loading
               })
             }
-          />{' '}
+          />{" "}
           Loading
           <br />
           <input
@@ -236,7 +256,7 @@ export class App extends React.Component {
                 clearable: !this.state.clearable
               })
             }
-          />{' '}
+          />{" "}
           Clearable
           <br />
           <input
@@ -247,7 +267,7 @@ export class App extends React.Component {
                 separator: !this.state.separator
               })
             }
-          />{' '}
+          />{" "}
           Separator
           <br />
           <input
@@ -258,7 +278,7 @@ export class App extends React.Component {
                 handle: !this.state.handle
               })
             }
-          />{' '}
+          />{" "}
           Dropdown handle
           <br />
           <input
@@ -269,7 +289,7 @@ export class App extends React.Component {
                 forceOpen: !this.state.forceOpen
               })
             }
-          />{' '}
+          />{" "}
           Stay open
           <br />
           <input
@@ -280,7 +300,7 @@ export class App extends React.Component {
                 contentRenderer: !this.state.contentRenderer
               })
             }
-          />{' '}
+          />{" "}
           Custom content renderer
           <br />
           <input
@@ -291,7 +311,7 @@ export class App extends React.Component {
                 dropdownRenderer: !this.state.dropdownRenderer
               })
             }
-          />{' '}
+          />{" "}
           Custom dropdown renderer
           <br />
           <input
@@ -302,17 +322,18 @@ export class App extends React.Component {
                 itemRenderer: !this.state.itemRenderer
               })
             }
-          />{' '}
+          />{" "}
           Custom dropdown item renderer
           <br />
-          Search by field:{' '}
+          Search by field:{" "}
           <select
             selected={this.state.searchBy}
-            onChange={(searchBy) =>
+            onChange={searchBy =>
               this.setState({
                 searchBy
               })
-            }>
+            }
+          >
             <option value="label">label</option>
             <option value="customProperty">customProperty</option>
           </select>
@@ -322,19 +343,15 @@ export class App extends React.Component {
         <pre>{JSON.stringify(this.state.selectValues, false, 2)}</pre>
 
         <p>
-          Options <small>(loaded from: https://jsonplaceholder.typicode.com/users)</small>:
-        </p>
-        <pre>{JSON.stringify(this.state.options, false, 2)}</pre>
-
-        <p>
-          I am text, I am text, I am text, I am text, I am text, I am text, I am text, I am text, I
-          am text, I am text, I am text, I am text, I am text, I am text, I am text,{' '}
+          I am text, I am text, I am text, I am text, I am text, I am text, I am
+          text, I am text, I am text, I am text, I am text, I am text, I am
+          text, I am text, I am text,{" "}
         </p>
       </React.Fragment>
     );
   }
 }
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 
 ReactDOM.render(<App />, rootElement);
