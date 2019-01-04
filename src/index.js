@@ -64,7 +64,7 @@ export class Select extends React.Component {
 
     this.state = {
       dropdown: false,
-      values: [],
+      values: this.props.values,
       search: '',
       selectBounds: {}
     };
@@ -101,13 +101,9 @@ export class Select extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.values !== this.state.values) {
+    if (prevProps.values !== this.state.values) {
       this.props.onChange(this.state.values);
       this.updateSelectBounds();
-    }
-
-    if (prevProps.values !== this.props.values) {
-      this.setValues(this.props.values)
     }
 
     if (prevProps.multi !== this.props.multi) {
@@ -127,8 +123,6 @@ export class Select extends React.Component {
     window.removeEventListener('resize', debounce(this.updateSelectBounds, this.props.debounceDelay));
     window.removeEventListener('scroll', debounce(this.onScroll, this.props.debounceDelay));
   }
-
-  setValues = () => this.setState({ values: this.props.values});
 
   onScroll = () => {
     if(this.props.closeOnScroll) {

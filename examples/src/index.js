@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import "normalize.css";
 import "./demo-styles.css";
 
-import Select from "react-dropdown-select";
+import Select from "../../dist/index";
 
 const options = [
   {
