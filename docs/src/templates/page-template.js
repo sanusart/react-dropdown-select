@@ -3,6 +3,8 @@ import { graphql } from 'gatsby';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
+import '../styles.css';
+
 export default function Template({ data }) {
   const { page, propsPage, statePage, methodsPage } = data;
   const { frontmatter: pageFrontmatter, html: pageHtml } = page;

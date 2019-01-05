@@ -8,15 +8,15 @@ const Item = ({ parentProps, parentState, parentMethods, item, itemIndex }) =>
     <ItemComponent
       role="option"
       aria-selected={parentMethods.isSelected(item)}
-      aria-label={item.label}
-      key={`${item.value}${item.label}`}
+      aria-label={item[parentProps.labelField]}
+      key={`${item[parentProps.valueField]}${item[parentProps.labelField]}`}
       tabIndex="-1"
       className={`react-dropdown-select-item ${
         parentMethods.isSelected(item) ? 'react-dropdown-select-item-selected' : ''
       }`}
       onClick={() => parentMethods.addItem(item)}
       onKeyPress={() => parentMethods.addItem(item)}>
-      {item.label}
+      {item[parentProps.labelField]}
     </ItemComponent>
   );
 

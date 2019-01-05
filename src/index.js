@@ -189,7 +189,7 @@ export class Select extends React.Component {
     }
 
     this.setState({
-      values: this.state.values.filter((values) => values.value !== item.value)
+      values: this.state.values.filter((values) => values[this.props.valueField] !== item[this.props.valueField])
     });
   };
 
@@ -236,7 +236,7 @@ export class Select extends React.Component {
     const regexp = new RegExp(this.state.search, 'i');
 
     return this.props.options.filter((item) =>
-      regexp.test(item[this.props.searchBy] || item.label)
+      regexp.test(item[this.props.searchBy] || item[[this.props.labelField]])
     );
   };
 
@@ -301,6 +301,8 @@ Select.defaultProps = {
   dropdownGap: 5,
   closeOnScroll: false,
   debounceDelay: 0,
+  labelField: 'label',
+  valueField: 'value',
   onDropdownOpen: () => undefined,
   onDropdownClose: () => undefined,
   onClearAll: () => undefined,

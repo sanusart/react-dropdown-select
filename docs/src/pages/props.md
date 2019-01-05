@@ -22,6 +22,8 @@ title: "Props"
 | separator              | bool   | true        | Separator line between close all and dropdown handle                                        |
 | dropdownHandle         | bool   | true        | dropdown handle to open/close dropdown                                                      |
 | searchBy               | string | label       | search by object property in values                                                         |
+| labelField               | string | "label"       | field in data to use for label                                                         |
+| valueField               | string | "value"       | field in data to use for value                                                         |
 | closeOnScroll          | bool   | false       | If true, scrolling the page will close the dropdown                                         |
 | **Callback props** ||||
 | onChange               | func   |             | On values change callback, returns array of values objects |

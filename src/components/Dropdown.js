@@ -28,7 +28,7 @@ const Dropdown = ({ parentProps, parentState, parentMethods }) => (
             .searchResults()
             .map((item, itemIndex) => (
               <Item
-                key={item.value}
+                key={item[parentProps.valueField]}
                 item={item}
                 index={itemIndex}
                 parentState={parentState}

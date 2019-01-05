@@ -19,7 +19,7 @@ const Content = ({ parentProps, parentState, parentMethods }) => {
             ? parentState.values &&
               parentState.values.map((item) => (
                 <Option
-                  key={`${item.value}${item.label}`}
+                  key={`${item[parentProps.valueField]}${item[parentProps.labelField]}`}
                   parentItem={item}
                   parentState={parentState}
                   parentProps={parentProps}
@@ -27,7 +27,7 @@ const Content = ({ parentProps, parentState, parentMethods }) => {
                 />
               ))
             : parentState.values &&
-              parentState.values.length > 0 && <span>{parentState.values[0].label}</span>}
+              parentState.values.length > 0 && <span>{parentState.values[0][parentProps.labelField]}</span>}
           <Input
             parentProps={parentProps}
             parentMethods={parentMethods}

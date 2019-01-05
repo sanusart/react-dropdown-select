@@ -9,7 +9,7 @@ const Option = ({ parentItem, parentProps, parentState, parentMethods }) =>
       role="listitem"
       disabled={parentProps.disabled}
       className="react-dropdown-select-option">
-      <span className="react-dropdown-select-option-label">{parentItem.label}</span>
+      <span className="react-dropdown-select-option-label">{parentItem[parentProps.labelField]}</span>
       <span
         className="react-dropdown-select-option-remove"
         onClick={(event) => parentMethods.removeItem(event, parentItem, true)}>
