@@ -24,7 +24,7 @@ const Input = ({ parentProps, parentState, parentMethods }) => {
 Input.propTypes = {};
 
 const InputComponent = styled.input`
-  width: 100%;
+  width: auto;
   border: none;
   margin-left: 5px;
   background: transparent;

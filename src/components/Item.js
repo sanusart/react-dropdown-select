@@ -15,7 +15,8 @@ const Item = ({ parentProps, parentState, parentMethods, item, itemIndex }) =>
         parentMethods.isSelected(item) ? 'react-dropdown-select-item-selected' : ''
       }`}
       onClick={() => parentMethods.addItem(item)}
-      onKeyPress={() => parentMethods.addItem(item)}>
+      onKeyPress={() => parentMethods.addItem(item)}
+      {...parentProps}>
       {item[parentProps.labelField]}
     </ItemComponent>
   );
@@ -23,7 +24,7 @@ const Item = ({ parentProps, parentState, parentMethods, item, itemIndex }) =>
 Item.propTypes = {};
 
 const ItemComponent = styled.span`
-  padding: 10px;
+  padding: 5px 10px;
   cursor: pointer;
   border-bottom: 1px solid #fff;
 
@@ -34,7 +35,7 @@ const ItemComponent = styled.span`
   }
 
   &.react-dropdown-select-item-selected {
-    background: deepskyblue;
+    background: ${({ color }) => color};
     color: #fff;
     border-bottom: 1px solid #fff;
   }

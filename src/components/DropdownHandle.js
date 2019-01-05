@@ -11,7 +11,7 @@ const dropdownHandle = ({ parentProps, parentState, parentMethods }) =>
       dropdownOpen={parentState.dropdown}
       onKeyPress={() => parentMethods.dropDown()}
       onKeyDown={() => parentMethods.dropDown()}
-      className="react-dropdown-select-dropdown-handle">
+      className="react-dropdown-select-dropdown-handle" { ...parentProps }>
       <svg viewBox="0 0 10 10" className="react-dropdown-select-dropdown-handle-svg">
         <path
           className="react-dropdown-select-dropdown-handle-svg-path"
@@ -37,7 +37,7 @@ const DropdownHandleComponent = styled.div`
 
   :hover {
     path {
-      stroke: deepskyblue;
+      stroke: ${({ color }) => color};
     }
   }
 
@@ -45,7 +45,7 @@ const DropdownHandleComponent = styled.div`
     outline: none;
 
     path {
-      stroke: deepskyblue;
+      stroke: ${({ color }) => color};
     }
   }
 `;

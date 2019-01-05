@@ -7,7 +7,13 @@ export default () => (
     <div className="left">
       <Link className="m1" to="/">Home</Link>
       <Link className="m1" to="props">Props types</Link>
-      {/*<Link className="m1" to="demo">Demo(s)</Link>*/}
+      <Link to="demo" className="m1">
+        Demo
+      </Link>
+
+      <a href="https://github.com/sanusart/react-dropdown-select" className="m1">
+        Github
+      </a>
     </div>
 
     <div className="right">

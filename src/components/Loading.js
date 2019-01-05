@@ -5,7 +5,7 @@ const Loading = ({ parentProps }) =>
   parentProps.loadingRenderer ? (
     parentProps.loadingRenderer()
   ) : (
-    <LoadingComponent className="react-dropdown-select-loading" />
+    <LoadingComponent className="react-dropdown-select-loading" {...parentProps} />
   );
 
 Loading.propTypes = {};
@@ -33,7 +33,7 @@ const LoadingComponent = styled.div`
     border-radius: 50%;
     border-width: 1px;
     border-style: solid;
-    border-color: deepskyblue transparent;
+    border-color: ${({ color }) => color} transparent;
     animation: dual-ring-spin 0.7s ease-in-out infinite;
     margin: 0 0 0 -10px;
   }

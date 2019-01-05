@@ -8,7 +8,8 @@ const Option = ({ parentItem, parentProps, parentState, parentMethods }) =>
     <OptionComponent
       role="listitem"
       disabled={parentProps.disabled}
-      className="react-dropdown-select-option">
+      className="react-dropdown-select-option"
+      {...parentProps} {...parentState}>
       <span className="react-dropdown-select-option-label">{parentItem[parentProps.labelField]}</span>
       <span
         className="react-dropdown-select-option-remove"
@@ -25,7 +26,7 @@ const OptionComponent = styled.span`
   border-radius: 2px;
   line-height: 21px;
   margin: 3px 0 3px 5px;
-  background: deepskyblue;
+  background: ${({ color }) => color};
   color: #fff;
   display: inline-block;
 
@@ -45,7 +46,7 @@ const OptionComponent = styled.span`
 
   :hover,
   :hover > span {
-    background: #00a7e6;
+    opacity: 0.9;
   }
 `;
 

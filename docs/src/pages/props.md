@@ -24,6 +24,7 @@ title: "Props"
 | searchBy               | string | label       | search by object property in values                                                         |
 | labelField               | string | "label"       | field in data to use for label                                                         |
 | valueField               | string | "value"       | field in data to use for value                                                         |
+| color               | string | "#0074D9"       | base color to use in component, also can be overwritten via CSS                                                         |
 | closeOnScroll          | bool   | false       | If true, scrolling the page will close the dropdown                                         |
 | **Callback props** ||||
 | onChange               | func   |             | On values change callback, returns array of values objects |

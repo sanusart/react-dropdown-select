@@ -110,11 +110,11 @@ export class Select extends React.Component {
       this.updateSelectBounds();
     }
 
-    if (prevState.dropdown && prevState.dropdown !== this.state.dropdown, this.props.debounceDelay) {
+    if (prevState.dropdown && prevState.dropdown !== this.state.dropdown) {
       this.props.onDropdownClose();
     }
 
-    if (!prevState.dropdown && prevState.dropdown !== this.state.dropdown, this.props.debounceDelay) {
+    if (!prevState.dropdown && prevState.dropdown !== this.state.dropdown) {
       this.props.onDropdownOpen();
     }
   }
@@ -247,7 +247,8 @@ export class Select extends React.Component {
           style={this.props.style}
           ref={this.select}
           disabled={this.props.disabled}
-          className={this.props.className}>
+          className={this.props.className}
+          color={this.props.color}>
           <Content parentProps={this.props} parentState={this.state} parentMethods={this.methods} />
 
           {this.props.loading && <Loading parentProps={this.props} />}
@@ -303,6 +304,7 @@ Select.defaultProps = {
   debounceDelay: 0,
   labelField: 'label',
   valueField: 'value',
+  color: '#0074D9',
   onDropdownOpen: () => undefined,
   onDropdownClose: () => undefined,
   onClearAll: () => undefined,
@@ -321,8 +323,9 @@ const ReactDropdownSelect = styled.div`
   ${({ disabled }) =>
     disabled ? 'cursor: not-allowed;pointer-events: none;opacity: 0.3;' : 'pointer-events: all;'}
 
+  :hover, 
   :focus-within {
-    border-color: deepskyblue;
+    border-color: ${({ color }) => color};
   }
 `;
 
