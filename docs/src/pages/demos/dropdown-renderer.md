@@ -12,8 +12,8 @@ Override default dropdown
 
 ### Usage
 
-```
+```jsx
 dropdownRenderer={
-  (parentProps, parentState, parentMethods) => <component/>
+  (parentProps, parentState, parentMethods) => func(parentProps, parentState, parentMethods)
 }
 ```

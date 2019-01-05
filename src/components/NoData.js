@@ -5,7 +5,7 @@ const NoData = ({ parentProps, parentState, parentMethods }) =>
   parentProps.noDataRenderer ? (
     parentProps.noDataRenderer(parentProps, parentState, parentMethods)
   ) : (
-    <NoDataComponent { ...parentProps }>
+    <NoDataComponent color={parentProps.color}>
       { parentProps.noDataLabel }
     </NoDataComponent>
   );

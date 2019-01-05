@@ -13,8 +13,9 @@ title: "methods"
 | getInputSize() | - | number | input character count|
 | toggleSelectAll() | - | undefined ||
 | clearAll() | - | undefined ||
-| selectAll() | - | undefined ||
+| selectAll() | - | undefined | will select all values except disabled|
 | isSelected(item) | **item**: object | boolean ||
 | searchResults() | - | array | returns array of items matching `/item.label/i` regex, if `searchBy` prop is used - matches against it's value  |
 | selectRef() | - | DOM node | returns DOM element of &lt;Select/&gt;  |
 | getSelectBounds() | - | object | returns `getBoundingClientRect()` of &lt;Select/&gt; |
+| areAllSelected() | - | boolean | returns true/false if all values (except disabled) selected |

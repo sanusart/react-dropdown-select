@@ -11,7 +11,8 @@ const dropdownHandle = ({ parentProps, parentState, parentMethods }) =>
       dropdownOpen={parentState.dropdown}
       onKeyPress={() => parentMethods.dropDown()}
       onKeyDown={() => parentMethods.dropDown()}
-      className="react-dropdown-select-dropdown-handle" { ...parentProps }>
+      className="react-dropdown-select-dropdown-handle"
+      color={parentProps.color}>
       <svg viewBox="0 0 10 10" className="react-dropdown-select-dropdown-handle-svg">
         <path
           className="react-dropdown-select-dropdown-handle-svg-path"

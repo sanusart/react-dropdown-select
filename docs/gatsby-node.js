@@ -27,7 +27,6 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      console.log('\x1b[37m\x1b[41m', 'LOG ', '\x1b[0m', node);
       createPage({
         path: node.frontmatter.path,
         demo: node.frontmatter.demo || null,

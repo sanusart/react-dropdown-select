@@ -4,11 +4,15 @@ date: "2017-11-07"
 title: "Props"
 ---
 
+**Please note:**
+
+> by using renderer props to override components some of the functionality will have to be handled manually with a help of internal props, states and methods exposed
+
 | Props                  | Type   | Default     | Description                                                                                 |
 |------------------------|--------|-------------|---------------------------------------------------------------------------------------------|
 | **Component props** ||||
 | values                 | array  | []          | Selected values                                                                             |
-| options                | array  | []          | Available options                                                                           |
+| options                | array  | []          | Available options, (option with key `disabled: true` will be disabled)                                                                           |
 | keepOpen               | bool   | false       | If true, dropdown will always stay open (good for debugging)                                |
 | dropdownGap            | number | 5           | Gap between select element and dropdown                                                     |
 | multi                  | bool   | false        | If true - will act as multi-select, if false - only one option will be selected at the time |
@@ -26,6 +30,8 @@ title: "Props"
 | valueField               | string | "value"       | field in data to use for value                                                         |
 | color               | string | "#0074D9"       | base color to use in component, also can be overwritten via CSS                                                         |
 | closeOnScroll          | bool   | false       | If true, scrolling the page will close the dropdown                                         |
+| closeOnSelect          | bool   | false       | If true, selecting/de-selecting option will close the dropdown                                         |
+| keepSelectedInList          | bool   | true       | If false, selected item will not appear in a list                                         |
 | **Callback props** ||||
 | onChange               | func   |             | On values change callback, returns array of values objects |
 | onDropdownClose        | func   |             | fires upon dropdown close                                                                   |

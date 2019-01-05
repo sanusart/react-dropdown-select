@@ -72,7 +72,8 @@ summary {
 	margin: 20px 0;
 }
 
-pre {
+pre, code {
 	background: #f2f2f2;
 	padding: 0 20px 20px;
+	font-family: "Fira Code", "Andale Mono", monospace;
 }

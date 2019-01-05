@@ -81,7 +81,8 @@ export class Select extends React.Component {
       searchResults: this.searchResults,
       getSelectRef: this.getSelectRef,
       isSelected: this.isSelected,
-      getSelectBounds: this.getSelectBounds
+      getSelectBounds: this.getSelectBounds,
+      areAllSelected: this.areAllSelected
     };
 
     this.select = React.createRef();
@@ -106,6 +107,10 @@ export class Select extends React.Component {
       this.updateSelectBounds();
     }
 
+    if (prevState.values !== this.state.values && this.props.closeOnSelect) {
+      this.dropDown('close');
+    }
+
     if (prevProps.multi !== this.props.multi) {
       this.updateSelectBounds();
     }
@@ -120,12 +125,15 @@ export class Select extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', debounce(this.updateSelectBounds, this.props.debounceDelay));
+    window.removeEventListener(
+      'resize',
+      debounce(this.updateSelectBounds, this.props.debounceDelay)
+    );
     window.removeEventListener('scroll', debounce(this.onScroll, this.props.debounceDelay));
   }
 
   onScroll = () => {
-    if(this.props.closeOnScroll) {
+    if (this.props.closeOnScroll) {
       this.dropDown('close');
     }
 
@@ -133,7 +141,8 @@ export class Select extends React.Component {
   };
 
   updateSelectBounds = () =>
-    this.select.current && this.setState({
+    this.select.current &&
+    this.setState({
       selectBounds: this.select.current.getBoundingClientRect()
     });
 
@@ -226,11 +235,14 @@ export class Select extends React.Component {
   selectAll = () => {
     this.props.onSelectAll();
     return this.setState({
-      values: this.props.options
+      values: this.props.options.filter((option) => !option.disabled)
     });
   };
 
   isSelected = (option) => this.state.values.indexOf(option) !== -1;
+
+  areAllSelected = () =>
+    this.state.values.length === this.props.options.filter((option) => !option.disabled).length;
 
   searchResults = () => {
     const regexp = new RegExp(this.state.search, 'i');
@@ -305,6 +317,8 @@ Select.defaultProps = {
   labelField: 'label',
   valueField: 'value',
   color: '#0074D9',
+  keepSelectedInList: true,
+  closeOnSelect: false,
   onDropdownOpen: () => undefined,
   onDropdownClose: () => undefined,
   onClearAll: () => undefined,

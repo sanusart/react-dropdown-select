@@ -24,8 +24,7 @@ export default class HTML extends React.Component {
           {this.props.postBodyComponents}
             <link rel="stylesheet" href="https://d2v52k3cl9vedd.cloudfront.net/basscss/7.0.4/basscss.min.css"/>
             <link rel="stylesheet"
-                  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/<%= prop.config.highlightJsTheme %>.min.css"/>
-            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+                  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/monokai.min.css"/>
         </body>
       </html>
     )
