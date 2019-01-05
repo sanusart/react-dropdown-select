@@ -1,9 +1,13 @@
-<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/react-dropdown-select/component---src-templates-page-template-js.6a2bd3d68e3cf767b3d7.css">body,html{font-family:Arial,Lucida Grande,sans-serif!important;font-weight:300}h1,h2,h3,h4,h5,h6{font-family:Arial,Lucida Grande,sans-serif;font-weight:300}.hp .material-icons{font-size:70px}blockquote{background:#fff;margin:21px 0;border-left:3px solid #ccc;padding:.5em 10px;quotes:"\201C" "\201D" "\2018" "\2019"}blockquote:before{color:#ccc;content:open-quote;font-size:4em;line-height:.1em;margin-right:.25em;vertical-align:-.4em}blockquote p{display:inline}.home-docs-link{width:30%;margin:0 auto;display:block;text-align:center}table{font-family:Arial,sans-serif;color:#999}table tr td:not(:first-child){font-size:small}td,th{border-bottom:1px solid #ddd}th,tr:hover{background:#f2f2f2;color:#000}tr>td:first-child{font-weight:500}tr>td{font-family:Fira Code,Andale Mono,monospace}summary{font-size:larger;margin:20px 0}pre{background:#f2f2f2;padding:0 20px 20px}</style><meta name="generator" content="Gatsby 2.0.84"/><link as="script" rel="preload" href="/react-dropdown-select/component---src-templates-page-template-js-7b2180091c37ce5300f5.js"/><link as="script" rel="preload" href="/react-dropdown-select/app-d7332ae1c7721ce467e1.js"/><link as="script" rel="preload" href="/react-dropdown-select/webpack-runtime-5ea64123fce7fd96f186.js"/><link as="fetch" rel="preload" href="/react-dropdown-select/static/d/234/path---prop-separator-renderer-e-2-c-364-pgtHDT05MUmMrSxS1W7kAovLUs.json" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><div class="container px2 sm-px3"><div class="mb3"><header class="py2 mt3 border-bottom"><div class="sm-flex flex-center flex-wrap"><div class="flex-auto"><div class="mxn1"><a href="/" title="Basscss" class="btn compact btn-link btn-small p1">react-dropdown-select</a><span>v<!-- -->1.2.8</span></div><h1 class="m0" style="font-size:3rem">separatorRenderer</h1></div></div></header><div class="h5 mxn1"><a title="Home" class="btn compact btn-link p1 regular" href="/react-dropdown-select/">Home</a><span class=""><span class="muted">/</span><span class="muted m1">separatorRenderer</span></span></div></div><article><p>Override default separator</p>
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/react-dropdown-select/component---src-templates-page-template-js.d1a69e5a17e6b2ec64e6.css">body,html{font-family:Arial,Lucida Grande,sans-serif!important;font-weight:300}h1,h2,h3,h4,h5,h6{font-family:Arial,Lucida Grande,sans-serif;font-weight:300}.hp .material-icons{font-size:70px}blockquote{background:#fff;margin:21px 0;border-left:3px solid #ccc;padding:.5em 10px;quotes:"\201C" "\201D" "\2018" "\2019"}blockquote:before{color:#ccc;content:open-quote;font-size:4em;line-height:.1em;margin-right:.25em;vertical-align:-.4em}blockquote p{display:inline}.home-docs-link{width:30%;margin:0 auto;display:block;text-align:center}table{font-family:Arial,sans-serif;color:#999}table tr td:not(:first-child){font-size:small}td,th{border-bottom:1px solid #ddd}th,tr:hover{background:#f2f2f2;color:#000}tr>td:first-child{font-weight:500}tr>td{font-family:Fira Code,Andale Mono,monospace}summary{font-size:larger;margin:20px 0}code,pre{background:#f2f2f2;padding:0 20px 20px;font-family:Fira Code,Andale Mono,monospace}</style><meta name="generator" content="Gatsby 2.0.84"/><link as="script" rel="preload" href="/react-dropdown-select/component---src-templates-page-template-js-acbd35f25c9b3f510041.js"/><link as="script" rel="preload" href="/react-dropdown-select/app-accb88f41027d1bc573e.js"/><link as="script" rel="preload" href="/react-dropdown-select/webpack-runtime-a0d75005b38943d2caa0.js"/><link as="fetch" rel="preload" href="/react-dropdown-select/static/d/524/path---prop-separator-renderer-e-2-c-364-N7u9ESHSc05uvP8emlOZKtNlE.json" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><div class="container px2 sm-px3"><div class="mb3"><header class="py2 mt3 border-bottom"><div class="sm-flex flex-center flex-wrap"><div class="flex-auto"><div class="mxn1"><a href="/" title="Basscss" class="btn compact btn-link btn-small p1">react-dropdown-select</a><span>v<!-- -->1.2.9</span></div><h1 class="m0" style="font-size:3rem">separatorRenderer</h1></div></div></header><div class="h5 mxn1"><a title="Home" class="btn compact btn-link p1 regular" href="/react-dropdown-select/">Home</a><span class=""><span class="muted">/</span><span class="muted m1">separatorRenderer</span></span></div></div><article><p>Override default separator</p>
 <h3>Usage</h3>
 <pre><code>separatorRenderer={
   (parentProps, parentState, parentMethods) => &#x3C;component/>
 }
-</code></pre></article><details><summary>innerProps</summary><div><table>
+</code></pre></article><details><summary>innerProps</summary><div><p><strong>Please note:</strong></p>
+<blockquote>
+<p>by using renderer props to override components some of the functionality will have to be handled manually with a help of internal props, states and methods exposed</p>
+</blockquote>
+<table>
 <thead>
 <tr>
 <th>Props</th>
@@ -29,7 +33,7 @@
 <td>options</td>
 <td>array</td>
 <td>[]</td>
-<td>Available options</td>
+<td>Available options, (option with key <code>disabled: true</code> will be disabled)</td>
 </tr>
 <tr>
 <td>keepOpen</td>
@@ -132,6 +136,18 @@
 <td>bool</td>
 <td>false</td>
 <td>If true, scrolling the page will close the dropdown</td>
+</tr>
+<tr>
+<td>closeOnSelect</td>
+<td>bool</td>
+<td>false</td>
+<td>If true, selecting/de-selecting option will close the dropdown</td>
+</tr>
+<tr>
+<td>keepSelectedInList</td>
+<td>bool</td>
+<td>true</td>
+<td>If false, selected item will not appear in a list</td>
 </tr>
 <tr>
 <td><strong>Callback props</strong></td>
@@ -317,7 +333,7 @@
 <td>selectAll()</td>
 <td>-</td>
 <td>undefined</td>
-<td></td>
+<td>will select all values except disabled</td>
 </tr>
 <tr>
 <td>isSelected(item)</td>
@@ -343,5 +359,11 @@
 <td>object</td>
 <td>returns <code>getBoundingClientRect()</code> of &#x3C;Select/></td>
 </tr>
+<tr>
+<td>areAllSelected()</td>
+<td>-</td>
+<td>boolean</td>
+<td>returns true/false if all values (except disabled) selected</td>
+</tr>
 </tbody>
-</table></div></details><br/><footer class="py3 border-top"><div class="left"><a class="m1" href="/react-dropdown-select/">Home</a><a class="m1" href="/react-dropdown-select/props">Props types</a><a class="m1" href="/react-dropdown-select/demo">Demo</a><a href="https://github.com/sanusart/react-dropdown-select" class="m1">Github</a></div><div class="right"><p class="btn compact btn-link p1">©<!-- -->2019<!-- --> All rights reserved</p></div></footer></div></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-page-template-js","jsonName":"prop-separator-renderer-e2c","path":"/prop/separator-renderer"};window.dataPath="234/path---prop-separator-renderer-e-2-c-364-pgtHDT05MUmMrSxS1W7kAovLUs";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-d7332ae1c7721ce467e1.js"],"component---src-templates-page-template-js":["/component---src-templates-page-template-js.6a2bd3d68e3cf767b3d7.css","/component---src-templates-page-template-js-7b2180091c37ce5300f5.js"],"component---src-pages-demo-js":["/component---src-pages-demo-js.464663230b2d6ba7f820.css","/component---src-pages-demo-js-ad812e7e0935ad029202.js"],"component---src-pages-index-js":["/component---src-pages-index-js.6a2bd3d68e3cf767b3d7.css","/component---src-pages-index-js-6a12d37a9bf3301f91ec.js"],"pages-manifest":["/pages-manifest-8f120a4ab51ef02eb10a.js"]};/*]]>*/</script><script src="/react-dropdown-select/webpack-runtime-5ea64123fce7fd96f186.js" async=""></script><script src="/react-dropdown-select/app-d7332ae1c7721ce467e1.js" async=""></script><script src="/react-dropdown-select/component---src-templates-page-template-js-7b2180091c37ce5300f5.js" async=""></script><link rel="stylesheet" href="https://d2v52k3cl9vedd.cloudfront.net/basscss/7.0.4/basscss.min.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/&lt;%= prop.config.highlightJsTheme %&gt;.min.css"/><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/></body></html>
+</table></div></details><br/><footer class="py3 border-top"><div class="left"><a class="m1" href="/react-dropdown-select/">Home</a><a class="m1" href="/react-dropdown-select/props">Props types</a><a class="m1" href="/react-dropdown-select/demo">Demo</a><a href="https://github.com/sanusart/react-dropdown-select" class="m1">Github</a></div><div class="right"><p class="btn compact btn-link p1">©<!-- -->2019<!-- --> All rights reserved</p></div></footer></div></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-page-template-js","jsonName":"prop-separator-renderer-e2c","path":"/prop/separator-renderer"};window.dataPath="524/path---prop-separator-renderer-e-2-c-364-N7u9ESHSc05uvP8emlOZKtNlE";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-accb88f41027d1bc573e.js"],"component---src-templates-page-template-js":["/component---src-templates-page-template-js.d1a69e5a17e6b2ec64e6.css","/component---src-templates-page-template-js-acbd35f25c9b3f510041.js"],"component---src-pages-demo-js":["/component---src-pages-demo-js.7c95c79437e6e28950ca.css","/component---src-pages-demo-js-a8ae76c84aa5f0801b02.js"],"component---src-pages-index-js":["/component---src-pages-index-js.d1a69e5a17e6b2ec64e6.css","/component---src-pages-index-js-7629be8db03051fbf24b.js"],"pages-manifest":["/pages-manifest-eda369a21acf54e000dd.js"]};/*]]>*/</script><script src="/react-dropdown-select/webpack-runtime-a0d75005b38943d2caa0.js" async=""></script><script src="/react-dropdown-select/app-accb88f41027d1bc573e.js" async=""></script><script src="/react-dropdown-select/component---src-templates-page-template-js-acbd35f25c9b3f510041.js" async=""></script><link rel="stylesheet" href="https://d2v52k3cl9vedd.cloudfront.net/basscss/7.0.4/basscss.min.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/monokai.min.css"/></body></html>
