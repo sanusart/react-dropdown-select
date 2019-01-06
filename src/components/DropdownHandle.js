@@ -13,16 +13,10 @@ const dropdownHandle = ({ parentProps, parentState, parentMethods }) =>
       onKeyDown={() => parentMethods.dropDown()}
       className="react-dropdown-select-dropdown-handle"
       color={parentProps.color}>
-      <svg viewBox="0 0 10 10" className="react-dropdown-select-dropdown-handle-svg">
-        <path
-          className="react-dropdown-select-dropdown-handle-svg-path"
-          d="M2,5 L5,3 L8,5"
-          fill="none"
-          strokeWidth="2"
-          stroke="#000"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+      <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40">
+        <g>
+          <path d="m31 26.4q0 0.3-0.2 0.5l-1.1 1.2q-0.3 0.2-0.6 0.2t-0.5-0.2l-8.7-8.8-8.8 8.8q-0.2 0.2-0.5 0.2t-0.5-0.2l-1.2-1.2q-0.2-0.2-0.2-0.5t0.2-0.5l10.4-10.4q0.3-0.2 0.6-0.2t0.5 0.2l10.4 10.4q0.2 0.2 0.2 0.5z" />
+        </g>
       </svg>
     </DropdownHandleComponent>
   );
@@ -30,11 +24,23 @@ const dropdownHandle = ({ parentProps, parentState, parentMethods }) =>
 dropdownHandle.propTypes = {};
 
 const DropdownHandleComponent = styled.div`
-  width: 10px;
   text-align: center;
-  transform: ${({ dropdownOpen }) => (dropdownOpen ? 'rotate(0deg)' : 'rotate(180deg)')};
+  ${({ dropdownOpen }) =>
+    dropdownOpen
+      ? `
+      transform: rotate(0deg);
+      margin: 0px 0 -3px 5px;
+      `
+      : `
+      margin: 0 0 0 5px;
+      transform: rotate(180deg);
+      `};
   cursor: pointer;
-  margin: 0 5px 0 9px;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
 
   :hover {
     path {
