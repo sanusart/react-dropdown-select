@@ -45,9 +45,9 @@ const Dropdown = ({ parentProps, parentState, parentMethods }) => (
 Dropdown.propTypes = {};
 
 const DropDown = styled.div`
-  position: fixed;
-  top: ${({ selectBounds, dropdownGap }) => selectBounds.bottom + dropdownGap}px;
-  left: ${({ selectBounds }) => selectBounds.left}px;
+  position: absolute;
+  top: ${({ selectBounds, dropdownGap }) => selectBounds.height + 2 + dropdownGap}px;
+  left: 0;
   border: 1px solid #ccc;
   width: ${({ selectBounds }) => selectBounds.width}px;
   padding: 0;
