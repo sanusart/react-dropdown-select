@@ -30,7 +30,7 @@ const Dropdown = ({ parentProps, parentState, parentMethods }) => (
               <Item
                 key={item[parentProps.valueField]}
                 item={item}
-                index={itemIndex}
+                itemIndex={itemIndex}
                 parentState={parentState}
                 parentProps={parentProps}
                 parentMethods={parentMethods}

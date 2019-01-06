@@ -82,7 +82,9 @@ export class Select extends React.Component {
       getSelectRef: this.getSelectRef,
       isSelected: this.isSelected,
       getSelectBounds: this.getSelectBounds,
-      areAllSelected: this.areAllSelected
+      areAllSelected: this.areAllSelected,
+      handleKeyDown: this.handleKeyDown,
+      activeCursorItem: this.activeCursorItem
     };
 
     this.select = React.createRef();
@@ -116,7 +118,7 @@ export class Select extends React.Component {
     }
 
     if (prevState.dropdown && prevState.dropdown !== this.state.dropdown) {
-      this.props.onDropdownClose();
+      this.onDropdownClose();
     }
 
     if (!prevState.dropdown && prevState.dropdown !== this.state.dropdown) {
@@ -131,6 +133,11 @@ export class Select extends React.Component {
     );
     window.removeEventListener('scroll', debounce(this.onScroll, this.props.debounceDelay));
   }
+
+  onDropdownClose = () => {
+    this.setState({ cursor: null });
+    this.props.onDropdownClose();
+  };
 
   onScroll = () => {
     if (this.props.closeOnScroll) {
@@ -154,6 +161,7 @@ export class Select extends React.Component {
     }
 
     if (action === 'close') {
+      this.select.current.blur();
       return this.setState({ dropdown: false, search: '' });
     }
 
@@ -162,6 +170,7 @@ export class Select extends React.Component {
     }
 
     if (action === 'toggle') {
+      this.select.current.focus();
       return this.setState({ dropdown: !this.state.dropdown });
     }
 
@@ -198,14 +207,21 @@ export class Select extends React.Component {
     }
 
     this.setState({
-      values: this.state.values.filter((values) => values[this.props.valueField] !== item[this.props.valueField])
+      values: this.state.values.filter(
+        (values) => values[this.props.valueField] !== item[this.props.valueField]
+      )
     });
   };
 
-  setSearch = (event) =>
+  setSearch = (event) => {
+    this.setState({
+      cursor: null
+    });
+
     this.setState({
       search: event.target.value
     });
+  };
 
   getInputSize = () => {
     if (this.state.search) {
@@ -252,10 +268,41 @@ export class Select extends React.Component {
     );
   };
 
+  activeCursorItem = (activeCursorItem) =>
+    this.setState({
+      activeCursorItem
+    });
+
+  handleKeyDown = (event) => {
+    const { cursor } = this.state;
+
+    if (event.key === 'Escape') {
+      this.dropDown('close');
+    }
+
+    if (event.key === 'Enter') {
+      !this.state.activeCursorItem.disabled && this.addItem(this.state.activeCursorItem);
+    }
+
+    if (event.key === 'ArrowUp' && cursor > 0) {
+      this.setState((prevState) => ({
+        cursor: prevState.cursor - 1
+      }));
+      event.preventDefault();
+    } else if (event.key === 'ArrowDown' && cursor < this.searchResults().length + 1) {
+      this.setState((prevState) => ({
+        cursor: prevState.cursor + 1
+      }));
+      event.preventDefault();
+    }
+  };
+
   render() {
     return (
       <ClickOutHandler onClickOut={() => this.dropDown('close')}>
         <ReactDropdownSelect
+          onKeyDown={this.handleKeyDown}
+          tabIndex="0"
           style={this.props.style}
           ref={this.select}
           disabled={this.props.disabled}
@@ -279,6 +326,7 @@ export class Select extends React.Component {
 
           {this.props.dropdownHandle && (
             <DropdownHandle
+              onCLick={() => this.select.current.focus()}
               parentProps={this.props}
               parentState={this.state}
               parentMethods={this.methods}
@@ -340,6 +388,11 @@ const ReactDropdownSelect = styled.div`
   :hover, 
   :focus-within {
     border-color: ${({ color }) => color};
+  }
+
+  :focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px ${({ color }) => color}3c;
   }
 `;
 
