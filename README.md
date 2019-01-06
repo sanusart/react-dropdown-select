@@ -55,6 +55,7 @@ and use as:
 | color               | string | "#0074D9"       | base color to use in component, also can be overwritten via CSS                                                         |
 | closeOnScroll          | bool   | false       | If true, scrolling the page will close the dropdown                                         |
 | closeOnSelect          | bool   | false       | If true, selecting option will close the dropdown                                         |
+| openOnTop          | bool   | false       | If true, dropdown will open on top of the select                                         |
 | keepSelectedInList          | bool   | true       | If false, selected item will not appear in a list                                         |
 | **Callback props** ||||
 | onChange               | func   |             | On values change callback, returns array of values objects |

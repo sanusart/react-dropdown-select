@@ -9,6 +9,7 @@ const Dropdown = ({ parentProps, parentState, parentMethods }) => (
     tabIndex="-1"
     aria-expanded="true"
     role="list"
+    openOnTop={parentProps.openOnTop}
     selectBounds={parentState.selectBounds}
     dropdownGap={parentProps.dropdownGap}
     className="react-dropdown-select-dropdown">
@@ -46,7 +47,9 @@ Dropdown.propTypes = {};
 
 const DropDown = styled.div`
   position: absolute;
-  top: ${({ selectBounds, dropdownGap }) => selectBounds.height + 2 + dropdownGap}px;
+  ${({ selectBounds, dropdownGap, openOnTop}) => openOnTop 
+  ? `bottom: ${selectBounds.height + 2 + dropdownGap}px` 
+  : `top: ${selectBounds.height + 2 + dropdownGap}px`};
   left: 0;
   border: 1px solid #ccc;
   width: ${({ selectBounds }) => selectBounds.width}px;
