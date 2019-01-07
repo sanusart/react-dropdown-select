@@ -38,7 +38,8 @@ export class Demo extends React.Component {
       color: '#0074D9',
       keepSelectedInList: true,
 			closeOnSelect: false,
-			openOnTop: false
+			openOnTop: false,
+			dropdownHeight: '300px'
     };
   }
 
@@ -154,6 +155,7 @@ export class Demo extends React.Component {
               clearable={this.state.clearable}
               keepOpen={this.state.forceOpen}
               dropdownHandle={this.state.handle}
+							dropdownHeight={this.state.dropdownHeight}
               multi={this.state.multi}
               values={[options[0]]}
               labelField={this.state.labelField}
@@ -290,6 +292,16 @@ export class Demo extends React.Component {
             }
           />{' '}
           Stay open
+					<br />
+					Dropdown Height: <input
+						type="text" checked={this.state.dropdownHeight}
+						value={this.state.dropdownHeight}
+						onChange={(event) =>
+							this.setState({
+								dropdownHeight: event.target.value
+							})
+						}
+					/>
           <br />
           <input
             type="checkbox"

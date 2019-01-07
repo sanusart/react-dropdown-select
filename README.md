@@ -18,10 +18,7 @@ import:
 and use as:
 
 ```jsx
-<Select 
-  options={options} 
-  onChange={(values) => this.setValues(values)} 
-/>
+<Select options={options} onChange={(values) => this.setValues(values)} />
 ```
 
 > **options** and **onChange** are the minimum requered props
@@ -51,6 +48,7 @@ and use as:
 | clearable                                                                                                | bool   | true        | Clear all indicator                                                                         |
 | separator                                                                                                | bool   | true        | Separator line between close all and dropdown handle                                        |
 | dropdownHandle                                                                                           | bool   | true        | dropdown handle to open/close dropdown                                                      |
+| dropdownHeight                                                                                           | string | "300px"     | min-height of a dropdown                                                                    |
 | searchBy                                                                                                 | string | label       | search by object property in values                                                         |
 | labelField                                                                                               | string | "label"     | field in data to use for label                                                              |
 | valueField                                                                                               | string | "value"     | field in data to use for value                                                              |

@@ -12,6 +12,7 @@ const Dropdown = ({ parentProps, parentState, parentMethods }) => (
     openOnTop={parentProps.openOnTop}
     selectBounds={parentState.selectBounds}
     dropdownGap={parentProps.dropdownGap}
+    dropdownHeight={parentProps.dropdownHeight}
     className="react-dropdown-select-dropdown">
     {parentProps.dropdownRenderer ? (
       parentProps.dropdownRenderer(parentProps, parentState, parentMethods)
@@ -59,7 +60,7 @@ const DropDown = styled.div`
   background: #fff;
   border-radius: 2px;
   box-shadow: 0 0 10px 0 #0000003b;
-  max-height: 300px;
+  max-height: ${({ dropdownHeight }) => dropdownHeight};
   overflow: auto;
   
   :focus {

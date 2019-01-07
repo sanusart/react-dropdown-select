@@ -369,6 +369,7 @@ Select.defaultProps = {
   keepSelectedInList: true,
   closeOnSelect: false,
   openOnTop: false,
+  dropdownHeight: '300px',
   onDropdownOpen: () => undefined,
   onDropdownClose: () => undefined,
   onClearAll: () => undefined,
