@@ -44,7 +44,7 @@ export default function Template({ data }) {
       {pageFrontmatter.demo && (
         <iframe
           title={pageFrontmatter.title}
-          src={`${pageFrontmatter.demo}?autoresize=1&fontsize=13&hidenavigation=1`}
+          src={`https://codesandbox.io/embed/${pageFrontmatter.demo}?autoresize=1&hidenavigation=1`}
           style={{
             width: '100%',
             height: '500px',

@@ -37,7 +37,8 @@ export class Demo extends React.Component {
       valueField: 'email',
       color: '#0074D9',
       keepSelectedInList: true,
-			closeOnSelect: false
+			closeOnSelect: false,
+			openOnTop: false
     };
   }
 
@@ -168,6 +169,7 @@ export class Demo extends React.Component {
               noDataLabel="No matches found"
 							closeOnSelect={this.state.closeOnSelect}
               noDataRenderer={this.state.noDataRenderer ? () => this.noDataRenderer() : undefined}
+							openOnTop={this.state.openOnTop}
               itemRenderer={
                 this.state.itemRenderer
                   ? (item, itemIndex, props, state, methods) =>
@@ -222,6 +224,17 @@ export class Demo extends React.Component {
             }
           />{' '}
           Disabled
+					<br />
+					<input
+						type="checkbox"
+						checked={this.state.openOnTop}
+						onChange={() =>
+							this.setState({
+								openOnTop: !this.state.openOnTop
+							})
+						}
+					/>{' '}
+					Open on top of select
           <br />
           <input
             type="checkbox"
