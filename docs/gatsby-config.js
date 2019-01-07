@@ -9,6 +9,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    `gatsby-plugin-catch-links`
   ],
   siteMetadata: {
     title: 'react-dropdown-select',
