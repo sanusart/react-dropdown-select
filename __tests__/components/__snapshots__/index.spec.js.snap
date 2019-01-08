@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Select/> renders correctly 1`] = `
+<div
+  className="css-uqdos3-ReactDropdownSelect e1gzf2xs0"
+  color="#0074D9"
+  disabled={false}
+  onKeyDown={[Function]}
+  tabIndex="0"
+>
+  <div
+    className="react-dropdown-select-content react-dropdown-select-type-single css-rpdrp-ContentComponent e1gn6jc30"
+    onClick={[Function]}
+  >
+    <input
+      className="react-dropdown-select-input css-1bc66r-InputComponent e11wid6y0"
+      onChange={[Function]}
+      onClick={[Function]}
+      placeholder="Select..."
+      size={9}
+      tabIndex="-1"
+      value=""
+    />
+  </div>
+  <div
+    className="css-x3l5ce-ClearComponent e11qlq5e0"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    tabIndex="-1"
+  >
+    ×
+  </div>
+  <div
+    className="react-dropdown-select-separator css-vxbae9-SeparatorComponent e19h5j1v0"
+  />
+  <div
+    className="react-dropdown-select-dropdown-handle css-1jmeyq5-DropdownHandleComponent e1vudypg0"
+    color="#0074D9"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    tabIndex="-1"
+  >
+    <svg
+      fill="currentColor"
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="0 0 40 40"
+    >
+      <g>
+        <path
+          d="m31 26.4q0 0.3-0.2 0.5l-1.1 1.2q-0.3 0.2-0.6 0.2t-0.5-0.2l-8.7-8.8-8.8 8.8q-0.2 0.2-0.5 0.2t-0.5-0.2l-1.2-1.2q-0.2-0.2-0.2-0.5t0.2-0.5l10.4-10.4q0.3-0.2 0.6-0.2t0.5 0.2l10.4 10.4q0.2 0.2 0.2 0.5z"
+        />
+      </g>
+    </svg>
+  </div>
+</div>
+`;
