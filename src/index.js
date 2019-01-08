@@ -67,7 +67,8 @@ export class Select extends React.Component {
       dropdown: false,
       values: props.values,
       search: '',
-      selectBounds: {}
+      selectBounds: {},
+      cursor: 0
     };
 
     this.methods = {
@@ -136,7 +137,7 @@ export class Select extends React.Component {
   }
 
   onDropdownClose = () => {
-    this.setState({ cursor: null });
+    this.setState({ cursor: 0 });
     this.props.onDropdownClose();
   };
 
@@ -275,6 +276,11 @@ export class Select extends React.Component {
     });
 
   handleKeyDown = (event) => {
+
+    if(event.key === 'ArrowUp' || event.key === 'ArrowDown' ) {
+      event.preventDefault();
+    }
+
     const { cursor } = this.state;
 
     if (event.key === 'Escape') {
@@ -282,19 +288,22 @@ export class Select extends React.Component {
     }
 
     if (event.key === 'Enter') {
-      !this.state.activeCursorItem.disabled && this.addItem(this.state.activeCursorItem);
+      const currentItem = this.searchResults()[cursor];
+      if (currentItem && !currentItem.disabled) {
+        this.addItem(currentItem);
+      }
     }
 
-    if (event.key === 'ArrowUp' && cursor > 0) {
+    if (event.key === 'ArrowUp' && cursor >= 0) {
       this.setState((prevState) => ({
         cursor: prevState.cursor - 1
       }));
-      event.preventDefault();
-    } else if (event.key === 'ArrowDown' && cursor < this.searchResults().length + 1) {
+    }
+
+    if (event.key === 'ArrowDown') {
       this.setState((prevState) => ({
         cursor: prevState.cursor + 1
       }));
-      event.preventDefault();
     }
   };
 
@@ -370,6 +379,7 @@ Select.defaultProps = {
   closeOnSelect: false,
   openOnTop: false,
   dropdownHeight: '300px',
+  autoFocus: true,
   onDropdownOpen: () => undefined,
   onDropdownClose: () => undefined,
   onClearAll: () => undefined,
