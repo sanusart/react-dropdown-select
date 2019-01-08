@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const dropdownHandle = ({ parentProps, parentState, parentMethods }) =>
+const DropdownHandle = ({ parentProps, parentState, parentMethods }) =>
   parentProps.dropdownHandleRenderer ? (
     parentProps.dropdownHandleRenderer(parentProps, parentState, parentMethods)
   ) : (
@@ -21,7 +21,7 @@ const dropdownHandle = ({ parentProps, parentState, parentMethods }) =>
     </DropdownHandleComponent>
   );
 
-dropdownHandle.propTypes = {};
+DropdownHandle.propTypes = {};
 
 const DropdownHandleComponent = styled.div`
   text-align: center;
@@ -57,4 +57,4 @@ const DropdownHandleComponent = styled.div`
   }
 `;
 
-export default dropdownHandle;
+export default DropdownHandle;

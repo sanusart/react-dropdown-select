@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Item/> renders correctly 1`] = `
+<span
+  className="react-dropdown-select-item  null css-7av8hz-ItemComponent evc32pp0"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  role="option"
+  tabIndex="-1"
+>
+   
+</span>
+`;

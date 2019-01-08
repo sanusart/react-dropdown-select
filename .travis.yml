@@ -1,0 +1,23 @@
+sudo: false
+language: node_js
+
+node_js:
+  - '10'
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - node_modules
+    -
+before_install:
+  - npm update
+
+install:
+  - npm ci
+
+script:
+  - npm test
+  - npm run coveralls

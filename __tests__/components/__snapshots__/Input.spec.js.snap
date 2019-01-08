@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input/> renders correctly 1`] = `
+<input
+  className="react-dropdown-select-input css-1bc66r-InputComponent e11wid6y0"
+  onClick={[Function]}
+  tabIndex="-1"
+/>
+`;

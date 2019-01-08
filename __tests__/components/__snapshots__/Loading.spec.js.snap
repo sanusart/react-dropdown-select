@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Loading/> renders correctly 1`] = `
+<div
+  className="react-dropdown-select-loading css-k8dcp9-LoadingComponent e1l5cpc30"
+/>
+`;

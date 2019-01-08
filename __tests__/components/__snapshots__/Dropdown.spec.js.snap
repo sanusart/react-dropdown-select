@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Dropdown/> renders correctly 1`] = `
+<div
+  aria-expanded="true"
+  className="react-dropdown-select-dropdown css-k5q2zn-DropDown e1qjn9k90"
+  role="list"
+  tabIndex="-1"
+>
+  <div
+    className="css-1lli8k7-NoDataComponent e1l5ho1t0"
+  />
+</div>
+`;

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NoData/> renders correctly 1`] = `
+<div
+  className="css-1lli8k7-NoDataComponent e1l5ho1t0"
+/>
+`;
