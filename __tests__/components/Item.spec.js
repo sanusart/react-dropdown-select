@@ -1,12 +1,11 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-
+import TestRenderer from 'react-test-renderer';
 import Item from '../../src/components/Item';
+import { options } from '../../docs/src/options';
 
-import {options} from '../../docs/src/options';
+let spy;
 
-const props = {
-  item: options[0],
+const props = (props = {}) => ({
   parentProps: {
     itemRenderer: null
   },
@@ -14,12 +13,50 @@ const props = {
     cursor: 0
   },
   parentMethods: {
-    isSelected: () => undefined
-  }
-};
+    isSelected: () => undefined,
+    addItem: () => undefined
+  },
+  ...props
+});
 
-it('<Item/> renders correctly', () => {
-  const tree = renderer.create(<Item {...props}/>).toJSON();
+describe('<Item/> component', () => {
 
-  expect(tree).toMatchSnapshot();
+  beforeEach(() => {
+    spy = jest.fn();
+  });
+
+  test('renders correctly', () => {
+    const tree = TestRenderer.create(<Item {...props({ item: options[0] })}/>).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  test('onChange with click', () => {
+    TestRenderer.create(<Item {...props({ item: options[0] })} onClick={spy}/>)
+      .root.findByType('span').props.onClick();
+
+    expect(spy).toHaveBeenCalled;
+  });
+
+  test('onChange with key press', () => {
+    TestRenderer.create(<Item {...props({ item: options[0] })} ononKeyPress={spy}/>)
+      .root.findByType('span').props.onKeyPress();
+
+    expect(spy).toHaveBeenCalled;
+  });
+
+  test('keepSelectedInList: false', () => {
+    const tree = TestRenderer.create(
+      <Item {...props({ item: options[0], parentProps: {
+          itemRenderer: null,
+          keepSelectedInList: false
+        }, parentMethods: {
+          isSelected: () => true
+        } })}/>
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+
 });

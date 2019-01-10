@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Item/> renders correctly 1`] = `
+exports[`<Item/> component keepSelectedInList: false 1`] = `null`;
+
+exports[`<Item/> component renders correctly 1`] = `
 <span
   className="react-dropdown-select-item  null css-7av8hz-ItemComponent evc32pp0"
   onClick={[Function]}
