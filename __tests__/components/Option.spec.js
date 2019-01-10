@@ -1,19 +1,52 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import TestRenderer from 'react-test-renderer';
 
 import Option from '../../src/components/Option';
 
-import {options} from '../../docs/src/options';
+import { options } from '../../docs/src/options';
+import Item from './Item.spec';
 
-const props = {
-  parentItem: options[0],
+let spy;
+
+const props = (props = {}) => ({
   parentProps: {
     optionRenderer: null
-  }
-};
+  },
+  parentState: {
+    cursor: 0
+  },
+  parentMethods: {
+    isSelected: () => undefined,
+    addItem: () => undefined,
+    removeItem: () => spy
+  },
+  ...props
+});
 
-it('<Option/> renders correctly', () => {
-  const tree = renderer.create(<Option {...props}/>).toJSON();
+describe('<Option/> component', () => {
+
+  beforeEach(() => {
+    spy = jest.fn();
+  });
+
+  afterEach(() => {
+    spy = null;
+  });
+
+  it('renders correctly', () => {
+    const tree = TestRenderer.create(
+      <Option {...props({ parentItem: options[0] })}/>
+    ).toJSON();
 
   expect(tree).toMatchSnapshot();
+  });
+
+  it('onClick remove item', () => {
+    TestRenderer.create(
+      <Option {...props({ parentItem: options[0] })} onClick={spy}/>)
+      .root.findByProps({ className: 'react-dropdown-select-option-remove' }).props.onClick();
+
+    expect(spy).toHaveBeenCalled;
+  });
+
 });

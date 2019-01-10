@@ -71,7 +71,7 @@
     "testURL": "http://localhost/",
     "collectCoverage": false,
     "bail": true,
-    "verbose": true,
+    "roots": ["<rootDir>/__tests__"],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!node_modules/**",
