@@ -21,17 +21,20 @@ const Home = () => (
         Install via <strong>npm</strong>:
       </h3>
 
-      <pre>npm install --save react-dropdown-select</pre>
+      <pre><span>SHELL</span>npm install --save react-dropdown-select</pre>
 
       <h3>Use:</h3>
-      <pre>
-        {`
-<Select
+
+      <div>
+        <pre><span>JSX</span>
+          {`<Select
   multi={true}
   options={options}
   onChange={(values) => this.onChange(values)}
-/>`}
-      </pre>
+/>`
+          }
+</pre>
+      </div>
 
       <p className="center">
         <Link to="props" className="m1 btn btn-outline center">

@@ -24,6 +24,9 @@ const Input = ({ parentProps, parentState, parentMethods }) => {
 Input.propTypes = {};
 
 const InputComponent = styled.input`
+  flex: 1;
+  display: flex;
+  line-height: inherit;
   width: auto;
   border: none;
   margin-left: 5px;

@@ -81,5 +81,6 @@
       "!docs/**",
       "!examples/**"
     ]
-  }
+  },
+  "sideEffects": false
 }

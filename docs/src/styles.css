@@ -72,8 +72,37 @@ summary {
 	margin: 20px 0;
 }
 
-pre, code {
-	background: #f2f2f2;
-	padding: 0 20px 20px;
-	font-family: "Fira Code", "Andale Mono", monospace;
+pre code,
+pre {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	border: 1px solid #ccc;
+	padding: 10px;
+	font-family: monaco, monospace !important;
+	position: relative;
+	color: #000;
+	font-weight: 400;
+	font-size: smaller  !important;
+	background: floralwhite !important;
+	border-radius: 3px;
+	box-shadow: 0 5px 10px #ccc inset;
+}
+
+pre code span,
+pre span {
+	position: absolute;
+	display: block;
+	background: #FFF;
+	top: 0;
+	right: 0;
+	border-radius: 0 3px;
+	padding: 3px 5px;
+	font-size: 10px;
+	box-shadow: -2px 2px 5px #CCC;
+	color: #999;
+}
+
+pre:hover span,
+pre:hover span {
+	display:none;
 }

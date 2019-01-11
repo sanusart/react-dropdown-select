@@ -99,7 +99,7 @@ export class Select extends React.Component {
     };
 
     this.select = React.createRef();
-    this.dropdownRoot = document.createElement('div');
+    this.dropdownRoot = typeof document !== 'undefined' && document.createElement('div');
   }
 
   componentDidMount() {

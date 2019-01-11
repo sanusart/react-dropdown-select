@@ -40,7 +40,9 @@ const Content = ({ parentProps, parentState, parentMethods }) => {
 };
 
 const ContentComponent = styled.div`
+  display: flex;
   flex: 1;
+  flex-wrap: wrap;
 `;
 
 Content.propTypes = {};
