@@ -8,3 +8,9 @@ webpack.config.js
 .editorconfig
 .prettierrc
 .idea
+__tests__
+coverage
+README.md
+babel.config.js
+.travis.yml
+LICENSE
