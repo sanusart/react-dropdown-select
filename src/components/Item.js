@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { hexToRGBA } from '../index';
 
 const Item = ({ parentProps, parentState, parentMethods, item, itemIndex }) => {
   if (!!parentProps.itemRenderer) {
@@ -38,12 +39,14 @@ const ItemComponent = styled.span`
   border-bottom: 1px solid #fff;
   
   &.react-dropdown-select-item-active {
-    border-left: 5px solid #ccc;
+    border-bottom: 1px solid #fff;
+    font-weight: bolder;
+    ${({ disabled, color }) => !disabled && color && `background: ${hexToRGBA(color, 0.1)};`}
   }
 
   :hover,
   :focus {
-    background: #f2f2f2;
+    background: ${({ color }) => color && hexToRGBA(color, 0.1)};
     outline: none;
   }
 

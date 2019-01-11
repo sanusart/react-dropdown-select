@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import ClickOutHandler from 'react-onclickout';
@@ -9,6 +10,14 @@ import Loading from './components/Loading';
 import Clear from './components/Clear';
 import Separator from './components/Separator';
 import DropdownHandle from './components/DropdownHandle';
+
+export const hexToRGBA = (hex, alpha) => {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+
+  return `rgba(${r}, ${g}, ${b}${alpha && `, ${alpha}`})`;
+};
 
 const debounce = (fn, delay = 0) => {
   let timerId;
@@ -90,9 +99,11 @@ export class Select extends React.Component {
     };
 
     this.select = React.createRef();
+    this.dropdownRoot = document.createElement('div');
   }
 
   componentDidMount() {
+    this.props.portal && this.props.portal.appendChild(this.dropdownRoot);
     window.addEventListener('resize', debounce(this.updateSelectBounds));
     window.addEventListener('scroll', debounce(this.onScroll));
 
@@ -108,6 +119,10 @@ export class Select extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevState.values !== this.state.values) {
       this.props.onChange(this.state.values);
+      this.updateSelectBounds();
+    }
+
+    if (prevState.search !== this.state.search) {
       this.updateSelectBounds();
     }
 
@@ -129,6 +144,7 @@ export class Select extends React.Component {
   }
 
   componentWillUnmount() {
+    this.props.portal && this.props.portal.removeChild(this.dropdownRoot);
     window.removeEventListener(
       'resize',
       debounce(this.updateSelectBounds, this.props.debounceDelay)
@@ -276,8 +292,7 @@ export class Select extends React.Component {
     });
 
   handleKeyDown = (event) => {
-
-    if(event.key === 'ArrowUp' || event.key === 'ArrowDown' ) {
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
       event.preventDefault();
     }
 
@@ -306,6 +321,16 @@ export class Select extends React.Component {
       }));
     }
   };
+
+  renderDropdown = () =>
+    this.props.portal ? (
+      ReactDOM.createPortal(
+        <Dropdown parentProps={this.props} parentState={this.state} parentMethods={this.methods} />,
+        this.dropdownRoot
+      )
+    ) : (
+      <Dropdown parentProps={this.props} parentState={this.state} parentMethods={this.methods} />
+    );
 
   render() {
     return (
@@ -343,13 +368,7 @@ export class Select extends React.Component {
             />
           )}
 
-          {this.state.dropdown && (
-            <Dropdown
-              parentProps={this.props}
-              parentState={this.state}
-              parentMethods={this.methods}
-            />
-          )}
+          {this.state.dropdown && this.renderDropdown()}
         </ReactDropdownSelect>
       </ClickOutHandler>
     );
@@ -380,6 +399,7 @@ Select.defaultProps = {
   openOnTop: false,
   dropdownHeight: '300px',
   autoFocus: true,
+  portal: null,
   onDropdownOpen: () => undefined,
   onDropdownClose: () => undefined,
   onClearAll: () => undefined,
@@ -406,7 +426,7 @@ const ReactDropdownSelect = styled.div`
 
   :focus {
     outline: 0;
-    box-shadow: 0 0 0 3px ${({ color }) => color}3c;
+    box-shadow: 0 0 0 3px ${({ color }) => hexToRGBA(color, 0.2)};
   }
 `;
 

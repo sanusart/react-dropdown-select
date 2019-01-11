@@ -6,5 +6,10 @@ module.exports = {
 		"@babel/plugin-syntax-dynamic-import",
 		"transform-dynamic-import"
 	],
-	presets: ['@babel/preset-env', '@babel/preset-react']
+	presets: ["minify", [
+		"@babel/preset-env",
+		{
+			"useBuiltIns": "entry"
+		}
+	], '@babel/preset-react']
 };

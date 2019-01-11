@@ -2,7 +2,7 @@
 
 exports[`<Select/> renders correctly 1`] = `
 <div
-  className="css-uqdos3-ReactDropdownSelect e1gzf2xs0"
+  className="css-gw3cc5-ReactDropdownSelect e1gzf2xs0"
   color="#0074D9"
   disabled={false}
   onKeyDown={[Function]}

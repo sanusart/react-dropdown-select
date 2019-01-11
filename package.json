@@ -43,6 +43,7 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-emotion": "^10.0.5",
     "babel-plugin-transform-dynamic-import": "^2.1.0",
+    "babel-preset-minify": "^0.5.0",
     "coveralls": "^3.0.2",
     "css-loader": "^2.0.2",
     "gh-pages": "^2.0.1",
@@ -71,7 +72,9 @@
     "testURL": "http://localhost/",
     "collectCoverage": false,
     "bail": true,
-    "roots": ["<rootDir>/__tests__"],
+    "roots": [
+      "<rootDir>/__tests__"
+    ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!node_modules/**",
