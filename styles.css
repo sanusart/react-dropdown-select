@@ -1,9 +1,0 @@
-* {
-    box-sizing: border-box;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-#root {
-	margin: 20px auto;
-	max-width: 350px;
-}
