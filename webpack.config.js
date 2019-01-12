@@ -15,8 +15,8 @@ module.exports = {
     concatenateModules: true
   },
   externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM',
+    'react': 'react',
+    'react-dom' : 'reactDOM',
     'prop-types': 'prop-types'
   },
   bail: true,
