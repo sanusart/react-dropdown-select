@@ -1,6 +1,6 @@
 {
   "name": "react-dropdown-select",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Customizable dropdown select for react",
   "main": "dist/react-dropdown-select.js",
   "scripts": {
@@ -66,7 +66,9 @@
     "transform": {
       "^.+\\.(js)$": "babel-jest"
     },
-    "testMatch": [ "**/?(*.)+(spec|test).js?(x)" ],
+    "testMatch": [
+      "**/?(*.)+(spec|test).js?(x)"
+    ],
     "testURL": "http://localhost/",
     "collectCoverage": false,
     "bail": true,
