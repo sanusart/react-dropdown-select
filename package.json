@@ -2,12 +2,12 @@
   "name": "react-dropdown-select",
   "version": "1.4.4",
   "description": "Customizable dropdown select for react",
-  "main": "dist/index.js",
+  "main": "dist/react-dropdown-select.js",
   "scripts": {
     "test": "jest",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "transpile": "BABEL_ENV=production rm -rf ./dist && babel src -d dist",
-    "prepublishOnly": "npm run transpile"
+    "build": "webpack",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",

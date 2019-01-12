@@ -6,13 +6,20 @@ module.exports = {
   output: {
     path: path.join(__dirname, "dist"),
     library: 'react-dropdown-select',
-    libraryTarget: 'umd',
+    libraryTarget: 'commonjs',
     publicPath: path.resolve(__dirname, 'dist'),
     umdNamedDefine: true,
     filename: "react-dropdown-select.js"
   },
+  optimization: {
+    concatenateModules: true
+  },
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM',
+    'prop-types': 'prop-types'
+  },
   bail: true,
-  mode: 'production',
   resolve: {
     modules: [path.resolve(__dirname, './src'), 'node_modules'],
     extensions: [".js"]

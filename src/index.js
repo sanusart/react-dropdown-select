@@ -173,7 +173,18 @@ export class Select extends React.Component {
 
   getSelectBounds = () => this.state.selectBounds;
 
-  dropDown = (action = 'toggle') => {
+  dropDown = (action = 'toggle', event) => {
+    if (
+      this.props.portal &&
+      event &&
+      event.srcElement &&
+      !this.props.closeOnScroll &&
+      !this.props.closeOnSelect &&
+      event.srcElement.offsetParent.classList.contains('react-dropdown-select-dropdown')
+    ) {
+      return;
+    }
+
     if (this.props.keepOpen) {
       return this.setState({ dropdown: true });
     }
@@ -334,7 +345,7 @@ export class Select extends React.Component {
 
   render() {
     return (
-      <ClickOutHandler onClickOut={() => this.dropDown('close')}>
+      <ClickOutHandler onClickOut={(event) => this.dropDown('close', event)}>
         <ReactDropdownSelect
           onKeyDown={this.handleKeyDown}
           tabIndex="0"
