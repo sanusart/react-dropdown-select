@@ -4,7 +4,7 @@ Customisable dropdown select for react
 
 ![](https://badgen.net/bundlephobia/minzip/react-dropdown-select)
 ![](https://img.shields.io/npm/v/react-dropdown-select.svg)
-[![Coverage Status](https://coveralls.io/repos/github/sanusart/react-dropdown-select/badge.svg?branch=master)](https://coveralls.io/github/sanusart/react-dropdown-select?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/sanusart/react-dropdown-select/badge.svg?branch=master&service=github)](https://coveralls.io/github/sanusart/react-dropdown-select?branch=master)
 [![Build Status](https://travis-ci.org/Gisto/Gisto.svg?branch=master)](https://travis-ci.org/Gisto/Gisto)
 
 ### Features

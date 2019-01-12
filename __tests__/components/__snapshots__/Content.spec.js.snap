@@ -1,15 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Content/> renders correctly 1`] = `
+exports[`<Clear/> component <Content/> renders correctly 1`] = `
 <div
-  className="react-dropdown-select-content react-dropdown-select-type-single css-jznujr-ContentComponent e1gn6jc30"
+  className="react-dropdown-select-content react-dropdown-select-type-multi css-jznujr-ContentComponent e1gn6jc30"
   onClick={[Function]}
 >
-  <span />
+  <span
+    className="react-dropdown-select-option css-1sb8fud-OptionComponent e1l4eby50"
+    role="listitem"
+  >
+    <span
+      className="react-dropdown-select-option-label"
+    >
+      Leanne Graham
+    </span>
+    <span
+      className="react-dropdown-select-option-remove"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+  </span>
   <input
     className="react-dropdown-select-input css-1jou9m2-InputComponent e11wid6y0"
     onClick={[Function]}
     tabIndex="-1"
+    value=""
   />
 </div>
 `;

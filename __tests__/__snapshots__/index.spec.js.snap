@@ -23,7 +23,7 @@ exports[`<Select/> renders correctly 1`] = `
     />
   </div>
   <div
-    className="css-x3l5ce-ClearComponent e11qlq5e0"
+    className="react-dropdown-select-clear css-x3l5ce-ClearComponent e11qlq5e0"
     onClick={[Function]}
     onKeyPress={[Function]}
     tabIndex="-1"

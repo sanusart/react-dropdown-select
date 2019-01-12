@@ -6,6 +6,7 @@ const Clear = ({ parentProps, parentState, parentMethods }) =>
     parentProps.clearRenderer(parentProps, parentState, parentMethods)
   ) : (
     <ClearComponent
+      className="react-dropdown-select-clear"
       tabIndex="-1"
       onClick={() => parentMethods.clearAll()}
       onKeyPress={() => parentMethods.clearAll()}>

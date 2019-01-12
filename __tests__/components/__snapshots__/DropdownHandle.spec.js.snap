@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DropdownHandle/> renders correctly 1`] = `
+exports[`<Clear/> component <DropdownHandle/> renders correctly 1`] = `
 <div
   className="react-dropdown-select-dropdown-handle css-2zkru-DropdownHandleComponent e1vudypg0"
   onClick={[Function]}

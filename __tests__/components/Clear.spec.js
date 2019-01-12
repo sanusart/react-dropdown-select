@@ -1,16 +1,49 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import TestRenderer from 'react-test-renderer';
 
 import Clear from '../../src/components/Clear';
+import { options } from '../options';
 
-const props = {
+let spy;
+
+const props = (props = {}) => ({
   parentProps: {
     clearRenderer: null
-  }
-};
+  },
+  parentMethods: {
+    clearAll: () => undefined
+  },
+  ...props
+});
 
-it('<Clear/> renders correctly', () => {
-  const tree = renderer.create(<Clear {...props}/>).toJSON();
+describe('<Clear/> component', () => {
+  beforeEach(() => {
+    spy = jest.fn();
+  });
 
-  expect(tree).toMatchSnapshot();
+  afterEach(() => {
+    spy = null;
+  });
+
+  it('<Clear/> renders correctly', () => {
+    const tree = TestRenderer.create(<Clear {...props()} />).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('onClick clears all', () => {
+    TestRenderer.create(
+      <Clear {...props({ parentItem: options[0] })} onClick={spy}/>)
+      .root.findByProps({ className: 'react-dropdown-select-clear' }).props.onClick();
+
+    expect(spy).toHaveBeenCalled;
+  });
+
+  it('onKeyPress clears all', () => {
+    TestRenderer.create(
+      <Clear {...props({ parentItem: options[0] })} onKeyPress={spy}/>)
+      .root.findByProps({ className: 'react-dropdown-select-clear' }).props.onKeyPress();
+
+    expect(spy).toHaveBeenCalled;
+  });
 });

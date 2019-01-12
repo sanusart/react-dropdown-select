@@ -1,19 +1,60 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import TestRenderer from 'react-test-renderer';
 
 import DropdownHandle from '../../src/components/DropdownHandle';
 
-const props = {
+let spy;
+
+const props = (props = {}) => ({
   parentProps: {
     dropdownHandleRenderer: null
   },
   parentState: {
     dropdown: false
-  }
-};
+  },
+  parentMethods: {
+    dropDown: () => undefined
+  },
+  ...props
+});
 
-it('<DropdownHandle/> renders correctly', () => {
-  const tree = renderer.create(<DropdownHandle {...props}/>).toJSON();
+describe('<Clear/> component', () => {
+  beforeEach(() => {
+    spy = jest.fn();
+  });
 
-  expect(tree).toMatchSnapshot();
+  afterEach(() => {
+    spy = null;
+  });
+
+  it('<DropdownHandle/> renders correctly', () => {
+    const tree = TestRenderer.create(<DropdownHandle {...props()} />).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('onClick toggles dropdown', () => {
+    TestRenderer.create(<DropdownHandle {...props()} onClick={spy} />)
+      .root.findByProps({ className: 'react-dropdown-select-dropdown-handle' })
+      .props.onClick();
+
+    expect(spy).toHaveBeenCalled;
+  });
+
+  it('onKeyPress toggles dropdown', () => {
+    TestRenderer.create(<DropdownHandle {...props()} onKeyPress={spy} />)
+      .root.findByProps({ className: 'react-dropdown-select-dropdown-handle' })
+      .props.onKeyPress();
+
+    expect(spy).toHaveBeenCalled;
+  });
+
+  it('onKeyDown toggles dropdown', () => {
+    TestRenderer.create(<DropdownHandle {...props()} onKeyDown={spy} />)
+      .root.findByProps({ className: 'react-dropdown-select-dropdown-handle' })
+      .props.onKeyDown();
+
+    expect(spy).toHaveBeenCalled;
+  });
+
 });
