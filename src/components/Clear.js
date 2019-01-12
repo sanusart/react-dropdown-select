@@ -19,7 +19,7 @@ const ClearComponent = styled.div`
   line-height: 25px;
   margin: 0 10px;
   cursor: pointer;
-  
+
   :focus {
     outline: none;
   }

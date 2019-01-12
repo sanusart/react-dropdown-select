@@ -3,8 +3,7 @@ import TestRenderer from 'react-test-renderer';
 
 import Option from '../../src/components/Option';
 
-import { options } from '../../docs/src/options';
-import Item from './Item.spec';
+import { options } from '../options';
 
 let spy;
 

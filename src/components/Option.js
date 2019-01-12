@@ -10,7 +10,9 @@ const Option = ({ parentItem, parentProps, parentState, parentMethods }) =>
       disabled={parentProps.disabled}
       className="react-dropdown-select-option"
       color={parentProps.color}>
-      <span className="react-dropdown-select-option-label">{parentItem[parentProps.labelField]}</span>
+      <span className="react-dropdown-select-option-label">
+        {parentItem[parentProps.labelField]}
+      </span>
       <span
         className="react-dropdown-select-option-remove"
         onClick={(event) => parentMethods.removeItem(event, parentItem, parentProps.closeOnSelect)}>

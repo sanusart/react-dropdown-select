@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import Content from '../../src/components/Content';
 
-import {options} from '../../docs/src/options';
+import { options } from '../options';
 
 const props = {
   parentProps: {

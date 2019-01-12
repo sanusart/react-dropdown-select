@@ -5,7 +5,7 @@ import Footer from '../components/footer';
 import styled from '@emotion/styled';
 
 import 'normalize.css';
-import '../../../examples/src/demo-styles.css';
+import '../demo-styles.css';
 
 import '../styles.css';
 
@@ -100,7 +100,7 @@ export class Demo extends React.Component {
             	if (!this.state.keepSelectedInList && methods.isSelected(option)) {
             		return null;
 							}
-            	
+
 							return (
 								<Item
 									disabled={option.disabled}

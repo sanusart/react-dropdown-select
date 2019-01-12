@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { hexToRGBA } from '../index';
 
 const Item = ({ parentProps, parentState, parentMethods, item, itemIndex }) => {
-  if (!!parentProps.itemRenderer) {
+  if (parentProps.itemRenderer) {
     return parentProps.itemRenderer(item, itemIndex, parentProps, parentState, parentMethods);
   }
 
@@ -22,7 +22,7 @@ const Item = ({ parentProps, parentState, parentMethods, item, itemIndex }) => {
       tabIndex="-1"
       className={`react-dropdown-select-item ${
         parentMethods.isSelected(item) ? 'react-dropdown-select-item-selected' : ''
-        } ${parentState.cursor === itemIndex ? 'react-dropdown-select-item-active' : null}`}
+      } ${parentState.cursor === itemIndex ? 'react-dropdown-select-item-active' : null}`}
       onClick={item.disabled ? undefined : () => parentMethods.addItem(item)}
       onKeyPress={item.disabled ? undefined : () => parentMethods.addItem(item)}
       color={parentProps.color}>
@@ -37,7 +37,7 @@ const ItemComponent = styled.span`
   padding: 5px 10px;
   cursor: pointer;
   border-bottom: 1px solid #fff;
-  
+
   &.react-dropdown-select-item-active {
     border-bottom: 1px solid #fff;
     font-weight: bolder;

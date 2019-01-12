@@ -27,7 +27,9 @@ const Content = ({ parentProps, parentState, parentMethods }) => {
                 />
               ))
             : parentState.values &&
-              parentState.values.length > 0 && <span>{parentState.values[0][parentProps.labelField]}</span>}
+              parentState.values.length > 0 && (
+                <span>{parentState.values[0][parentProps.labelField]}</span>
+              )}
           <Input
             parentProps={parentProps}
             parentMethods={parentMethods}

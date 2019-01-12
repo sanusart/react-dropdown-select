@@ -5,7 +5,7 @@ const Loading = ({ parentProps }) =>
   parentProps.loadingRenderer ? (
     parentProps.loadingRenderer()
   ) : (
-    <LoadingComponent className="react-dropdown-select-loading" color={parentProps.color}/>
+    <LoadingComponent className="react-dropdown-select-loading" color={parentProps.color} />
   );
 
 Loading.propTypes = {};

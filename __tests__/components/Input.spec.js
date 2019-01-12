@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import Input from '../../src/components/Input';
-import { options } from '../../docs/src/options';
+import { options } from '../options';
 
 const props = {
   parentProps: {

@@ -2,16 +2,12 @@
   "name": "react-dropdown-select",
   "version": "1.4.2",
   "description": "Customizable dropdown select for react",
-  "main": "dist/index.js",
+  "main": "dist/react-dropdown-select.js",
   "scripts": {
     "test": "jest",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "start": "webpack-dev-server --mode development",
-    "transpile": "BABEL_ENV=production rm -rf ./dist && babel src -d dist",
-    "prepublishOnly": "npm run transpile",
-    "build": "webpack --mode production",
-    "deploy": "gh-pages -d examples/dist",
-    "publish-demo": "npm run build && npm run deploy"
+    "prepublishOnly": "npm run build",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -19,8 +15,9 @@
   },
   "keywords": [
     "react",
-    "component",
+    "react component",
     "select",
+    "multiselect",
     "dropdown"
   ],
   "author": "Sasha Khamkov <sanusart@gmail.com>",
@@ -69,6 +66,7 @@
     "transform": {
       "^.+\\.(js)$": "babel-jest"
     },
+    "testMatch": [ "**/?(*.)+(spec|test).js?(x)" ],
     "testURL": "http://localhost/",
     "collectCoverage": false,
     "bail": true,
@@ -79,7 +77,8 @@
       "src/**/*.{js,jsx}",
       "!node_modules/**",
       "!docs/**",
-      "!examples/**"
+      "!dist/**",
+      "!coverage/**"
     ]
   },
   "sideEffects": false

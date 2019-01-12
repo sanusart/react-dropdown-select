@@ -11,6 +11,6 @@ webpack.config.js
 __tests__
 coverage
 README.md
-babel.config.js
+.babelrc
 .travis.yml
 LICENSE

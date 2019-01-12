@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import NoData from './NoData';
-import Item from './Item';
+import NoData from '../components/NoData';
+import Item from '../components/Item';
 
 import { hexToRGBA } from '../index';
 
@@ -51,16 +51,18 @@ Dropdown.propTypes = {};
 
 const DropDown = styled.div`
   position: absolute;
-  ${({ selectBounds, dropdownGap, openOnTop}) => openOnTop 
-    ? `bottom: ${selectBounds.height + 2 + dropdownGap}px` 
-    : `top: ${selectBounds.height + 2 + dropdownGap}px`};
+  ${({ selectBounds, dropdownGap, openOnTop }) =>
+    openOnTop
+      ? `bottom: ${selectBounds.height + 2 + dropdownGap}px`
+      : `top: ${selectBounds.height + 2 + dropdownGap}px`};
   
-  ${({ selectBounds, dropdownGap, portal}) => portal 
-    ? `
+  ${({ selectBounds, dropdownGap, portal }) =>
+    portal
+      ? `
       position: fixed;
       top: ${selectBounds.bottom + dropdownGap}px;
-      left: ${selectBounds.left - 1}px;` 
-    : `left: -1px;`};
+      left: ${selectBounds.left - 1}px;`
+      : 'left: -1px;'};
   border: 1px solid #ccc;
   width: ${({ selectBounds }) => selectBounds.width}px;
   padding: 0;

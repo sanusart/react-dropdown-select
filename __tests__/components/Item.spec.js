@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import Item from '../../src/components/Item';
-import { options } from '../../docs/src/options';
+import { options } from '../options';
 
 let spy;
 

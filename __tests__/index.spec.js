@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Select from '../src';
+import Select from '../src/index';
 
 const props = {
   onChange: () => undefined
