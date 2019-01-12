@@ -6,6 +6,7 @@
     "@babel/plugin-syntax-dynamic-import",
     "transform-dynamic-import"  ],
   "presets": [
+    "minify",
     "@babel/preset-env",
     "@babel/preset-react"
   ]
