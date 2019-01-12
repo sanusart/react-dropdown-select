@@ -72,7 +72,6 @@ summary {
 	margin: 20px 0;
 }
 
-pre code,
 pre {
 	white-space: pre-wrap;
 	word-wrap: break-word;
@@ -88,8 +87,7 @@ pre {
 	box-shadow: 0 5px 10px #ccc inset;
 }
 
-pre code span,
-pre span {
+pre span  {
 	position: absolute;
 	display: block;
 	background: #FFF;
@@ -102,7 +100,6 @@ pre span {
 	color: #999;
 }
 
-pre:hover span,
 pre:hover span {
 	display:none;
 }
