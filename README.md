@@ -6,9 +6,26 @@ Customisable dropdown select for react
 ![](https://img.shields.io/npm/v/react-dropdown-select.svg)
 [![Coverage Status](https://coveralls.io/repos/github/sanusart/react-dropdown-select/badge.svg?branch=master)](https://coveralls.io/github/sanusart/react-dropdown-select?branch=master)
 [![Build Status](https://travis-ci.org/Gisto/Gisto.svg?branch=master)](https://travis-ci.org/Gisto/Gisto)
+
+### Features
+
+- configurable via `prop`s
+- total custom components overrides for all internals via render prop callbacks (with access to internal props, state and methods)
+- stylable via css (or custom components)
+- portal support for rendering dropdown outside local DOM tree. e.g. in `document.body`
+- small bundle size
+
 ### Installation
 
 > `npm install --save react-dropdown-select`
+
+### Web site
+
+[Web site, docs and demo](https://sanusart.github.io/react-dropdown-select/demo)
+
+### Motivation
+
+react-select is very nice, but sometimes project requeremwnts are beyond it's abilities
 
 ### Usage
 
@@ -19,18 +36,24 @@ import:
 and use as:
 
 ```jsx
-<Select options={options} onChange={(values) => this.setValues(values)} />
+<Select options={options}
+	onChange={(values) => this.setValues(values)} />
 ```
 
-> **options** and **onChange** are the minimum requered props
+> **options** and **onChange** are the minimum required props
+
+### Help and Contributions
+
+#### How to help/contribute
+
+- fix issues, pull request are very welcome
+- write, improve docs
+- write tests (we use jest)
+- suggest features and improvements
 
 ### Demo
 
 [![Edit react-dropdown-select](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/p54p8y1987?autoresize=1)
-
-### Preview
-
-> https://sanusart.github.io/react-dropdown-select/demo
 
 | Props                                                                                                    | Type        | Default     | Description                                                                                     |
 | -------------------------------------------------------------------------------------------------------- | ----------- | ----------- | ----------------------------------------------------------------------------------------------- |
@@ -75,3 +98,6 @@ and use as:
 | [separatorRenderer](https://sanusart.github.io/react-dropdown-select/prop/separator-renderer)            | func        |             | Overrides internal separator                                                                    |
 | [dropdownRenderer](https://sanusart.github.io/react-dropdown-select/prop/dropdown-renderer)              | func        |             | Overrides internal dropdown component                                                           |
 | [dropdownHandleRenderer](https://sanusart.github.io/react-dropdown-select/prop/dropdown-handle-renderer) | func        |             | Overrides internal dropdown handle                                                              |
+
+### License 
+[MIT](https://github.com/sanusart/react-dropdown-select/blob/master/LICENSE)
