@@ -25,7 +25,7 @@ Customisable dropdown select for react
 
 ### Motivation
 
-react-select is very nice, but sometimes project requeremwnts are beyond it's abilities
+react-select is very nice, but sometimes project requerements are beyond it's abilities
 
 ### Usage
 
