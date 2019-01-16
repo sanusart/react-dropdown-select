@@ -51,6 +51,7 @@ export class Select extends React.Component {
     className: PropTypes.string,
     loading: PropTypes.bool,
     clearable: PropTypes.bool,
+    searchable: PropTypes.bool,
     separator: PropTypes.bool,
     dropdownHandle: PropTypes.bool,
     searchBy: PropTypes.string,
@@ -352,7 +353,7 @@ export class Select extends React.Component {
           style={this.props.style}
           ref={this.select}
           disabled={this.props.disabled}
-          className={this.props.className}
+          className={`react-dropdown-select ${this.props.className}`}
           color={this.props.color}>
           <Content parentProps={this.props} parentState={this.state} parentMethods={this.methods} />
 
@@ -395,6 +396,7 @@ Select.defaultProps = {
   disabled: false,
   searchBy: 'label',
   clearable: true,
+  searchable: true,
   dropdownHandle: true,
   separator: true,
   keepOpen: undefined,

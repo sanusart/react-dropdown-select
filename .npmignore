@@ -1,5 +1,5 @@
 src
-examples
+docs/src/examples
 docs
 styles.css
 webpack.config.js

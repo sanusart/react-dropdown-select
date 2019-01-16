@@ -22,7 +22,7 @@ const Item = ({ parentProps, parentState, parentMethods, item, itemIndex }) => {
       tabIndex="-1"
       className={`react-dropdown-select-item ${
         parentMethods.isSelected(item) ? 'react-dropdown-select-item-selected' : ''
-      } ${parentState.cursor === itemIndex ? 'react-dropdown-select-item-active' : null}`}
+      } ${parentState.cursor === itemIndex ? 'react-dropdown-select-item-active' : ''} ${item.disabled ? 'react-dropdown-select-item-disabled' : ''}`}
       onClick={item.disabled ? undefined : () => parentMethods.addItem(item)}
       onKeyPress={item.disabled ? undefined : () => parentMethods.addItem(item)}
       color={parentProps.color}>
