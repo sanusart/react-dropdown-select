@@ -3,7 +3,7 @@
 exports[`<Dropdown/> renders correctly 1`] = `
 <div
   aria-expanded="true"
-  className="react-dropdown-select-dropdown css-1j9512p-DropDown e1qjn9k90"
+  className="react-dropdown-select-dropdown css-b78bau-DropDown e1qjn9k90"
   role="list"
   tabIndex="-1"
 >

@@ -2,8 +2,10 @@
 
 exports[`<Input/> renders correctly 1`] = `
 <input
-  className="react-dropdown-select-input css-1jou9m2-InputComponent e11wid6y0"
+  className="react-dropdown-select-input css-1b1okz1-InputComponent e11wid6y0"
   onClick={[Function]}
+  placeholder=""
+  readOnly={true}
   tabIndex="-1"
 />
 `;
