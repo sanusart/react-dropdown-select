@@ -13,6 +13,7 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
+    "basecss": "^0.3.2",
     "gatsby": "^2.0.84",
     "gatsby-plugin-catch-links": "^2.0.9",
     "gatsby-source-filesystem": "^2.0.12",
