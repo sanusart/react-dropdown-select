@@ -18,12 +18,12 @@ export default ({ page, title }) =>
         <div className="sm-flex flex-center flex-wrap">
           <div className="flex-auto">
             <div className="mxn1">
-              <a href="/" title="Basscss" className="btn compact btn-link btn-small p1">
+              <Link to="/" className="btn compact btn-link btn-small p1">
                 react-dropdown-select
-              </a>
+              </Link>
               <span>v{version}</span>
             </div>
-            <h1 className="m0" style={{ fontSize: '3rem' }}>
+            <h1 className="m0" style={{ fontSize: '3rem', color: '#0074D9' }}>
               { title }
             </h1>
           </div>

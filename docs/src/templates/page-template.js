@@ -4,6 +4,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 
 import '../styles.css';
+import '../basscss.min.css';
 
 export default function Template({ data }) {
   const { page, propsPage, statePage, methodsPage } = data;
@@ -82,7 +83,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    propsPage: markdownRemark(frontmatter: { path: { eq: "/props" } }) {
+    propsPage: markdownRemark(frontmatter: { path: { eq: "/api" } }) {
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")

@@ -6,7 +6,7 @@ const Navigation = () => (
   <Links>
     <Link className="m1" to="/">Home</Link>
 
-    <Link className="m1" to="props">Props types</Link>
+    <Link className="m1" to="api">API</Link>
 
     <Link to="examples" className="m1">
       Examples

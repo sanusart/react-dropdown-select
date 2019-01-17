@@ -7,7 +7,7 @@ export default () => (
       <Navigation />
     </div>
 
-    <div className="align-right p1">
+    <div className="center p1">
       <span className="p1">
         &copy;{new Date().getFullYear()} Sasha Khamkov | All rights reserved
       </span>

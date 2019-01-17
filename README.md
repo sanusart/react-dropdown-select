@@ -22,7 +22,7 @@ Customisable dropdown select for react
 
 ### Web site
 
-[Web site, docs and demo](https://sanusart.github.io/react-dropdown-select/demo)
+[Web site, docs and demo](https://sanusart.github.io/react-dropdown-select)
 
 ### Motivation
 

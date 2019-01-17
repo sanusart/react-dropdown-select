@@ -1,7 +1,7 @@
 ---
-path: '/props'
+path: '/api'
 date: '2017-11-07'
-title: 'Props'
+title: 'API'
 ---
 
 **Please note:**
