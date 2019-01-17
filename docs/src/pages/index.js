@@ -3,8 +3,8 @@ import Header from '../components/header';
 import Demo from '../pages/demo';
 import Navigation from '../components/navigation';
 import styled from '@emotion/styled';
+
 import '../styles.css';
-import '../basscss.min.css';
 
 const Home = () => (
   <Wrapper>

@@ -22,6 +22,7 @@ export default class HTML extends React.Component {
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/basscss/7.0.4/css/basscss.min.css"/>
         </body>
       </html>
     )

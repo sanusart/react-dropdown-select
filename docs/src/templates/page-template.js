@@ -4,7 +4,6 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 
 import '../styles.css';
-import '../basscss.min.css';
 
 export default function Template({ data }) {
   const { page, propsPage, statePage, methodsPage } = data;
