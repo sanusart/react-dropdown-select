@@ -6,6 +6,7 @@ import Demo from '../pages/demo';
 import Navigation from '../components/navigation';
 import styled from 'styled-components';
 import '../styles.css';
+import '../basscss.min.css';
 
 const Home = () => (
   <Wrapper>
