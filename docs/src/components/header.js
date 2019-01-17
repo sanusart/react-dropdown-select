@@ -4,11 +4,11 @@ import { Link } from 'gatsby';
 
 export default ({ page, title }) =>
   page === 'home' ? (
-    <div className="p3" style={{ color: '#fff', backgroundColor: '#111111' }}>
+    <div className="">
       <h3 className="m0">v{version}</h3>
       <span
         className="block color-inherit"
-        style={{ fontSize: '5vw', lineHeight: '1' }}>
+        style={{ fontSize: '5vw', lineHeight: '1', color: '#0074D9' }}>
         React dropdown select
       </span>
     </div>

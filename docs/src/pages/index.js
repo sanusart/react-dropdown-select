@@ -2,59 +2,77 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Header from '../components/header';
 import Footer from '../components/footer';
-
+import Demo from '../pages/demo';
+import Navigation from '../components/navigation';
+import styled from 'styled-components';
 import '../styles.css';
 
 const Home = () => (
-  <div className="container px2 sm-px3">
-    <Header page="home" />
+  <Wrapper>
+    <div className="flex flex-wrap">
+      <Side className="sm-col-12 md-col-6 border-right p1 overflow-auto">
+        <Inner className="px0 col-11 lg-col-8 px1 mx-auto">
+          <Header page="home" />
+          <h1 id="what-it-is-all-about">Dropdown select for react</h1>
 
-    <article className="markdown-body px0">
-      <h1 id="what-it-is-all-about">Customisable dropdown select for react</h1>
+          <p>
+            Customisable dropdown select/multi-select component for react with custom render
+            callback props to override inner components
+          </p>
 
-      <p>
-        Customisable dropdown select for react with custom render callback props to override inner
-        components
-      </p>
+          <h3>
+            Install via <strong>npm</strong>:
+          </h3>
 
-      <h3>
-        Install via <strong>npm</strong>:
-      </h3>
+          <pre>
+            <span>SHELL</span>npm install --save react-dropdown-select
+          </pre>
 
-      <pre><span>SHELL</span>npm install --save react-dropdown-select</pre>
+          <h3>Use:</h3>
 
-      <h3>Use:</h3>
-
-      <div>
-        <pre><span>JSX</span>
-          {`<Select
+          <pre>
+            <span>JSX</span>
+            {`<Select
   multi={true}
   options={options}
   onChange={(values) => this.onChange(values)}
-/>`
-          }
-</pre>
-      </div>
+/>`}
+          </pre>
 
-      <p className="center">
-        <Link to="props" className="m1 btn btn-outline center">
-          Prop types
-        </Link>
+        </Inner>
+      </Side>
+      <Side className="sm-col-12 md-col-6 p1 overflow-auto">
 
-        <Link to="demo" className="m1 btn btn-outline center">
-          Demo
-        </Link>
+        <Nav className="sm-col-12 md-col-6 fixed top-0 right-0 p2 white bg-white">
+          <Navigation/>
+        </Nav>
 
-        <a
-          href="https://github.com/sanusart/react-dropdown-select"
-          className="m1 btn btn-outline center">
-          Github
-        </a>
-      </p>
-    </article>
+        <Inner className="col-11 lg-col-8 px1 mx-auto">
+          <h1 className="center">Demo</h1>
+          <Demo />
+        </Inner>
 
-    <Footer />
-  </div>
+      </Side>
+    </div>
+  </Wrapper>
 );
+
+const Side = styled.div`
+  height: 100vh;
+`;
+
+const Wrapper = styled.div`
+  width: 100vw;
+`;
+
+const Inner = styled.div`
+  padding-top: 50px;
+  padding-bottom: 50px;
+`;
+
+const Nav = styled.div`
+  z-index: 2;
+  box-shadow: 153px -14px 40px #ccc;
+`;
 
 export default Home;

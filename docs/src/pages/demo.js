@@ -140,8 +140,7 @@ export class Demo extends React.Component {
 
   render() {
     return (
-      <div className="container px2 sm-px3">
-        <Header page="demo" title="Demo" />
+      <div className={this.props.className}>
         <div>
           <div style={{ maxWidth: '500px', margin: '0 auto' }}>
             <StyledSelect
@@ -413,10 +412,10 @@ export class Demo extends React.Component {
           <pre>{JSON.stringify(options, false, 2)}</pre>
         </details>
 
-        <p>Selected value(s):</p>
+        <details>
+          <summary>Selected values:</summary>
         <pre>{JSON.stringify(this.state.selectValues, false, 2)}</pre>
-
-        <Footer />
+        </details>
       </div>
     );
   }

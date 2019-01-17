@@ -1,25 +1,16 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import Navigation from '../components/navigation';
 
 export default () => (
-  <footer className="py3 border-top">
-
-    <div className="left">
-      <Link className="m1" to="/">Home</Link>
-      <Link className="m1" to="props">Props types</Link>
-      <Link to="demo" className="m1">
-        Demo
-      </Link>
-
-      <a href="https://github.com/sanusart/react-dropdown-select" className="m1">
-        Github
-      </a>
+  <footer className="py1">
+    <div className="align-left">
+      <Navigation />
     </div>
 
-    <div className="right">
-      <p className="btn compact btn-link p1">
-        &copy;{new Date().getFullYear()} All rights reserved
-      </p>
+    <div className="align-right p1">
+      <span className="p1">
+        &copy;{new Date().getFullYear()} Sasha Khamkov | All rights reserved
+      </span>
     </div>
   </footer>
 );

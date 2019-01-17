@@ -5,7 +5,7 @@ body, html {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: Arial, "Lucida Grande", sans-serif;
-	font-weight: 300;
+	font-weight: 300 !important;
 }
 
 .hp .material-icons {
@@ -79,10 +79,10 @@ pre {
 	padding: 10px;
 	font-family: monaco, monospace !important;
 	position: relative;
-	color: #000;
+	color: #555;
 	font-weight: 400;
 	font-size: smaller  !important;
-	background: floralwhite !important;
+	background: #f7f7f7 !important;
 	border-radius: 3px;
 	box-shadow: 0 5px 10px #ccc inset;
 }

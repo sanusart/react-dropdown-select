@@ -6,6 +6,7 @@ Customisable dropdown select for react
 ![](https://img.shields.io/npm/v/react-dropdown-select.svg)
 [![Coverage Status](https://coveralls.io/repos/github/sanusart/react-dropdown-select/badge.svg?branch=master&service=github)](https://coveralls.io/github/sanusart/react-dropdown-select?branch=master)
 [![Build Status](https://travis-ci.org/Gisto/Gisto.svg?branch=master)](https://travis-ci.org/Gisto/Gisto)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2a68db3684044b4cb0900f0ef4550a46)](https://www.codacy.com/app/sanusart/react-dropdown-select?utm_source=github.com&utm_medium=referral&utm_content=sanusart/react-dropdown-select&utm_campaign=Badge_Grade)
 
 ### Features
 
@@ -36,8 +37,7 @@ import:
 and use as:
 
 ```jsx
-<Select options={options}
-	onChange={(values) => this.setValues(values)} />
+<Select options={options} onChange={(values) => this.setValues(values)} />
 ```
 
 > **options** and **onChange** are the minimum required props
@@ -82,7 +82,7 @@ and use as:
 | closeOnSelect                                                                                            | bool        | false       | If true, selecting option will close the dropdown                                               |
 | [openOnTop](https://sanusart.github.io/react-dropdown-select/prop/open-on-top)                           | bool        | false       | If true, dropdown will open on top of the select                                                |
 | keepSelectedInList                                                                                       | bool        | true        | If false, selected item will not appear in a list                                               |
-| portal                                                                                               | DOM element | false       | If valid dom element specified - dropdown will break out to render inside the specified element |
+| portal                                                                                                   | DOM element | false       | If valid dom element specified - dropdown will break out to render inside the specified element |
 | **Callback props**                                                                                       |             |             |                                                                                                 |
 | onChange                                                                                                 | func        |             | On values change callback, returns array of values objects                                      |
 | onDropdownClose                                                                                          | func        |             | fires upon dropdown close                                                                       |
@@ -100,5 +100,6 @@ and use as:
 | [dropdownRenderer](https://sanusart.github.io/react-dropdown-select/prop/dropdown-renderer)              | func        |             | Overrides internal dropdown component                                                           |
 | [dropdownHandleRenderer](https://sanusart.github.io/react-dropdown-select/prop/dropdown-handle-renderer) | func        |             | Overrides internal dropdown handle                                                              |
 
-### License 
+### License
+
 [MIT](https://github.com/sanusart/react-dropdown-select/blob/master/LICENSE)
