@@ -16,6 +16,7 @@ import Multi from '../examples/Multi';
 import OpenOnTop from '../examples/OpenOnTop';
 import Styled from '../examples/Styled';
 import ItemRenderer from '../examples/ItemRenderer';
+import CustomContentAndDropdown from '../examples/CustomContentAndDropdown';
 
 const demoOptions = options.map((option) => ({
   ...option,
@@ -45,6 +46,10 @@ const Examples = () => (
 
     <Wrapper>
       <ItemRenderer options={demoOptions} title="Item custom renderer"/>
+    </Wrapper>
+
+    <Wrapper>
+      <CustomContentAndDropdown options={demoOptions} title="Custom Content And Dropdown renderers"/>
     </Wrapper>
 
     <br/>

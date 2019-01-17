@@ -3,7 +3,7 @@ import Select from '../../../src';
 
 const Multi = ({ options, title }) => (
   <React.Fragment>
-    <h2>{ title }</h2>
+    <h2>{ title } | <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/Multi.js">Source</a></h2>
     <Select
       multi
       options={options}
