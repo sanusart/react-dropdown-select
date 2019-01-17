@@ -28,7 +28,7 @@ export class Demo extends React.Component {
       optionRenderer: false,
       noDataRenderer: false,
       selectValues: [],
-      searchBy: 'email',
+      searchBy: 'username',
       clearable: true,
       separator: true,
       forceOpen: false,
