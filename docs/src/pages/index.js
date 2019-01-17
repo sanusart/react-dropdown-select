@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import Header from '../components/header';
-import Footer from '../components/footer';
 import Demo from '../pages/demo';
 import Navigation from '../components/navigation';
 import styled from 'styled-components';
