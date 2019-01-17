@@ -1,6 +1,7 @@
 module.exports = {
   pathPrefix: "/react-dropdown-select",
   plugins: [
+    `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -20,12 +21,16 @@ module.exports = {
         displayName: 'Home'
       },
       {
-        path: 'props',
-        displayName: 'Props'
+        path: 'api',
+        displayName: 'API'
       },
       {
         path: 'demo',
         displayName: 'Demo'
+      },
+      {
+        path: 'examples',
+        displayName: 'Examples'
       }
     ],
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from '../../../src';
 
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export class CustomContentAndDropdown extends React.Component {
   options = () =>

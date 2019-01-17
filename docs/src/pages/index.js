@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/header';
 import Demo from '../pages/demo';
 import Navigation from '../components/navigation';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import '../styles.css';
 import '../basscss.min.css';
 
