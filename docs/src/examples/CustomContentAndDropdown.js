@@ -54,7 +54,7 @@ export class CustomContentAndDropdown extends React.Component {
                   onClick={option.disabled ? null : () => methods.addItem(option)}>
                   <input
                     type="checkbox"
-                    onChange={option.disabled ? null : () => methods.addItem(option)}
+                    onChange={() => option.disabled ? undefined : methods.addItem(option)}
                     checked={state.values.indexOf(option) !== -1}
                   />
                   <ItemLabel>{option[props.labelField]}</ItemLabel>

@@ -20,7 +20,7 @@ const ItemRenderer = ({ options, title }) => (
             <div aria-disabled>{item.label}</div>
           ) : (
             <div onClick={() => methods.addItem(item)}>
-              <input type="checkbox" checked={methods.isSelected(item)} /> {item.label}
+              <input onChange={() => methods.addItem(item)} type="checkbox" checked={methods.isSelected(item)} /> {item.label}
             </div>
           )}
         </StyledItem>
