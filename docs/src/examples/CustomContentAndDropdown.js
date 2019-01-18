@@ -69,8 +69,10 @@ export class CustomContentAndDropdown extends React.Component {
   render() {
     return (
       <div>
-        <h2>{this.props.title} | <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/CustomContentAndDropdown.js">Source</a></h2>
-
+        <Title>
+        <h2>{this.props.title}</h2>
+          <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/CustomContentAndDropdown.js">Source</a>
+        </Title>
         <StyledSelect
           placeholder="Select"
           multi
@@ -90,6 +92,12 @@ export class CustomContentAndDropdown extends React.Component {
     );
   }
 }
+
+const Title = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`;
 
 const StyledSelect = styled(Select)`
   .react-dropdown-select-dropdown {

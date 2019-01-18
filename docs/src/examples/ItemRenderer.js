@@ -4,7 +4,10 @@ import Select from '../../../src';
 
 const ItemRenderer = ({ options, title }) => (
   <React.Fragment>
-    <h2>{title} | <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/ItemRenderer.js">Source</a></h2>
+    <Title>
+    <h2>{title}</h2>
+      <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/ItemRenderer.js">Source</a>
+    </Title>
     <Select
       multi
       options={options}
@@ -26,6 +29,12 @@ const ItemRenderer = ({ options, title }) => (
 );
 
 ItemRenderer.propTypes = {};
+
+const Title = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`;
 
 const StyledItem = styled.div`
   padding: 10px;
