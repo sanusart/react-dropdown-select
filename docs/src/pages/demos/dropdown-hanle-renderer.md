@@ -1,11 +1,11 @@
 ---
-path: "/prop/dropdown-handle-renderer"
-date: "2017-11-07"
-title: "dropdownHandleRenderer"
+path: '/prop/dropdown-handle-renderer'
+date: '2017-11-07'
+title: 'dropdownHandleRenderer'
 demo: null
-innerProps: true 
-innerState: true 
-innerMethods: true 
+innerProps: true
+innerState: true
+innerMethods: true
 ---
 
 Override default handle for opening dropdown

@@ -1,44 +1,49 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from '@emotion/styled';
 
 import NoData from '../components/NoData';
 import Item from '../components/Item';
 
-import { hexToRGBA } from '../index';
+import { valueExistInSelected, hexToRGBA } from '../util';
 
-const Dropdown = ({ parentProps, parentState, parentMethods }) => (
+const Dropdown = ({ props, state, methods }) => (
   <DropDown
     tabIndex="-1"
     aria-expanded="true"
     role="list"
-    openOnTop={parentProps.openOnTop}
-    selectBounds={parentState.selectBounds}
-    portal={parentProps.portal}
-    dropdownGap={parentProps.dropdownGap}
-    dropdownHeight={parentProps.dropdownHeight}
+    openOnTop={props.openOnTop}
+    selectBounds={state.selectBounds}
+    portal={props.portal}
+    dropdownGap={props.dropdownGap}
+    dropdownHeight={props.dropdownHeight}
     className="react-dropdown-select-dropdown">
-    {parentProps.dropdownRenderer ? (
-      parentProps.dropdownRenderer(parentProps, parentState, parentMethods)
+    {props.dropdownRenderer ? (
+      props.dropdownRenderer(props, state, methods)
     ) : (
       <React.Fragment>
-        {parentMethods.searchResults().length === 0 ? (
+        {props.create && state.search && !valueExistInSelected(state.search, state.values) && (
+          <AddNew color={props.color} onClick={() => methods.createNew(state.search)}>
+            {props.createNewLabel.replace('{search}', `"${state.search}"`)}
+          </AddNew>
+        )}
+        {methods.searchResults().length === 0 ? (
           <NoData
             className="react-dropdown-select-no-data"
-            parentState={parentState}
-            parentProps={parentProps}
-            parentMethods={parentMethods}
+            state={state}
+            props={props}
+            methods={methods}
           />
         ) : (
-          parentMethods
+          methods
             .searchResults()
             .map((item, itemIndex) => (
               <Item
-                key={item[parentProps.valueField]}
+                key={item[props.valueField]}
                 item={item}
                 itemIndex={itemIndex}
-                parentState={parentState}
-                parentProps={parentProps}
-                parentMethods={parentMethods}
+                state={state}
+                props={props}
+                methods={methods}
               />
             ))
         )}
@@ -46,8 +51,6 @@ const Dropdown = ({ parentProps, parentState, parentMethods }) => (
     )}
   </DropDown>
 );
-
-Dropdown.propTypes = {};
 
 const DropDown = styled.div`
   position: absolute;
@@ -79,6 +82,17 @@ const DropDown = styled.div`
     outline: none;
   }
 }
+`;
+
+const AddNew = styled.div`
+  color: ${({ color }) => color};
+  padding: 5px 10px;
+
+  :hover {
+    background: ${({ color }) => color && hexToRGBA(color, 0.1)};
+    outline: none;
+    cursor: pointer;
+  }
 `;
 
 export default Dropdown;

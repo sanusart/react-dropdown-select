@@ -1,27 +1,21 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const DropdownHandle = ({ parentProps, parentState, parentMethods }) =>
-  parentProps.dropdownHandleRenderer ? (
-    parentProps.dropdownHandleRenderer(parentProps, parentState, parentMethods)
+const DropdownHandle = ({ props, state, methods }) =>
+  props.dropdownHandleRenderer ? (
+    props.dropdownHandleRenderer(props, state, methods)
   ) : (
     <DropdownHandleComponent
       tabIndex="-1"
-      onClick={() => parentMethods.dropDown()}
-      dropdownOpen={parentState.dropdown}
-      onKeyPress={() => parentMethods.dropDown()}
-      onKeyDown={() => parentMethods.dropDown()}
+      onClick={() => methods.dropDown()}
+      dropdownOpen={state.dropdown}
+      onKeyPress={() => methods.dropDown()}
+      onKeyDown={() => methods.dropDown()}
       className="react-dropdown-select-dropdown-handle"
-      color={parentProps.color}>
-      <svg fill="currentColor" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40">
-        <g>
-          <path d="m31 26.4q0 0.3-0.2 0.5l-1.1 1.2q-0.3 0.2-0.6 0.2t-0.5-0.2l-8.7-8.8-8.8 8.8q-0.2 0.2-0.5 0.2t-0.5-0.2l-1.2-1.2q-0.2-0.2-0.2-0.5t0.2-0.5l10.4-10.4q0.3-0.2 0.6-0.2t0.5 0.2l10.4 10.4q0.2 0.2 0.2 0.5z" />
-        </g>
-      </svg>
+      color={props.color}>
+      <svg fill="currentColor" viewBox="0 0 40 40"><path d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z"/></svg>
     </DropdownHandleComponent>
   );
-
-DropdownHandle.propTypes = {};
 
 const DropdownHandleComponent = styled.div`
   text-align: center;

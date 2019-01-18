@@ -1,37 +1,35 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { hexToRGBA } from '../index';
+import { hexToRGBA } from '../util';
 
-const Item = ({ parentProps, parentState, parentMethods, item, itemIndex }) => {
-  if (parentProps.itemRenderer) {
-    return parentProps.itemRenderer(item, itemIndex, parentProps, parentState, parentMethods);
+const Item = ({ props, state, methods, item, itemIndex }) => {
+  if (props.itemRenderer) {
+    return props.itemRenderer(item, itemIndex, props, state, methods);
   }
 
-  if (!parentProps.keepSelectedInList && parentMethods.isSelected(item)) {
+  if (!props.keepSelectedInList && methods.isSelected(item)) {
     return null;
   }
 
   return (
     <ItemComponent
       role="option"
-      aria-selected={parentMethods.isSelected(item)}
+      aria-selected={methods.isSelected(item)}
       aria-disabled={item.disabled}
       disabled={item.disabled}
-      aria-label={item[parentProps.labelField]}
-      key={`${item[parentProps.valueField]}${item[parentProps.labelField]}`}
+      aria-label={item[props.labelField]}
+      key={`${item[props.valueField]}${item[props.labelField]}`}
       tabIndex="-1"
       className={`react-dropdown-select-item ${
-        parentMethods.isSelected(item) ? 'react-dropdown-select-item-selected' : ''
-      } ${parentState.cursor === itemIndex ? 'react-dropdown-select-item-active' : ''} ${item.disabled ? 'react-dropdown-select-item-disabled' : ''}`}
-      onClick={item.disabled ? undefined : () => parentMethods.addItem(item)}
-      onKeyPress={item.disabled ? undefined : () => parentMethods.addItem(item)}
-      color={parentProps.color}>
-      {item[parentProps.labelField]} {item.disabled && <ins>disabled</ins>}
+        methods.isSelected(item) ? 'react-dropdown-select-item-selected' : ''
+      } ${state.cursor === itemIndex ? 'react-dropdown-select-item-active' : ''} ${item.disabled ? 'react-dropdown-select-item-disabled' : ''}`}
+      onClick={item.disabled ? undefined : () => methods.addItem(item)}
+      onKeyPress={item.disabled ? undefined : () => methods.addItem(item)}
+      color={props.color}>
+      {item[props.labelField]} {item.disabled && <ins>disabled</ins>}
     </ItemComponent>
   );
 };
-
-Item.propTypes = {};
 
 const ItemComponent = styled.span`
   padding: 5px 10px;

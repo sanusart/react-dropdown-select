@@ -1,14 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const Loading = ({ parentProps }) =>
-  parentProps.loadingRenderer ? (
-    parentProps.loadingRenderer()
+const Loading = ({ props }) =>
+  props.loadingRenderer ? (
+    props.loadingRenderer()
   ) : (
-    <LoadingComponent className="react-dropdown-select-loading" color={parentProps.color} />
+    <LoadingComponent className="react-dropdown-select-loading" color={props.color} />
   );
-
-Loading.propTypes = {};
 
 const LoadingComponent = styled.div`
   @keyframes dual-ring-spin {

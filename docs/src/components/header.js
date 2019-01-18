@@ -1,5 +1,5 @@
 import React from 'react';
-import {version} from '../../../package';
+import { version } from '../../../package';
 import { Link } from 'gatsby';
 
 export default ({ page, title }) =>
@@ -24,7 +24,7 @@ export default ({ page, title }) =>
               <span>v{version}</span>
             </div>
             <h1 className="m0" style={{ fontSize: '3rem', color: '#0074D9' }}>
-              { title }
+              {title}
             </h1>
           </div>
         </div>

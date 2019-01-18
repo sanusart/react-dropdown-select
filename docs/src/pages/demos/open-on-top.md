@@ -1,7 +1,7 @@
 ---
-path: "/prop/open-on-top"
-date: "2017-11-07"
-title: "openOnTop"
+path: '/prop/open-on-top'
+date: '2017-11-07'
+title: 'openOnTop'
 demo: 8z0mw4z4j0
 ---
 

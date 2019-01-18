@@ -1,20 +1,18 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const Clear = ({ parentProps, parentState, parentMethods }) =>
-  parentProps.clearRenderer ? (
-    parentProps.clearRenderer(parentProps, parentState, parentMethods)
+const Clear = ({ props, state, methods }) =>
+  props.clearRenderer ? (
+    props.clearRenderer(props, state, methods)
   ) : (
     <ClearComponent
       className="react-dropdown-select-clear"
       tabIndex="-1"
-      onClick={() => parentMethods.clearAll()}
-      onKeyPress={() => parentMethods.clearAll()}>
+      onClick={() => methods.clearAll()}
+      onKeyPress={() => methods.clearAll()}>
       &times;
     </ClearComponent>
   );
-
-Clear.propTypes = {};
 
 const ClearComponent = styled.div`
   line-height: 25px;

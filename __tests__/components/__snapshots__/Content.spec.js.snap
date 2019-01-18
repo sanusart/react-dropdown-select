@@ -24,6 +24,7 @@ exports[`<Clear/> component <Content/> renders correctly 1`] = `
   <input
     className="react-dropdown-select-input css-1b1okz1-InputComponent e11wid6y0"
     onClick={[Function]}
+    onKeyPress={[Function]}
     placeholder=""
     readOnly={true}
     tabIndex="-1"

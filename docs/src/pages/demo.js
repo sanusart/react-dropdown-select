@@ -37,9 +37,9 @@ export class Demo extends React.Component {
       valueField: 'email',
       color: '#0074D9',
       keepSelectedInList: true,
-			closeOnSelect: false,
-			openOnTop: false,
-			dropdownHeight: '300px'
+      closeOnSelect: false,
+      openOnTop: false,
+      dropdownHeight: '300px'
     };
   }
 
@@ -97,24 +97,24 @@ export class Demo extends React.Component {
           {props.options
             .filter((item) => regexp.test(item[props.searchBy] || item[props.labelField]))
             .map((option) => {
-            	if (!this.state.keepSelectedInList && methods.isSelected(option)) {
-            		return null;
-							}
+              if (!this.state.keepSelectedInList && methods.isSelected(option)) {
+                return null;
+              }
 
-							return (
-								<Item
-									disabled={option.disabled}
-									key={option[props.valueField]}
-									onClick={option.disabled ? null : () => methods.addItem(option)}>
-									<input
-										type="checkbox"
-										onChange={() => methods.addItem(option)}
-										checked={state.values.indexOf(option) !== -1}
-									/>
-									<ItemLabel>{option[props.labelField]}</ItemLabel>
-								</Item>
-							);
-						})}
+              return (
+                <Item
+                  disabled={option.disabled}
+                  key={option[props.valueField]}
+                  onClick={option.disabled ? null : () => methods.addItem(option)}>
+                  <input
+                    type="checkbox"
+                    onChange={() => methods.addItem(option)}
+                    checked={state.values.indexOf(option) !== -1}
+                  />
+                  <ItemLabel>{option[props.labelField]}</ItemLabel>
+                </Item>
+              );
+            })}
         </Items>
       </div>
     );
@@ -154,7 +154,7 @@ export class Demo extends React.Component {
               clearable={this.state.clearable}
               keepOpen={this.state.forceOpen}
               dropdownHandle={this.state.handle}
-							dropdownHeight={this.state.dropdownHeight}
+              dropdownHeight={this.state.dropdownHeight}
               multi={this.state.multi}
               values={[options[0]]}
               labelField={this.state.labelField}
@@ -168,9 +168,9 @@ export class Demo extends React.Component {
               onSelectAll={() => undefined}
               onChange={(values) => this.setValues(values)}
               noDataLabel="No matches found"
-							closeOnSelect={this.state.closeOnSelect}
+              closeOnSelect={this.state.closeOnSelect}
               noDataRenderer={this.state.noDataRenderer ? () => this.noDataRenderer() : undefined}
-							openOnTop={this.state.openOnTop}
+              openOnTop={this.state.openOnTop}
               itemRenderer={
                 this.state.itemRenderer
                   ? (item, itemIndex, props, state, methods) =>
@@ -225,17 +225,17 @@ export class Demo extends React.Component {
             }
           />{' '}
           Disabled
-					<br />
-					<input
-						type="checkbox"
-						checked={this.state.openOnTop}
-						onChange={() =>
-							this.setState({
-								openOnTop: !this.state.openOnTop
-							})
-						}
-					/>{' '}
-					Open on top of select
+          <br />
+          <input
+            type="checkbox"
+            checked={this.state.openOnTop}
+            onChange={() =>
+              this.setState({
+                openOnTop: !this.state.openOnTop
+              })
+            }
+          />{' '}
+          Open on top of select
           <br />
           <input
             type="checkbox"
@@ -291,16 +291,18 @@ export class Demo extends React.Component {
             }
           />{' '}
           Stay open
-					<br />
-					Dropdown Height: <input
-						type="text" checked={this.state.dropdownHeight}
-						value={this.state.dropdownHeight}
-						onChange={(event) =>
-							this.setState({
-								dropdownHeight: event.target.value
-							})
-						}
-					/>
+          <br />
+          Dropdown Height:{' '}
+          <input
+            type="text"
+            checked={this.state.dropdownHeight}
+            value={this.state.dropdownHeight}
+            onChange={(event) =>
+              this.setState({
+                dropdownHeight: event.target.value
+              })
+            }
+          />
           <br />
           <input
             type="checkbox"
@@ -345,17 +347,17 @@ export class Demo extends React.Component {
             }
           />{' '}
           Keep selected item in a list
-					<br />
-					<input
-						type="checkbox"
-						checked={this.state.closeOnSelect}
-						onChange={() =>
-							this.setState({
-								closeOnSelect: !this.state.closeOnSelect
-							})
-						}
-					/>{' '}
-					Close dropdown on select/deselect
+          <br />
+          <input
+            type="checkbox"
+            checked={this.state.closeOnSelect}
+            onChange={() =>
+              this.setState({
+                closeOnSelect: !this.state.closeOnSelect
+              })
+            }
+          />{' '}
+          Close dropdown on select/deselect
           <br />
           <input
             type="color"
@@ -414,7 +416,7 @@ export class Demo extends React.Component {
 
         <details>
           <summary>Selected values:</summary>
-        <pre>{JSON.stringify(this.state.selectValues, false, 2)}</pre>
+          <pre>{JSON.stringify(this.state.selectValues, false, 2)}</pre>
         </details>
       </div>
     );
@@ -422,7 +424,9 @@ export class Demo extends React.Component {
 }
 
 const StyledSelect = styled(Select)`
-	${({ dropdownRenderer }) => dropdownRenderer && `
+  ${({ dropdownRenderer }) =>
+    dropdownRenderer &&
+    `
 		.react-dropdown-select-dropdown {
 			overflow: initial;
 		}
@@ -458,9 +462,9 @@ const Item = styled.div`
   align-items: baseline;
   cursor: pointer;
   border-bottom: 1px dotted transparent;
-  
+
   :hover {
-  	border-bottom: 1px dotted #ccc;
+    border-bottom: 1px dotted #ccc;
   }
 
   ${({ disabled }) =>

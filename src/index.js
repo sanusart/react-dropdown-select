@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
@@ -11,29 +11,9 @@ import Clear from './components/Clear';
 import Separator from './components/Separator';
 import DropdownHandle from './components/DropdownHandle';
 
-export const hexToRGBA = (hex, alpha) => {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
+import { debounce, hexToRGBA } from './util';
 
-  return `rgba(${r}, ${g}, ${b}${alpha && `, ${alpha}`})`;
-};
-
-const debounce = (fn, delay = 0) => {
-  let timerId;
-
-  return (...args) => {
-    if (timerId) {
-      clearTimeout(timerId);
-    }
-    timerId = setTimeout(() => {
-      fn(...args);
-      timerId = null;
-    }, delay);
-  };
-};
-
-export class Select extends React.Component {
+export class Select extends Component {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
     onDropdownClose: PropTypes.func,
@@ -96,7 +76,8 @@ export class Select extends React.Component {
       getSelectBounds: this.getSelectBounds,
       areAllSelected: this.areAllSelected,
       handleKeyDown: this.handleKeyDown,
-      activeCursorItem: this.activeCursorItem
+      activeCursorItem: this.activeCursorItem,
+      createNew: this.createNew
     };
 
     this.select = React.createRef();
@@ -337,12 +318,23 @@ export class Select extends React.Component {
   renderDropdown = () =>
     this.props.portal ? (
       ReactDOM.createPortal(
-        <Dropdown parentProps={this.props} parentState={this.state} parentMethods={this.methods} />,
+        <Dropdown props={this.props} state={this.state} methods={this.methods} />,
         this.dropdownRoot
       )
     ) : (
-      <Dropdown parentProps={this.props} parentState={this.state} parentMethods={this.methods} />
+      <Dropdown props={this.props} state={this.state} methods={this.methods} />
     );
+
+  createNew = (item) => {
+    const newValue = {
+      [this.props.labelField]: item,
+      [this.props.valueField]: item
+    };
+
+    this.addItem(newValue);
+    this.props.onCreateNew(newValue);
+    this.setState({ search: '' });
+  };
 
   render() {
     return (
@@ -355,28 +347,24 @@ export class Select extends React.Component {
           disabled={this.props.disabled}
           className={`react-dropdown-select ${this.props.className}`}
           color={this.props.color}>
-          <Content parentProps={this.props} parentState={this.state} parentMethods={this.methods} />
+          <Content props={this.props} state={this.state} methods={this.methods} />
 
-          {this.props.loading && <Loading parentProps={this.props} />}
+          {this.props.loading && <Loading props={this.props} />}
 
           {this.props.clearable && (
-            <Clear parentProps={this.props} parentState={this.state} parentMethods={this.methods} />
+            <Clear props={this.props} state={this.state} methods={this.methods} />
           )}
 
           {this.props.separator && (
-            <Separator
-              parentProps={this.props}
-              parentState={this.state}
-              parentMethods={this.methods}
-            />
+            <Separator props={this.props} state={this.state} methods={this.methods} />
           )}
 
           {this.props.dropdownHandle && (
             <DropdownHandle
               onCLick={() => this.select.current.focus()}
-              parentProps={this.props}
-              parentState={this.state}
-              parentMethods={this.methods}
+              props={this.props}
+              state={this.state}
+              methods={this.methods}
             />
           )}
 
@@ -413,10 +401,13 @@ Select.defaultProps = {
   dropdownHeight: '300px',
   autoFocus: true,
   portal: null,
+  create: false,
+  createNewLabel: 'add {search}',
   onDropdownOpen: () => undefined,
   onDropdownClose: () => undefined,
   onClearAll: () => undefined,
-  onSelectAll: () => undefined
+  onSelectAll: () => undefined,
+  onCreateNew: () => undefined
 };
 
 const ReactDropdownSelect = styled.div`

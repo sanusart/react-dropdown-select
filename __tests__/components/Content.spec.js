@@ -7,16 +7,16 @@ import { options } from '../options';
 let spy;
 
 const props = (props = {}) => ({
-  parentProps: {
+  props: {
     contentRenderer: null,
     multi: true,
     labelField: 'name'
   },
-  parentState: {
+  state: {
     search: '',
     values: [options[0]]
   },
-  parentMethods: {
+  methods: {
     dropDown: () => undefined,
     getInputSize: () => undefined,
   },

@@ -37,20 +37,17 @@ const Home = () => (
   onChange={(values) => this.onChange(values)}
 />`}
           </pre>
-
         </Inner>
       </Side>
       <Side className="sm-col-12 md-col-6 p1 overflow-auto">
-
         <Nav className="sm-col-12 md-col-6 fixed top-0 right-0 p2 white bg-white">
-          <Navigation/>
+          <Navigation />
         </Nav>
 
         <Inner className="col-11 lg-col-8 px1 mx-auto">
           <h1 className="center">Demo</h1>
           <Demo />
         </Inner>
-
       </Side>
     </div>
   </Wrapper>

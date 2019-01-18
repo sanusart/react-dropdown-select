@@ -4,36 +4,36 @@ import styled from '@emotion/styled';
 import Option from './Option';
 import Input from './Input';
 
-const Content = ({ parentProps, parentState, parentMethods }) => {
+const Content = ({ props, state, methods }) => {
   return (
     <ContentComponent
       className={`react-dropdown-select-content ${
-        parentProps.multi ? 'react-dropdown-select-type-multi' : 'react-dropdown-select-type-single'
+        props.multi ? 'react-dropdown-select-type-multi' : 'react-dropdown-select-type-single'
       }`}
-      onClick={() => parentMethods.dropDown('open')}>
-      {parentProps.contentRenderer ? (
-        parentProps.contentRenderer(parentProps, parentState, parentMethods)
+      onClick={() => methods.dropDown('open')}>
+      {props.contentRenderer ? (
+        props.contentRenderer(props, state, methods)
       ) : (
         <React.Fragment>
-          {parentProps.multi
-            ? parentState.values &&
-              parentState.values.map((item) => (
+          {props.multi
+            ? state.values &&
+              state.values.map((item) => (
                 <Option
-                  key={`${item[parentProps.valueField]}${item[parentProps.labelField]}`}
+                  key={`${item[props.valueField]}${item[props.labelField]}`}
                   parentItem={item}
-                  parentState={parentState}
-                  parentProps={parentProps}
-                  parentMethods={parentMethods}
+                  state={state}
+                  props={props}
+                  methods={methods}
                 />
               ))
-            : parentState.values &&
-              parentState.values.length > 0 && (
-                <span>{parentState.values[0][parentProps.labelField]}</span>
+            : state.values &&
+              state.values.length > 0 && (
+                <span>{state.values[0][props.labelField]}</span>
               )}
           <Input
-            parentProps={parentProps}
-            parentMethods={parentMethods}
-            parentState={parentState}
+            props={props}
+            methods={methods}
+            state={state}
           />
         </React.Fragment>
       )}
@@ -46,7 +46,5 @@ const ContentComponent = styled.div`
   flex: 1;
   flex-wrap: wrap;
 `;
-
-Content.propTypes = {};
 
 export default Content;

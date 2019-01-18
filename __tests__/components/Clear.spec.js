@@ -7,10 +7,10 @@ import { options } from '../options';
 let spy;
 
 const props = (props = {}) => ({
-  parentProps: {
+  props: {
     clearRenderer: null
   },
-  parentMethods: {
+  methods: {
     clearAll: () => undefined
   },
   ...props

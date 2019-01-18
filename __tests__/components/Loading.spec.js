@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import Loading from '../../src/components/Loading';
 
 const props = {
-  parentProps: {
+  props: {
     loadingRenderer: null
   }
 };

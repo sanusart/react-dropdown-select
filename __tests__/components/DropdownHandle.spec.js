@@ -6,13 +6,13 @@ import DropdownHandle from '../../src/components/DropdownHandle';
 let spy;
 
 const props = (props = {}) => ({
-  parentProps: {
+  props: {
     dropdownHandleRenderer: null
   },
-  parentState: {
+  state: {
     dropdown: false
   },
-  parentMethods: {
+  methods: {
     dropDown: () => undefined
   },
   ...props

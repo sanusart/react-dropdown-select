@@ -1,14 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const NoData = ({ parentProps, parentState, parentMethods }) =>
-  parentProps.noDataRenderer ? (
-    parentProps.noDataRenderer(parentProps, parentState, parentMethods)
+const NoData = ({ props, state, methods }) =>
+  props.noDataRenderer ? (
+    props.noDataRenderer(props, state, methods)
   ) : (
-    <NoDataComponent color={parentProps.color}>{parentProps.noDataLabel}</NoDataComponent>
+    <NoDataComponent color={props.color}>{props.noDataLabel}</NoDataComponent>
   );
-
-NoData.propTypes = {};
 
 const NoDataComponent = styled.div`
   padding: 10px;

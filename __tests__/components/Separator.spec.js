@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import Separator from '../../src/components/Separator';
 
 const props = {
-  parentProps: {
+  props: {
     separatorRenderer: null
   }
 };

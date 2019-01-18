@@ -1,17 +1,21 @@
 import React from 'react';
 import styled from '@emotion/styled';
-
 import Select from '../../../src';
 
-const Basic = ({ options, title }) => (
+const CreateEntries = ({ options, title }) => (
   <React.Fragment>
     <Title>
       <h2>{title}</h2>
-      <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/Basic.js">
+      <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/CreateEntries.js">
         Source
       </a>
     </Title>
+
+    <p>Type search and hit `Return` key</p>
     <Select
+      multi
+      create
+      onCreateNew={(item) => console.log('%c New item created ', 'background: #555; color: tomato', item)}
       options={options}
       values={[]}
       onChange={(value) =>
@@ -21,7 +25,7 @@ const Basic = ({ options, title }) => (
   </React.Fragment>
 );
 
-Basic.propTypes = {};
+CreateEntries.propTypes = {};
 
 const Title = styled.div`
   display: flex;
@@ -29,4 +33,4 @@ const Title = styled.div`
   align-items: baseline;
 `;
 
-export default Basic;
+export default CreateEntries;

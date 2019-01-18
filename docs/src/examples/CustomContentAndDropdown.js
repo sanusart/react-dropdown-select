@@ -54,7 +54,7 @@ export class CustomContentAndDropdown extends React.Component {
                   onClick={option.disabled ? null : () => methods.addItem(option)}>
                   <input
                     type="checkbox"
-                    onChange={() => methods.addItem(option)}
+                    onChange={option.disabled ? null : () => methods.addItem(option)}
                     checked={state.values.indexOf(option) !== -1}
                   />
                   <ItemLabel>{option[props.labelField]}</ItemLabel>
@@ -70,8 +70,10 @@ export class CustomContentAndDropdown extends React.Component {
     return (
       <div>
         <Title>
-        <h2>{this.props.title}</h2>
-          <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/CustomContentAndDropdown.js">Source</a>
+          <h2>{this.props.title}</h2>
+          <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/CustomContentAndDropdown.js">
+            Source
+          </a>
         </Title>
         <StyledSelect
           placeholder="Select"
@@ -132,7 +134,7 @@ const Item = styled.div`
   display: flex;
   margin: 10px;
   align-items: baseline;
-  ${({disabled}) => disabled && 'text-decoration: line-through;'}
+  ${({ disabled }) => disabled && 'text-decoration: line-through;'}
 `;
 
 const ItemLabel = styled.div`

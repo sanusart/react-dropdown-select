@@ -16,12 +16,13 @@ import Multi from '../examples/Multi';
 import OpenOnTop from '../examples/OpenOnTop';
 import Styled from '../examples/Styled';
 import ItemRenderer from '../examples/ItemRenderer';
+import CreateEntries from '../examples/CreateEntries';
 import CustomContentAndDropdown from '../examples/CustomContentAndDropdown';
 
 const demoOptions = options.map((option) => ({
   ...option,
   label: option.name,
-  value: option.email,
+  value: option.email
 }));
 
 const Examples = () => (
@@ -29,43 +30,53 @@ const Examples = () => (
     <Header page="examples" title="Examples" />
 
     <Wrapper>
-      <Basic options={demoOptions} title="Basic"/>
+      <Basic options={demoOptions} title="Basic" />
     </Wrapper>
 
     <Wrapper>
-      <Multi options={demoOptions} title="Multi"/>
+      <Multi options={demoOptions} title="Multi" />
     </Wrapper>
 
     <Wrapper>
-      <OpenOnTop options={demoOptions} title="Open on top"/>
+      <OpenOnTop options={demoOptions} title="Open on top" />
     </Wrapper>
 
     <Wrapper>
-      <Styled options={demoOptions} title="Styled"/>
+      <Styled options={demoOptions} title="Styled" />
     </Wrapper>
 
     <Wrapper>
-      <ItemRenderer options={demoOptions} title="Item custom renderer"/>
+      <ItemRenderer options={demoOptions} title="Item custom renderer" />
     </Wrapper>
 
     <Wrapper>
-      <CustomContentAndDropdown options={demoOptions} title="Custom Content And Dropdown renderers"/>
+      <CustomContentAndDropdown
+        options={demoOptions}
+        title="Custom Content And Dropdown renderers"
+      />
     </Wrapper>
 
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+    <Wrapper>
+      <CreateEntries
+        options={demoOptions}
+        title="Create new Entries"
+      />
+    </Wrapper>
 
-    <Footer/>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <Footer />
   </div>
 );
 
@@ -74,7 +85,7 @@ Examples.propTypes = {};
 const Wrapper = styled.div`
   max-width: 500px;
   margin: 0 auto;
-  
+
   h2 {
     font-weight: 300;
   }

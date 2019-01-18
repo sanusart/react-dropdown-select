@@ -1,27 +1,25 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const Option = ({ parentItem, parentProps, parentState, parentMethods }) =>
-  parentItem && parentProps.optionRenderer ? (
-    parentProps.optionRenderer(parentItem, parentProps, parentState, parentMethods)
+const Option = ({ parentItem, props, state, methods }) =>
+  parentItem && props.optionRenderer ? (
+    props.optionRenderer(parentItem, props, state, methods)
   ) : (
     <OptionComponent
       role="listitem"
-      disabled={parentProps.disabled}
+      disabled={props.disabled}
       className="react-dropdown-select-option"
-      color={parentProps.color}>
+      color={props.color}>
       <span className="react-dropdown-select-option-label">
-        {parentItem[parentProps.labelField]}
+        {parentItem[props.labelField]}
       </span>
       <span
         className="react-dropdown-select-option-remove"
-        onClick={(event) => parentMethods.removeItem(event, parentItem, parentProps.closeOnSelect)}>
+        onClick={(event) => methods.removeItem(event, parentItem, props.closeOnSelect)}>
         &times;
       </span>
     </OptionComponent>
   );
-
-Option.propTypes = {};
 
 const OptionComponent = styled.span`
   padding: 0 5px;

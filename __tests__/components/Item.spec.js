@@ -6,13 +6,13 @@ import { options } from '../options';
 let spy;
 
 const props = (props = {}) => ({
-  parentProps: {
+  props: {
     itemRenderer: null
   },
-  parentState: {
+  state: {
     cursor: 0
   },
-  parentMethods: {
+  methods: {
     isSelected: () => undefined,
     addItem: () => undefined
   },

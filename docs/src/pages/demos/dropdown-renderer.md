@@ -1,11 +1,11 @@
 ---
-path: "/prop/dropdown-renderer"
-date: "2017-11-07"
-title: "dropdownRenderer"
+path: '/prop/dropdown-renderer'
+date: '2017-11-07'
+title: 'dropdownRenderer'
 demo: 5k0y843684
-innerProps: true 
-innerState: true 
-innerMethods: true 
+innerProps: true
+innerState: true
+innerMethods: true
 ---
 
 Override default dropdown

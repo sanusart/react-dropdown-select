@@ -5,13 +5,13 @@ import Input from '../../src/components/Input';
 import { options } from '../options';
 
 const props = {
-  parentProps: {
+  props: {
     inputRenderer: null
   },
-  parentState: {
+  state: {
     values: options
   },
-  parentMethods: {
+  methods: {
     getInputSize: () => undefined
   }
 };

@@ -5,8 +5,10 @@ import Select from '../../../src';
 const ItemRenderer = ({ options, title }) => (
   <React.Fragment>
     <Title>
-    <h2>{title}</h2>
-      <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/ItemRenderer.js">Source</a>
+      <h2>{title}</h2>
+      <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/ItemRenderer.js">
+        Source
+      </a>
     </Title>
     <Select
       multi
@@ -14,7 +16,9 @@ const ItemRenderer = ({ options, title }) => (
       values={[]}
       itemRenderer={(item, itemIndex, props, state, methods) => (
         <StyledItem>
-          {item.disabled ? <div aria-disabled>{item.label}</div> : (
+          {item.disabled ? (
+            <div aria-disabled>{item.label}</div>
+          ) : (
             <div onClick={() => methods.addItem(item)}>
               <input type="checkbox" checked={methods.isSelected(item)} /> {item.label}
             </div>

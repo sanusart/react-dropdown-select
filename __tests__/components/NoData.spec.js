@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import NoData from '../../src/components/NoData';
 
 const props = {
-  parentProps: {
+  props: {
     noDataRenderer: null
   }
 };

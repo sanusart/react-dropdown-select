@@ -4,13 +4,13 @@ import renderer from 'react-test-renderer';
 import Dropdown from '../../src/components/Dropdown';
 
 const props = {
-  parentProps: {
+  props: {
     dropdownRenderer: null,
   },
-  parentState: {
+  state: {
     selectBounds: {}
   },
-  parentMethods: {
+  methods: {
     searchResults: () => []
   }
 };
