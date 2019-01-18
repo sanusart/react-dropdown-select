@@ -2,14 +2,14 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: path.join(__dirname, "src/index.js"),
+  entry: path.join(__dirname, 'src/index.js'),
   output: {
-    path: path.join(__dirname, "dist"),
+    path: path.join(__dirname, 'dist'),
     library: 'react-dropdown-select',
     libraryTarget: 'umd',
     publicPath: path.resolve(__dirname, 'dist'),
     umdNamedDefine: true,
-    filename: "react-dropdown-select.js"
+    filename: 'react-dropdown-select.js'
   },
   optimization: {
     concatenateModules: true
@@ -35,9 +35,10 @@ module.exports = {
     }
   },
   bail: true,
+  mode: 'production',
   resolve: {
     modules: [path.resolve(__dirname, './src'), 'node_modules'],
-    extensions: [".js"]
+    extensions: ['.js']
   },
   module: {
     rules: [

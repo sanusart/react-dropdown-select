@@ -38,7 +38,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.5",
-    "babel-plugin-emotion": "^10.0.5",
+    "babel-plugin-emotion": "^10.0.6",
     "babel-plugin-transform-dynamic-import": "^2.1.0",
     "babel-preset-minify": "^0.5.0",
     "coveralls": "^3.0.2",
@@ -52,14 +52,13 @@
     "react-dom": "^16.7.0",
     "react-test-renderer": "^16.7.0",
     "style-loader": "^0.23.1",
-    "webpack": "^4.28.3",
-    "webpack-cli": "^3.2.0",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.5",
-    "@emotion/styled": "^10.0.5",
-    "normalize.css": "^8.0.1",
+    "@emotion/core": "^10.0.6",
+    "@emotion/styled": "^10.0.6",
     "react-onclickout": "^2.0.8"
   },
   "jest": {
@@ -83,5 +82,10 @@
       "!coverage/**"
     ]
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "browserslist": [
+    "last 1 version",
+    "not dead",
+    "> 0.2%"
+  ]
 }
