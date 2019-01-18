@@ -24,17 +24,6 @@ exports[`<Select/> renders correctly 1`] = `
     />
   </div>
   <div
-    className="react-dropdown-select-clear css-x3l5ce-ClearComponent e11qlq5e0"
-    onClick={[Function]}
-    onKeyPress={[Function]}
-    tabIndex="-1"
-  >
-    ×
-  </div>
-  <div
-    className="react-dropdown-select-separator css-vxbae9-SeparatorComponent e19h5j1v0"
-  />
-  <div
     className="react-dropdown-select-dropdown-handle css-1jmeyq5-DropdownHandleComponent e1vudypg0"
     color="#0074D9"
     onClick={[Function]}
