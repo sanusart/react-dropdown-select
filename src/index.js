@@ -266,7 +266,10 @@ export class Select extends Component {
     });
   };
 
-  isSelected = (option) => this.state.values.indexOf(option) !== -1;
+  isSelected = (option) =>
+    !!this.state.values.find(
+      (value) => value[this.props.valueField] === option[this.props.valueField]
+    );
 
   areAllSelected = () =>
     this.state.values.length === this.props.options.filter((option) => !option.disabled).length;
