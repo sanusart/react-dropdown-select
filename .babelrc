@@ -7,7 +7,13 @@
     "transform-dynamic-import"  ],
   "presets": [
     "minify",
-    "@babel/preset-env",
+		[
+			"@babel/preset-env",
+			{
+				"loose": true,
+				"modules": "cjs"
+			}
+		],
     "@babel/preset-react"
   ]
 }

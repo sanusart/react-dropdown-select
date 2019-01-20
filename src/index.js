@@ -58,7 +58,7 @@ export class Select extends Component {
       values: props.values,
       search: '',
       selectBounds: {},
-      cursor: 0
+      cursor: null
     };
 
     this.methods = {
@@ -135,7 +135,7 @@ export class Select extends Component {
   }
 
   onDropdownClose = () => {
-    this.setState({ cursor: 0 });
+    this.setState({ cursor: null });
     this.props.onDropdownClose();
   };
 
@@ -288,11 +288,17 @@ export class Select extends Component {
     });
 
   handleKeyDown = (event) => {
+    const { cursor } = this.state;
+
+    if (event.key === 'ArrowDown' && cursor === null) {
+      return this.setState({
+        cursor: 0
+      });
+    }
+
     if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
       event.preventDefault();
     }
-
-    const { cursor } = this.state;
 
     if (event.key === 'Escape') {
       this.dropDown('close');

@@ -9,7 +9,7 @@ import '../demo-styles.css';
 
 import '../styles.css';
 
-import Select from '../../../src/index';
+import Select from '../../../dist/react-dropdown-select';
 
 import { options } from '../options';
 
@@ -29,8 +29,8 @@ export class Demo extends React.Component {
       noDataRenderer: false,
       selectValues: [],
       searchBy: 'username',
-      clearable: true,
-      separator: true,
+      clearable: false,
+      separator: false,
       forceOpen: false,
       handle: true,
       labelField: 'username',
