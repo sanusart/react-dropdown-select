@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from '../components/header';
-import Footer from '../components/footer';
 
 import styled from '@emotion/styled';
 
@@ -9,7 +7,7 @@ import '../demo-styles.css';
 
 import '../styles.css';
 
-import Select from '../../../dist/react-dropdown-select';
+import Select from '../../../src/index';
 
 import { options } from '../options';
 

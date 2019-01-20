@@ -27,7 +27,7 @@ const Input = ({ props, state, methods }) => {
     event.key === 'Enter' &&
     !valueExistInSelected(state.search, state.values) &&
     state.search &&
-    state.cursor === null &&  
+    state.cursor === null &&
     methods.createNew(state.search);
 
   return props.inputRenderer ? (
