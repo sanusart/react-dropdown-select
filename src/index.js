@@ -35,6 +35,7 @@ export class Select extends Component {
     separator: PropTypes.bool,
     dropdownHandle: PropTypes.bool,
     searchBy: PropTypes.string,
+    sortBy: PropTypes.string,
     closeOnScroll: PropTypes.bool,
     openOnTop: PropTypes.bool,
     style: PropTypes.object,
@@ -274,10 +275,52 @@ export class Select extends Component {
   areAllSelected = () =>
     this.state.values.length === this.props.options.filter((option) => !option.disabled).length;
 
-  searchResults = () => {
-    const regexp = new RegExp(this.state.search, 'i');
+  safeString = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-    return this.props.options.filter((item) =>
+  sortBy = (options) => {
+    const { sortBy, labelField } = this.props;
+
+    if (!sortBy) {
+      return options;
+    }
+
+    return options.sort((a, b) => {
+      let fieldA;
+      let fieldB;
+
+      const sortA = a[sortBy];
+      const sortB = b[sortBy];
+
+      if (a[sortBy] === undefined || sortB === undefined) {
+        return options;
+      }
+
+      if (sortA && typeof sortA === 'number') {
+        fieldA = a[sortA ? sortBy : labelField];
+        fieldB = b[sortB ? sortBy : labelField];
+
+        return fieldA - fieldB;
+      }
+
+      fieldA = String(a[sortA ? sortBy : labelField]).toLowerCase();
+      fieldB = String(b[sortB ? sortBy : labelField]).toLowerCase();
+
+      if (fieldA < fieldB) {
+        return -1;
+      }
+
+      if (fieldA > fieldB) {
+        return 1;
+      }
+
+      return 0;
+    });
+  };
+
+  searchResults = () => {
+    const regexp = new RegExp(this.safeString(this.state.search), 'i');
+
+    return this.sortBy(this.props.options).filter((item) =>
       regexp.test(item[this.props.searchBy] || item[[this.props.labelField]])
     );
   };
@@ -392,12 +435,15 @@ Select.defaultProps = {
   multi: false,
   disabled: false,
   searchBy: 'label',
+  sortBy: null,
   clearable: false,
   searchable: true,
   dropdownHandle: true,
   separator: false,
   keepOpen: undefined,
   noDataLabel: 'No data',
+  createNewLabel: 'add {search}',
+  disabledLabel: 'disabled',
   dropdownGap: 5,
   closeOnScroll: false,
   debounceDelay: 0,
@@ -411,7 +457,7 @@ Select.defaultProps = {
   autoFocus: true,
   portal: null,
   create: false,
-  createNewLabel: 'add {search}',
+  onChange: () => undefined,
   onDropdownOpen: () => undefined,
   onDropdownClose: () => undefined,
   onClearAll: () => undefined,
@@ -437,7 +483,8 @@ const ReactDropdownSelect = styled.div`
     border-color: ${({ color }) => color};
   }
 
-  :focus {
+  :focus,
+  :focus-within {
     outline: 0;
     box-shadow: 0 0 0 3px ${({ color }) => hexToRGBA(color, 0.2)};
   }

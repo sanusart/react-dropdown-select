@@ -26,7 +26,7 @@ const Item = ({ props, state, methods, item, itemIndex }) => {
       onClick={item.disabled ? undefined : () => methods.addItem(item)}
       onKeyPress={item.disabled ? undefined : () => methods.addItem(item)}
       color={props.color}>
-      {item[props.labelField]} {item.disabled && <ins>disabled</ins>}
+      {item[props.labelField]} {item.disabled && <ins>{props.disabledLabel}</ins>}
     </ItemComponent>
   );
 };

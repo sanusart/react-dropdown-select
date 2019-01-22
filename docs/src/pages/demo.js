@@ -154,7 +154,7 @@ export class Demo extends React.Component {
               dropdownHandle={this.state.handle}
               dropdownHeight={this.state.dropdownHeight}
               multi={this.state.multi}
-              values={[options[0]]}
+              values={[options.find(opt => opt.username === 'Bret')]}
               labelField={this.state.labelField}
               valueField={this.state.valueField}
               options={options}

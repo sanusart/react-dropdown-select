@@ -23,7 +23,6 @@ export const options = [
     }
   },
   {
-    disabled: true,
     id: 2,
     name: 'Ervin Howell',
     username: 'Antonette',
@@ -139,6 +138,7 @@ export const options = [
     }
   },
   {
+    disabled: true,
     id: 7,
     name: 'Kurtis Weissnat',
     username: 'Elwyn.Skiles',
