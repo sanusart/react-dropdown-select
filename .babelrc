@@ -1,17 +1,14 @@
 {
   "plugins": [
     "emotion",
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-syntax-dynamic-import",
-    "transform-dynamic-import"  ],
+    "@babel/plugin-proposal-class-properties"
+	],
   "presets": [
     "minify",
 		[
 			"@babel/preset-env",
 			{
-				"loose": true,
-				"modules": "cjs"
+				"loose": true
 			}
 		],
     "@babel/preset-react"
