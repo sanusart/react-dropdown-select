@@ -2,10 +2,10 @@
 
 Customisable dropdown select for react
 
-![](https://badgen.net/bundlephobia/minzip/react-dropdown-select)
-![](https://img.shields.io/npm/v/react-dropdown-select.svg)
+[![](https://badgen.net/bundlephobia/minzip/react-dropdown-select)](https://bundlephobia.com/result?p=react-dropdown-select)
+[![](https://img.shields.io/npm/v/react-dropdown-select.svg)](https://www.npmjs.com/package/react-dropdown-select)
 [![Coverage Status](https://coveralls.io/repos/github/sanusart/react-dropdown-select/badge.svg?branch=master&service=github)](https://coveralls.io/github/sanusart/react-dropdown-select?branch=master)
-[![Build Status](https://travis-ci.org/Gisto/Gisto.svg?branch=master)](https://travis-ci.org/Gisto/Gisto)
+[![Build Status](https://travis-ci.org/sanusart/react-dropdown-select.svg?branch=master)](https://travis-ci.org/sanusart/react-dropdown-select)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2a68db3684044b4cb0900f0ef4550a46)](https://www.codacy.com/app/sanusart/react-dropdown-select?utm_source=github.com&utm_medium=referral&utm_content=sanusart/react-dropdown-select&utm_campaign=Badge_Grade)
 
 ### Features
