@@ -401,6 +401,8 @@ export class Select extends Component {
           color={this.props.color}>
           <Content props={this.props} state={this.state} methods={this.methods} />
 
+          {this.props.name && <input name={this.props.name} type="hidden" value={this.props.values} />}
+
           {this.props.loading && <Loading props={this.props} />}
 
           {this.props.clearable && (
@@ -413,7 +415,7 @@ export class Select extends Component {
 
           {this.props.dropdownHandle && (
             <DropdownHandle
-              onCLick={() => this.select.current.focus()}
+              onClick={() => this.select.current.focus()}
               props={this.props}
               state={this.state}
               methods={this.methods}
@@ -457,6 +459,7 @@ Select.defaultProps = {
   autoFocus: true,
   portal: null,
   create: false,
+  name: null,
   onChange: () => undefined,
   onDropdownOpen: () => undefined,
   onDropdownClose: () => undefined,

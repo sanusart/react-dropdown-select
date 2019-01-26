@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Select/> renders correctly 1`] = `
+exports[`<Select/> component <Select/> renders correctly 1`] = `
 <div
   className="react-dropdown-select undefined css-1tjkwe0-ReactDropdownSelect e1gzf2xs0"
   color="#0074D9"
@@ -24,6 +24,202 @@ exports[`<Select/> renders correctly 1`] = `
       value=""
     />
   </div>
+  <div
+    className="react-dropdown-select-dropdown-handle css-1jmeyq5-DropdownHandleComponent e1vudypg0"
+    color="#0074D9"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    tabIndex="-1"
+  >
+    <svg
+      fill="currentColor"
+      viewBox="0 0 40 40"
+    >
+      <path
+        d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`<Select/> component <Select/> renders with clearable 1`] = `
+<div
+  className="react-dropdown-select undefined css-1tjkwe0-ReactDropdownSelect e1gzf2xs0"
+  color="#0074D9"
+  disabled={false}
+  onKeyDown={[Function]}
+  tabIndex="0"
+>
+  <div
+    className="react-dropdown-select-content react-dropdown-select-type-single css-jznujr-ContentComponent e1gn6jc30"
+    onClick={[Function]}
+  >
+    <input
+      className="react-dropdown-select-input css-1jou9m2-InputComponent e11wid6y0"
+      onChange={[Function]}
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      placeholder="Select..."
+      readOnly={false}
+      size={9}
+      tabIndex="-1"
+      value=""
+    />
+  </div>
+  <div
+    className="react-dropdown-select-clear css-x3l5ce-ClearComponent e11qlq5e0"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    tabIndex="-1"
+  >
+    ×
+  </div>
+  <div
+    className="react-dropdown-select-dropdown-handle css-1jmeyq5-DropdownHandleComponent e1vudypg0"
+    color="#0074D9"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    tabIndex="-1"
+  >
+    <svg
+      fill="currentColor"
+      viewBox="0 0 40 40"
+    >
+      <path
+        d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`<Select/> component <Select/> renders with loading 1`] = `
+<div
+  className="react-dropdown-select undefined css-1tjkwe0-ReactDropdownSelect e1gzf2xs0"
+  color="#0074D9"
+  disabled={false}
+  onKeyDown={[Function]}
+  tabIndex="0"
+>
+  <div
+    className="react-dropdown-select-content react-dropdown-select-type-single css-jznujr-ContentComponent e1gn6jc30"
+    onClick={[Function]}
+  >
+    <input
+      className="react-dropdown-select-input css-1jou9m2-InputComponent e11wid6y0"
+      onChange={[Function]}
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      placeholder="Select..."
+      readOnly={false}
+      size={9}
+      tabIndex="-1"
+      value=""
+    />
+  </div>
+  <div
+    className="react-dropdown-select-loading css-1smx3n3-LoadingComponent e1l5cpc30"
+    color="#0074D9"
+  />
+  <div
+    className="react-dropdown-select-dropdown-handle css-1jmeyq5-DropdownHandleComponent e1vudypg0"
+    color="#0074D9"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    tabIndex="-1"
+  >
+    <svg
+      fill="currentColor"
+      viewBox="0 0 40 40"
+    >
+      <path
+        d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`<Select/> component <Select/> renders with name 1`] = `
+<div
+  className="react-dropdown-select undefined css-1tjkwe0-ReactDropdownSelect e1gzf2xs0"
+  color="#0074D9"
+  disabled={false}
+  onKeyDown={[Function]}
+  tabIndex="0"
+>
+  <div
+    className="react-dropdown-select-content react-dropdown-select-type-single css-jznujr-ContentComponent e1gn6jc30"
+    onClick={[Function]}
+  >
+    <input
+      className="react-dropdown-select-input css-1jou9m2-InputComponent e11wid6y0"
+      onChange={[Function]}
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      placeholder="Select..."
+      readOnly={false}
+      size={9}
+      tabIndex="-1"
+      value=""
+    />
+  </div>
+  <input
+    name="form-select"
+    type="hidden"
+    value={Array []}
+  />
+  <div
+    className="react-dropdown-select-dropdown-handle css-1jmeyq5-DropdownHandleComponent e1vudypg0"
+    color="#0074D9"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    tabIndex="-1"
+  >
+    <svg
+      fill="currentColor"
+      viewBox="0 0 40 40"
+    >
+      <path
+        d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`<Select/> component <Select/> renders with separator 1`] = `
+<div
+  className="react-dropdown-select undefined css-1tjkwe0-ReactDropdownSelect e1gzf2xs0"
+  color="#0074D9"
+  disabled={false}
+  onKeyDown={[Function]}
+  tabIndex="0"
+>
+  <div
+    className="react-dropdown-select-content react-dropdown-select-type-single css-jznujr-ContentComponent e1gn6jc30"
+    onClick={[Function]}
+  >
+    <input
+      className="react-dropdown-select-input css-1jou9m2-InputComponent e11wid6y0"
+      onChange={[Function]}
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      placeholder="Select..."
+      readOnly={false}
+      size={9}
+      tabIndex="-1"
+      value=""
+    />
+  </div>
+  <div
+    className="react-dropdown-select-separator css-vxbae9-SeparatorComponent e19h5j1v0"
+  />
   <div
     className="react-dropdown-select-dropdown-handle css-1jmeyq5-DropdownHandleComponent e1vudypg0"
     color="#0074D9"
