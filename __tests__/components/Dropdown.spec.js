@@ -6,12 +6,18 @@ import Dropdown from '../../src/components/Dropdown';
 const props = {
   props: {
     dropdownRenderer: null,
+    dropdownGap: 5,
+    dropdownHeight: '300px'
   },
   state: {
     selectBounds: {}
   },
   methods: {
-    searchResults: () => []
+    searchResults: () => [],
+    getSelectRef: () => ({
+      blur: () => {},
+      getBoundingClientRect: () => ({top: 100, bottom: 100})
+    }),
   }
 };
 
