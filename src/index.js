@@ -454,7 +454,7 @@ Select.defaultProps = {
   color: '#0074D9',
   keepSelectedInList: true,
   closeOnSelect: false,
-  openOnTop: false,
+  dropdownPosition: 'auto',
   dropdownHeight: '300px',
   autoFocus: true,
   portal: null,

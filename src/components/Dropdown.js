@@ -6,17 +6,36 @@ import Item from '../components/Item';
 
 import { valueExistInSelected, hexToRGBA } from '../util';
 
+const dropdownPosition = (props, methods) => {
+  const DropdownBoundingClientRect = methods.getSelectRef().getBoundingClientRect();
+  const dropdownHeight =
+    DropdownBoundingClientRect.bottom + parseInt(props.dropdownHeight) + props.dropdownGap;
+
+  if (props.dropdownPosition !== 'auto') {
+    return props.dropdownPosition;
+  }
+
+  if (dropdownHeight > window.innerHeight && dropdownHeight > DropdownBoundingClientRect.top) {
+    return 'top';
+  }
+
+  return 'bottom';
+};
+
 const Dropdown = ({ props, state, methods }) => (
   <DropDown
     tabIndex="-1"
     aria-expanded="true"
     role="list"
-    openOnTop={props.openOnTop}
+    dropdownPosition={dropdownPosition(props, methods)}
     selectBounds={state.selectBounds}
     portal={props.portal}
     dropdownGap={props.dropdownGap}
     dropdownHeight={props.dropdownHeight}
-    className="react-dropdown-select-dropdown">
+    className={`react-dropdown-select-dropdown react-dropdown-select-dropdown-position-${dropdownPosition(
+      props,
+      methods
+    )}`}>
     {props.dropdownRenderer ? (
       props.dropdownRenderer(props, state, methods)
     ) : (
@@ -54,8 +73,8 @@ const Dropdown = ({ props, state, methods }) => (
 
 const DropDown = styled.div`
   position: absolute;
-  ${({ selectBounds, dropdownGap, openOnTop }) =>
-    openOnTop
+  ${({ selectBounds, dropdownGap, dropdownPosition }) =>
+    dropdownPosition === 'top'
       ? `bottom: ${selectBounds.height + 2 + dropdownGap}px`
       : `top: ${selectBounds.height + 2 + dropdownGap}px`};
   

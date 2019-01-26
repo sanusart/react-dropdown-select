@@ -36,7 +36,7 @@ export class Demo extends React.Component {
       color: '#0074D9',
       keepSelectedInList: true,
       closeOnSelect: false,
-      openOnTop: false,
+      dropdownPosition: 'auto',
       dropdownHeight: '300px'
     };
   }
@@ -168,7 +168,7 @@ export class Demo extends React.Component {
               noDataLabel="No matches found"
               closeOnSelect={this.state.closeOnSelect}
               noDataRenderer={this.state.noDataRenderer ? () => this.noDataRenderer() : undefined}
-              openOnTop={this.state.openOnTop}
+              dropdownPosition={this.state.dropdownPosition}
               itemRenderer={
                 this.state.itemRenderer
                   ? (item, itemIndex, props, state, methods) =>
@@ -224,16 +224,14 @@ export class Demo extends React.Component {
           />{' '}
           Disabled
           <br />
-          <input
-            type="checkbox"
-            checked={this.state.openOnTop}
-            onChange={() =>
-              this.setState({
-                openOnTop: !this.state.openOnTop
-              })
-            }
-          />{' '}
-          Open on top of select
+          Dropdown position
+          <StyledHtmlSelect
+            defaultValue={this.state.dropdownPosition}
+            onChange={(event) => this.setState({ dropdownPosition: event.target.value })}>
+              <option value="auto">auto</option>
+              <option value="top">top</option>
+              <option value="bottom">bottom</option>
+          </StyledHtmlSelect>
           <br />
           <input
             type="checkbox"
@@ -369,7 +367,7 @@ export class Demo extends React.Component {
           Custom color
           <br />
           Search by field:{' '}
-          <select
+          <StyledHtmlSelect
             defaultValue={this.state.searchBy}
             onChange={(event) => this.setState({ searchBy: event.target.value })}>
             {Object.keys(options[0]).map((f) => (
@@ -377,10 +375,10 @@ export class Demo extends React.Component {
                 {f}
               </option>
             ))}
-          </select>
+          </StyledHtmlSelect>
           <br />
           Label field:{' '}
-          <select
+          <StyledHtmlSelect
             defaultValue={this.state.labelField}
             onChange={(event) =>
               this.setState({
@@ -393,10 +391,10 @@ export class Demo extends React.Component {
                 {f}
               </option>
             ))}
-          </select>
+          </StyledHtmlSelect>
           <br />
           Value field:{' '}
-          <select
+          <StyledHtmlSelect
             defaultValue={this.state.valueField}
             onChange={(event) => this.setState({ valueField: event.target.value })}>
             {Object.keys(options[0]).map((f) => (
@@ -404,7 +402,7 @@ export class Demo extends React.Component {
                 {f}
               </option>
             ))}
-          </select>
+          </StyledHtmlSelect>
         </p>
 
         <details>
@@ -510,6 +508,15 @@ const Button = styled.button`
     border: 1px solid deepskyblue;
     color: deepskyblue;
   }
+`;
+
+const StyledHtmlSelect = styled.select`
+  padding: 0;
+  margin: 0 0 0 10px;
+  height: 23px !important;
+  color: #0071dc;
+  background: #fff;
+  border: 1px solid #0071dc;
 `;
 
 export default Demo;

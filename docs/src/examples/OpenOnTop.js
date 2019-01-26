@@ -13,7 +13,7 @@ const OpenOnTop = ({ options, title }) => (
     </Title>
     <Select
       multi
-      openOnTop
+      dropdownPosition="top"
       options={options}
       values={[]}
       onChange={(value) =>
