@@ -430,7 +430,7 @@ export class Select extends Component {
 }
 
 Select.defaultProps = {
-  addPlaceholder: null,
+  addPlaceholder: "",
   placeholder: 'Select...',
   values: [],
   options: [],
