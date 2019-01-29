@@ -22,6 +22,7 @@
     "gatsby-plugin-styled-components": "^3.0.4",
     "gatsby-source-filesystem": "^2.0.12",
     "gatsby-transformer-remark": "^2.1.19",
+    "normalize.css": "^8.0.1",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-dropdown-select": "^1.2.3",
