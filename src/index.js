@@ -430,7 +430,7 @@ export class Select extends Component {
 }
 
 Select.defaultProps = {
-  addPlaceholder: '+',
+  addPlaceholder: null,
   placeholder: 'Select...',
   values: [],
   options: [],
@@ -454,7 +454,7 @@ Select.defaultProps = {
   color: '#0074D9',
   keepSelectedInList: true,
   closeOnSelect: false,
-  dropdownPosition: 'auto',
+  dropdownPosition: 'bottom',
   dropdownHeight: '300px',
   autoFocus: true,
   portal: null,

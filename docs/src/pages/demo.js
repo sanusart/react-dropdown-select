@@ -36,7 +36,7 @@ export class Demo extends React.Component {
       color: '#0074D9',
       keepSelectedInList: true,
       closeOnSelect: false,
-      dropdownPosition: 'auto',
+      dropdownPosition: 'bottom',
       dropdownHeight: '300px'
     };
   }
@@ -154,7 +154,7 @@ export class Demo extends React.Component {
               dropdownHandle={this.state.handle}
               dropdownHeight={this.state.dropdownHeight}
               multi={this.state.multi}
-              values={[options.find(opt => opt.username === 'Bret')]}
+              values={[options.find((opt) => opt.username === 'Bret')]}
               labelField={this.state.labelField}
               valueField={this.state.valueField}
               options={options}
@@ -224,15 +224,6 @@ export class Demo extends React.Component {
           />{' '}
           Disabled
           <br />
-          Dropdown position
-          <StyledHtmlSelect
-            defaultValue={this.state.dropdownPosition}
-            onChange={(event) => this.setState({ dropdownPosition: event.target.value })}>
-              <option value="auto">auto</option>
-              <option value="top">top</option>
-              <option value="bottom">bottom</option>
-          </StyledHtmlSelect>
-          <br />
           <input
             type="checkbox"
             checked={this.state.loading}
@@ -287,18 +278,6 @@ export class Demo extends React.Component {
             }
           />{' '}
           Stay open
-          <br />
-          Dropdown Height:{' '}
-          <input
-            type="text"
-            checked={this.state.dropdownHeight}
-            value={this.state.dropdownHeight}
-            onChange={(event) =>
-              this.setState({
-                dropdownHeight: event.target.value
-              })
-            }
-          />
           <br />
           <input
             type="checkbox"
@@ -355,6 +334,8 @@ export class Demo extends React.Component {
           />{' '}
           Close dropdown on select/deselect
           <br />
+          Custom color
+          {' '}
           <input
             type="color"
             defaultValue={this.state.color}
@@ -363,8 +344,28 @@ export class Demo extends React.Component {
                 color: event.target.value
               })
             }
-          />{' '}
-          Custom color
+          />
+          <br />
+          Dropdown position
+          <StyledHtmlSelect
+            defaultValue={this.state.dropdownPosition}
+            onChange={(event) => this.setState({ dropdownPosition: event.target.value })}>
+            <option value="auto">auto</option>
+            <option value="top">top</option>
+            <option value="bottom">bottom</option>
+          </StyledHtmlSelect>
+          <br />
+          Dropdown Height:{' '}
+          <StyledInput
+            type="text"
+            checked={this.state.dropdownHeight}
+            value={this.state.dropdownHeight}
+            onChange={(event) =>
+              this.setState({
+                dropdownHeight: event.target.value
+              })
+            }
+          />
           <br />
           Search by field:{' '}
           <StyledHtmlSelect
@@ -517,6 +518,17 @@ const StyledHtmlSelect = styled.select`
   color: #0071dc;
   background: #fff;
   border: 1px solid #0071dc;
+`;
+
+const StyledInput = styled.input`
+  margin: 0 0 0 10px;
+  height: 23px !important;
+  color: #0071dc;
+  background: #fff;
+  border: 1px solid #0071dc;
+  border-radius: 3px;
+  padding: 13px 10px;
+  width: 70px;
 `;
 
 export default Demo;

@@ -11,7 +11,7 @@ branches:
 cache:
   directories:
     - node_modules
-    -
+
 before_install:
   - npm update
 
@@ -21,3 +21,14 @@ install:
 script:
   - npm test
   - npm run coveralls
+
+deploy:
+  - provider: pages
+    skip-cleanup: true
+    github-token: $GH_TOKEN
+    keep-history: true
+    local-dir: docs/public
+    target-branch: gh-pages
+    repo: sanusart/react-dropdown-select
+    on:
+      all_branches: true

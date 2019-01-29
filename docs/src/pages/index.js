@@ -32,7 +32,7 @@ const Home = () => (
           <pre>
             <span>JSX</span>
             {`<Select
-  multi={true}
+  multi
   options={options}
   onChange={(values) => this.onChange(values)}
 />`}
