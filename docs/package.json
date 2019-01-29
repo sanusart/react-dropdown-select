@@ -7,7 +7,7 @@
   "scripts": {
     "develop": "gatsby develop -H 0.0.0.0",
     "start": "npm run develop",
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
