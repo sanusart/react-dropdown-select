@@ -4,7 +4,7 @@
   "description": "Customizable dropdown select for react",
   "main": "dist/react-dropdown-select.js",
   "scripts": {
-    "test": "jest",
+    "test": "bundlesize && jest",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "build": "webpack",
     "prepublishOnly": "npm run build"
@@ -13,6 +13,12 @@
     "type": "git",
     "url": "https://github.com/sanusart/react-dropdown-select"
   },
+  "bundlesize": [
+    {
+      "path": "./dist/react-dropdown-select.js",
+      "maxSize": "14.5 kB"
+    }
+  ],
   "keywords": [
     "react",
     "react component",
@@ -41,6 +47,7 @@
     "babel-plugin-emotion": "^10.0.6",
     "babel-plugin-transform-dynamic-import": "^2.1.0",
     "babel-preset-minify": "^0.5.0",
+    "bundlesize": "^0.17.1",
     "coveralls": "^3.0.2",
     "css-loader": "^2.0.2",
     "gh-pages": "^2.0.1",
