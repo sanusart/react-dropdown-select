@@ -4,7 +4,7 @@
   "description": "Customizable dropdown select for react",
   "main": "dist/react-dropdown-select.js",
   "scripts": {
-    "test": "bundlesize && jest",
+    "test": "jest --bail && npm run prepublishOnly && bundlesize",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "build": "webpack",
     "prepublishOnly": "npm run build"
