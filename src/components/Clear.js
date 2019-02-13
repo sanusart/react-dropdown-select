@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 const Clear = ({ props, state, methods }) =>
   props.clearRenderer ? (
-    props.clearRenderer(props, state, methods)
+    props.clearRenderer({ props, state, methods })
   ) : (
     <ClearComponent
       className="react-dropdown-select-clear"

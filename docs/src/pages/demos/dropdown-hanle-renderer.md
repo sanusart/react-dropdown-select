@@ -14,6 +14,6 @@ Override default handle for opening dropdown
 
 ```
 dropdownHandleRenderer={
-  (parentProps, parentState, parentMethods) => <component/>
+  ({ props, state, methods }) => <component/>
 }
 ```

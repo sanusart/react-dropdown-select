@@ -10,13 +10,13 @@ export class CustomContentAndDropdown extends React.Component {
       value: user.email
     }));
 
-  customContentRenderer = (props, state) => (
+  customContentRenderer = ({ props, state }) => (
     <div style={{ cursor: 'pointer' }}>
       {state.values.length} of {props.options.length} selected
     </div>
   );
 
-  customDropdownRenderer = (props, state, methods) => {
+  customDropdownRenderer = ({ props, state, methods }) => {
     const regexp = new RegExp(state.search, 'i');
 
     return (
@@ -54,7 +54,7 @@ export class CustomContentAndDropdown extends React.Component {
                   onClick={option.disabled ? null : () => methods.addItem(option)}>
                   <input
                     type="checkbox"
-                    onChange={() => option.disabled ? undefined : methods.addItem(option)}
+                    onChange={() => (option.disabled ? undefined : methods.addItem(option))}
                     checked={state.values.indexOf(option) !== -1}
                   />
                   <ItemLabel>{option[props.labelField]}</ItemLabel>

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 const Loading = ({ props }) =>
   props.loadingRenderer ? (
-    props.loadingRenderer()
+    props.loadingRenderer({ props })
   ) : (
     <LoadingComponent className="react-dropdown-select-loading" color={props.color} />
   );

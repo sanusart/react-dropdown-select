@@ -37,7 +37,7 @@ const Dropdown = ({ props, state, methods }) => (
       methods
     )}`}>
     {props.dropdownRenderer ? (
-      props.dropdownRenderer(props, state, methods)
+      props.dropdownRenderer({ props, state, methods })
     ) : (
       <React.Fragment>
         {props.create && state.search && !valueExistInSelected(state.search, state.values) && (

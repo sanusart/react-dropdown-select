@@ -31,7 +31,7 @@ const Input = ({ props, state, methods }) => {
     methods.createNew(state.search);
 
   return props.inputRenderer ? (
-    props.inputRenderer(props, state, methods)
+    props.inputRenderer({ props, state, methods })
   ) : (
     <InputComponent
       tabIndex="-1"

@@ -34,7 +34,7 @@ describe('<Option/> component', () => {
 
   it('renders correctly', () => {
     const tree = TestRenderer.create(
-      <Option {...props({ parentItem: options[0] })}/>
+      <Option {...props({ item: options[0] })}/>
     ).toJSON();
 
   expect(tree).toMatchSnapshot();
@@ -42,7 +42,7 @@ describe('<Option/> component', () => {
 
   it('onClick remove item', () => {
     TestRenderer.create(
-      <Option {...props({ parentItem: options[0] })} onClick={spy}/>)
+      <Option {...props({ item: options[0] })} onClick={spy}/>)
       .root.findByProps({ className: 'react-dropdown-select-option-remove' }).props.onClick();
 
     expect(spy).toHaveBeenCalled;

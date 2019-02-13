@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 const NoData = ({ props, state, methods }) =>
   props.noDataRenderer ? (
-    props.noDataRenderer(props, state, methods)
+    props.noDataRenderer({ props, state, methods })
   ) : (
     <NoDataComponent color={props.color}>{props.noDataLabel}</NoDataComponent>
   );

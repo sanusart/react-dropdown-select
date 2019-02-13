@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 const Separator = ({ props, state, methods }) =>
   props.separatorRenderer ? (
-    props.separatorRenderer(props, state, methods)
+    props.separatorRenderer({ props, state, methods })
   ) : (
     <SeparatorComponent className="react-dropdown-select-separator" />
   );

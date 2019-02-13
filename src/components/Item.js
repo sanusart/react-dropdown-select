@@ -4,7 +4,7 @@ import { hexToRGBA } from '../util';
 
 const Item = ({ props, state, methods, item, itemIndex }) => {
   if (props.itemRenderer) {
-    return props.itemRenderer(item, itemIndex, props, state, methods);
+    return props.itemRenderer({ item, itemIndex, props, state, methods });
   }
 
   if (!props.keepSelectedInList && methods.isSelected(item)) {
@@ -22,7 +22,9 @@ const Item = ({ props, state, methods, item, itemIndex }) => {
       tabIndex="-1"
       className={`react-dropdown-select-item ${
         methods.isSelected(item) ? 'react-dropdown-select-item-selected' : ''
-      } ${state.cursor === itemIndex ? 'react-dropdown-select-item-active' : ''} ${item.disabled ? 'react-dropdown-select-item-disabled' : ''}`}
+      } ${state.cursor === itemIndex ? 'react-dropdown-select-item-active' : ''} ${
+        item.disabled ? 'react-dropdown-select-item-disabled' : ''
+      }`}
       onClick={item.disabled ? undefined : () => methods.addItem(item)}
       onKeyPress={item.disabled ? undefined : () => methods.addItem(item)}
       color={props.color}>

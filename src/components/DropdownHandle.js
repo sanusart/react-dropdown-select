@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 const DropdownHandle = ({ props, state, methods }) =>
   props.dropdownHandleRenderer ? (
-    props.dropdownHandleRenderer(props, state, methods)
+    props.dropdownHandleRenderer({ props, state, methods })
   ) : (
     <DropdownHandleComponent
       tabIndex="-1"
