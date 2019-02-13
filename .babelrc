@@ -1,7 +1,8 @@
 {
   "plugins": [
     "emotion",
-    "@babel/plugin-proposal-class-properties"
+    "@babel/plugin-proposal-class-properties",
+		"transform-react-remove-prop-types"
 	],
   "presets": [
     "minify",
