@@ -14,6 +14,6 @@ Override default dropdown
 
 ```jsx
 dropdownRenderer={
-  (parentProps, parentState, parentMethods) => func(parentProps, parentState, parentMethods)
+  ({ props, state, methods }) => func(parentProps, parentState, parentMethods)
 }
 ```

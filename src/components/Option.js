@@ -1,21 +1,19 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const Option = ({ parentItem, props, state, methods }) =>
-  parentItem && props.optionRenderer ? (
-    props.optionRenderer(parentItem, props, state, methods)
+const Option = ({ item, props, state, methods }) =>
+  item && props.optionRenderer ? (
+    props.optionRenderer({ item, props, state, methods })
   ) : (
     <OptionComponent
       role="listitem"
       disabled={props.disabled}
       className="react-dropdown-select-option"
       color={props.color}>
-      <span className="react-dropdown-select-option-label">
-        {parentItem[props.labelField]}
-      </span>
+      <span className="react-dropdown-select-option-label">{item[props.labelField]}</span>
       <span
         className="react-dropdown-select-option-remove"
-        onClick={(event) => methods.removeItem(event, parentItem, props.closeOnSelect)}>
+        onClick={(event) => methods.removeItem(event, item, props.closeOnSelect)}>
         &times;
       </span>
     </OptionComponent>

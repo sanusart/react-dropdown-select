@@ -14,7 +14,7 @@ const ItemRenderer = ({ options, title }) => (
       multi
       options={options}
       values={[]}
-      itemRenderer={(item, itemIndex, props, state, methods) => (
+      itemRenderer={({ item, itemIndex, props, state, methods }) => (
         <StyledItem>
           {item.disabled ? (
             <div aria-disabled>{item.label}</div>

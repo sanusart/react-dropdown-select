@@ -1,16 +1,23 @@
 {
   "plugins": [
     "emotion",
-    "@babel/plugin-proposal-class-properties"
-	],
+    "@babel/plugin-proposal-class-properties",
+    [
+      "transform-react-remove-prop-types",
+      {
+        "mode": "remove",
+        "ignoreFilenames": ["node_modules"]
+      }
+    ]
+  ],
   "presets": [
     "minify",
-		[
-			"@babel/preset-env",
-			{
-				"loose": true
-			}
-		],
+    [
+      "@babel/preset-env",
+      {
+        "loose": true
+      }
+    ],
     "@babel/preset-react"
   ]
 }

@@ -12,7 +12,7 @@ const Content = ({ props, state, methods }) => {
       }`}
       onClick={() => methods.dropDown('open')}>
       {props.contentRenderer ? (
-        props.contentRenderer(props, state, methods)
+        props.contentRenderer({ props, state, methods })
       ) : (
         <React.Fragment>
           {props.multi
@@ -20,21 +20,15 @@ const Content = ({ props, state, methods }) => {
               state.values.map((item) => (
                 <Option
                   key={`${item[props.valueField]}${item[props.labelField]}`}
-                  parentItem={item}
+                  item={item}
                   state={state}
                   props={props}
                   methods={methods}
                 />
               ))
             : state.values &&
-              state.values.length > 0 && (
-                <span>{state.values[0][props.labelField]}</span>
-              )}
-          <Input
-            props={props}
-            methods={methods}
-            state={state}
-          />
+              state.values.length > 0 && <span>{state.values[0][props.labelField]}</span>}
+          <Input props={props} methods={methods} state={state} />
         </React.Fragment>
       )}
     </ContentComponent>

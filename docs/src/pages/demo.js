@@ -43,10 +43,10 @@ export class Demo extends React.Component {
 
   setValues = (selectValues) => this.setState({ selectValues });
 
-  contentRenderer = (innerProps, innerState) => {
+  contentRenderer = ({props, state}) => {
     return (
       <div>
-        {innerState.values.length} of {innerProps.options.length} Selected
+        {state.values.length} of {props.options.length} Selected
       </div>
     );
   };
@@ -59,7 +59,7 @@ export class Demo extends React.Component {
     );
   };
 
-  itemRenderer = (item, itemIndex, props, state, methods) => (
+  itemRenderer = ({item, itemIndex, props, state, methods}) => (
     <div key={item[props.valueField]} onClick={() => methods.addItem(item)}>
       <div style={{ margin: '10px' }}>
         <input type="checkbox" checked={methods.isSelected(item)} />
@@ -68,7 +68,7 @@ export class Demo extends React.Component {
     </div>
   );
 
-  dropdownRenderer = (props, state, methods) => {
+  dropdownRenderer = ({props, state, methods}) => {
     const regexp = new RegExp(state.search, 'i');
 
     return (
@@ -118,13 +118,13 @@ export class Demo extends React.Component {
     );
   };
 
-  optionRenderer = (option, props, state, methods) => (
+  optionRenderer = ({option, props, state, methods}) => (
     <React.Fragment>
       <div onClick={(event) => methods.removeItem(event, option, true)}>{option.label}</div>
     </React.Fragment>
   );
 
-  inputRenderer = (props, state, methods) => (
+  inputRenderer = ({props, state, methods}) => (
     <input
       tabIndex="1"
       className="react-dropdown-select-input"

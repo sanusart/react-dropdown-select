@@ -14,6 +14,6 @@ Override default list item component in a dropdown
 
 ```
 itemRenderer={
-  (item, itemIndex, innerProps, innerState, innerMethods) => <component/>
+  ({ item, itemIndex, props, state, methods }) => <component/>
 }
 ```

@@ -14,6 +14,6 @@ Override default "option" component (the pillow with label and &times;) in the c
 
 ```
 optionRenderer={
-  (innerItem, innerProps, innerState, innerMethods) => <component/>
+  ({ item, props, state, methods }) => <component/>
 }
 ```
