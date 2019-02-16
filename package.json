@@ -7,7 +7,12 @@
     "test": "jest --bail && npm run prepublishOnly && bundlesize",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "build": "webpack",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "version": "replace \"vPLACEHOLDER\" \"v$npm_package_version\" ./CHANGELOG.md && git add .",
+    "preversion": "sh change-log-builder.sh",
+    "release:patch": "npm version patch -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
+    "release:minor": "npm version minor -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
+    "release:major": "npm version major -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\""
   },
   "repository": {
     "type": "git",
