@@ -20,21 +20,21 @@ export default function Template({ data }) {
 
       {pageFrontmatter.innerProps && (
         <details>
-          <summary>innerProps</summary>
+          <summary>props</summary>
           <div dangerouslySetInnerHTML={{ __html: propsHtml }} />
         </details>
       )}
 
       {pageFrontmatter.innerState && (
         <details>
-          <summary>innerState</summary>
+          <summary>state</summary>
           <div dangerouslySetInnerHTML={{ __html: stateHtml }} />
         </details>
       )}
 
       {pageFrontmatter.innerMethods && (
         <details>
-          <summary>innerMethods</summary>
+          <summary>methods</summary>
           <div dangerouslySetInnerHTML={{ __html: methodsHtml }} />
         </details>
       )}
