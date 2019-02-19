@@ -18,6 +18,7 @@ import Styled from '../examples/Styled';
 import ItemRenderer from '../examples/ItemRenderer';
 import CreateEntries from '../examples/CreateEntries';
 import CustomContentAndDropdown from '../examples/CustomContentAndDropdown';
+import RenderInBody from '../examples/RenderInBody';
 
 const demoOptions = options.map((option) => ({
   ...option,
@@ -35,10 +36,6 @@ const Examples = () => (
 
     <Wrapper>
       <Multi options={demoOptions} title="Multi" />
-    </Wrapper>
-
-    <Wrapper>
-      <OpenOnTop options={demoOptions} title="Open on top" />
     </Wrapper>
 
     <Wrapper>
@@ -61,6 +58,17 @@ const Examples = () => (
         options={demoOptions}
         title="Create new Entries"
       />
+    </Wrapper>
+
+    <Wrapper>
+      <RenderInBody
+        options={demoOptions}
+        title="Render dropdown in body"
+      />
+    </Wrapper>
+
+    <Wrapper>
+      <OpenOnTop options={demoOptions} title="Open on top" />
     </Wrapper>
 
     <br />
