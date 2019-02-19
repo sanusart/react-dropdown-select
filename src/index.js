@@ -159,10 +159,11 @@ export class Select extends Component {
   dropDown = (action = 'toggle', event) => {
     if (
       this.props.portal &&
-      event &&
-      event.srcElement &&
       !this.props.closeOnScroll &&
       !this.props.closeOnSelect &&
+      event &&
+      event.srcElement &&
+      event.srcElement.offsetParent &&
       event.srcElement.offsetParent.classList.contains('react-dropdown-select-dropdown')
     ) {
       return;
