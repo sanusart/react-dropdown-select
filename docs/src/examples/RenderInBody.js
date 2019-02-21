@@ -17,7 +17,7 @@ const RenderInBody = ({ options, title }) => (
       </p>
       <Select
         options={options}
-        portal={document.body}
+        portal={typeof document !== `undefined` && document.body}
         values={[]}
         onChange={(value) =>
           console.log(`%c > onChange ${title} `, 'background: #555; color: tomato', value)
