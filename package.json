@@ -3,6 +3,7 @@
   "version": "2.0.1",
   "description": "Customizable dropdown select for react",
   "main": "dist/react-dropdown-select.js",
+  "module": "src/index.js",
   "scripts": {
     "test": "jest --bail && npm run prepublishOnly && bundlesize",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",

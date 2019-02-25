@@ -6,8 +6,9 @@ module.exports = {
   entry: path.join(__dirname, 'src/index.js'),
   output: {
     path: path.join(__dirname, 'dist'),
-    libraryTarget: 'commonjs2',
-    filename: 'react-dropdown-select.js'
+    libraryTarget: 'umd',
+    filename: 'react-dropdown-select.js',
+    library: 'Select'
   },
   optimization: {
     minimizer: [

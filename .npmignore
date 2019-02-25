@@ -1,4 +1,3 @@
-src
 docs/src/examples
 docs
 styles.css
@@ -14,3 +13,4 @@ README.md
 .babelrc
 .travis.yml
 LICENSE
+change-log-builder.sh
