@@ -173,12 +173,12 @@ export class Select extends Component {
       return this.setState({ dropdown: true });
     }
 
-    if (action === 'close') {
+    if (action === 'close' && this.state.dropdown) {
       this.select.current.blur();
       return this.setState({ dropdown: false, search: '' });
     }
 
-    if (action === 'open') {
+    if (action === 'open' && !this.state.dropdown) {
       return this.setState({ dropdown: true });
     }
 
@@ -394,6 +394,7 @@ export class Select extends Component {
       <ClickOutHandler onClickOut={(event) => this.dropDown('close', event)}>
         <ReactDropdownSelect
           onKeyDown={this.handleKeyDown}
+          onClick={(event) => this.dropDown('open', event)}
           tabIndex="0"
           style={this.props.style}
           ref={this.select}

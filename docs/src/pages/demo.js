@@ -28,6 +28,7 @@ export class Demo extends React.Component {
       selectValues: [],
       searchBy: 'username',
       clearable: false,
+      searchable: true,
       separator: false,
       forceOpen: false,
       handle: true,
@@ -150,6 +151,7 @@ export class Demo extends React.Component {
               searchBy={this.state.searchBy}
               separator={this.state.separator}
               clearable={this.state.clearable}
+              searchable={this.state.searchable}
               keepOpen={this.state.forceOpen}
               dropdownHandle={this.state.handle}
               dropdownHeight={this.state.dropdownHeight}
@@ -245,6 +247,17 @@ export class Demo extends React.Component {
             }
           />{' '}
           Clearable
+          <br />
+          <input
+            type="checkbox"
+            checked={this.state.searchable}
+            onChange={() =>
+              this.setState({
+                searchable: !this.state.searchable
+              })
+            }
+          />{' '}
+          Searchable
           <br />
           <input
             type="checkbox"
