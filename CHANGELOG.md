@@ -1,3 +1,11 @@
+### v2.1.0
+*  TOOLS (changelog): fix changelog links [View](https://github.com/sanusart/react-dropdown-select/commit/115641cc101d20aa2b28b648b610120e8aeb938d)
+*  DOCS (examples): fix docs build [View](https://github.com/sanusart/react-dropdown-select/commit/c56f3d1803056806248c09b755e2e9645e6b3ada)
+*  TOOLS (build): fix umd build and module [View](https://github.com/sanusart/react-dropdown-select/commit/e9d3308a5368cb496a2085f5ccde07afcbdb5b9f)
+*  FIX (open): open dropdown on click anywhere on the element [View](https://github.com/sanusart/react-dropdown-select/commit/2c9e5a62f8f51bc8af7b32637a7b9c32bef89322)
+*  FIX (input): use input component size based on content [View](https://github.com/sanusart/react-dropdown-select/commit/167aed1793e5bdecf6a47279379e66947322ecae)
+*  TOOLS (release): fix release flow [View](https://github.com/sanusart/react-dropdown-select/commit/b3a7980654311cd2d7f0a2bd3bf04f7b7a9c9cd1)
+
 ### v2.0.1
 *  DOCS (props): fix titles [View](https://github.com/sanusart/react-dropdown-select/commit/02c83ea3670dd570725018e67f64ff98f7ab41fc)
 *  TOOLS (changelog): update changelog [View](https://github.com/sanusart/react-dropdown-select/commit/345754c98bcad6028d724dae33ab9d615604c489)
