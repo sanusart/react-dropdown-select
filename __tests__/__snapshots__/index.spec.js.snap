@@ -5,6 +5,7 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
   className="react-dropdown-select undefined css-1tjkwe0-ReactDropdownSelect e1gzf2xs0"
   color="#0074D9"
   disabled={false}
+  onClick={[Function]}
   onKeyDown={[Function]}
   tabIndex="0"
 >
@@ -13,7 +14,7 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
     onClick={[Function]}
   >
     <input
-      className="react-dropdown-select-input css-1jou9m2-InputComponent e11wid6y0"
+      className="react-dropdown-select-input css-o79eln-InputComponent e11wid6y0"
       onChange={[Function]}
       onClick={[Function]}
       onKeyPress={[Function]}
@@ -49,6 +50,7 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
   className="react-dropdown-select undefined css-1tjkwe0-ReactDropdownSelect e1gzf2xs0"
   color="#0074D9"
   disabled={false}
+  onClick={[Function]}
   onKeyDown={[Function]}
   tabIndex="0"
 >
@@ -57,7 +59,7 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
     onClick={[Function]}
   >
     <input
-      className="react-dropdown-select-input css-1jou9m2-InputComponent e11wid6y0"
+      className="react-dropdown-select-input css-o79eln-InputComponent e11wid6y0"
       onChange={[Function]}
       onClick={[Function]}
       onKeyPress={[Function]}
@@ -101,6 +103,7 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
   className="react-dropdown-select undefined css-1tjkwe0-ReactDropdownSelect e1gzf2xs0"
   color="#0074D9"
   disabled={false}
+  onClick={[Function]}
   onKeyDown={[Function]}
   tabIndex="0"
 >
@@ -109,7 +112,7 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
     onClick={[Function]}
   >
     <input
-      className="react-dropdown-select-input css-1jou9m2-InputComponent e11wid6y0"
+      className="react-dropdown-select-input css-o79eln-InputComponent e11wid6y0"
       onChange={[Function]}
       onClick={[Function]}
       onKeyPress={[Function]}
@@ -149,6 +152,7 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
   className="react-dropdown-select undefined css-1tjkwe0-ReactDropdownSelect e1gzf2xs0"
   color="#0074D9"
   disabled={false}
+  onClick={[Function]}
   onKeyDown={[Function]}
   tabIndex="0"
 >
@@ -157,7 +161,7 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
     onClick={[Function]}
   >
     <input
-      className="react-dropdown-select-input css-1jou9m2-InputComponent e11wid6y0"
+      className="react-dropdown-select-input css-o79eln-InputComponent e11wid6y0"
       onChange={[Function]}
       onClick={[Function]}
       onKeyPress={[Function]}
@@ -198,6 +202,7 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
   className="react-dropdown-select undefined css-1tjkwe0-ReactDropdownSelect e1gzf2xs0"
   color="#0074D9"
   disabled={false}
+  onClick={[Function]}
   onKeyDown={[Function]}
   tabIndex="0"
 >
@@ -206,7 +211,7 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
     onClick={[Function]}
   >
     <input
-      className="react-dropdown-select-input css-1jou9m2-InputComponent e11wid6y0"
+      className="react-dropdown-select-input css-o79eln-InputComponent e11wid6y0"
       onChange={[Function]}
       onClick={[Function]}
       onKeyPress={[Function]}

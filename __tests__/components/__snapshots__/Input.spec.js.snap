@@ -2,7 +2,7 @@
 
 exports[`<Input/> renders correctly 1`] = `
 <input
-  className="react-dropdown-select-input css-1jou9m2-InputComponent e11wid6y0"
+  className="react-dropdown-select-input css-1mq5oll-InputComponent e11wid6y0"
   onClick={[Function]}
   onKeyPress={[Function]}
   placeholder=""

@@ -6,6 +6,7 @@
   "module": "src/index.js",
   "scripts": {
     "test": "jest --bail && npm run prepublishOnly && bundlesize",
+    "test:watch": "jest --bail --watch && npm run prepublishOnly && bundlesize",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "build": "webpack",
     "prepublishOnly": "npm run build",
