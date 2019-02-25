@@ -22,7 +22,7 @@
   "bundlesize": [
     {
       "path": "./dist/react-dropdown-select.js",
-      "maxSize": "14.5 kB"
+      "maxSize": "15 kB"
     }
   ],
   "keywords": [

@@ -458,7 +458,7 @@ Select.defaultProps = {
   closeOnSelect: false,
   dropdownPosition: 'bottom',
   dropdownHeight: '300px',
-  autoFocus: true,
+  autoFocus: false,
   portal: null,
   create: false,
   name: null,

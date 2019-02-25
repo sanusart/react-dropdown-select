@@ -29,9 +29,11 @@ export class Demo extends React.Component {
       searchBy: 'username',
       clearable: false,
       searchable: true,
+      create: false,
       separator: false,
       forceOpen: false,
       handle: true,
+      addPlaceholder: '+ click to add',
       labelField: 'username',
       valueField: 'email',
       color: '#0074D9',
@@ -141,10 +143,10 @@ export class Demo extends React.Component {
     return (
       <div className={this.props.className}>
         <div>
-          <div style={{ maxWidth: '500px', margin: '0 auto' }}>
+          <div style={{ maxWidth: '350px', margin: '0 auto' }}>
             <StyledSelect
               placeholder="Select peoples"
-              addPlaceholder="+ click to add"
+              addPlaceholder={this.state.addPlaceholder}
               color={this.state.color}
               disabled={this.state.disabled}
               loading={this.state.loading}
@@ -152,6 +154,7 @@ export class Demo extends React.Component {
               separator={this.state.separator}
               clearable={this.state.clearable}
               searchable={this.state.searchable}
+              create={this.state.create}
               keepOpen={this.state.forceOpen}
               dropdownHandle={this.state.handle}
               dropdownHeight={this.state.dropdownHeight}
@@ -258,6 +261,17 @@ export class Demo extends React.Component {
             }
           />{' '}
           Searchable
+          <br />
+          <input
+            type="checkbox"
+            checked={this.state.create}
+            onChange={() =>
+              this.setState({
+                create: !this.state.create
+              })
+            }
+          />{' '}
+          Create new entries
           <br />
           <input
             type="checkbox"
@@ -376,6 +390,18 @@ export class Demo extends React.Component {
             onChange={(event) =>
               this.setState({
                 dropdownHeight: event.target.value
+              })
+            }
+          />
+          <br />
+          Add placeholder:{' '}
+          <StyledInput
+            type="text"
+            checked={this.state.addPlaceholder}
+            value={this.state.addPlaceholder}
+            onChange={(event) =>
+              this.setState({
+                addPlaceholder: event.target.value
               })
             }
           />
