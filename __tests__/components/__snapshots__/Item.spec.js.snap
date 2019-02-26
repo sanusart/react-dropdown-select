@@ -2,7 +2,7 @@
 
 exports[`<Item/> component keepSelectedInList: false 1`] = `
 <span
-  className="react-dropdown-select-item    css-1w4ek5b-ItemComponent evc32pp0"
+  className="react-dropdown-select-item    css-1yjgmdl-ItemComponent evc32pp0"
   onClick={[Function]}
   onKeyPress={[Function]}
   role="option"
@@ -14,7 +14,7 @@ exports[`<Item/> component keepSelectedInList: false 1`] = `
 
 exports[`<Item/> component renders correctly 1`] = `
 <span
-  className="react-dropdown-select-item    css-1w4ek5b-ItemComponent evc32pp0"
+  className="react-dropdown-select-item    css-1yjgmdl-ItemComponent evc32pp0"
   onClick={[Function]}
   onKeyPress={[Function]}
   role="option"
