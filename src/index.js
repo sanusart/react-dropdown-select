@@ -175,7 +175,9 @@ export class Select extends Component {
 
     if (action === 'close' && this.state.dropdown) {
       this.select.current.blur();
-      return this.setState({ dropdown: false, search: '' });
+
+      this.props.clearOnBlur && this.setState({ search: '' });
+      return this.setState({ dropdown: false });
     }
 
     if (action === 'open' && !this.state.dropdown) {
@@ -204,10 +206,11 @@ export class Select extends Component {
     } else {
       this.setState({
         values: [item],
-        dropdown: false,
-        search: ''
+        dropdown: false
       });
     }
+
+    this.props.clearOnSelect && this.setState({ search: '' });
 
     return true;
   };
@@ -432,7 +435,7 @@ export class Select extends Component {
 }
 
 Select.defaultProps = {
-  addPlaceholder: "",
+  addPlaceholder: '',
   placeholder: 'Select...',
   values: [],
   options: [],
@@ -456,6 +459,8 @@ Select.defaultProps = {
   color: '#0074D9',
   keepSelectedInList: true,
   closeOnSelect: false,
+  clearOnBlur: true,
+  clearOnSelect: true,
   dropdownPosition: 'bottom',
   dropdownHeight: '300px',
   autoFocus: false,

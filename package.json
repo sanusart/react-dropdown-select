@@ -4,6 +4,10 @@
   "description": "Customizable dropdown select for react",
   "main": "dist/react-dropdown-select.js",
   "module": "src/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "test": "jest --bail && npm run prepublishOnly && bundlesize",
     "test:watch": "jest --bail --watch && npm run prepublishOnly && bundlesize",
