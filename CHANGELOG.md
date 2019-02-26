@@ -1,3 +1,7 @@
+### v2.1.1
+*  TEST (snapshots): update snapshots [View](https://github.com/sanusart/react-dropdown-select/commit/72755dfd4362ef44adc72a815859561e4fe3804c)
+*  FIX (clear search props): add clearOnBlur and clearOnSelect [View](https://github.com/sanusart/react-dropdown-select/commit/edc348eccba3188c2f5d3ffb531f6bcd1429e259)
+
 ### v2.1.0
 *  TOOLS (changelog): fix changelog links [View](https://github.com/sanusart/react-dropdown-select/commit/115641cc101d20aa2b28b648b610120e8aeb938d)
 *  DOCS (examples): fix docs build [View](https://github.com/sanusart/react-dropdown-select/commit/c56f3d1803056806248c09b755e2e9645e6b3ada)
