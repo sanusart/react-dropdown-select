@@ -176,8 +176,7 @@ export class Select extends Component {
     if (action === 'close' && this.state.dropdown) {
       this.select.current.blur();
 
-      this.props.clearOnBlur && this.setState({ search: '' });
-      return this.setState({ dropdown: false });
+      return this.setState({ dropdown: false, search: this.props.clearOnBlur ? '' : this.state.search });
     }
 
     if (action === 'open' && !this.state.dropdown) {

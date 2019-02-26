@@ -40,7 +40,6 @@ const ItemComponent = styled.span`
 
   &.react-dropdown-select-item-active {
     border-bottom: 1px solid #fff;
-    font-weight: bolder;
     ${({ disabled, color }) => !disabled && color && `background: ${hexToRGBA(color, 0.1)};`}
   }
 
