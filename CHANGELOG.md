@@ -1,3 +1,6 @@
+### v2.1.3
+*  FIX (module): fix module build [View](https://github.com/sanusart/react-dropdown-select/commit/6764bba263f5f94f2b2b01e60155fac90a5877d9)
+
 ### v2.1.2
 *  FIX (dropdown items): fix hover and keyboard active styled to match [View](https://github.com/sanusart/react-dropdown-select/commit/560f0efe4905283f6b87ebf4bd492257c0e50a96)
 *  TOOLS (pre-commit): add pre-commit hook for tests [View](https://github.com/sanusart/react-dropdown-select/commit/be3bdfc163f0cc196af6bbe25da6dadba5a8514d)
