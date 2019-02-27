@@ -4,5 +4,4 @@ dist
 /src/helpers.js
 .DS_Store
 coverage
-src
 lib

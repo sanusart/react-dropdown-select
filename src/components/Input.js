@@ -32,7 +32,19 @@ class Input extends Component {
     ) {
       this.input.current.focus();
     }
+
+    if (prevProps.state.dropdown !== this.props.state.dropdown && !this.props.state.dropdown) {
+      this.input.current.blur();
+    }
   }
+
+  onBlur = () => {
+    if (!this.props.state.dropdown) {
+      return this.input.current.blur();
+    }
+
+    return this.input.current.focus();
+  };
 
   handleKeyPress = (event) => {
     const { props, state, methods } = this.props;
@@ -65,6 +77,7 @@ class Input extends Component {
         onClick={() => methods.dropDown('open')}
         onKeyPress={this.handleKeyPress}
         onChange={methods.setSearch}
+        onBlur={this.onBlur}
         placeholder={handlePlaceHolder(props, state)}
       />
     );

@@ -7,7 +7,7 @@ const DropdownHandle = ({ props, state, methods }) =>
   ) : (
     <DropdownHandleComponent
       tabIndex="-1"
-      onClick={(event) => methods.dropDown('toggle', event)}
+      onClick={(event) => methods.dropDown(state.dropdown ? 'close': 'open', event)}
       dropdownOpen={state.dropdown}
       onKeyPress={(event) => methods.dropDown('toggle', event)}
       onKeyDown={(event) => methods.dropDown('toggle', event)}

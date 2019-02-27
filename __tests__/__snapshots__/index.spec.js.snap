@@ -15,6 +15,7 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
   >
     <input
       className="react-dropdown-select-input css-o79eln-InputComponent e11wid6y0"
+      onBlur={[Function]}
       onChange={[Function]}
       onClick={[Function]}
       onKeyPress={[Function]}
@@ -60,6 +61,7 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
   >
     <input
       className="react-dropdown-select-input css-o79eln-InputComponent e11wid6y0"
+      onBlur={[Function]}
       onChange={[Function]}
       onClick={[Function]}
       onKeyPress={[Function]}
@@ -113,6 +115,7 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
   >
     <input
       className="react-dropdown-select-input css-o79eln-InputComponent e11wid6y0"
+      onBlur={[Function]}
       onChange={[Function]}
       onClick={[Function]}
       onKeyPress={[Function]}
@@ -162,6 +165,7 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
   >
     <input
       className="react-dropdown-select-input css-o79eln-InputComponent e11wid6y0"
+      onBlur={[Function]}
       onChange={[Function]}
       onClick={[Function]}
       onKeyPress={[Function]}
@@ -212,6 +216,7 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
   >
     <input
       className="react-dropdown-select-input css-o79eln-InputComponent e11wid6y0"
+      onBlur={[Function]}
       onChange={[Function]}
       onClick={[Function]}
       onKeyPress={[Function]}
