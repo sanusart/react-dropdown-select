@@ -3,17 +3,18 @@
   "version": "2.1.2",
   "description": "Customizable dropdown select for react",
   "main": "dist/react-dropdown-select.js",
-  "module": "src/index.js",
+  "module": "lib/index.js",
   "files": [
     "dist",
-    "src"
+    "lib"
   ],
   "scripts": {
     "test": "jest --bail && npm run prepublishOnly && bundlesize",
     "test:watch": "jest --bail --watch && npm run prepublishOnly && bundlesize",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "build": "webpack",
-    "prepublishOnly": "npm run build",
+    "transpile": "babel src -d lib",
+    "prepublishOnly": "npm run build && npm run transpile",
     "version": "replace \"vPLACEHOLDER\" \"v$npm_package_version\" ./CHANGELOG.md && git add .",
     "preversion": "sh change-log-builder.sh",
     "release:patch": "npm version patch -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",

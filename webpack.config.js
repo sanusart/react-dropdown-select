@@ -1,14 +1,38 @@
 const path = require('path');
 const webpack = require('webpack');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: path.join(__dirname, 'src/index.js'),
   output: {
     path: path.join(__dirname, 'dist'),
-    libraryTarget: 'umd',
     filename: 'react-dropdown-select.js',
     library: 'Select',
-    umdNamedDefine: true
+    libraryTarget: 'umd',
+    publicPath: '/',
+    pathinfo: true
+  },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+        terserOptions: {
+          sourceMap: true,
+          compress: {
+            arguments: true,
+            drop_console: true,
+            unsafe_proto: true,
+            unsafe_methods: true,
+            unsafe_comps: true,
+            unsafe_arrows: true,
+            // module: true
+          },
+          output: {
+            comments: false,
+          },
+        }
+      }),
+    ],
   },
   externals: {
     react: {
