@@ -1,3 +1,6 @@
+### v2.1.4
+*  FIX (search): handle blur and focus correctly Closes #3 [View](https://github.com/sanusart/react-dropdown-select/commit/f950bcaab73b7fa1bb2326cf5109e8b424749909)
+
 ### v2.1.3
 *  FIX (module): fix module build [View](https://github.com/sanusart/react-dropdown-select/commit/6764bba263f5f94f2b2b01e60155fac90a5877d9)
 
