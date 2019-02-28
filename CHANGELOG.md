@@ -1,3 +1,6 @@
+### v2.1.5
+*  FIX (arrow navigation): fix arrow navigation closes #4 [View](https://github.com/sanusart/react-dropdown-select/commit/ae427b704438212be4a4a8bc8bacd5061f9daa12)
+
 ### v2.1.4
 *  FIX (search): handle blur and focus correctly Closes #3 [View](https://github.com/sanusart/react-dropdown-select/commit/f950bcaab73b7fa1bb2326cf5109e8b424749909)
 
