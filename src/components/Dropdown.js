@@ -40,8 +40,11 @@ const Dropdown = ({ props, state, methods }) => (
       props.dropdownRenderer({ props, state, methods })
     ) : (
       <React.Fragment>
-        {props.create && state.search && !valueExistInSelected(state.search, state.values) && (
-          <AddNew color={props.color} onClick={() => methods.createNew(state.search)}>
+        {props.create && state.search && !valueExistInSelected(state.search, state.values, props) && (
+          <AddNew
+            className="react-dropdown-select-dropdown-add-new"
+            color={props.color}
+            onClick={() => methods.createNew(state.search)}>
             {props.createNewLabel.replace('{search}', `"${state.search}"`)}
           </AddNew>
         )}
