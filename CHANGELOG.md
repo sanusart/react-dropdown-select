@@ -1,3 +1,6 @@
+### v2.1.6
+*  FIX (item): fix exception where item not properly null checked [View](https://github.com/sanusart/react-dropdown-select/commit/9a8154720ea1989cf53616c1a6d3008a344eeee8)
+
 ### v2.1.5
 *  FIX (arrow navigation): fix arrow navigation closes #4 [View](https://github.com/sanusart/react-dropdown-select/commit/ae427b704438212be4a4a8bc8bacd5061f9daa12)
 
