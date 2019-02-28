@@ -8,7 +8,7 @@ class Item extends Component {
 
   componentDidUpdate() {
     if (this.props.state.cursor === this.props.itemIndex) {
-      this.item.current.scrollIntoView(false);
+      this.item.current && this.item.current.scrollIntoView(false);
     }
   }
 
