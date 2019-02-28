@@ -8,7 +8,7 @@ exports[`<Dropdown/> renders correctly 1`] = `
   tabIndex="-1"
 >
   <div
-    className="css-1lli8k7-NoDataComponent e1l5ho1t0"
+    className="react-dropdown-select-no-data css-1lli8k7-NoDataComponent e1l5ho1t0"
   />
 </div>
 `;

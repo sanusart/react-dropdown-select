@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { LIB_NAME } from '../constants';
 
 const NoData = ({ props, state, methods }) =>
   props.noDataRenderer ? (
     props.noDataRenderer({ props, state, methods })
   ) : (
-    <NoDataComponent color={props.color}>{props.noDataLabel}</NoDataComponent>
+    <NoDataComponent className={`${LIB_NAME}-no-data`} color={props.color}>
+      {props.noDataLabel}
+    </NoDataComponent>
   );
 
 const NoDataComponent = styled.div`

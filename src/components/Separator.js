@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { LIB_NAME } from '../constants';
 
 const Separator = ({ props, state, methods }) =>
   props.separatorRenderer ? (
     props.separatorRenderer({ props, state, methods })
   ) : (
-    <SeparatorComponent className="react-dropdown-select-separator" />
+    <SeparatorComponent className={`${LIB_NAME}-separator`} />
   );
 
 const SeparatorComponent = styled.div`

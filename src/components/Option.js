@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { LIB_NAME } from '../constants';
 
 const Option = ({ item, props, state, methods }) =>
   item && props.optionRenderer ? (
@@ -8,11 +9,11 @@ const Option = ({ item, props, state, methods }) =>
     <OptionComponent
       role="listitem"
       disabled={props.disabled}
-      className="react-dropdown-select-option"
+      className={`${LIB_NAME}-option`}
       color={props.color}>
-      <span className="react-dropdown-select-option-label">{item[props.labelField]}</span>
+      <span className={`${LIB_NAME}-option-label`}>{item[props.labelField]}</span>
       <span
-        className="react-dropdown-select-option-remove"
+        className={`${LIB_NAME}-option-remove`}
         onClick={(event) => methods.removeItem(event, item, props.closeOnSelect)}>
         &times;
       </span>
@@ -28,7 +29,7 @@ const OptionComponent = styled.span`
   color: #fff;
   display: inline-block;
 
-  .react-dropdown-select-option-remove {
+  .${LIB_NAME}-option-remove {
     cursor: pointer;
     width: 22px;
     height: 22px;

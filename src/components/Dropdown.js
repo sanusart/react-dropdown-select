@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
+import { LIB_NAME } from '../constants';
 import NoData from '../components/NoData';
 import Item from '../components/Item';
 
@@ -32,7 +33,7 @@ const Dropdown = ({ props, state, methods }) => (
     portal={props.portal}
     dropdownGap={props.dropdownGap}
     dropdownHeight={props.dropdownHeight}
-    className={`react-dropdown-select-dropdown react-dropdown-select-dropdown-position-${dropdownPosition(
+    className={`${LIB_NAME}-dropdown ${LIB_NAME}-dropdown-position-${dropdownPosition(
       props,
       methods
     )}`}>
@@ -42,7 +43,7 @@ const Dropdown = ({ props, state, methods }) => (
       <React.Fragment>
         {props.create && state.search && !valueExistInSelected(state.search, state.values, props) && (
           <AddNew
-            className="react-dropdown-select-dropdown-add-new"
+            className={`${LIB_NAME}-dropdown-add-new`}
             color={props.color}
             onClick={() => methods.createNew(state.search)}>
             {props.createNewLabel.replace('{search}', `"${state.search}"`)}
@@ -50,7 +51,7 @@ const Dropdown = ({ props, state, methods }) => (
         )}
         {methods.searchResults().length === 0 ? (
           <NoData
-            className="react-dropdown-select-no-data"
+            className={`${LIB_NAME}-no-data`}
             state={state}
             props={props}
             methods={methods}

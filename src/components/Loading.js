@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { LIB_NAME } from '../constants';
 
 const Loading = ({ props }) =>
   props.loadingRenderer ? (
     props.loadingRenderer({ props })
   ) : (
-    <LoadingComponent className="react-dropdown-select-loading" color={props.color} />
+    <LoadingComponent className={`${LIB_NAME}-loading`} color={props.color} />
   );
 
 const LoadingComponent = styled.div`

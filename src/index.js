@@ -12,6 +12,7 @@ import Separator from './components/Separator';
 import DropdownHandle from './components/DropdownHandle';
 
 import { debounce, hexToRGBA } from './util';
+import { LIB_NAME } from './constants';
 
 export class Select extends Component {
   static propTypes = {
@@ -413,7 +414,7 @@ export class Select extends Component {
           style={this.props.style}
           ref={this.select}
           disabled={this.props.disabled}
-          className={`react-dropdown-select ${this.props.className}`}
+          className={`${LIB_NAME} ${this.props.className}`}
           color={this.props.color}>
           <Content props={this.props} state={this.state} methods={this.methods} />
 

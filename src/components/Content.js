@@ -3,12 +3,13 @@ import styled from '@emotion/styled';
 
 import Option from './Option';
 import Input from './Input';
+import { LIB_NAME } from '../constants';
 
 const Content = ({ props, state, methods }) => {
   return (
     <ContentComponent
-      className={`react-dropdown-select-content ${
-        props.multi ? 'react-dropdown-select-type-multi' : 'react-dropdown-select-type-single'
+      className={`${LIB_NAME}-content ${
+        props.multi ? `${LIB_NAME}-type-multi` : `${LIB_NAME}-type-single`
       }`}
       onClick={() => methods.dropDown('open')}>
       {props.contentRenderer ? (

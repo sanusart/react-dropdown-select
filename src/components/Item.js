@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import { hexToRGBA } from '../util';
 import * as PropTypes from 'prop-types';
+import { LIB_NAME } from '../constants';
 
 class Item extends Component {
   item = React.createRef();
@@ -33,10 +34,10 @@ class Item extends Component {
         aria-label={item[props.labelField]}
         key={`${item[props.valueField]}${item[props.labelField]}`}
         tabIndex="-1"
-        className={`react-dropdown-select-item ${
-          methods.isSelected(item) ? 'react-dropdown-select-item-selected' : ''
-          } ${state.cursor === itemIndex ? 'react-dropdown-select-item-active' : ''} ${
-          item.disabled ? 'react-dropdown-select-item-disabled' : ''
+        className={`${LIB_NAME}-item ${
+          methods.isSelected(item) ? `${LIB_NAME}-item-selected` : ''
+          } ${state.cursor === itemIndex ? `${LIB_NAME}-item-active` : ''} ${
+          item.disabled ? `${LIB_NAME}-item-disabled` : ''
           }`}
         onClick={item.disabled ? undefined : () => methods.addItem(item)}
         onKeyPress={item.disabled ? undefined : () => methods.addItem(item)}
@@ -60,7 +61,7 @@ const ItemComponent = styled.span`
   cursor: pointer;
   border-bottom: 1px solid #fff;
 
-  &.react-dropdown-select-item-active {
+  &.${LIB_NAME}-item-active {
     border-bottom: 1px solid #fff;
     ${({ disabled, color }) => !disabled && color && `background: ${hexToRGBA(color, 0.1)};`}
   }
@@ -71,7 +72,7 @@ const ItemComponent = styled.span`
     outline: none;
   }
 
-  &.react-dropdown-select-item-selected {
+  &.${LIB_NAME}-item-selected {
     ${({ disabled, color }) =>
       disabled
         ? `

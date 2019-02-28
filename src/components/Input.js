@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import { valueExistInSelected } from '../util';
 import * as PropTypes from 'prop-types';
+import { LIB_NAME } from '../constants';
 
 const handlePlaceHolder = (props, state) => {
   const noValues = state.values && state.values.length === 0;
@@ -70,7 +71,7 @@ class Input extends Component {
       <InputComponent
         ref={this.input}
         tabIndex="-1"
-        className="react-dropdown-select-input"
+        className={`${LIB_NAME}-input`}
         size={methods.getInputSize()}
         value={state.search}
         readOnly={!props.searchable}
