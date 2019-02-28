@@ -9,8 +9,7 @@ module.exports = {
     filename: 'react-dropdown-select.js',
     library: 'Select',
     libraryTarget: 'umd',
-    publicPath: '/',
-    pathinfo: true
+    globalObject: 'this'
   },
   optimization: {
     minimizer: [
@@ -24,11 +23,10 @@ module.exports = {
             unsafe_proto: true,
             unsafe_methods: true,
             unsafe_comps: true,
-            unsafe_arrows: true,
-            // module: true
+            unsafe_arrows: true
           },
           output: {
-            comments: false,
+            comments: false
           },
         }
       }),

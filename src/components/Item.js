@@ -1,37 +1,59 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import { hexToRGBA } from '../util';
+import * as PropTypes from 'prop-types';
 
-const Item = ({ props, state, methods, item, itemIndex }) => {
-  if (props.itemRenderer) {
-    return props.itemRenderer({ item, itemIndex, props, state, methods });
+class Item extends Component {
+  item = React.createRef();
+
+  componentDidUpdate() {
+    if (this.props.state.cursor === this.props.itemIndex) {
+      this.item.current.scrollIntoView(false);
+    }
   }
 
-  if (!props.keepSelectedInList && methods.isSelected(item)) {
-    return null;
-  }
+  render() {
+    const  { props, state, methods, item, itemIndex } = this.props;
 
-  return (
-    <ItemComponent
-      role="option"
-      aria-selected={methods.isSelected(item)}
-      aria-disabled={item.disabled}
-      disabled={item.disabled}
-      aria-label={item[props.labelField]}
-      key={`${item[props.valueField]}${item[props.labelField]}`}
-      tabIndex="-1"
-      className={`react-dropdown-select-item ${
-        methods.isSelected(item) ? 'react-dropdown-select-item-selected' : ''
-      } ${state.cursor === itemIndex ? 'react-dropdown-select-item-active' : ''} ${
-        item.disabled ? 'react-dropdown-select-item-disabled' : ''
-      }`}
-      onClick={item.disabled ? undefined : () => methods.addItem(item)}
-      onKeyPress={item.disabled ? undefined : () => methods.addItem(item)}
-      color={props.color}>
-      {item[props.labelField]} {item.disabled && <ins>{props.disabledLabel}</ins>}
-    </ItemComponent>
-  );
-};
+    if (props.itemRenderer) {
+      return props.itemRenderer({ item, itemIndex, props, state, methods });
+    }
+
+    if (!props.keepSelectedInList && methods.isSelected(item)) {
+      return null;
+    }
+
+    return (
+      <ItemComponent
+        role="option"
+        ref={this.item}
+        aria-selected={methods.isSelected(item)}
+        aria-disabled={item.disabled}
+        disabled={item.disabled}
+        aria-label={item[props.labelField]}
+        key={`${item[props.valueField]}${item[props.labelField]}`}
+        tabIndex="-1"
+        className={`react-dropdown-select-item ${
+          methods.isSelected(item) ? 'react-dropdown-select-item-selected' : ''
+          } ${state.cursor === itemIndex ? 'react-dropdown-select-item-active' : ''} ${
+          item.disabled ? 'react-dropdown-select-item-disabled' : ''
+          }`}
+        onClick={item.disabled ? undefined : () => methods.addItem(item)}
+        onKeyPress={item.disabled ? undefined : () => methods.addItem(item)}
+        color={props.color}>
+        {item[props.labelField]} {item.disabled && <ins>{props.disabledLabel}</ins>}
+      </ItemComponent>
+    );
+  }
+}
+
+Item.propTypes = {
+  props: PropTypes.any,
+  state: PropTypes.any,
+  methods: PropTypes.any,
+  item: PropTypes.any,
+  itemIndex: PropTypes.any
+}
 
 const ItemComponent = styled.span`
   padding: 5px 10px;

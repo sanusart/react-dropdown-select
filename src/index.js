@@ -357,16 +357,28 @@ export class Select extends Component {
       }
     }
 
-    if (event.key === 'ArrowUp' && cursor >= 0) {
+    if (event.key === 'ArrowUp' && cursor > 0) {
       this.setState((prevState) => ({
         cursor: prevState.cursor - 1
       }));
+    }
+
+    if (event.key === 'ArrowUp' && cursor === 0) {
+      this.setState({
+        cursor: this.searchResults().length
+      });
     }
 
     if (event.key === 'ArrowDown') {
       this.setState((prevState) => ({
         cursor: prevState.cursor + 1
       }));
+    }
+
+    if (event.key === 'ArrowDown' && this.searchResults().length === cursor) {
+      return this.setState({
+        cursor: 0
+      });
     }
   };
 
