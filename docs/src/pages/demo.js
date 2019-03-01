@@ -40,6 +40,7 @@ export class Demo extends React.Component {
       keepSelectedInList: true,
       closeOnSelect: false,
       dropdownPosition: 'bottom',
+      direction: 'ltr',
       dropdownHeight: '300px'
     };
   }
@@ -158,6 +159,7 @@ export class Demo extends React.Component {
               keepOpen={this.state.forceOpen}
               dropdownHandle={this.state.handle}
               dropdownHeight={this.state.dropdownHeight}
+              direction={this.state.direction}
               multi={this.state.multi}
               values={[options.find((opt) => opt.username === 'Bret')]}
               labelField={this.state.labelField}
@@ -393,6 +395,15 @@ export class Demo extends React.Component {
               })
             }
           />
+          <br />
+          Dropdown direction
+          <StyledHtmlSelect
+            defaultValue={this.state.direction}
+            onChange={(event) => this.setState({ direction: event.target.value })}>
+            <option value="auto">auto</option>
+            <option value="rtl">right-to-left</option>
+            <option value="ltr">left-to-right</option>
+          </StyledHtmlSelect>
           <br />
           Add placeholder:{' '}
           <StyledInput

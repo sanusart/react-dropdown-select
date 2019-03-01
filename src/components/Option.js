@@ -9,6 +9,7 @@ const Option = ({ item, props, state, methods }) =>
     <OptionComponent
       role="listitem"
       disabled={props.disabled}
+      direction={props.direction}
       className={`${LIB_NAME}-option`}
       color={props.color}>
       <span className={`${LIB_NAME}-option-label`}>{item[props.labelField]}</span>
@@ -27,7 +28,9 @@ const OptionComponent = styled.span`
   margin: 3px 0 3px 5px;
   background: ${({ color }) => color};
   color: #fff;
-  display: inline-block;
+  display: flex;
+  flex-direction: ${({ direction }) => direction === 'rtl' ? 'row-reverse' : 'row'};
+  
 
   .${LIB_NAME}-option-remove {
     cursor: pointer;

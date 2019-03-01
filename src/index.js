@@ -49,7 +49,8 @@ export class Select extends Component {
     loadingRenderer: PropTypes.func,
     clearRenderer: PropTypes.func,
     separatorRenderer: PropTypes.func,
-    dropdownHandleRenderer: PropTypes.func
+    dropdownHandleRenderer: PropTypes.func,
+    direction: PropTypes.string
   };
 
   constructor(props) {
@@ -411,6 +412,7 @@ export class Select extends Component {
           onKeyDown={this.handleKeyDown}
           onClick={(event) => this.dropDown('open', event)}
           tabIndex="0"
+          direction={this.props.direction}
           style={this.props.style}
           ref={this.select}
           disabled={this.props.disabled}
@@ -478,6 +480,7 @@ Select.defaultProps = {
   autoFocus: false,
   portal: null,
   create: false,
+  direction: 'ltr',
   name: null,
   onChange: () => undefined,
   onDropdownOpen: () => undefined,
@@ -495,6 +498,7 @@ const ReactDropdownSelect = styled.div`
   border-radius: 2px;
   padding: 2px 5px;
   flex-direction: row;
+  direction: ${({ direction }) => direction};
   align-items: center;
   min-height: 36px;
   ${({ disabled }) =>

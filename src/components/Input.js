@@ -53,7 +53,7 @@ class Input extends Component {
     return (
       props.create &&
       event.key === 'Enter' &&
-      !valueExistInSelected(state.search, state.values) &&
+      !valueExistInSelected(state.search, state.values, this.props) &&
       state.search &&
       state.cursor === null &&
       methods.createNew(state.search)

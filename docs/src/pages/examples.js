@@ -19,6 +19,7 @@ import ItemRenderer from '../examples/ItemRenderer';
 import CreateEntries from '../examples/CreateEntries';
 import CustomContentAndDropdown from '../examples/CustomContentAndDropdown';
 import RenderInBody from '../examples/RenderInBody';
+import Rtl from '../examples/Rtl';
 
 const demoOptions = options.map((option) => ({
   ...option,
@@ -58,6 +59,10 @@ const Examples = () => (
         options={demoOptions}
         title="Create new Entries"
       />
+    </Wrapper>
+
+    <Wrapper>
+      <Rtl title="Right to left" />
     </Wrapper>
 
     <Wrapper>

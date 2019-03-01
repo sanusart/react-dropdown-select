@@ -2,8 +2,9 @@
 
 exports[`<Select/> component <Select/> renders correctly 1`] = `
 <div
-  className="react-dropdown-select undefined css-1tjkwe0-ReactDropdownSelect e1gzf2xs0"
+  className="react-dropdown-select undefined css-3rj0br-ReactDropdownSelect e1gzf2xs0"
   color="#0074D9"
+  direction="ltr"
   disabled={false}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -48,8 +49,9 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
 
 exports[`<Select/> component <Select/> renders with clearable 1`] = `
 <div
-  className="react-dropdown-select undefined css-1tjkwe0-ReactDropdownSelect e1gzf2xs0"
+  className="react-dropdown-select undefined css-3rj0br-ReactDropdownSelect e1gzf2xs0"
   color="#0074D9"
+  direction="ltr"
   disabled={false}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -102,8 +104,9 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
 
 exports[`<Select/> component <Select/> renders with loading 1`] = `
 <div
-  className="react-dropdown-select undefined css-1tjkwe0-ReactDropdownSelect e1gzf2xs0"
+  className="react-dropdown-select undefined css-3rj0br-ReactDropdownSelect e1gzf2xs0"
   color="#0074D9"
+  direction="ltr"
   disabled={false}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -152,8 +155,9 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
 
 exports[`<Select/> component <Select/> renders with name 1`] = `
 <div
-  className="react-dropdown-select undefined css-1tjkwe0-ReactDropdownSelect e1gzf2xs0"
+  className="react-dropdown-select undefined css-3rj0br-ReactDropdownSelect e1gzf2xs0"
   color="#0074D9"
+  direction="ltr"
   disabled={false}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -203,8 +207,9 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
 
 exports[`<Select/> component <Select/> renders with separator 1`] = `
 <div
-  className="react-dropdown-select undefined css-1tjkwe0-ReactDropdownSelect e1gzf2xs0"
+  className="react-dropdown-select undefined css-3rj0br-ReactDropdownSelect e1gzf2xs0"
   color="#0074D9"
+  direction="ltr"
   disabled={false}
   onClick={[Function]}
   onKeyDown={[Function]}

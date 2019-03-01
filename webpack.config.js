@@ -7,11 +7,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'react-dropdown-select.js',
-    library: {
-      commonjs: 'Select',
-      amd: 'Select',
-      root: 'Select'
-    },
+    library: 'Select',
     libraryTarget: 'commonjs2',
   },
   optimization: {

@@ -6,7 +6,7 @@ exports[`<Clear/> component <Content/> renders correctly 1`] = `
   onClick={[Function]}
 >
   <span
-    className="react-dropdown-select-option css-1sb8fud-OptionComponent e1l4eby50"
+    className="react-dropdown-select-option css-tqmr8g-OptionComponent e1l4eby50"
     role="listitem"
   >
     <span
