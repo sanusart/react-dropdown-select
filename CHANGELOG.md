@@ -1,3 +1,8 @@
+### v2.2.0
+*  FIX (add new): disallow to add value with same valiuField [View](https://github.com/sanusart/react-dropdown-select/commit/ae454c499632e2312afce281bd54795e7b2e4fb2)
+*  FIX (css): css classes for all components [View](https://github.com/sanusart/react-dropdown-select/commit/b972faf489ce0dc7f0cb8b6a9b707ec05051e5fc)
+*  FEATURE (rtl): support Select rtl direction to use with rtl languages [View](https://github.com/sanusart/react-dropdown-select/commit/da0d4049dedf05363ffc69a907bc7ffb254119c1)
+
 ### v2.1.6
 *  FIX (item): fix exception where item not properly null checked [View](https://github.com/sanusart/react-dropdown-select/commit/9a8154720ea1989cf53616c1a6d3008a344eeee8)
 
