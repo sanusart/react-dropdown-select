@@ -20,6 +20,7 @@ import CreateEntries from '../examples/CreateEntries';
 import CustomContentAndDropdown from '../examples/CustomContentAndDropdown';
 import RenderInBody from '../examples/RenderInBody';
 import Rtl from '../examples/Rtl';
+import DropdownAutoPosition from '../examples/DropdownAutoPosition';
 
 const demoOptions = options.map((option) => ({
   ...option,
@@ -62,7 +63,11 @@ const Examples = () => (
     </Wrapper>
 
     <Wrapper>
-      <Rtl title="Right to left" />
+      <Rtl title="Right to left (rtl)" />
+    </Wrapper>
+
+    <Wrapper>
+      <DropdownAutoPosition options={demoOptions} title="Dropdown auto-position"/>
     </Wrapper>
 
     <Wrapper>
@@ -75,6 +80,7 @@ const Examples = () => (
     <Wrapper>
       <OpenOnTop options={demoOptions} title="Open on top" />
     </Wrapper>
+
 
     <br />
     <br />

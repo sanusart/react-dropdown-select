@@ -5,14 +5,14 @@ title: 'dropdownPosition'
 demo: 8z0mw4z4j0
 ---
 
-Open dropdown above the select
+Open dropdown above the select or bellow, based on space
 
 ### Usage
 
 ```
 <Select
 	multi
-	dropdownPosition="top"
+	dropdownPosition="auto"
 	options={options}
 	onChange={(values) => this.onChange(values)}
 	/>
