@@ -80,7 +80,9 @@ export class Select extends Component {
       areAllSelected: this.areAllSelected,
       handleKeyDown: this.handleKeyDown,
       activeCursorItem: this.activeCursorItem,
-      createNew: this.createNew
+      createNew: this.createNew,
+      sortBy: this.sortBy,
+      safeString: this.safeString
     };
 
     this.select = React.createRef();
@@ -178,7 +180,10 @@ export class Select extends Component {
     if (action === 'close' && this.state.dropdown) {
       this.select.current.blur();
 
-      return this.setState({ dropdown: false, search: this.props.clearOnBlur ? '' : this.state.search });
+      return this.setState({
+        dropdown: false,
+        search: this.props.clearOnBlur ? '' : this.state.search
+      });
     }
 
     if (action === 'open' && !this.state.dropdown) {
@@ -282,8 +287,8 @@ export class Select extends Component {
 
   safeString = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-  sortBy = (options) => {
-    const { sortBy, labelField } = this.props;
+  sortBy = () => {
+    const { sortBy, labelField, options } = this.props;
 
     if (!sortBy) {
       return options;
@@ -322,11 +327,19 @@ export class Select extends Component {
     });
   };
 
-  searchResults = () => {
-    const regexp = new RegExp(this.safeString(this.state.search), 'i');
+  searchFn = ({ state, props, methods }) => {
+    const regexp = new RegExp(methods.safeString(state.search), 'i');
 
-    return this.sortBy(this.props.options).filter((item) =>
-      regexp.test(item[this.props.searchBy] || item[[this.props.labelField]])
+    return methods.sortBy(props.options).filter((item) =>
+      regexp.test(item[props.searchBy] || item[props.labelField])
+    );
+  };
+
+  searchResults = () => {
+    const args = { state: this.state, props: this.props, methods: this.methods };
+
+    return (
+      this.props.searchFn(args) || this.searchFn(args)
     );
   };
 
@@ -420,7 +433,9 @@ export class Select extends Component {
           color={this.props.color}>
           <Content props={this.props} state={this.state} methods={this.methods} />
 
-          {this.props.name && <input name={this.props.name} type="hidden" value={this.props.values} />}
+          {this.props.name && (
+            <input name={this.props.name} type="hidden" value={this.props.values} />
+          )}
 
           {this.props.loading && <Loading props={this.props} />}
 
@@ -487,7 +502,8 @@ Select.defaultProps = {
   onDropdownClose: () => undefined,
   onClearAll: () => undefined,
   onSelectAll: () => undefined,
-  onCreateNew: () => undefined
+  onCreateNew: () => undefined,
+  searchFn: () => undefined
 };
 
 const ReactDropdownSelect = styled.div`
