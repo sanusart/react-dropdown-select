@@ -9,12 +9,13 @@ class Item extends Component {
 
   componentDidUpdate() {
     if (this.props.state.cursor === this.props.itemIndex) {
-      this.item.current && this.item.current.scrollIntoView(false);
+      this.item.current &&
+        this.item.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     }
   }
 
   render() {
-    const  { props, state, methods, item, itemIndex } = this.props;
+    const { props, state, methods, item, itemIndex } = this.props;
 
     if (props.itemRenderer) {
       return props.itemRenderer({ item, itemIndex, props, state, methods });
@@ -36,9 +37,9 @@ class Item extends Component {
         tabIndex="-1"
         className={`${LIB_NAME}-item ${
           methods.isSelected(item) ? `${LIB_NAME}-item-selected` : ''
-          } ${state.cursor === itemIndex ? `${LIB_NAME}-item-active` : ''} ${
+        } ${state.cursor === itemIndex ? `${LIB_NAME}-item-active` : ''} ${
           item.disabled ? `${LIB_NAME}-item-disabled` : ''
-          }`}
+        }`}
         onClick={item.disabled ? undefined : () => methods.addItem(item)}
         onKeyPress={item.disabled ? undefined : () => methods.addItem(item)}
         color={props.color}>
@@ -54,7 +55,7 @@ Item.propTypes = {
   methods: PropTypes.any,
   item: PropTypes.any,
   itemIndex: PropTypes.any
-}
+};
 
 const ItemComponent = styled.span`
   padding: 5px 10px;
