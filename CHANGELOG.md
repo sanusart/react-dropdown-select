@@ -1,3 +1,6 @@
+### v2.2.2
+*  FIX (keybord navigation): fix jumps [View](https://github.com/sanusart/react-dropdown-select/commit/aa053549553aadd531546e8b0da2a5b6a5eb54fe)
+
 ### v2.2.1
 *  DOCS (link): fix sorce link for rtl example [View](https://github.com/sanusart/react-dropdown-select/commit/c7756c3c5f6e5f0a3a9f7a25d156efe41a3af07b)
 *  FEATURE (searchFn): allow to override built-in search function [View](https://github.com/sanusart/react-dropdown-select/commit/d452473042feeeb9731e4ee7c906754c9b83b892)
