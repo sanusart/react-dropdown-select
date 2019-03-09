@@ -80,8 +80,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.7",
-    "@emotion/styled": "^10.0.7",
-    "react-onclickout": "^2.0.8"
+    "@emotion/styled": "^10.0.7"
   },
   "jest": {
     "transform": {

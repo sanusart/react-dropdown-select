@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import ClickOutHandler from 'react-onclickout';
+import ClickOutside from './components/ClickOutside';
 
 import Content from './components/Content';
 import Dropdown from './components/Dropdown';
@@ -420,7 +420,7 @@ export class Select extends Component {
 
   render() {
     return (
-      <ClickOutHandler onClickOut={(event) => this.dropDown('close', event)}>
+      <ClickOutside onClickOutside={(event) => this.dropDown('close', event)}>
         <ReactDropdownSelect
           onKeyDown={this.handleKeyDown}
           onClick={(event) => this.dropDown('open', event)}
@@ -458,7 +458,7 @@ export class Select extends Component {
 
           {this.state.dropdown && this.renderDropdown()}
         </ReactDropdownSelect>
-      </ClickOutHandler>
+      </ClickOutside>
     );
   }
 }
