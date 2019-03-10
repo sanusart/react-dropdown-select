@@ -1,7 +1,5 @@
 node_modules
-dist
 .idea
 /src/helpers.js
 .DS_Store
 coverage
-lib

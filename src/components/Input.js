@@ -5,18 +5,19 @@ import * as PropTypes from 'prop-types';
 import { LIB_NAME } from '../constants';
 
 const handlePlaceHolder = (props, state) => {
+  const { addPlaceholder, searchable, placeholder } = props;
   const noValues = state.values && state.values.length === 0;
   const hasValues = state.values && state.values.length > 0;
 
-  if (hasValues && props.addPlaceholder && props.searchable) {
-    return props.addPlaceholder;
+  if (hasValues && addPlaceholder && searchable) {
+    return addPlaceholder;
   }
 
   if (noValues) {
-    return props.placeholder;
+    return placeholder;
   }
 
-  if (hasValues && !props.searchable) {
+  if (hasValues && !searchable) {
     return '';
   }
 

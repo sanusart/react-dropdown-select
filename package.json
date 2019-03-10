@@ -80,8 +80,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.7",
-    "@emotion/styled": "^10.0.7",
-    "react-onclickout": "^2.0.8"
+    "@emotion/styled": "^10.0.7"
   },
   "jest": {
     "transform": {
@@ -106,9 +105,9 @@
   },
   "sideEffects": false,
   "browserslist": [
-    "last 1 version",
+    "last 2 versions",
     "not dead",
-    "> 0.2%"
+    "ie 11"
   ],
   "husky": {
     "hooks": {

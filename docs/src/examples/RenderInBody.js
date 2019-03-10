@@ -17,6 +17,7 @@ const RenderInBody = ({ options, title }) => (
       </p>
       <Select
         options={options}
+        multi
         portal={typeof document !== `undefined` && document.body}
         values={[]}
         onChange={(value) =>
