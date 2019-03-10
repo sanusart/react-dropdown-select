@@ -264,7 +264,7 @@ const options = [
 
 const Rtl = ({ title }) => (
   <React.Fragment>
-    <Title id={title.replace(/\s/g, '-')}>
+    <Title id="Right-to-left">
       <h2>{title}</h2>
       <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/Rtl.js">
         Source

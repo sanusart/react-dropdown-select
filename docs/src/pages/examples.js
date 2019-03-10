@@ -21,6 +21,7 @@ import CustomContentAndDropdown from '../examples/CustomContentAndDropdown';
 import RenderInBody from '../examples/RenderInBody';
 import Rtl from '../examples/Rtl';
 import DropdownAutoPosition from '../examples/DropdownAutoPosition';
+import NoData from '../examples/NoData';
 
 const demoOptions = options.map((option) => ({
   ...option,
@@ -79,6 +80,10 @@ const Examples = () => (
 
     <Wrapper>
       <OpenOnTop options={demoOptions} title="Open on top" />
+    </Wrapper>
+
+    <Wrapper>
+      <NoData title={`Custom "no data" renderer`} />
     </Wrapper>
 
 
