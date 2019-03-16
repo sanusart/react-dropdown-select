@@ -1,7 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Separator/> renders correctly 1`] = `
+.emotion-0 {
+  border-left: 1px solid #ccc;
+  width: 1px;
+  height: 25px;
+  display: block;
+}
+
 <div
-  className="react-dropdown-select-separator css-vxbae9-SeparatorComponent e19h5j1v0"
+  className="react-dropdown-select-separator emotion-0 emotion-1"
 />
 `;

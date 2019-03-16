@@ -1,7 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Loading/> renders correctly 1`] = `
+.emotion-0 {
+  padding: 0 5px;
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+.emotion-0:after {
+  content: ' ';
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  -webkit-animation: dual-ring-spin 0.7s ease-in-out infinite;
+  animation: dual-ring-spin 0.7s ease-in-out infinite;
+  margin: 0 0 0 -10px;
+}
+
 <div
-  className="react-dropdown-select-loading css-k8dcp9-LoadingComponent e1l5cpc30"
+  className="react-dropdown-select-loading emotion-0 emotion-1"
 />
 `;

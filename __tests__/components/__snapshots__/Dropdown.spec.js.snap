@@ -1,14 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Dropdown/> renders correctly 1`] = `
+.emotion-2 {
+  position: absolute;
+  top: NaNpx;
+  left: -1px;
+  border: 1px solid #ccc;
+  width: px;
+  padding: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+  max-height: 300px;
+  overflow: auto;
+  z-index: 9;
+}
+
+.emotion-2:focus {
+  outline: none;
+}
+
+.emotion-0 {
+  padding: 10px;
+  text-align: center;
+}
+
 <div
   aria-expanded="true"
-  className="react-dropdown-select-dropdown react-dropdown-select-dropdown-position-undefined css-16z139g-DropDown e1qjn9k90"
+  className="react-dropdown-select-dropdown react-dropdown-select-dropdown-position-undefined emotion-2 emotion-3"
   role="list"
   tabIndex="-1"
 >
   <div
-    className="react-dropdown-select-no-data css-1lli8k7-NoDataComponent e1l5ho1t0"
+    className="react-dropdown-select-no-data emotion-0 emotion-1"
   />
 </div>
 `;
