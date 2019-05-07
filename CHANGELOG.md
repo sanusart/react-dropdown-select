@@ -1,3 +1,16 @@
+### v2.2.3
+*  FIX (click outside): use internal click outside [View](https://github.com/sanusart/react-dropdown-select/commit/5088355bd1a306f4ed76b62b6ac3ca10297c9bbf)
+*  CHORE (lib/dist): add liv and dist to repo in order to allow npm install from branch or tag [View](https://github.com/sanusart/react-dropdown-select/commit/e8892fdf1979779837ced972e31aef9e70d288bd)
+*  DOCS (noData): add noData renderer example [View](https://github.com/sanusart/react-dropdown-select/commit/fbbd3d4927601d276c6bc9954f08a1277010ea4e)
+
+### v2.2.2
+*  FIX (keybord navigation): fix jumps [View](https://github.com/sanusart/react-dropdown-select/commit/aa053549553aadd531546e8b0da2a5b6a5eb54fe)
+
+### v2.2.1
+*  DOCS (link): fix sorce link for rtl example [View](https://github.com/sanusart/react-dropdown-select/commit/c7756c3c5f6e5f0a3a9f7a25d156efe41a3af07b)
+*  FEATURE (searchFn): allow to override built-in search function [View](https://github.com/sanusart/react-dropdown-select/commit/d452473042feeeb9731e4ee7c906754c9b83b892)
+*  DOCS (update): update docs + add rtl and autoposition examples [View](https://github.com/sanusart/react-dropdown-select/commit/65046a529ee7765dcce4d5e91c54b45153f133e9)
+
 ### v2.2.0
 *  FIX (add new): disallow to add value with same valiuField [View](https://github.com/sanusart/react-dropdown-select/commit/ae454c499632e2312afce281bd54795e7b2e4fb2)
 *  FIX (css): css classes for all components [View](https://github.com/sanusart/react-dropdown-select/commit/b972faf489ce0dc7f0cb8b6a9b707ec05051e5fc)
