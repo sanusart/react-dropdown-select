@@ -12,6 +12,7 @@ import '../styles.css';
 import { options } from '../options';
 
 import Basic from '../examples/Basic';
+import Windowed from '../examples/Windowed';
 import Multi from '../examples/Multi';
 import OpenOnTop from '../examples/OpenOnTop';
 import Styled from '../examples/Styled';
@@ -86,6 +87,9 @@ const Examples = () => (
       <NoData title={`Custom "no data" renderer`} />
     </Wrapper>
 
+    <Wrapper>
+      <Windowed title={`Windowed (20000 items)`} />
+    </Wrapper>
 
     <br />
     <br />
