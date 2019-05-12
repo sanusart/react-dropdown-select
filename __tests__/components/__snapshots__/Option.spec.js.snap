@@ -1,8 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Option/> component renders correctly 1`] = `
+.emotion-0 {
+  padding: 0 5px;
+  border-radius: 2px;
+  line-height: 21px;
+  margin: 3px 0 3px 5px;
+  color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-0 .react-dropdown-select-option-remove {
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  text-align: center;
+  margin: 0 -5px 0 0px;
+  border-radius: 0 3px 3px 0;
+}
+
+.emotion-0 .react-dropdown-select-option-remove:hover {
+  color: tomato;
+}
+
+.emotion-0:hover,
+.emotion-0:hover > span {
+  opacity: 0.9;
+}
+
 <span
-  className="react-dropdown-select-option css-tqmr8g-OptionComponent e1l4eby50"
+  className="react-dropdown-select-option emotion-0 emotion-1"
   role="listitem"
 >
   <span

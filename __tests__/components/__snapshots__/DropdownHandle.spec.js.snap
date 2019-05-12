@@ -1,8 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Clear/> component <DropdownHandle/> renders correctly 1`] = `
+.emotion-0 {
+  text-align: center;
+  margin: 0 0 0 5px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+
+.emotion-0 svg {
+  width: 16px;
+  height: 16px;
+}
+
+.emotion-0:focus {
+  outline: none;
+}
+
 <div
-  className="react-dropdown-select-dropdown-handle css-2zkru-DropdownHandleComponent e1vudypg0"
+  className="react-dropdown-select-dropdown-handle emotion-0 emotion-1"
   onClick={[Function]}
   onKeyDown={[Function]}
   onKeyPress={[Function]}

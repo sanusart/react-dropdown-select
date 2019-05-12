@@ -1,3 +1,9 @@
+### v2.2.4
+*  CHORE (update packages + tests): update packages and add more tests [View](https://github.com/sanusart/react-dropdown-select/commit/2062c83c2737ae53ddf50dd0ddca7a9cae572aa8)
+*  CHORE (update packages): update packages [View](https://github.com/sanusart/react-dropdown-select/commit/769d88069b85d6fcd52a1b301f03fe3848d0b063)
+*  DOCS (examples): windowed example [View](https://github.com/sanusart/react-dropdown-select/commit/d7ccf29124897477dcb868e283b018d80c818615)
+*  FIX (controll): allow to control select values externaly [View](https://github.com/sanusart/react-dropdown-select/commit/0e95e861ee9f5a510ebae0dc226d73004f75ea4d)
+
 ### v2.2.3
 *  FIX (click outside): use internal click outside [View](https://github.com/sanusart/react-dropdown-select/commit/5088355bd1a306f4ed76b62b6ac3ca10297c9bbf)
 *  CHORE (lib/dist): add liv and dist to repo in order to allow npm install from branch or tag [View](https://github.com/sanusart/react-dropdown-select/commit/e8892fdf1979779837ced972e31aef9e70d288bd)
