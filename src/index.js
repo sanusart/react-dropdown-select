@@ -104,6 +104,14 @@ export class Select extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if (prevProps.values !== this.props.values && prevProps.values === prevState.values) {
+      this.props.onChange(this.state.values);
+      this.setState({
+        values: this.props.values
+      });
+      this.updateSelectBounds();
+    }
+
     if (prevState.values !== this.state.values) {
       this.props.onChange(this.state.values);
       this.updateSelectBounds();

@@ -25,7 +25,7 @@ export class Demo extends React.Component {
       itemRenderer: false,
       optionRenderer: false,
       noDataRenderer: false,
-      selectValues: [],
+      values: [options.find((opt) => opt.username === 'Antonette')],
       searchBy: 'username',
       clearable: false,
       searchable: true,
@@ -45,7 +45,7 @@ export class Demo extends React.Component {
     };
   }
 
-  setValues = (selectValues) => this.setState({ selectValues });
+  setValues = (values) => this.setState({ values });
 
   contentRenderer = ({props, state}) => {
     return (
@@ -139,6 +139,9 @@ export class Demo extends React.Component {
       placeholder="Type in"
     />
   );
+onClear = () => this.setState({
+  values: []
+});
 
   render() {
     return (
@@ -161,7 +164,7 @@ export class Demo extends React.Component {
               dropdownHeight={this.state.dropdownHeight}
               direction={this.state.direction}
               multi={this.state.multi}
-              values={[options.find((opt) => opt.username === 'Bret')]}
+              values={this.state.values}
               labelField={this.state.labelField}
               valueField={this.state.valueField}
               options={options}
@@ -205,6 +208,7 @@ export class Demo extends React.Component {
                   : undefined
               }
             />
+            <button onClick={this.onClear}>Clear</button>
           </div>
         </div>
         <p>&nbsp;</p>
@@ -463,7 +467,7 @@ export class Demo extends React.Component {
 
         <details>
           <summary>Selected values:</summary>
-          <pre>{JSON.stringify(this.state.selectValues, false, 2)}</pre>
+          <pre>{JSON.stringify(this.state.values, false, 2)}</pre>
         </details>
       </div>
     );

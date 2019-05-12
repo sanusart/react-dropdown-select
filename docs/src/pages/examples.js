@@ -23,6 +23,7 @@ import RenderInBody from '../examples/RenderInBody';
 import Rtl from '../examples/Rtl';
 import DropdownAutoPosition from '../examples/DropdownAutoPosition';
 import NoData from '../examples/NoData';
+import ExternalClear from '../examples/ExternalClear';
 
 const demoOptions = options.map((option) => ({
   ...option,
@@ -89,6 +90,10 @@ const Examples = () => (
 
     <Wrapper>
       <Windowed title={`Windowed (20000 items)`} />
+    </Wrapper>
+
+    <Wrapper>
+      <ExternalClear options={demoOptions} title={`External clear control`} />
     </Wrapper>
 
     <br />
