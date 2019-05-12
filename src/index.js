@@ -109,6 +109,14 @@ export class Select extends Component {
       this.updateSelectBounds();
     }
 
+    if (prevProps.values !== this.props.values) {
+      this.setState({
+        values: this.props.values
+      });
+      this.props.onChange(this.state.values);
+      this.updateSelectBounds();
+    }
+
     if (prevState.search !== this.state.search) {
       this.updateSelectBounds();
     }
