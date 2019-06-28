@@ -1,3 +1,7 @@
+### v3.1.0
+*  CHORE (packages): updated dev dependency [View](https://github.com/sanusart/react-dropdown-select/commit/4441b36d8c734813582d920c5bcab7a31dd9accd)
+*  FIX (values): more proper values comparision closes #13 [View](https://github.com/sanusart/react-dropdown-select/commit/92172321d26ad436399b2eaea14deadfd143ba70)
+
 ### v3.0.0
 *  Revert "FIX (controll): allow to control select values externaly" [View](https://github.com/sanusart/react-dropdown-select/commit/c94d39f53e9304204e848e6db5f1120222940850)
 *  FIX (controll): allow to control select values externaly [View](https://github.com/sanusart/react-dropdown-select/commit/4de0041e11a6b54f851fc4d43b30e51be9c81fc8)
