@@ -24,7 +24,6 @@ export const options = [
   },
   {
     id: 2,
-    disabled: true,
     name: "Ervin Howell",
     username: "Antonette",
     email: "Shanna@melissa.tv",
@@ -94,6 +93,7 @@ export const options = [
   },
   {
     id: 5,
+    disabled: true,
     name: "Chelsey Dietrich",
     username: "Kamren",
     email: "Lucio_Hettinger@annie.ca",
