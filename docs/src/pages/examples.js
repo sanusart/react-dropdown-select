@@ -93,7 +93,7 @@ const Examples = () => (
     </Wrapper>
 
     <Wrapper>
-      <ExternalClear options={demoOptions} title={`External clear control`} />
+      <ExternalClear options={demoOptions} title={`External clear and add`} />
     </Wrapper>
 
     <br />

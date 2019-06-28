@@ -22,3 +22,5 @@ export const debounce = (fn, delay = 0) => {
     }, delay);
   };
 };
+
+export const isEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
