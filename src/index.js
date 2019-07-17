@@ -11,7 +11,7 @@ import Clear from './components/Clear';
 import Separator from './components/Separator';
 import DropdownHandle from './components/DropdownHandle';
 
-import { debounce, hexToRGBA, isEqual } from './util';
+import { debounce, hexToRGBA, isEqual, getByPath, getProp } from './util';
 import { LIB_NAME } from './constants';
 
 export class Select extends Component {
@@ -172,14 +172,15 @@ export class Select extends Component {
   getSelectBounds = () => this.state.selectBounds;
 
   dropDown = (action = 'toggle', event) => {
+    const target = event && event.target || event && event.srcElement;
+
     if (
       this.props.portal &&
       !this.props.closeOnScroll &&
       !this.props.closeOnSelect &&
-      event &&
-      event.srcElement &&
-      event.srcElement.offsetParent &&
-      event.srcElement.offsetParent.classList.contains('react-dropdown-select-dropdown')
+      event && target &&
+      target.offsetParent &&
+      target.offsetParent.classList.contains('react-dropdown-select-dropdown')
     ) {
       return;
     }
@@ -241,7 +242,7 @@ export class Select extends Component {
 
     this.setState({
       values: this.state.values.filter(
-        (values) => values[this.props.valueField] !== item[this.props.valueField]
+        (values) => getByPath(values, this.props.valueField) !== getByPath(item, this.props.valueField)
       )
     });
   };
@@ -290,7 +291,7 @@ export class Select extends Component {
 
   isSelected = (option) =>
     !!this.state.values.find(
-      (value) => value[this.props.valueField] === option[this.props.valueField]
+      (value) => getByPath(value, this.props.valueField) === getByPath(option, this.props.valueField)
     );
 
   areAllSelected = () =>
@@ -299,50 +300,30 @@ export class Select extends Component {
   safeString = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
   sortBy = () => {
-    const { sortBy, labelField, options } = this.props;
+    const { sortBy, options } = this.props;
 
     if (!sortBy) {
       return options;
     }
 
-    return options.sort((a, b) => {
-      let fieldA;
-      let fieldB;
-
-      const sortA = a[sortBy];
-      const sortB = b[sortBy];
-
-      if (a[sortBy] === undefined || sortB === undefined) {
-        return options;
-      }
-
-      if (sortA && typeof sortA === 'number') {
-        fieldA = a[sortA ? sortBy : labelField];
-        fieldB = b[sortB ? sortBy : labelField];
-
-        return fieldA - fieldB;
-      }
-
-      fieldA = String(a[sortA ? sortBy : labelField]).toLowerCase();
-      fieldB = String(b[sortB ? sortBy : labelField]).toLowerCase();
-
-      if (fieldA < fieldB) {
+    options.sort((a, b) => {
+      if (getProp(a, sortBy) < getProp(b, sortBy)) {
         return -1;
-      }
-
-      if (fieldA > fieldB) {
+      } else if (getProp(a, sortBy) > getProp(b, sortBy)) {
         return 1;
+      } else {
+        return 0;
       }
-
-      return 0;
     });
+
+    return options;
   };
 
   searchFn = ({ state, props, methods }) => {
     const regexp = new RegExp(methods.safeString(state.search), 'i');
 
-    return methods.sortBy(props.options).filter((item) =>
-      regexp.test(item[props.searchBy] || item[props.labelField])
+    return methods.sortBy().filter((item) =>
+      regexp.test(item[props.searchBy] || getByPath(item, this.props.valueField))
     );
   };
 

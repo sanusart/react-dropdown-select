@@ -3,7 +3,9 @@ import styled from '@emotion/styled';
 
 import Select from '../../../src';
 
-const Basic = ({ options, title }) => (
+import { options } from '../options';
+
+const Basic = ({ title }) => (
   <React.Fragment>
     <Title>
       <h2>{title}</h2>
@@ -12,8 +14,11 @@ const Basic = ({ options, title }) => (
       </a>
     </Title>
     <Select
+      multi
       options={options}
       values={[]}
+      valueField="address.city"
+      labelField="address.city"
       onChange={(value) =>
         console.log(`%c > onChange ${title} `, 'background: #555; color: tomato', value)
       }
