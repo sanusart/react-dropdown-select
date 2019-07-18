@@ -72,7 +72,9 @@ exports[`<Clear/> component <Content/> renders correctly 1`] = `
   >
     <span
       className="react-dropdown-select-option-label"
-    />
+    >
+      Leanne Graham
+    </span>
     <span
       className="react-dropdown-select-option-remove"
       onClick={[Function]}

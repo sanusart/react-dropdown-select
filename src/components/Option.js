@@ -13,7 +13,7 @@ const Option = ({ item, props, state, methods }) =>
       direction={props.direction}
       className={`${LIB_NAME}-option`}
       color={props.color}>
-      <span className={`${LIB_NAME}-option-label`}>{getByPath(item, props.valueField)}</span>
+      <span className={`${LIB_NAME}-option-label`}>{getByPath(item, props.labelField)}</span>
       <span
         className={`${LIB_NAME}-option-remove`}
         onClick={(event) => methods.removeItem(event, item, props.closeOnSelect)}>
