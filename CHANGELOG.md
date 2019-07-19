@@ -1,3 +1,7 @@
+### v3.2.0
+*  Bump lodash from 4.17.11 to 4.17.14 [View](https://github.com/sanusart/react-dropdown-select/commit/705bb2e4cb4070e57ad78f4e0457be99de06764a)
+*  FIX (label, value): [EXPERIMENTAL] allow dotted path in valueField an… (#18) [View](https://github.com/sanusart/react-dropdown-select/commit/43eefe009260c75bee80d2918740cc0f18639078)
+
 ### v3.1.0
 *  CHORE (packages): updated dev dependency [View](https://github.com/sanusart/react-dropdown-select/commit/4441b36d8c734813582d920c5bcab7a31dd9accd)
 *  FIX (values): more proper values comparision closes #13 [View](https://github.com/sanusart/react-dropdown-select/commit/92172321d26ad436399b2eaea14deadfd143ba70)
