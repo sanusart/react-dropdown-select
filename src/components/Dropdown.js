@@ -10,7 +10,7 @@ import { valueExistInSelected, hexToRGBA } from '../util';
 const dropdownPosition = (props, methods) => {
   const DropdownBoundingClientRect = methods.getSelectRef().getBoundingClientRect();
   const dropdownHeight =
-    DropdownBoundingClientRect.bottom + parseInt(props.dropdownHeight) + props.dropdownGap;
+    DropdownBoundingClientRect.bottom + parseInt(props.dropdownHeight, 10) + parseInt(props.dropdownGap, 10);
 
   if (props.dropdownPosition !== 'auto') {
     return props.dropdownPosition;
