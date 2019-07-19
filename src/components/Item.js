@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
-import { hexToRGBA } from '../util';
+import { hexToRGBA, getByPath } from '../util';
 import * as PropTypes from 'prop-types';
 import { LIB_NAME } from '../constants';
 
@@ -32,8 +32,8 @@ class Item extends Component {
         aria-selected={methods.isSelected(item)}
         aria-disabled={item.disabled}
         disabled={item.disabled}
-        aria-label={item[props.labelField]}
-        key={`${item[props.valueField]}${item[props.labelField]}`}
+        aria-label={getByPath(item, props.labelField)}
+        key={`${getByPath(item, props.valueField)}${getByPath(item, props.labelField)}`}
         tabIndex="-1"
         className={`${LIB_NAME}-item ${
           methods.isSelected(item) ? `${LIB_NAME}-item-selected` : ''
@@ -43,7 +43,7 @@ class Item extends Component {
         onClick={item.disabled ? undefined : () => methods.addItem(item)}
         onKeyPress={item.disabled ? undefined : () => methods.addItem(item)}
         color={props.color}>
-        {item[props.labelField]} {item.disabled && <ins>{props.disabledLabel}</ins>}
+        {getByPath(item, props.labelField)} {item.disabled && <ins>{props.disabledLabel}</ins>}
       </ItemComponent>
     );
   }
