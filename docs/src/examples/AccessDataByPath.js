@@ -2,18 +2,24 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import Select from '../../../src';
+import { options } from '../options';
 
-const Basic = ({ options, title }) => (
+const AccessDataByPath = ({ title }) => (
   <React.Fragment>
     <Title>
       <h2>{title}</h2>
-      <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/Basic.js">
+      <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/AccessDataByPath.js">
         Source
       </a>
     </Title>
+    <p>"Label" is accessed via <code>company.catchPhrase</code></p>
     <Select
+      multi
       options={options}
       values={[]}
+      valueField="address.city"
+      labelField="company.catchPhrase"
+      searchBy="company.catchPhrase"
       onChange={(value) =>
         console.log(`%c > onChange ${title} `, 'background: #555; color: tomato', value)
       }
@@ -21,7 +27,7 @@ const Basic = ({ options, title }) => (
   </React.Fragment>
 );
 
-Basic.propTypes = {};
+AccessDataByPath.propTypes = {};
 
 const Title = styled.div`
   display: flex;
@@ -29,4 +35,4 @@ const Title = styled.div`
   align-items: baseline;
 `;
 
-export default Basic;
+export default AccessDataByPath;

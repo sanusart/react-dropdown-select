@@ -172,13 +172,14 @@ export class Select extends Component {
   getSelectBounds = () => this.state.selectBounds;
 
   dropDown = (action = 'toggle', event) => {
-    const target = event && event.target || event && event.srcElement;
+    const target = (event && event.target) || (event && event.srcElement);
 
     if (
       this.props.portal &&
       !this.props.closeOnScroll &&
       !this.props.closeOnSelect &&
-      event && target &&
+      event &&
+      target &&
       target.offsetParent &&
       target.offsetParent.classList.contains('react-dropdown-select-dropdown')
     ) {
@@ -242,7 +243,8 @@ export class Select extends Component {
 
     this.setState({
       values: this.state.values.filter(
-        (values) => getByPath(values, this.props.valueField) !== getByPath(item, this.props.valueField)
+        (values) =>
+          getByPath(values, this.props.valueField) !== getByPath(item, this.props.valueField)
       )
     });
   };
@@ -291,7 +293,8 @@ export class Select extends Component {
 
   isSelected = (option) =>
     !!this.state.values.find(
-      (value) => getByPath(value, this.props.valueField) === getByPath(option, this.props.valueField)
+      (value) =>
+        getByPath(value, this.props.valueField) === getByPath(option, this.props.valueField)
     );
 
   areAllSelected = () =>
@@ -319,20 +322,20 @@ export class Select extends Component {
     return options;
   };
 
-  searchFn = ({ state, props, methods }) => {
+  searchFn = ({ state, methods }) => {
     const regexp = new RegExp(methods.safeString(state.search), 'i');
 
-    return methods.sortBy().filter((item) =>
-      regexp.test(item[props.searchBy] || getByPath(item, this.props.valueField))
-    );
+    return methods
+      .sortBy()
+      .filter((item) =>
+        regexp.test(getByPath(item, this.props.searchBy) || getByPath(item, this.props.valueField))
+      );
   };
 
   searchResults = () => {
     const args = { state: this.state, props: this.props, methods: this.methods };
 
-    return (
-      this.props.searchFn(args) || this.searchFn(args)
-    );
+    return this.props.searchFn(args) || this.searchFn(args);
   };
 
   activeCursorItem = (activeCursorItem) =>
@@ -512,7 +515,7 @@ const ReactDropdownSelect = styled.div`
   ${({ disabled }) =>
     disabled ? 'cursor: not-allowed;pointer-events: none;opacity: 0.3;' : 'pointer-events: all;'}
 
-  :hover, 
+  :hover,
   :focus-within {
     border-color: ${({ color }) => color};
   }

@@ -1,13 +1,13 @@
 module.exports = {
-  pathPrefix: "/react-dropdown-select",
+  pathPrefix: '/react-dropdown-select',
   plugins: [
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
-        name: "markdown-pages",
-      },
+        name: 'markdown-pages'
+      }
     },
     `gatsby-transformer-remark`,
     `gatsby-plugin-catch-links`
@@ -32,6 +32,6 @@ module.exports = {
         path: 'examples',
         displayName: 'Examples'
       }
-    ],
+    ]
   }
 };
