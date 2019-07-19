@@ -20,6 +20,7 @@ const AccessDataByPath = ({ title }) => (
       valueField="address.city"
       labelField="company.catchPhrase"
       searchBy="company.catchPhrase"
+      sortBy="company.catchPhrase"
       onChange={(value) =>
         console.log(`%c > onChange ${title} `, 'background: #555; color: tomato', value)
       }
