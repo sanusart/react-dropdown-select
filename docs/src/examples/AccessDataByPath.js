@@ -12,7 +12,7 @@ const AccessDataByPath = ({ title }) => (
         Source
       </a>
     </Title>
-    <p>"Label" is accessed via <code>company.catchPhrase</code></p>
+    <p>"Label" is accessed via <code>company.catchPhrase</code> nested property of the <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/options.js#L21">options</a> object</p>
     <Select
       multi
       options={options}
