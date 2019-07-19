@@ -24,6 +24,7 @@ import Rtl from '../examples/Rtl';
 import DropdownAutoPosition from '../examples/DropdownAutoPosition';
 import NoData from '../examples/NoData';
 import ExternalClear from '../examples/ExternalClear';
+import AccessDataByPath from '../examples/AccessDataByPath';
 
 const demoOptions = options.map((option) => ({
   ...option,
@@ -94,6 +95,10 @@ const Examples = () => (
 
     <Wrapper>
       <ExternalClear options={demoOptions} title={`External clear and add`} />
+    </Wrapper>
+
+    <Wrapper>
+      <AccessDataByPath title={`Access data by dotted path`} />
     </Wrapper>
 
     <br />

@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import Option from './Option';
 import Input from './Input';
 import { LIB_NAME } from '../constants';
+import {getByPath} from '../util';
 
 const Content = ({ props, state, methods }) => {
   return (
@@ -20,7 +21,7 @@ const Content = ({ props, state, methods }) => {
             ? state.values &&
               state.values.map((item) => (
                 <Option
-                  key={`${item[props.valueField]}${item[props.labelField]}`}
+                  key={`${getByPath(item, props.valueField)}${getByPath(item, props.labelField)}`}
                   item={item}
                   state={state}
                   props={props}
@@ -28,7 +29,7 @@ const Content = ({ props, state, methods }) => {
                 />
               ))
             : state.values &&
-              state.values.length > 0 && <span>{state.values[0][props.labelField]}</span>}
+              state.values.length > 0 && <span>{getByPath(state.values[0], props.labelField)}</span>}
           <Input props={props} methods={methods} state={state} />
         </React.Fragment>
       )}
