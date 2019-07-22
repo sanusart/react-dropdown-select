@@ -11,7 +11,7 @@ import Clear from './components/Clear';
 import Separator from './components/Separator';
 import DropdownHandle from './components/DropdownHandle';
 
-import { debounce, hexToRGBA, isEqual, getByPath, getProp } from './util';
+import { debounce, hexToRGBA, isEqual, getByPath, getProp, valueExistInSelected } from './util';
 import { LIB_NAME } from './constants';
 
 export class Select extends Component {
@@ -215,7 +215,7 @@ export class Select extends Component {
 
   addItem = (item) => {
     if (this.props.multi) {
-      if (this.state.values.indexOf(item) !== -1) {
+      if (valueExistInSelected(getByPath(item, this.props.valueField), this.state.values, this.props)) {
         return this.removeItem(null, item, false);
       }
 
@@ -363,6 +363,10 @@ export class Select extends Component {
     if (event.key === 'Enter') {
       const currentItem = this.searchResults()[cursor];
       if (currentItem && !currentItem.disabled) {
+        if (this.props.create && valueExistInSelected(this.state.search, this.state.values, this.props)) {
+          return null;
+        }
+
         this.addItem(currentItem);
       }
     }
