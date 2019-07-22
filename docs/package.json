@@ -15,20 +15,19 @@
   "dependencies": {
     "@emotion/core": "^10.0.6",
     "@emotion/styled": "^10.0.6",
-    "basecss": "^0.3.2",
+    "faker": "^4.1.0",
     "gatsby": "^2.0.84",
     "gatsby-plugin-catch-links": "^2.0.9",
     "gatsby-plugin-emotion": "^4.0.1",
     "gatsby-plugin-styled-components": "^3.0.4",
-    "gatsby-source-filesystem": "^2.0.12",
-    "gatsby-transformer-remark": "^2.1.19",
+    "gatsby-source-filesystem": "^2.1.5",
+    "gatsby-transformer-remark": "^2.6.7",
     "normalize.css": "^8.0.1",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
-    "react-dropdown-select": "^1.2.3",
+    "react-dropdown-select": "^3.2.0",
     "react-markdown": "^4.0.6",
-    "react-virtualized": "^9.21.1",
-    "react-window": "^1.8.1"
+    "react-virtualized": "^9.21.1"
   },
   "repository": {
     "type": "git",
@@ -38,6 +37,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.2",
     "gh-pages": "^2.0.1"
   }
 }

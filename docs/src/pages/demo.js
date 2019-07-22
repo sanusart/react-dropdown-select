@@ -25,7 +25,7 @@ export class Demo extends React.Component {
       itemRenderer: false,
       optionRenderer: false,
       noDataRenderer: false,
-      values: [options.find((opt) => opt.username === 'Antonette')],
+      values: options ? [options.find((opt, index) => index === 3)] : [],
       searchBy: 'username',
       clearable: false,
       searchable: true,
@@ -33,8 +33,8 @@ export class Demo extends React.Component {
       separator: false,
       forceOpen: false,
       handle: true,
-      addPlaceholder: '+ click to add',
-      labelField: 'username',
+      addPlaceholder: '+ add',
+      labelField: 'name',
       valueField: 'email',
       color: '#0074D9',
       keepSelectedInList: true,
@@ -47,7 +47,7 @@ export class Demo extends React.Component {
 
   setValues = (values) => this.setState({ values });
 
-  contentRenderer = ({props, state}) => {
+  contentRenderer = ({ props, state }) => {
     return (
       <div>
         {state.values.length} of {props.options.length} Selected
@@ -63,7 +63,7 @@ export class Demo extends React.Component {
     );
   };
 
-  itemRenderer = ({item, itemIndex, props, state, methods}) => (
+  itemRenderer = ({item, props, methods}) => (
     <div key={item[props.valueField]} onClick={() => methods.addItem(item)}>
       <div style={{ margin: '10px' }}>
         <input type="checkbox" checked={methods.isSelected(item)} />
@@ -72,7 +72,7 @@ export class Demo extends React.Component {
     </div>
   );
 
-  dropdownRenderer = ({props, state, methods}) => {
+  dropdownRenderer = ({ props, state, methods }) => {
     const regexp = new RegExp(state.search, 'i');
 
     return (
@@ -122,13 +122,13 @@ export class Demo extends React.Component {
     );
   };
 
-  optionRenderer = ({option, props, state, methods}) => (
+  optionRenderer = ({ option, methods }) => (
     <React.Fragment>
       <div onClick={(event) => methods.removeItem(event, option, true)}>{option.label}</div>
     </React.Fragment>
   );
 
-  inputRenderer = ({props, state, methods}) => (
+  inputRenderer = ({ state, methods }) => (
     <input
       tabIndex="1"
       className="react-dropdown-select-input"
@@ -139,9 +139,10 @@ export class Demo extends React.Component {
       placeholder="Type in"
     />
   );
-onClear = () => this.setState({
-  values: []
-});
+  onClear = () =>
+    this.setState({
+      values: []
+    });
 
   render() {
     return (
@@ -165,8 +166,8 @@ onClear = () => this.setState({
               direction={this.state.direction}
               multi={this.state.multi}
               values={this.state.values}
-              labelField={this.state.labelField}
-              valueField={this.state.valueField}
+              labelField={this.state.labelField || 'name'}
+              valueField={this.state.valueField || 'email'}
               options={options}
               dropdownGap={5}
               keepSelectedInList={this.state.keepSelectedInList}
@@ -181,34 +182,31 @@ onClear = () => this.setState({
               dropdownPosition={this.state.dropdownPosition}
               itemRenderer={
                 this.state.itemRenderer
-                  ? (item, itemIndex, props, state, methods) =>
-                      this.itemRenderer(item, itemIndex, props, state, methods)
+                  ? this.itemRenderer
                   : undefined
               }
               inputRenderer={
                 this.state.inputRenderer
-                  ? (props, state, methods) => this.inputRenderer(props, state, methods)
+                  ? this.inputRenderer
                   : undefined
               }
               optionRenderer={
                 this.state.optionRenderer
-                  ? (option, props, state, methods) =>
-                      this.optionRenderer(option, props, state, methods)
+                  ? this.optionRenderer
                   : undefined
               }
               contentRenderer={
                 this.state.contentRenderer
-                  ? (innerProps, innerState) => this.contentRenderer(innerProps, innerState)
+                  ? this.contentRenderer
                   : undefined
               }
               dropdownRenderer={
                 this.state.dropdownRenderer
-                  ? (innerProps, innerState, innerMethods) =>
-                      this.dropdownRenderer(innerProps, innerState, innerMethods)
+                  ? this.dropdownRenderer
                   : undefined
               }
             />
-            <button onClick={this.onClear}>Clear</button>
+            <ClearButton onClick={this.onClear}>Clear</ClearButton>
           </div>
         </div>
         <p>&nbsp;</p>
@@ -367,8 +365,7 @@ onClear = () => this.setState({
           />{' '}
           Close dropdown on select/deselect
           <br />
-          Custom color
-          {' '}
+          Custom color{' '}
           <input
             type="color"
             defaultValue={this.state.color}
@@ -462,12 +459,12 @@ onClear = () => this.setState({
 
         <details>
           <summary>Options:</summary>
-          <pre>{JSON.stringify(options, false, 2)}</pre>
+          <pre>{JSON.stringify(options, null, 2)}</pre>
         </details>
 
         <details>
           <summary>Selected values:</summary>
-          <pre>{JSON.stringify(this.state.values, false, 2)}</pre>
+          <pre>{JSON.stringify(this.state.values, null, 2)}</pre>
         </details>
       </div>
     );
@@ -583,6 +580,16 @@ const StyledInput = styled.input`
   border-radius: 3px;
   padding: 13px 10px;
   width: 70px;
+`;
+
+const ClearButton = styled.button`
+  margin: 0;
+  color: #0071dc;
+  background: #fff;
+  border: 1px solid #0071dc;
+  border-radius: 2px;
+  padding: 0 10px;
+  cursor: pointer;
 `;
 
 export default Demo;

@@ -1,16 +1,27 @@
 module.exports = {
   pathPrefix: '/react-dropdown-select',
   plugins: [
-    `gatsby-plugin-emotion`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-plugin-emotion'
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/pages`,
         name: 'markdown-pages'
       }
     },
-    `gatsby-transformer-remark`,
-    `gatsby-plugin-catch-links`
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        commonmark: true,
+        footnotes: true,
+        pedantic: true,
+        gfm: true,
+        plugins: [],
+      },
+    },
+    'gatsby-plugin-catch-links'
   ],
   siteMetadata: {
     title: 'react-dropdown-select',
