@@ -45,6 +45,26 @@ export class Demo extends React.Component {
     };
   }
 
+  getObjectKeys = (obj) => {
+    const keyList = Object.keys(obj).map(k => {
+    const keys = [];
+
+    if (typeof obj[k] !== 'string') {
+      Object.keys(obj[k]).forEach((f) => {
+        if (f === 'geo') return;
+
+        return keys.push(`${k}.${f}`);
+      });
+    } else {
+      keys.push(k);
+    }
+
+    return keys;
+  });
+
+  return [].concat.apply([], keyList)
+  };
+
   setValues = (values) => this.setState({ values });
 
   contentRenderer = ({ props, state }) => {
@@ -422,7 +442,7 @@ export class Demo extends React.Component {
           <StyledHtmlSelect
             defaultValue={this.state.searchBy}
             onChange={(event) => this.setState({ searchBy: event.target.value })}>
-            {Object.keys(options[0]).map((f) => (
+            {this.getObjectKeys(options[0]).map((f) => (
               <option key={f} value={f}>
                 {f}
               </option>
@@ -438,7 +458,7 @@ export class Demo extends React.Component {
                 searchBy: event.target.value
               })
             }>
-            {Object.keys(options[0]).map((f) => (
+            {this.getObjectKeys(options[0]).map((f) => (
               <option key={f} value={f}>
                 {f}
               </option>
@@ -449,7 +469,7 @@ export class Demo extends React.Component {
           <StyledHtmlSelect
             defaultValue={this.state.valueField}
             onChange={(event) => this.setState({ valueField: event.target.value })}>
-            {Object.keys(options[0]).map((f) => (
+            {this.getObjectKeys(options[0]).map((f) => (
               <option key={f} value={f}>
                 {f}
               </option>
