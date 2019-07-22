@@ -1,3 +1,10 @@
+### v3.3.0
+*  FIX (parseInt): use radix [View](https://github.com/sanusart/react-dropdown-select/commit/94b051b6e5e8e9f2011f54437a806ca10dd8c4a6)
+*  DOCS (examples): add sortBy to AccessDataByPath [View](https://github.com/sanusart/react-dropdown-select/commit/2769ba0c06e563570bb4956ae39624d532dc4adc)
+*  FIX (add new): proper comparation of existing value [View](https://github.com/sanusart/react-dropdown-select/commit/d6cdce2b35160ff8d1898bb815cd3f4e002262dc)
+*  DOCS (update packages): update packages and config [View](https://github.com/sanusart/react-dropdown-select/commit/9a0e6a61ee9e8a466e4a3297549b6c8a1f0f8c6f)
+*  FIX (demo): fix demo to allow select nested object key issue #19 [View](https://github.com/sanusart/react-dropdown-select/commit/ff78a0124a475cf187b37dc1f7d51493e4980221)
+
 ### v3.2.0
 *  Bump lodash from 4.17.11 to 4.17.14 [View](https://github.com/sanusart/react-dropdown-select/commit/705bb2e4cb4070e57ad78f4e0457be99de06764a)
 *  FIX (label, value): [EXPERIMENTAL] allow dotted path in valueField an… (#18) [View](https://github.com/sanusart/react-dropdown-select/commit/43eefe009260c75bee80d2918740cc0f18639078)
