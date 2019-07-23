@@ -1,3 +1,6 @@
+### v3.3.1
+*  CHORE (update packages): update packages + reduce bundle size [View](https://github.com/sanusart/react-dropdown-select/commit/f5294f16ea6cdb4f96c93a69efe27bb766875b3d)
+
 ### v3.3.0
 *  FIX (parseInt): use radix [View](https://github.com/sanusart/react-dropdown-select/commit/94b051b6e5e8e9f2011f54437a806ca10dd8c4a6)
 *  DOCS (examples): add sortBy to AccessDataByPath [View](https://github.com/sanusart/react-dropdown-select/commit/2769ba0c06e563570bb4956ae39624d532dc4adc)
