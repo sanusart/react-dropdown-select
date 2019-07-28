@@ -1,3 +1,7 @@
+### v3.3.2
+*  send ref holder to inputrenderer [View](https://github.com/sanusart/react-dropdown-select/commit/fc8868ba20aa6c69a3ab01184109339b3b8d3500)
+*  update usage inputRenderer with new param [View](https://github.com/sanusart/react-dropdown-select/commit/3dc3e41ef09afe99f035bc5fb03628a917620865)
+
 ### v3.3.1
 *  CHORE (update packages): update packages + reduce bundle size [View](https://github.com/sanusart/react-dropdown-select/commit/f5294f16ea6cdb4f96c93a69efe27bb766875b3d)
 
