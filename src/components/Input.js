@@ -65,7 +65,7 @@ class Input extends Component {
     const { props, state, methods } = this.props;
 
     if (props.inputRenderer) {
-      return props.inputRenderer({ props, state, methods });
+      return props.inputRenderer({ props, state, methods, inputRef: this.input });
     }
 
     return (
