@@ -14,6 +14,6 @@ Override default "input" component, the search in the content
 
 ```
 inputRenderer={
-  ({ props, state, methods }) => <component/>
+  ({ props, state, methods, inputRef }) => <component ref={inputRef}/>
 }
 ```
