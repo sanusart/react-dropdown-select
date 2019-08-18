@@ -4,9 +4,11 @@
   "description": "Customizable dropdown select for react",
   "main": "dist/react-dropdown-select.js",
   "module": "lib/index.js",
+  "types": "types.d.ts",
   "files": [
     "dist",
-    "lib"
+    "lib",
+    "types.d.ts"
   ],
   "scripts": {
     "test": "jest --bail && npm run prepublishOnly && bundlesize",
