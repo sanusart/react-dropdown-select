@@ -1,3 +1,6 @@
+### v3.3.3
+*  FIX (types): add basic types closes #15 [View](https://github.com/sanusart/react-dropdown-select/commit/6a04fd29c62fa830003a9e3b05a52c14b54a1392)
+
 ### v3.3.2
 *  send ref holder to inputrenderer [View](https://github.com/sanusart/react-dropdown-select/commit/fc8868ba20aa6c69a3ab01184109339b3b8d3500)
 *  update usage inputRenderer with new param [View](https://github.com/sanusart/react-dropdown-select/commit/3dc3e41ef09afe99f035bc5fb03628a917620865)
