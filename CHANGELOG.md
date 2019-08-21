@@ -1,3 +1,6 @@
+### v3.3.4
+*  FIX (types): add correct types, fixes #26 [View](https://github.com/sanusart/react-dropdown-select/commit/7db21d65c71840f9efc9f78c3099103eab37cd58)
+
 ### v3.3.3
 *  FIX (types): add basic types closes #15 [View](https://github.com/sanusart/react-dropdown-select/commit/6a04fd29c62fa830003a9e3b05a52c14b54a1392)
 
