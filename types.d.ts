@@ -35,6 +35,14 @@ export interface IRenderer {
   methods?: IMethods;
 }
 
+export interface IKeyDown {
+	event: Event;
+	props?: ISelectProps;
+	state?: IState;
+	methods?: IMethods;
+	setState?: () => void;
+}
+
 export interface IItemRenderer {
   item?: number;
   itemIndex?: number;
@@ -84,6 +92,7 @@ export interface ISelectProps {
   onSelectAll?: () => void;
   onCreateNew?: () => void;
   searchFn?: () => void;
+	handleKeyDownFn?: ({ event, props, state, methods, setState }: IKeyDown) => void;
   clearRenderer?: ({ props, state, methods }: IRenderer) => void;
   contentRenderer?: ({ props, state, methods }: IRenderer) => void;
   dropdownRenderer?: ({ props, state, methods }: IRenderer) => void;

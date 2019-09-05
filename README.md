@@ -120,6 +120,7 @@ and use as:
 | [dropdownRenderer](https://sanusart.github.io/react-dropdown-select/prop/dropdown-renderer)              | func |           | Overrides internal dropdown component                                       |
 | [dropdownHandleRenderer](https://sanusart.github.io/react-dropdown-select/prop/dropdown-handle-renderer) | func |           | Overrides internal dropdown handle                                          |
 | searchFn                                                                                                 | func | undefined | Overrides internal search function                                          |
+| handleKeyDownFn                                                                                          | func | undefined | Overrides internal keyDown function                                         |
 
 ### License
 

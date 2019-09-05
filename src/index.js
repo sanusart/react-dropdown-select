@@ -215,7 +215,9 @@ export class Select extends Component {
 
   addItem = (item) => {
     if (this.props.multi) {
-      if (valueExistInSelected(getByPath(item, this.props.valueField), this.state.values, this.props)) {
+      if (
+        valueExistInSelected(getByPath(item, this.props.valueField), this.state.values, this.props)
+      ) {
         return this.removeItem(null, item, false);
       }
 
@@ -344,10 +346,16 @@ export class Select extends Component {
     });
 
   handleKeyDown = (event) => {
-    const { cursor } = this.state;
+    const args = { event, state: this.state, props: this.props, methods: this.methods, setState: this.setState.bind(this) };
+
+    return this.props.handleKeyDownFn(args) || this.handleKeyDownFn(args);
+  };
+
+  handleKeyDownFn = ({ event, state, props, methods, setState }) => {
+    const { cursor } = state;
 
     if (event.key === 'ArrowDown' && cursor === null) {
-      return this.setState({
+      return setState({
         cursor: 0
       });
     }
@@ -361,36 +369,36 @@ export class Select extends Component {
     }
 
     if (event.key === 'Enter') {
-      const currentItem = this.searchResults()[cursor];
+      const currentItem = methods.searchResults()[cursor];
       if (currentItem && !currentItem.disabled) {
-        if (this.props.create && valueExistInSelected(this.state.search, this.state.values, this.props)) {
+        if (props.create && valueExistInSelected(state.search, state.values, props)) {
           return null;
         }
 
-        this.addItem(currentItem);
+        methods.addItem(currentItem);
       }
     }
 
     if (event.key === 'ArrowUp' && cursor > 0) {
-      this.setState((prevState) => ({
+      setState((prevState) => ({
         cursor: prevState.cursor - 1
       }));
     }
 
     if (event.key === 'ArrowUp' && cursor === 0) {
-      this.setState({
-        cursor: this.searchResults().length
+      setState({
+        cursor: methods.searchResults().length
       });
     }
 
     if (event.key === 'ArrowDown') {
-      this.setState((prevState) => ({
+      setState((prevState) => ({
         cursor: prevState.cursor + 1
       }));
     }
 
-    if (event.key === 'ArrowDown' && this.searchResults().length === cursor) {
-      return this.setState({
+    if (event.key === 'ArrowDown' && methods.searchResults().length === cursor) {
+      return setState({
         cursor: 0
       });
     }
@@ -502,7 +510,8 @@ Select.defaultProps = {
   onClearAll: () => undefined,
   onSelectAll: () => undefined,
   onCreateNew: () => undefined,
-  searchFn: () => undefined
+  searchFn: () => undefined,
+  handleKeyDownFn: () => undefined,
 };
 
 const ReactDropdownSelect = styled.div`
