@@ -1,6 +1,6 @@
 {
   "name": "react-dropdown-select",
-  "version": "3.3.4",
+  "version": "3.4.0",
   "description": "Customizable dropdown select for react",
   "main": "dist/react-dropdown-select.js",
   "module": "lib/index.js",
