@@ -26,7 +26,7 @@ export class Demo extends React.Component {
       optionRenderer: false,
       noDataRenderer: false,
       values: options ? [options.find((opt, index) => index === 3)] : [],
-      searchBy: 'username',
+      searchBy: 'name',
       clearable: false,
       searchable: true,
       create: false,
