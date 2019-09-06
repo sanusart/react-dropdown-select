@@ -3,12 +3,7 @@
 *  FEATURE (keyDown): expose keydown function override closes #28 [View](https://github.com/sanusart/react-dropdown-select/commit/442d7abb6ebfb088871cbb403384a9fcc84013a4)
 *  3.4.0 [View](https://github.com/sanusart/react-dropdown-select/commit/caec3eb1dec59b6242e29cfff804f2e64e8d39e9)
 
-### v3.4.0
-*  CHORE (format): correct code style [View](https://github.com/sanusart/react-dropdown-select/commit/8653a1e4bf96e0a62ea279bea1d84c9c0614d3e9)
-*  FEATURE (keyDown): expose keydown function override closes #28 [View](https://github.com/sanusart/react-dropdown-select/commit/442d7abb6ebfb088871cbb403384a9fcc84013a4)
-
-### v3.3.4
-*  FIX (types): add correct types, fixes #26 [View](https://github.com/sanusart/react-dropdown-select/commit/7db21d65c71840f9efc9f78c3099103eab37cd58)
+### v3.4.0 [skipped]
 
 ### v3.3.3
 *  FIX (types): add basic types closes #15 [View](https://github.com/sanusart/react-dropdown-select/commit/6a04fd29c62fa830003a9e3b05a52c14b54a1392)
