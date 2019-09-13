@@ -1,3 +1,9 @@
+### v3.5.1
+*  Update CHANGELOG.md [View](https://github.com/sanusart/react-dropdown-select/commit/dae06f9b362b44de44bd480c4a18a66369817a7b)
+*  Update CHANGELOG.md [View](https://github.com/sanusart/react-dropdown-select/commit/4f0af305f5e3f8acacacd15b52c513eb66e79844)
+*  Update demo.js [View](https://github.com/sanusart/react-dropdown-select/commit/2844fd75b5e0abea9f4151e65dae8c588914ce7f)
+*  FIX (types): add missing and fix incorrect types closes #33 #34 [View](https://github.com/sanusart/react-dropdown-select/commit/91924fadb6b5750a0286203c9f03614ad2780edc)
+
 ### v3.5.0
 *  CHORE (format): correct code style [View](https://github.com/sanusart/react-dropdown-select/commit/8653a1e4bf96e0a62ea279bea1d84c9c0614d3e9)
 *  FEATURE (keyDown): expose keydown function override closes #28 [View](https://github.com/sanusart/react-dropdown-select/commit/442d7abb6ebfb088871cbb403384a9fcc84013a4)
