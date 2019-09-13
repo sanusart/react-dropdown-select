@@ -52,6 +52,7 @@ export interface IItemRenderer {
 }
 
 export interface ISelectProps {
+	className?: string;
   addPlaceholder?: string;
   placeholder?: string;
   values: object[];
@@ -84,7 +85,7 @@ export interface ISelectProps {
   portal?: string;
   create?: boolean;
   direction?: 'ltr' | 'rtl';
-  name?: null;
+  name?: string;
   onChange: (value: any) => void;
   onDropdownOpen?: () => void;
   onDropdownClose?: () => void;
