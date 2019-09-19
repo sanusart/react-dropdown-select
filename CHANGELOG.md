@@ -1,3 +1,6 @@
+### v3.6.1
+*  FIX (props): allow to pass custom props, closes #37 [View](https://github.com/sanusart/react-dropdown-select/commit/8aa82808086ae53da8ae5e95105a099acafd33e2)
+
 ### v3.6.0
 *  Fix for onChange getting called on componentDidMount Issue #35 (#36) Thanks @s-shiva1995 [View](https://github.com/sanusart/react-dropdown-select/commit/e6fee797f9c53bd0489ac28684ef65c76a0c1fe3)
 
