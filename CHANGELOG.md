@@ -1,3 +1,6 @@
+### v3.6.0
+*  Fix for onChange getting called on componentDidMount Issue #35 (#36) Thanks @s-shiva1995 [View](https://github.com/sanusart/react-dropdown-select/commit/e6fee797f9c53bd0489ac28684ef65c76a0c1fe3)
+
 ### v3.5.1
 *  Update CHANGELOG.md [View](https://github.com/sanusart/react-dropdown-select/commit/dae06f9b362b44de44bd480c4a18a66369817a7b)
 *  Update CHANGELOG.md [View](https://github.com/sanusart/react-dropdown-select/commit/4f0af305f5e3f8acacacd15b52c513eb66e79844)
