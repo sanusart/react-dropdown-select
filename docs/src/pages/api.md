@@ -42,6 +42,7 @@ title: 'API'
 | create                                                                                      | bool        | false          | If true, select will create value from search string and fire `onCreateNew` callback prop                                              |
 | createNewLabel                                                                              | string      | "add {search}" | If create set to true, this will be the label of the "add new" component. `{search}` will be replaced by search value                  |
 | disabledLabel                                                                               | string      | "disabled"     | Label shown on disabled field (after) the text                                                                                         |
+| additionalProps                                                                             | object      | null           | Additional props to pass to Select                                                                                                     |
 
 ## Callback props
 

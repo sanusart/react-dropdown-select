@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from '@emotion/styled';
-
+import { Heading } from './components/Heading';
 import Select from '../../../src';
 
 const DropdownAutoPosition = ({ options, title }) => (
   <React.Fragment>
-    <Title>
-      <h2>{title}</h2>
-      <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/DropdownAutoPosition.js">
-        Source
-      </a>
-    </Title>
-    <p>Scroll the page so the dropdown will have no space to open on the bottom, also changes position when dropdown is open (and <code>closeOnScroll</code> prop is not set or false)</p>
+    <Heading
+      title={title}
+      source="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/DropdownAutoPosition.js"
+    />
+
+    <p>
+      Scroll the page so the dropdown will have no space to open on the bottom, also changes
+      position when dropdown is open (and <code>closeOnScroll</code> prop is not set or false)
+    </p>
     <Select
       options={options}
       values={[]}

@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from '@emotion/styled';
-
+import { Heading } from './components/Heading';
 import Select from '../../../src';
 
 const Basic = ({ options, title }) => (
   <React.Fragment>
-    <Title>
-      <h2>{title}</h2>
-      <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/Basic.js">
-        Source
-      </a>
-    </Title>
+    <Heading
+      title={title}
+      source="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/Basic.js"
+    />
+
     <Select
       options={options}
       values={[]}

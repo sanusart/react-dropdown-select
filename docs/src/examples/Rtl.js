@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-
+import { Heading } from './components/Heading';
 import Select from '../../../src';
 
 const options = [
@@ -264,12 +264,11 @@ const options = [
 
 const Rtl = ({ title }) => (
   <React.Fragment>
-    <Title id="Right-to-left">
-      <h2>{title}</h2>
-      <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/Rtl.js">
-        Source
-      </a>
-    </Title>
+    <Heading
+      title={title}
+      source="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/Rtl.js"
+    />
+
     <Select
       multi
       options={options}
@@ -283,14 +282,6 @@ const Rtl = ({ title }) => (
     />
   </React.Fragment>
 );
-
-Rtl.propTypes = {};
-
-const Title = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-`;
 
 const StyledNoData = styled.div`
   padding: 10px;

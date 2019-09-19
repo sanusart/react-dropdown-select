@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from '@emotion/styled';
-
+import { Heading } from './components/Heading';
 import Select from '../../../src';
 
 const RenderInBody = ({ options, title }) => (
   <React.Fragment>
-    <Title>
-      <h2>{title}</h2>
-      <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/RenderInBody.js">
-        Source
-      </a>
-    </Title>
+    <Heading
+      title={title}
+      source="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/RenderInBody.js"
+    />
+
     <div style={{ overflow: 'auto', height: '100px' }}>
       <p>
         I am wrapped in: <code>&lt;div style="overflow: auto; height: 100px;"&gt;</code>
@@ -27,13 +26,5 @@ const RenderInBody = ({ options, title }) => (
     </div>
   </React.Fragment>
 );
-
-RenderInBody.propTypes = {};
-
-const Title = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-`;
 
 export default RenderInBody;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from '../../../src';
-
 import styled from '@emotion/styled';
+import { Heading } from './components/Heading';
 
 export class CustomContentAndDropdown extends React.Component {
   options = () =>
@@ -69,12 +69,11 @@ export class CustomContentAndDropdown extends React.Component {
   render() {
     return (
       <div>
-        <Title>
-          <h2>{this.props.title}</h2>
-          <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/CustomContentAndDropdown.js">
-            Source
-          </a>
-        </Title>
+        <Heading
+          title={this.props.title}
+          source="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/CustomContentAndDropdown.js"
+        />
+
         <StyledSelect
           placeholder="Select"
           multi

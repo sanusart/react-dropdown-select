@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Select from '../../../src';
+import { Heading } from './components/Heading';
 
 const ItemRenderer = ({ options, title }) => (
   <React.Fragment>
-    <Title>
-      <h2>{title}</h2>
-      <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/ItemRenderer.js">
-        Source
-      </a>
-    </Title>
+    <Heading
+      title={title}
+      source="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/ItemRenderer.js"
+    />
+
     <Select
       multi
       options={options}

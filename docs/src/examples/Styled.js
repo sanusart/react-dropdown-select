@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from '@emotion/styled';
-
+import { Heading } from './components/Heading';
 import Select from '../../../src';
 
 const Styled = ({ options, title }) => (
   <React.Fragment>
-    <Title>
-      <h2>{title}</h2>
-      <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/Styled.js">
-        Source
-      </a>
-    </Title>
+    <Heading
+      title={title}
+      source="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/Styled.js"
+    />
+
     <StyledSelect
       multi
       options={options}
@@ -23,14 +22,6 @@ const Styled = ({ options, title }) => (
     />
   </React.Fragment>
 );
-
-Styled.propTypes = {};
-
-const Title = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-`;
 
 const StyledSelect = styled(Select)`
   background: #333;
@@ -72,14 +63,20 @@ const StyledSelect = styled(Select)`
   }
 
   .react-dropdown-select-item {
-    color: #fff;
+    color: #f2f2f2;
     border-bottom: 1px solid #333;
+       
+    :hover {
+       color: #ffffff80;
+    }
   }
 
   .react-dropdown-select-item.react-dropdown-select-item-selected,
   .react-dropdown-select-item.react-dropdown-select-item-active {
     //background: #111;
     border-bottom: 1px solid #333;
+    color: #fff;
+    font-weight: bold;
   }
 
   .react-dropdown-select-item.react-dropdown-select-item-disabled {

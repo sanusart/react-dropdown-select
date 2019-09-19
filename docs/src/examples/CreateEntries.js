@@ -1,15 +1,14 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Select from '../../../src';
+import { Heading } from './components/Heading';
 
 const CreateEntries = ({ options, title }) => (
   <React.Fragment>
-    <Title>
-      <h2>{title}</h2>
-      <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/CreateEntries.js">
-        Source
-      </a>
-    </Title>
+    <Heading
+      title={title}
+      source="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/CreateEntries.js"
+    />
 
     <p>Type search and hit `Return` key</p>
     <Select

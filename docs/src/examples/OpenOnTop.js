@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from '@emotion/styled';
-
+import { Heading } from './components/Heading';
 import Select from '../../../src';
 
 const OpenOnTop = ({ options, title }) => (
   <React.Fragment>
-    <Title>
-      <h2>{title}</h2>
-      <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/OpenOnTop.js">
-        Source
-      </a>
-    </Title>
+    <Heading
+      title={title}
+      source="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/OpenOnTop.js"
+    />
+
     <Select
       multi
       dropdownPosition="top"
@@ -22,13 +21,5 @@ const OpenOnTop = ({ options, title }) => (
     />
   </React.Fragment>
 );
-
-OpenOnTop.propTypes = {};
-
-const Title = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-`;
 
 export default OpenOnTop;

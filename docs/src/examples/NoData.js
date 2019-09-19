@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-
+import { Heading } from './components/Heading';
 import Select from '../../../src';
 
 export class NoData extends React.Component {
@@ -40,12 +40,10 @@ export class NoData extends React.Component {
   render() {
     return (
       <div>
-        <Title>
-          <h2>{this.props.title}</h2>
-          <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/NoData.js">
-            Source
-          </a>
-        </Title>
+        <Heading
+          title={this.props.title}
+          source="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/NoData.js"
+        />
 
         <Select
           placeholder="Type to match nothing 😱"
@@ -61,15 +59,7 @@ export class NoData extends React.Component {
   }
 }
 
-NoData.propTypes = {};
-
 export default NoData;
-
-const Title = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-`;
 
 const StyledNoData = styled.div`
   padding: 10px;

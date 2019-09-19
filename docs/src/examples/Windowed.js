@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { List, AutoSizer } from 'react-virtualized';
-
+import { Heading } from './components/Heading';
 import Select from '../../../src';
 
 const itemData = Array.from(Array(20000).keys()).map((value) => ({
@@ -38,12 +38,10 @@ const customDropdownRenderer = ({ methods, state, props }) => {
 
 const Windowed = ({ title }) => (
   <React.Fragment>
-    <Title>
-      <h2>{title}</h2>
-      <a href="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/Windowed.js">
-        Source
-      </a>
-    </Title>
+    <Heading
+      title={title}
+      source="https://github.com/sanusart/react-dropdown-select/tree/master/docs/src/examples/Windowed.js"
+    />
 
     <p>
       Using <a href="https://sanusart.github.io/react-dropdown-select/prop/dropdown-renderer">dropdownRenderer</a> and <a href="https://github.com/bvaughn/react-virtualized">
