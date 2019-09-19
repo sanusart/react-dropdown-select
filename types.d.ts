@@ -104,6 +104,7 @@ export interface ISelectProps {
   noDataRenderer?: ({ props, state, methods }: IRenderer) => void;
   optionRenderer?: ({ item, props, state, methods }: IItemRenderer) => void;
   separatorRenderer?: ({ props, state, methods }: IRenderer) => void;
+	additionalProps?: object;
 }
 
 declare const Select: React.SFC<ISelectProps>;

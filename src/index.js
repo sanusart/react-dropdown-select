@@ -344,7 +344,13 @@ export class Select extends Component {
     });
 
   handleKeyDown = (event) => {
-    const args = { event, state: this.state, props: this.props, methods: this.methods, setState: this.setState.bind(this) };
+    const args = {
+      event,
+      state: this.state,
+      props: this.props,
+      methods: this.methods,
+      setState: this.setState.bind(this)
+    };
 
     return this.props.handleKeyDownFn(args) || this.handleKeyDownFn(args);
   };
@@ -435,7 +441,8 @@ export class Select extends Component {
           ref={this.select}
           disabled={this.props.disabled}
           className={`${LIB_NAME} ${this.props.className}`}
-          color={this.props.color}>
+          color={this.props.color}
+          {...this.props.additionalProps}>
           <Content props={this.props} state={this.state} methods={this.methods} />
 
           {this.props.name && (
@@ -510,6 +517,7 @@ Select.defaultProps = {
   onCreateNew: () => undefined,
   searchFn: () => undefined,
   handleKeyDownFn: () => undefined,
+  additionalProps: null
 };
 
 const ReactDropdownSelect = styled.div`
