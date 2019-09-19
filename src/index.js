@@ -94,8 +94,6 @@ export class Select extends Component {
     window.addEventListener('resize', debounce(this.updateSelectBounds));
     window.addEventListener('scroll', debounce(this.onScroll));
 
-    this.props.onChange(this.state.values);
-
     this.dropDown('close');
 
     if (this.select) {
