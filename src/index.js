@@ -435,6 +435,7 @@ export class Select extends Component {
         <ReactDropdownSelect
           onKeyDown={this.handleKeyDown}
           onClick={(event) => this.dropDown('open', event)}
+          onFocus={(event) => this.dropDown('open', event)}
           tabIndex="0"
           direction={this.props.direction}
           style={this.props.style}
