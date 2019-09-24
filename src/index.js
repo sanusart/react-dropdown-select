@@ -531,6 +531,7 @@ const ReactDropdownSelect = styled.div`
   flex-direction: row;
   direction: ${({ direction }) => direction};
   align-items: center;
+  cursor: pointer;
   min-height: 36px;
   ${({ disabled }) =>
     disabled ? 'cursor: not-allowed;pointer-events: none;opacity: 0.3;' : 'pointer-events: all;'}

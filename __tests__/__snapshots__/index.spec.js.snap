@@ -19,6 +19,7 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: pointer;
   min-height: 36px;
   pointer-events: all;
 }
@@ -62,6 +63,7 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
 
 .emotion-4 {
   text-align: center;
+  pointer-events: none;
   margin: 0 0 0 5px;
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
@@ -154,6 +156,7 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: pointer;
   min-height: 36px;
   pointer-events: all;
 }
@@ -197,6 +200,7 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
 
 .emotion-6 {
   text-align: center;
+  pointer-events: none;
   margin: 0 0 0 5px;
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
@@ -311,6 +315,7 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: pointer;
   min-height: 36px;
   pointer-events: all;
 }
@@ -354,6 +359,7 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
 
 .emotion-6 {
   text-align: center;
+  pointer-events: none;
   margin: 0 0 0 5px;
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
@@ -471,6 +477,7 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: pointer;
   min-height: 36px;
   pointer-events: all;
 }
@@ -514,6 +521,7 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
 
 .emotion-4 {
   text-align: center;
+  pointer-events: none;
   margin: 0 0 0 5px;
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
@@ -611,6 +619,7 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: pointer;
   min-height: 36px;
   pointer-events: all;
 }
@@ -654,6 +663,7 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
 
 .emotion-6 {
   text-align: center;
+  pointer-events: none;
   margin: 0 0 0 5px;
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);

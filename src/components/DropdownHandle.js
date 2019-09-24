@@ -23,10 +23,12 @@ const DropdownHandleComponent = styled.div`
   ${({ dropdownOpen }) =>
     dropdownOpen
       ? `
+      pointer-events: all;
       transform: rotate(0deg);
       margin: 0px 0 -3px 5px;
       `
       : `
+      pointer-events: none;
       margin: 0 0 0 5px;
       transform: rotate(180deg);
       `};

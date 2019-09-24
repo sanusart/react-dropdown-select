@@ -3,6 +3,7 @@
 exports[`<Clear/> component <DropdownHandle/> renders correctly 1`] = `
 .emotion-0 {
   text-align: center;
+  pointer-events: none;
   margin: 0 0 0 5px;
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
