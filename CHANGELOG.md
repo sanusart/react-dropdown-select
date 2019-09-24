@@ -1,3 +1,6 @@
+### v3.6.3
+*  FIX (dropdown handle): handle not opening drop down closes #39 caused by #38 [View](https://github.com/sanusart/react-dropdown-select/commit/98ad37d88675b8f8345c5cbee19b77d2cde7d332)
+
 ### v3.6.2
 *  DOCS (updates): add anchors to examples [View](https://github.com/sanusart/react-dropdown-select/commit/8a50e14410175d7bf71c208c14bdbb18ef797a41)
 *  FIX (focus): open dropdown if select is in focus, closes #38 [View](https://github.com/sanusart/react-dropdown-select/commit/08dba6afb6146dcc40d86735b73f0a716decf5dc)
