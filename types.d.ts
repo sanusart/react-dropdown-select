@@ -92,7 +92,7 @@ export interface ISelectProps {
   onClearAll?: () => void;
   onSelectAll?: () => void;
   onCreateNew?: () => void;
-  searchFn?: () => void;
+	searchFn?: ({ props, state, methods }: IRenderer) => object[];
 	handleKeyDownFn?: ({ event, props, state, methods, setState }: IKeyDown) => void;
   clearRenderer?: ({ props, state, methods }: IRenderer) => void;
   contentRenderer?: ({ props, state, methods }: IRenderer) => void;
