@@ -1,3 +1,6 @@
+### v3.6.4
+*  FIX (types): fix types closes #43 [View](https://github.com/sanusart/react-dropdown-select/commit/2f42fdb97162e6074af4ffb26119442b8c9992e9)
+
 ### v3.6.3
 *  FIX (dropdown handle): handle not opening drop down closes #39 caused by #38 [View](https://github.com/sanusart/react-dropdown-select/commit/98ad37d88675b8f8345c5cbee19b77d2cde7d332)
 
