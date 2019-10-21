@@ -1,3 +1,6 @@
+### v3.6.5
+*  FIX (accessability): add tab navigation, closes #46 [View](https://github.com/sanusart/react-dropdown-select/commit/2bad658c7288de1a8be9780aaeb28fc0b699901d)
+
 ### v3.6.4
 *  FIX (types): fix types closes #43 [View](https://github.com/sanusart/react-dropdown-select/commit/2f42fdb97162e6074af4ffb26119442b8c9992e9)
 
