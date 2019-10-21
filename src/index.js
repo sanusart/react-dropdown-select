@@ -357,22 +357,28 @@ export class Select extends Component {
 
   handleKeyDownFn = ({ event, state, props, methods, setState }) => {
     const { cursor } = state;
+    const escape = event.key === 'Escape';
+    const enter = event.key === 'Enter';
+    const arrowUp = event.key === 'ArrowUp';
+    const arrowDown = event.key === 'ArrowDown';
+    const tab = event.key === 'Tab' && !event.shiftKey;
+    const shiftTab = event.shiftKey && event.key === 'Tab';
 
-    if (event.key === 'ArrowDown' && cursor === null) {
+    if ((arrowDown || tab) && cursor === null) {
       return setState({
         cursor: 0
       });
     }
 
-    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+    if (arrowUp || arrowDown || shiftTab || tab) {
       event.preventDefault();
     }
 
-    if (event.key === 'Escape') {
+    if (escape) {
       this.dropDown('close');
     }
 
-    if (event.key === 'Enter') {
+    if (enter) {
       const currentItem = methods.searchResults()[cursor];
       if (currentItem && !currentItem.disabled) {
         if (props.create && valueExistInSelected(state.search, state.values, props)) {
@@ -383,27 +389,27 @@ export class Select extends Component {
       }
     }
 
-    if (event.key === 'ArrowUp' && cursor > 0) {
-      setState((prevState) => ({
-        cursor: prevState.cursor - 1
-      }));
-    }
-
-    if (event.key === 'ArrowUp' && cursor === 0) {
-      setState({
-        cursor: methods.searchResults().length
+    if ((arrowDown || tab) && methods.searchResults().length === cursor) {
+      return setState({
+        cursor: 0
       });
     }
 
-    if (event.key === 'ArrowDown') {
+    if (arrowDown || tab) {
       setState((prevState) => ({
         cursor: prevState.cursor + 1
       }));
     }
 
-    if (event.key === 'ArrowDown' && methods.searchResults().length === cursor) {
-      return setState({
-        cursor: 0
+    if ((arrowUp || shiftTab) && cursor > 0) {
+      setState((prevState) => ({
+        cursor: prevState.cursor - 1
+      }));
+    }
+
+    if ((arrowUp || shiftTab) && cursor === 0) {
+      setState({
+        cursor: methods.searchResults().length
       });
     }
   };
