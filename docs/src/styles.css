@@ -79,7 +79,7 @@ summary {
   margin: 20px 0;
 }
 
-pre {
+[class*="-Side"] [class*="-Inner"] pre {
   white-space: pre-wrap;
   word-wrap: break-word;
   border: 1px solid #ccc;
@@ -94,7 +94,7 @@ pre {
   box-shadow: 0 5px 10px #ccc inset;
 }
 
-pre span {
+[class*="-Side"] [class*="-Inner"] pre span {
   position: absolute;
   display: block;
   background: #fff;

@@ -14,7 +14,7 @@ const ItemRenderer = ({ options, title }) => (
       multi
       options={options}
       values={[]}
-      itemRenderer={({ item, itemIndex, props, state, methods }) => (
+      itemRenderer={({ item, methods }) => (
         <StyledItem>
           {item.disabled ? (
             <div aria-disabled>{item.label}</div>
@@ -33,12 +33,6 @@ const ItemRenderer = ({ options, title }) => (
 );
 
 ItemRenderer.propTypes = {};
-
-const Title = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-`;
 
 const StyledItem = styled.div`
   padding: 10px;

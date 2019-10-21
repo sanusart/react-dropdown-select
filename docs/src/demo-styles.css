@@ -3,6 +3,10 @@
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+textarea * , pre * {
+	font-family: monospace;
+}
+
 #root {
   margin: 20px auto;
   max-width: 400px;

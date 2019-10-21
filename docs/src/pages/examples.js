@@ -37,7 +37,7 @@ const Examples = () => (
     <Header page="examples" title="Examples" />
 
     <Wrapper>
-      <Basic options={demoOptions} title="Basic" />
+      <Basic options={demoOptions} title="Basic (using react-live)" />
     </Wrapper>
 
     <Wrapper>
@@ -123,6 +123,7 @@ Examples.propTypes = {};
 const Wrapper = styled.div`
   max-width: 500px;
   margin: 0 auto;
+  padding: 20px;
 
   h2 {
     font-weight: 300;
