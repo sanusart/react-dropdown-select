@@ -11,7 +11,7 @@ export interface IState {
 export interface IMethods {
   removeItem: () => void;
   dropDown: () => void;
-  addItem: () => void;
+  addItem: (item: IItemRenderer['item']) => void;
   setSearch: () => void;
   getInputSize: () => void;
   toggleSelectAll: () => void;
@@ -43,8 +43,8 @@ export interface IKeyDown {
 	setState?: () => void;
 }
 
-export interface IItemRenderer {
-  item?: number;
+export interface IItemRenderer<T> {
+  item?: T;
   itemIndex?: number;
   props?: ISelectProps;
   state?: IState;
