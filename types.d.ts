@@ -29,13 +29,13 @@ export interface IMethods {
   safeString: () => void;
 }
 
-export interface IRenderer<T = any> {
+export interface IRenderer<T extends object = object> {
   props?: ISelectProps<T>;
   state?: IState;
   methods?: IMethods;
 }
 
-export interface IKeyDown<T = any> {
+export interface IKeyDown<T extends object = object> {
 	event: Event;
 	props?: ISelectProps<T>;
 	state?: IState;
@@ -43,7 +43,7 @@ export interface IKeyDown<T = any> {
 	setState?: () => void;
 }
 
-export interface IItemRenderer<T = any> {
+export interface IItemRenderer<T extends object = object> {
   item?: T;
   itemIndex?: number;
   props?: ISelectProps<T>;
@@ -51,7 +51,7 @@ export interface IItemRenderer<T = any> {
   methods?: IMethods;
 }
 
-export interface ISelectProps<T = any> {
+export interface ISelectProps<T extends object = object> {
 	className?: string;
   addPlaceholder?: string;
   placeholder?: string;
@@ -92,21 +92,21 @@ export interface ISelectProps<T = any> {
   onClearAll?: () => void;
   onSelectAll?: () => void;
   onCreateNew?: () => void;
-	searchFn?: ({ props, state, methods }: IRenderer) => T[];
-	handleKeyDownFn?: ({ event, props, state, methods, setState }: IKeyDown) => void;
-  clearRenderer?: ({ props, state, methods }: IRenderer) => void;
-  contentRenderer?: ({ props, state, methods }: IRenderer) => void;
-  dropdownRenderer?: ({ props, state, methods }: IRenderer) => void;
-  dropdownHandleRenderer?: ({ props, state, methods }: IRenderer) => void;
-  inputRenderer?: ({ props, state, methods }: IRenderer) => void;
-  itemRenderer?: ({ item, itemIndex, props, state, methods }: IItemRenderer) => void;
-  loadingRenderer?: ({ props }: IItemRenderer) => void;
-  noDataRenderer?: ({ props, state, methods }: IRenderer) => void;
-  optionRenderer?: ({ item, props, state, methods }: IItemRenderer) => void;
-  separatorRenderer?: ({ props, state, methods }: IRenderer) => void;
+	searchFn?: ({ props, state, methods }: IRenderer<T>) => T[];
+	handleKeyDownFn?: ({ event, props, state, methods, setState }: IKeyDown<T>) => void;
+  clearRenderer?: ({ props, state, methods }: IRenderer<T>) => void;
+  contentRenderer?: ({ props, state, methods }: IRenderer<T>) => void;
+  dropdownRenderer?: ({ props, state, methods }: IRenderer<T>) => void;
+  dropdownHandleRenderer?: ({ props, state, methods }: IRenderer<T>) => void;
+  inputRenderer?: ({ props, state, methods }: IRenderer<T>) => void;
+  itemRenderer?: ({ item, itemIndex, props, state, methods }: IItemRenderer<T>) => void;
+  loadingRenderer?: ({ props }: IItemRenderer<T>) => void;
+  noDataRenderer?: ({ props, state, methods }: IRenderer<T>) => void;
+  optionRenderer?: ({ item, props, state, methods }: IItemRenderer<T>) => void;
+  separatorRenderer?: ({ props, state, methods }: IRenderer<T>) => void;
 	additionalProps?: T;
 }
 
-declare const Select: React.SFC<ISelectProps>;
+declare const Select: React.SFC<ISelectProps<T extends object ? T : {}>>;
 
 export default Select;
