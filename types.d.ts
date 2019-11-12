@@ -29,34 +29,34 @@ export interface IMethods {
   safeString: () => void;
 }
 
-export interface IRenderer {
-  props?: ISelectProps;
+export interface IRenderer<T = any> {
+  props?: ISelectProps<T>;
   state?: IState;
   methods?: IMethods;
 }
 
-export interface IKeyDown {
+export interface IKeyDown<T = any> {
 	event: Event;
-	props?: ISelectProps;
+	props?: ISelectProps<T>;
 	state?: IState;
 	methods?: IMethods;
 	setState?: () => void;
 }
 
-export interface IItemRenderer<T> {
+export interface IItemRenderer<T = any> {
   item?: T;
   itemIndex?: number;
-  props?: ISelectProps;
+  props?: ISelectProps<T>;
   state?: IState;
   methods?: IMethods;
 }
 
-export interface ISelectProps {
+export interface ISelectProps<T = any> {
 	className?: string;
   addPlaceholder?: string;
   placeholder?: string;
-  values: object[];
-  options: object[];
+  values: T[];
+  options: T[];
   multi?: boolean;
   disabled?: boolean;
   searchBy?: string;
@@ -92,7 +92,7 @@ export interface ISelectProps {
   onClearAll?: () => void;
   onSelectAll?: () => void;
   onCreateNew?: () => void;
-	searchFn?: ({ props, state, methods }: IRenderer) => object[];
+	searchFn?: ({ props, state, methods }: IRenderer) => T[];
 	handleKeyDownFn?: ({ event, props, state, methods, setState }: IKeyDown) => void;
   clearRenderer?: ({ props, state, methods }: IRenderer) => void;
   contentRenderer?: ({ props, state, methods }: IRenderer) => void;
@@ -104,7 +104,7 @@ export interface ISelectProps {
   noDataRenderer?: ({ props, state, methods }: IRenderer) => void;
   optionRenderer?: ({ item, props, state, methods }: IItemRenderer) => void;
   separatorRenderer?: ({ props, state, methods }: IRenderer) => void;
-	additionalProps?: object;
+	additionalProps?: T;
 }
 
 declare const Select: React.SFC<ISelectProps>;
