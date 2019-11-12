@@ -1,3 +1,9 @@
+### v3.6.6
+*  DOCS (examples): fix examples + add react-live [View](https://github.com/sanusart/react-dropdown-select/commit/bbcd205b1a4b76ec600cd2c88d88ca924d0ec7e3)
+*  CHORE (bot): Add stale.yml [View](https://github.com/sanusart/react-dropdown-select/commit/1a8cf1457bd1d6b1f6570d39960a836b25fa7736)
+*  CHORE (GitHub): update stale.yml [View](https://github.com/sanusart/react-dropdown-select/commit/2dd40132b9daf2a881f57436fcb340cb33b20554)
+*  FIX (types): fix item type for IItemRenderer (#47) [View](https://github.com/sanusart/react-dropdown-select/commit/4606eb58d364cebdc4b8084aab43a2204bd3249e)
+
 ### v3.6.5
 *  FIX (accessability): add tab navigation, closes #46 [View](https://github.com/sanusart/react-dropdown-select/commit/2bad658c7288de1a8be9780aaeb28fc0b699901d)
 
