@@ -1,3 +1,6 @@
+### v3.6.7
+*  FIX (types): make options and values type generic closes #48 thanks to @lopesc [View](https://github.com/sanusart/react-dropdown-select/commit/00b8ddddd3f81a5d4fba47ba9f015791c225464f)
+
 ### v3.6.6
 *  DOCS (examples): fix examples + add react-live [View](https://github.com/sanusart/react-dropdown-select/commit/bbcd205b1a4b76ec600cd2c88d88ca924d0ec7e3)
 *  CHORE (bot): Add stale.yml [View](https://github.com/sanusart/react-dropdown-select/commit/1a8cf1457bd1d6b1f6570d39960a836b25fa7736)
