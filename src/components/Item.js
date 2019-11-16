@@ -92,7 +92,7 @@ const ItemComponent = styled.span`
       ? `
     background: #f2f2f2;
     color: #ccc;
-    
+
     ins {
       text-decoration: none;
       border:1px solid #ccc;
