@@ -9,7 +9,7 @@ export interface IState {
 }
 
 export interface IMethods {
-  removeItem: (event: Event, item: IItemRenderer['item'], close = false) => void;
+  removeItem: (event: Event, item: IItemRenderer['item'], close: boolean) => void;
   dropDown: (action: string, event?: Event) => void;
   addItem: (item: IItemRenderer['item']) => void;
   setSearch: (event: Event) => void;
