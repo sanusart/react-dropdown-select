@@ -5,28 +5,28 @@ export interface IState {
   values: object;
   search: string;
   selectBounds: object;
-  cursor: object;
+  cursor: number;
 }
 
 export interface IMethods {
-  removeItem: () => void;
-  dropDown: () => void;
+  removeItem: (event: Event, item: IItemRenderer['item'], close = false) => void;
+  dropDown: (action: string, event?: Event) => void;
   addItem: (item: IItemRenderer['item']) => void;
-  setSearch: () => void;
-  getInputSize: () => void;
+  setSearch: (event: Event) => void;
+  getInputSize: () => number;
   toggleSelectAll: () => void;
   clearAll: () => void;
   selectAll: () => void;
   searchResults: () => void;
-  getSelectRef: () => void;
-  isSelected: () => void;
-  getSelectBounds: () => void;
-  areAllSelected: () => void;
-  handleKeyDown: () => void;
+  getSelectRef: () => React.RefObject;
+  isSelected: (item: IItemRenderer['item']) => boolean;
+  getSelectBounds: () => ClientRect;
+  areAllSelected: () => boolean;
+  handleKeyDown: (event: Event) => void;
   activeCursorItem: () => void;
-  createNew: () => void;
-  sortBy: () => void;
-  safeString: () => void;
+  createNew: (item: IItemRenderer['item']) => void;
+  sortBy: () => ISelectProps['options'];
+  safeString: (input: string) => string;
 }
 
 export interface IRenderer<T extends object = object> {
