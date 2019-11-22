@@ -1,32 +1,32 @@
-import React from 'react';
+import { React, SyntheticEvent, KeyboardEvent } from 'react';
 
 export interface IState {
   dropdown: boolean;
   values: object;
   search: string;
   selectBounds: object;
-  cursor: object;
+  cursor: number;
 }
 
 export interface IMethods {
-  removeItem: () => void;
-  dropDown: () => void;
+  removeItem: (event: SyntheticEvent | null, item: IItemRenderer['item'], close: boolean) => void;
+  dropDown: (action: string, event: SyntheticEvent | null) => void;
   addItem: (item: IItemRenderer['item']) => void;
-  setSearch: () => void;
-  getInputSize: () => void;
+  setSearch: (event: SyntheticEvent) => void;
+  getInputSize: () => number;
   toggleSelectAll: () => void;
   clearAll: () => void;
   selectAll: () => void;
   searchResults: () => void;
-  getSelectRef: () => void;
-  isSelected: () => void;
-  getSelectBounds: () => void;
-  areAllSelected: () => void;
-  handleKeyDown: () => void;
+  getSelectRef: () => React.RefObject;
+  isSelected: (item: IItemRenderer['item']) => boolean;
+  getSelectBounds: () => ClientRect;
+  areAllSelected: () => boolean;
+  handleKeyDown: (event: KeyboardEvent) => void;
   activeCursorItem: () => void;
-  createNew: () => void;
-  sortBy: () => void;
-  safeString: () => void;
+  createNew: (item: IItemRenderer['item']) => void;
+  sortBy: () => ISelectProps['options'];
+  safeString: (input: string) => string;
 }
 
 export interface IRenderer<T extends object = object> {
@@ -36,7 +36,7 @@ export interface IRenderer<T extends object = object> {
 }
 
 export interface IKeyDown<T extends object = object> {
-	event: Event;
+	event: KeyboardEvent;
 	props?: ISelectProps<T>;
 	state?: IState;
 	methods?: IMethods;
