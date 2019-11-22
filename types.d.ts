@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, SyntheticEvent } from 'react';
 
 export interface IState {
   dropdown: boolean;
@@ -9,10 +9,10 @@ export interface IState {
 }
 
 export interface IMethods {
-  removeItem: (event: Event, item: IItemRenderer['item'], close: boolean) => void;
-  dropDown: (action: string, event?: Event) => void;
+  removeItem: (event: SyntheticEvent, item: IItemRenderer['item'], close: boolean) => void;
+  dropDown: (action: string, event?: SyntheticEvent) => void;
   addItem: (item: IItemRenderer['item']) => void;
-  setSearch: (event: Event) => void;
+  setSearch: (event: SyntheticEvent) => void;
   getInputSize: () => number;
   toggleSelectAll: () => void;
   clearAll: () => void;
@@ -22,7 +22,7 @@ export interface IMethods {
   isSelected: (item: IItemRenderer['item']) => boolean;
   getSelectBounds: () => ClientRect;
   areAllSelected: () => boolean;
-  handleKeyDown: (event: Event) => void;
+  handleKeyDown: (event: SyntheticEvent) => void;
   activeCursorItem: () => void;
   createNew: (item: IItemRenderer['item']) => void;
   sortBy: () => ISelectProps['options'];
@@ -36,7 +36,7 @@ export interface IRenderer<T extends object = object> {
 }
 
 export interface IKeyDown<T extends object = object> {
-	event: Event;
+	event: SyntheticEvent;
 	props?: ISelectProps<T>;
 	state?: IState;
 	methods?: IMethods;
