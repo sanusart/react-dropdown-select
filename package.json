@@ -31,6 +31,10 @@
     {
       "path": "./dist/react-dropdown-select.js",
       "maxSize": "15 kB"
+    },
+    {
+      "path": "./lib/index.js",
+      "maxSize": "15 kB"
     }
   ],
   "keywords": [
