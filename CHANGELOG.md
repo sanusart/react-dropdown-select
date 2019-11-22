@@ -1,3 +1,8 @@
+### v3.6.8
+*  Update stale.yml [View](https://github.com/sanusart/react-dropdown-select/commit/409e0520aaebeb3688f75b2e25ea2df988baf05f)
+*  CHORE (umd): testing of umd build (#52) [View](https://github.com/sanusart/react-dropdown-select/commit/4b5e21c860a59d7991053177732e7923ceb163a8)
+*   FIX (types): update type definitions for methods closes #53 thanks to @lopesc [View](https://github.com/sanusart/react-dropdown-select/commit/5e31adb143e46d099c2b4a962b9b9a0ff3dd2260)
+
 ### v3.6.7
 *  FIX (types): make options and values type generic closes #48 thanks to @lopesc [View](https://github.com/sanusart/react-dropdown-select/commit/00b8ddddd3f81a5d4fba47ba9f015791c225464f)
 
