@@ -1,3 +1,7 @@
+### v3.7.0
+*  Corrected onChange callback in Select component (#56) [View](https://github.com/sanusart/react-dropdown-select/commit/86c716ab6f47882755024d436136281f2ed79f97)
+*  build [View](https://github.com/sanusart/react-dropdown-select/commit/0a90bf8cb28b711009cd2afa504022ecf4f8042a)
+
 ### v3.6.8
 *  Update stale.yml [View](https://github.com/sanusart/react-dropdown-select/commit/409e0520aaebeb3688f75b2e25ea2df988baf05f)
 *  CHORE (umd): testing of umd build (#52) [View](https://github.com/sanusart/react-dropdown-select/commit/4b5e21c860a59d7991053177732e7923ceb163a8)
