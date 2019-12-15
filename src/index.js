@@ -73,6 +73,7 @@ export class Select extends Component {
       toggleSelectAll: this.toggleSelectAll,
       clearAll: this.clearAll,
       selectAll: this.selectAll,
+      selectMultiple: this.selectMultiple,
       searchResults: this.searchResults,
       getSelectRef: this.getSelectRef,
       isSelected: this.isSelected,
@@ -106,11 +107,14 @@ export class Select extends Component {
       !isEqual(prevProps.values, this.props.values) &&
       isEqual(prevProps.values, prevState.values)
     ) {
-      this.setState({
-        values: this.props.values
-      }, () => {
-        this.props.onChange(this.state.values);
-      });
+      this.setState(
+        {
+          values: this.props.values
+        },
+        () => {
+          this.props.onChange(this.state.values);
+        }
+      );
       this.updateSelectBounds();
     }
 
@@ -289,6 +293,12 @@ export class Select extends Component {
     this.props.onSelectAll();
     return this.setState({
       values: this.props.options.filter((option) => !option.disabled)
+    });
+  };
+
+  selectMultiple = (val) => {
+    return this.setState({
+      values: val
     });
   };
 
