@@ -16,7 +16,7 @@ export interface IMethods {
   getInputSize: () => number;
   toggleSelectAll: () => void;
   clearAll: () => void;
-  selectAll: () => void;
+  selectAll: (items?: IItemRenderer['item'][]) => void;
   searchResults: () => void;
   getSelectRef: () => React.RefObject;
   isSelected: (item: IItemRenderer['item']) => boolean;

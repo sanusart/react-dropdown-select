@@ -29,7 +29,16 @@ export class CustomContentAndDropdown extends React.Component {
                 Clear all
               </Button>
             ) : (
-              <Button onClick={methods.selectAll}>Select all</Button>
+              <React.Fragment>
+                <Button onClick={() => methods.selectAll(
+                  [
+                    props.options[0],
+                    props.options[1],
+                    props.options[3]
+                  ]
+                )}>Select 1st, 2nd and 4th</Button>
+                <Button onClick={methods.selectAll}>Select all</Button>
+              </React.Fragment>
             )}
           </Buttons>
           <input

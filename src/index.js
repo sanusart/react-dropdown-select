@@ -285,11 +285,13 @@ export class Select extends Component {
     });
   };
 
-  selectAll = () => {
+  selectAll = (valuesList=[]) => {
     this.props.onSelectAll();
-    return this.setState({
-      values: this.props.options.filter((option) => !option.disabled)
-    });
+    const values = valuesList.length > 0
+      ? valuesList
+      : this.props.options.filter((option) => !option.disabled);
+
+    this.setState({ values });
   };
 
   isSelected = (option) =>
