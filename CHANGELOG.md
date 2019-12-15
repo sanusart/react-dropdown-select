@@ -1,3 +1,8 @@
+### v3.8.1
+*  FEATURE (select some): extend inner method 'selectAll' to accept parameter (#58) [View](https://github.com/sanusart/react-dropdown-select/commit/8efdcb1df6d568849ced57c0fd5f2c61949f6af4)
+*  CHORE (audit): npm audit fix packages [View](https://github.com/sanusart/react-dropdown-select/commit/f9e1a3b90d4591c55651cd9eaed1a0ec7b31b4f6)
+*  DOCS (gatsby): fix path [View](https://github.com/sanusart/react-dropdown-select/commit/431552d6d02991f631d6aeeeb5e5402189873447)
+
 ### v3.8.0
 *  FEATURE (select some): extend inner method 'selectAll' to accept parameter of list of items to select ref #57 [View](https://github.com/sanusart/react-dropdown-select/commit/ec36702adb66c3af552d9acc96b381ca228949ea)
 
