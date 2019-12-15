@@ -1,3 +1,6 @@
+### v3.8.0
+*  FEATURE (select some): extend inner method 'selectAll' to accept parameter of list of items to select ref #57 [View](https://github.com/sanusart/react-dropdown-select/commit/ec36702adb66c3af552d9acc96b381ca228949ea)
+
 ### v3.7.0
 *  Corrected onChange callback in Select component (#56) [View](https://github.com/sanusart/react-dropdown-select/commit/86c716ab6f47882755024d436136281f2ed79f97)
 *  build [View](https://github.com/sanusart/react-dropdown-select/commit/0a90bf8cb28b711009cd2afa504022ecf4f8042a)
