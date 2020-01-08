@@ -12,6 +12,7 @@ import '../styles.css';
 import { options } from '../options';
 
 import Basic from '../examples/Basic';
+import Form from '../examples/Form';
 import Windowed from '../examples/Windowed';
 import Multi from '../examples/Multi';
 import OpenOnTop from '../examples/OpenOnTop';
@@ -38,6 +39,10 @@ const Examples = () => (
 
     <Wrapper>
       <Basic options={demoOptions} title="Basic (using react-live)" />
+    </Wrapper>
+
+    <Wrapper>
+      <Form options={demoOptions} title="Form with validation (using react-live)" />
     </Wrapper>
 
     <Wrapper>

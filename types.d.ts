@@ -86,6 +86,8 @@ export interface ISelectProps<T extends object = object> {
   create?: boolean;
   direction?: 'ltr' | 'rtl';
   name?: string;
+	required?: boolean,
+	pattern?: string,
   onChange: (value: any) => void;
   onDropdownOpen?: () => void;
   onDropdownClose?: () => void;

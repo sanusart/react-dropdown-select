@@ -576,7 +576,15 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
     </div>
     <input
       name="form-select"
-      type="hidden"
+      pattern={false}
+      required={false}
+      style={
+        Object {
+          "opacity": 0,
+          "position": "absolute",
+          "width": 0,
+        }
+      }
       value={Array []}
     />
     <div
