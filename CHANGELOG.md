@@ -1,3 +1,10 @@
+### v3.9.0
+*  FIX (usage in form): add requered prop and pattern, closes #59 [View](https://github.com/sanusart/react-dropdown-select/commit/35ccb207c7b9bb98e8c924ac4358899fa538ab9e)
+*  CHORE (dependencies): update dependencies [View](https://github.com/sanusart/react-dropdown-select/commit/db4e2735f5e5c583cbb5627942e8adb6b83e804e)
+*  CHORE (merge): update from upstream [View](https://github.com/sanusart/react-dropdown-select/commit/43f6452e8aedf393be32962aa531343a9df625be)
+*  FIX (validation): proper validation hidden fields values [View](https://github.com/sanusart/react-dropdown-select/commit/09b7d2a3c846edead2cb93a4cd6c8644d41f0dd2)
+*  CLEANUP (remove unused): remove unused dirs from source [View](https://github.com/sanusart/react-dropdown-select/commit/60e5ef9f61a5af1f3aa0fa40329e7532eaf51697)
+
 ### v3.8.1
 *  FEATURE (select some): extend inner method 'selectAll' to accept parameter (#58) [View](https://github.com/sanusart/react-dropdown-select/commit/8efdcb1df6d568849ced57c0fd5f2c61949f6af4)
 *  CHORE (audit): npm audit fix packages [View](https://github.com/sanusart/react-dropdown-select/commit/f9e1a3b90d4591c55651cd9eaed1a0ec7b31b4f6)

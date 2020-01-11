@@ -50,7 +50,10 @@ export class Select extends Component {
     clearRenderer: PropTypes.func,
     separatorRenderer: PropTypes.func,
     dropdownHandleRenderer: PropTypes.func,
-    direction: PropTypes.string
+    direction: PropTypes.string,
+    required: PropTypes.bool,
+    pattern: PropTypes.string,
+    name: PropTypes.string
   };
 
   constructor(props) {
@@ -455,8 +458,14 @@ export class Select extends Component {
           {...this.props.additionalProps}>
           <Content props={this.props} state={this.state} methods={this.methods} />
 
-          {this.props.name && (
-            <input name={this.props.name} type="hidden" value={this.props.values} />
+          {(this.props.name || this.props.required) && (
+            <input
+              style={{ opacity: 0, width: 0, position: 'absolute' }}
+              name={this.props.name}
+              required={this.props.required}
+              pattern={this.props.pattern}
+              value={this.state.values.map(value => value[this.props.labelField]).toString() || []}
+            />
           )}
 
           {this.props.loading && <Loading props={this.props} />}
@@ -519,6 +528,8 @@ Select.defaultProps = {
   create: false,
   direction: 'ltr',
   name: null,
+  required: false,
+  pattern: false,
   onChange: () => undefined,
   onDropdownOpen: () => undefined,
   onDropdownClose: () => undefined,
