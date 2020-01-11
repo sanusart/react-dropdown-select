@@ -11,8 +11,8 @@
     "types.d.ts"
   ],
   "scripts": {
-    "test": "jest --bail && npm run prepublishOnly && bundlesize",
-    "test:watch": "jest --bail --watch && npm run prepublishOnly && bundlesize",
+    "test": "jest --bail",
+    "test:watch": "jest --bail --watch",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "build": "webpack && npm run transpile",
     "transpile": "babel src -d lib",
