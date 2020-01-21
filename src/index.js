@@ -367,7 +367,7 @@ export class Select extends Component {
     const enter = event.key === 'Enter';
     const arrowUp = event.key === 'ArrowUp';
     const arrowDown = event.key === 'ArrowDown';
-    const tab = event.key === 'Tab' && !event.shiftKey;
+      const tab = event.key === 'Tab' && !event.shiftKey;
     const shiftTab = event.shiftKey && event.key === 'Tab';
 
     if ((arrowDown || tab) && cursor === null) {
@@ -448,7 +448,7 @@ export class Select extends Component {
           onKeyDown={this.handleKeyDown}
           onClick={(event) => this.dropDown('open', event)}
           onFocus={(event) => this.dropDown('open', event)}
-          tabIndex="0"
+          tabIndex={this.props.disabled ? '-1' : '0'}
           direction={this.props.direction}
           style={this.props.style}
           ref={this.select}
@@ -465,6 +465,7 @@ export class Select extends Component {
               required={this.props.required}
               pattern={this.props.pattern}
               value={this.state.values.map(value => value[this.props.labelField]).toString() || []}
+              disabled={this.props.disabled}
             />
           )}
 
@@ -487,7 +488,7 @@ export class Select extends Component {
             />
           )}
 
-          {this.state.dropdown && this.renderDropdown()}
+          {this.state.dropdown && !this.props.disabled && this.renderDropdown()}
         </ReactDropdownSelect>
       </ClickOutside>
     );
