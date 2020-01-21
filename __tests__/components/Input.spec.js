@@ -24,3 +24,9 @@ it('<Input/> renders correctly', () => {
 
   expect(tree).toMatchSnapshot();
 });
+
+it('<Input/> is disabled', () => {
+  const tree = renderer.create(<Input {...props({disabled: true})}/>).toJSON();
+
+  expect(tree).toMatchSnapshot();
+});
