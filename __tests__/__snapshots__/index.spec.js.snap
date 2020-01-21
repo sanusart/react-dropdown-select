@@ -1,5 +1,145 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Select/> component <Select/> is disabled 1`] = `
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.emotion-0 {
+  line-height: inherit;
+  width: calc(9ch + 5px);
+  border: none;
+  margin-left: 5px;
+  background: transparent;
+  font-size: smaller;
+}
+
+.emotion-0:focus {
+  outline: none;
+}
+
+.emotion-4 {
+  text-align: center;
+  pointer-events: none;
+  margin: 0 0 0 5px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+
+.emotion-4 svg {
+  width: 16px;
+  height: 16px;
+}
+
+.emotion-4:hover path {
+  stroke: #0074D9;
+}
+
+.emotion-4:focus {
+  outline: none;
+}
+
+.emotion-4:focus path {
+  stroke: #0074D9;
+}
+
+.emotion-6 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid #ccc;
+  width: 100%;
+  border-radius: 2px;
+  padding: 2px 5px;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  direction: ltr;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  min-height: 36px;
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.emotion-6:hover,
+.emotion-6:focus-within {
+  border-color: #0074D9;
+}
+
+.emotion-6:focus,
+.emotion-6:focus-within {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(0,116,217,0.2);
+}
+
+<div>
+  <div
+    className="react-dropdown-select undefined emotion-6 emotion-7"
+    color="#0074D9"
+    direction="ltr"
+    disabled={true}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    tabIndex="-1"
+  >
+    <div
+      className="react-dropdown-select-content react-dropdown-select-type-single emotion-2 emotion-3"
+      onClick={[Function]}
+    >
+      <input
+        className="react-dropdown-select-input emotion-0 emotion-1"
+        disabled={true}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        placeholder="Select..."
+        readOnly={false}
+        size={9}
+        tabIndex="-1"
+        value=""
+      />
+    </div>
+    <div
+      className="react-dropdown-select-dropdown-handle emotion-4 emotion-5"
+      color="#0074D9"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onKeyPress={[Function]}
+      tabIndex="-1"
+    >
+      <svg
+        fill="currentColor"
+        viewBox="0 0 40 40"
+      >
+        <path
+          d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<Select/> component <Select/> renders correctly 1`] = `
 .emotion-6 {
   position: relative;
@@ -105,6 +245,7 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
     >
       <input
         className="react-dropdown-select-input emotion-0 emotion-1"
+        disabled={false}
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
@@ -256,6 +397,7 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
     >
       <input
         className="react-dropdown-select-input emotion-0 emotion-1"
+        disabled={false}
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
@@ -422,6 +564,7 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
     >
       <input
         className="react-dropdown-select-input emotion-0 emotion-1"
+        disabled={false}
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
@@ -563,6 +706,7 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
     >
       <input
         className="react-dropdown-select-input emotion-0 emotion-1"
+        disabled={false}
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
@@ -575,6 +719,7 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
       />
     </div>
     <input
+      disabled={false}
       name="form-select"
       pattern={false}
       required={false}
@@ -720,6 +865,7 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
     >
       <input
         className="react-dropdown-select-input emotion-0 emotion-1"
+        disabled={false}
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
