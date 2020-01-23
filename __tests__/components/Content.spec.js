@@ -1,10 +1,12 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import { unmountComponentAtNode, render } from 'react-dom';
+import { act } from 'react-dom/test-utils';
 
 import Content from '../../src/components/Content';
 import { options } from '../options';
 
-let spy;
+let container = null;
 
 const props = (props = {}) => ({
   props: {
@@ -17,19 +19,22 @@ const props = (props = {}) => ({
     values: [options[0]]
   },
   methods: {
-    dropDown: () => undefined,
-    getInputSize: () => undefined,
+    dropDown: jest.fn(),
+    getInputSize: () => undefined
   },
   ...props
 });
 
 describe('<Clear/> component', () => {
   beforeEach(() => {
-    spy = jest.fn();
+    container = document.createElement('div');
+    document.body.appendChild(container);
   });
 
   afterEach(() => {
-    spy = null;
+    unmountComponentAtNode(container);
+    container.remove();
+    container = null;
   });
 
   it('<Content/> renders correctly', () => {
@@ -39,10 +44,20 @@ describe('<Clear/> component', () => {
   });
 
   it('onClick opens dropdown', () => {
-    TestRenderer.create(
-      <Content {...props()} onClick={spy}/>)
-      .root.findByProps({ className: 'react-dropdown-select-content react-dropdown-select-type-multi' }).props.onClick();
+    const componentProps = props();
 
-    expect(spy).toHaveBeenCalled;
+    act(() => {
+      render(<Content {...componentProps}/>, container);
+    });
+
+    const content = document.querySelector('.react-dropdown-select-content');
+
+    expect(componentProps.methods.dropDown).toHaveBeenCalledTimes(0);
+
+    act(() => {
+      content.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+
+    expect(componentProps.methods.dropDown).toHaveBeenCalledTimes(1);
   });
 });

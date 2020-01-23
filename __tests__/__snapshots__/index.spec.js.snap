@@ -111,6 +111,7 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onKeyPress={[Function]}
         placeholder="Select..."
         readOnly={false}
@@ -249,6 +250,7 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onKeyPress={[Function]}
         placeholder="Select..."
         readOnly={false}
@@ -401,6 +403,7 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onKeyPress={[Function]}
         placeholder="Select..."
         readOnly={false}
@@ -568,6 +571,7 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onKeyPress={[Function]}
         placeholder="Select..."
         readOnly={false}
@@ -710,6 +714,7 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onKeyPress={[Function]}
         placeholder="Select..."
         readOnly={false}
@@ -730,6 +735,7 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
           "width": 0,
         }
       }
+      tabIndex={-1}
       value={Array []}
     />
     <div
@@ -869,6 +875,7 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onKeyPress={[Function]}
         placeholder="Select..."
         readOnly={false}
