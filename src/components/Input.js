@@ -36,11 +36,12 @@ class Input extends Component {
     }
 
     if (prevProps.state.dropdown !== this.props.state.dropdown && !this.props.state.dropdown) {
-      this.input.current.blur();
+       this.input.current.blur();
     }
   }
 
-  onBlur = () => {
+  onBlur = (event) => {
+    event.stopPropagation();
     if (!this.props.state.dropdown) {
       return this.input.current.blur();
     }
@@ -72,6 +73,7 @@ class Input extends Component {
       <InputComponent
         ref={this.input}
         tabIndex="-1"
+        onFocus={(event) => event.stopPropagation()}
         className={`${LIB_NAME}-input`}
         size={methods.getInputSize()}
         value={state.search}
