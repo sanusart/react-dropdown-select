@@ -460,6 +460,7 @@ export class Select extends Component {
 
           {(this.props.name || this.props.required) && (
             <input
+              tabIndex={-1}
               style={{ opacity: 0, width: 0, position: 'absolute' }}
               name={this.props.name}
               required={this.props.required}
