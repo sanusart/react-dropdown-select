@@ -1,3 +1,6 @@
+### v3.11.0
+*  Selected fields can't be blured by tab (#65) thanks to @gandalf92 [View](https://github.com/sanusart/react-dropdown-select/commit/819bb5a20727e941c74de01e07dd25c57b149c94)
+
 ### v3.10.0
 *  FIX (usage in form): add required prop and pattern, closes #59 (#60) [View](https://github.com/sanusart/react-dropdown-select/commit/709b33c5d439a587eaf47d3388137b2ae25f6ec4)
 *  CHORE (gitignore): fix gitignore [View](https://github.com/sanusart/react-dropdown-select/commit/9f0d33ac50e6cd4725d693837940dde6fa97689d)
