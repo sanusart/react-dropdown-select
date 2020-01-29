@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import ClickOutside from './components/ClickOutside';
+import root from 'window-or-global'
 
 import Content from './components/Content';
 import Dropdown from './components/Dropdown';
@@ -94,8 +95,8 @@ export class Select extends Component {
 
   componentDidMount() {
     this.props.portal && this.props.portal.appendChild(this.dropdownRoot);
-    window.addEventListener('resize', debounce(this.updateSelectBounds));
-    window.addEventListener('scroll', debounce(this.onScroll));
+    root.addEventListener('resize', debounce(this.updateSelectBounds));
+    root.addEventListener('scroll', debounce(this.onScroll));
 
     this.dropDown('close');
 
@@ -109,11 +110,14 @@ export class Select extends Component {
       !isEqual(prevProps.values, this.props.values) &&
       isEqual(prevProps.values, prevState.values)
     ) {
-      this.setState({
-        values: this.props.values
-      }, () => {
-        this.props.onChange(this.state.values);
-      });
+      this.setState(
+        {
+          values: this.props.values
+        },
+        () => {
+          this.props.onChange(this.state.values);
+        }
+      );
       this.updateSelectBounds();
     }
 
@@ -145,11 +149,11 @@ export class Select extends Component {
 
   componentWillUnmount() {
     this.props.portal && this.props.portal.removeChild(this.dropdownRoot);
-    window.removeEventListener(
+    root.removeEventListener(
       'resize',
       debounce(this.updateSelectBounds, this.props.debounceDelay)
     );
-    window.removeEventListener('scroll', debounce(this.onScroll, this.props.debounceDelay));
+    root.removeEventListener('scroll', debounce(this.onScroll, this.props.debounceDelay));
   }
 
   onDropdownClose = () => {
@@ -288,11 +292,10 @@ export class Select extends Component {
     });
   };
 
-  selectAll = (valuesList=[]) => {
+  selectAll = (valuesList = []) => {
     this.props.onSelectAll();
-    const values = valuesList.length > 0
-      ? valuesList
-      : this.props.options.filter((option) => !option.disabled);
+    const values =
+      valuesList.length > 0 ? valuesList : this.props.options.filter((option) => !option.disabled);
 
     this.setState({ values });
   };
@@ -367,7 +370,7 @@ export class Select extends Component {
     const enter = event.key === 'Enter';
     const arrowUp = event.key === 'ArrowUp';
     const arrowDown = event.key === 'ArrowDown';
-      const tab = event.key === 'Tab' && !event.shiftKey;
+    const tab = event.key === 'Tab' && !event.shiftKey;
     const shiftTab = event.shiftKey && event.key === 'Tab';
 
     if ((arrowDown || tab) && cursor === null) {
@@ -465,7 +468,9 @@ export class Select extends Component {
               name={this.props.name}
               required={this.props.required}
               pattern={this.props.pattern}
-              value={this.state.values.map(value => value[this.props.labelField]).toString() || []}
+              value={
+                this.state.values.map((value) => value[this.props.labelField]).toString() || []
+              }
               disabled={this.props.disabled}
             />
           )}
@@ -556,9 +561,8 @@ const ReactDropdownSelect = styled.div`
   cursor: pointer;
   min-height: 36px;
   ${({ disabled }) =>
-    disabled ? 'cursor: not-allowed;pointer-events: none;opacity: 0.3;' : 'pointer-events: all;'}
-
-  :hover,
+      disabled ? 'cursor: not-allowed;pointer-events: none;opacity: 0.3;' : 'pointer-events: all;'}
+    :hover,
   :focus-within {
     border-color: ${({ color }) => color};
   }

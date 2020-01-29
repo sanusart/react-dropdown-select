@@ -87,7 +87,8 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.27",
-    "@emotion/styled": "^10.0.27"
+    "@emotion/styled": "^10.0.27",
+    "window-or-global": "^1.0.1"
   },
   "jest": {
     "snapshotSerializers": [
