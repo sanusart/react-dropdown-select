@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-
+import root from 'window-or-global'
 import { LIB_NAME } from '../constants';
 import NoData from '../components/NoData';
 import Item from '../components/Item';
@@ -16,7 +16,7 @@ const dropdownPosition = (props, methods) => {
     return props.dropdownPosition;
   }
 
-  if (dropdownHeight > window.innerHeight && dropdownHeight > DropdownBoundingClientRect.top) {
+  if (dropdownHeight > root.innerHeight && dropdownHeight > DropdownBoundingClientRect.top) {
     return 'top';
   }
 
@@ -81,7 +81,7 @@ const DropDown = styled.div`
     dropdownPosition === 'top'
       ? `bottom: ${selectBounds.height + 2 + dropdownGap}px`
       : `top: ${selectBounds.height + 2 + dropdownGap}px`};
-  
+
   ${({ selectBounds, dropdownGap, portal }) =>
     portal
       ? `
@@ -100,7 +100,7 @@ const DropDown = styled.div`
   max-height: ${({ dropdownHeight }) => dropdownHeight};
   overflow: auto;
   z-index: 9;
-  
+
   :focus {
     outline: none;
   }

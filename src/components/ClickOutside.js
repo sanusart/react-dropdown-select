@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import root from 'window-or-global'
 
 class ClickOutside extends React.Component {
   container = React.createRef();
 
   componentDidMount() {
-    document.addEventListener('click', this.handleClick, true);
+    root.addEventListener('click', this.handleClick, true);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.handleClick, true);
+    root.removeEventListener('click', this.handleClick, true);
   }
 
   handleClick = (event) => {
