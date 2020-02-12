@@ -1,3 +1,6 @@
+### v3.11.1
+*  FIX (types)[#68]: wrong import and portal type in types.d.ts closes #68 (#69) [View](https://github.com/sanusart/react-dropdown-select/commit/3dfdb2d21e3d446c73e36f97d5d02f558be3976d)
+
 ### v3.11.0
 *  Selected fields can't be blured by tab (#65) thanks to @gandalf92 [View](https://github.com/sanusart/react-dropdown-select/commit/819bb5a20727e941c74de01e07dd25c57b149c94)
 
