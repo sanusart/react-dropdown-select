@@ -53,7 +53,8 @@ export class Select extends Component {
     direction: PropTypes.string,
     required: PropTypes.bool,
     pattern: PropTypes.string,
-    name: PropTypes.string
+    name: PropTypes.string,
+    backspaceDelete: PropTypes.bool
   };
 
   constructor(props) {
@@ -367,6 +368,7 @@ export class Select extends Component {
     const enter = event.key === 'Enter';
     const arrowUp = event.key === 'ArrowUp';
     const arrowDown = event.key === 'ArrowDown';
+    const backspace = event.key === 'Backspace';
       const tab = event.key === 'Tab' && !event.shiftKey;
     const shiftTab = event.shiftKey && event.key === 'Tab';
 
@@ -416,6 +418,12 @@ export class Select extends Component {
     if ((arrowUp || shiftTab) && cursor === 0) {
       setState({
         cursor: methods.searchResults().length
+      });
+    }
+
+    if (backspace && props.multi && props.backspaceDelete && this.getInputSize() === 0) {
+      this.setState({
+        values: this.state.values.slice(0, -1)
       });
     }
   };
@@ -540,7 +548,8 @@ Select.defaultProps = {
   onCreateNew: () => undefined,
   searchFn: () => undefined,
   handleKeyDownFn: () => undefined,
-  additionalProps: null
+  additionalProps: null,
+  backspaceDelete: true
 };
 
 const ReactDropdownSelect = styled.div`
