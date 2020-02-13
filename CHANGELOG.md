@@ -1,3 +1,6 @@
+### v3.12.0
+*  FEATURE (events) [#70]: Remove selected option on key press of backspace button, closes #70 (#71) [View](https://github.com/sanusart/react-dropdown-select/commit/30a2aee405af2981eaa3aeb2a246f1d46f3647af)
+
 ### v3.11.1
 *  FIX (types)[#68]: wrong import and portal type in types.d.ts closes #68 (#69) [View](https://github.com/sanusart/react-dropdown-select/commit/3dfdb2d21e3d446c73e36f97d5d02f558be3976d)
 
