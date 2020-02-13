@@ -12,7 +12,10 @@ const Content = ({ props, state, methods }) => {
       className={`${LIB_NAME}-content ${
         props.multi ? `${LIB_NAME}-type-multi` : `${LIB_NAME}-type-single`
       }`}
-      onClick={() => methods.dropDown('open')}>
+      onClick={(event) => {
+        event.stopPropagation();
+        methods.dropDown('open');
+      }}>
       {props.contentRenderer ? (
         props.contentRenderer({ props, state, methods })
       ) : (

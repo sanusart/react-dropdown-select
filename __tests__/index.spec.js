@@ -2,7 +2,6 @@ import React from 'react';
 import TestRenderer from 'react-test-renderer';
 
 import Select from '../src/index';
-import { options } from './options';
 
 const props = (props = {}) => ({
   onChange: () => undefined,
@@ -53,4 +52,10 @@ describe('<Select/> component', () => {
 
     expect(tree).toMatchSnapshot();
   });
+
+  it('<Select/> is disabled', () => {
+    const tree = selectWithProps(<Select {...props({ disabled: true })} />).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  })
 });

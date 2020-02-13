@@ -1,3 +1,14 @@
+### v3.11.1
+*  FIX (types)[#68]: wrong import and portal type in types.d.ts closes #68 (#69) [View](https://github.com/sanusart/react-dropdown-select/commit/3dfdb2d21e3d446c73e36f97d5d02f558be3976d)
+
+### v3.11.0
+*  Selected fields can't be blured by tab (#65) thanks to @gandalf92 [View](https://github.com/sanusart/react-dropdown-select/commit/819bb5a20727e941c74de01e07dd25c57b149c94)
+
+### v3.10.0
+*  FIX (usage in form): add required prop and pattern, closes #59 (#60) [View](https://github.com/sanusart/react-dropdown-select/commit/709b33c5d439a587eaf47d3388137b2ae25f6ec4)
+*  CHORE (gitignore): fix gitignore [View](https://github.com/sanusart/react-dropdown-select/commit/9f0d33ac50e6cd4725d693837940dde6fa97689d)
+*  Dropdown-Input is selectable when disabled and using tab-key (#63) thanks to @gandalf92 [View](https://github.com/sanusart/react-dropdown-select/commit/ac62e1156980e41ca291fe2d31a83439284e590d)
+
 ### v3.9.0
 *  FIX (usage in form): add requered prop and pattern, closes #59 [View](https://github.com/sanusart/react-dropdown-select/commit/35ccb207c7b9bb98e8c924ac4358899fa538ab9e)
 *  CHORE (dependencies): update dependencies [View](https://github.com/sanusart/react-dropdown-select/commit/db4e2735f5e5c583cbb5627942e8adb6b83e804e)

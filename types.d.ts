@@ -1,4 +1,4 @@
-import { React, SyntheticEvent, KeyboardEvent } from 'react';
+import React, { SyntheticEvent, KeyboardEvent } from 'react';
 
 export interface IState {
   dropdown: boolean;
@@ -82,7 +82,7 @@ export interface ISelectProps<T extends object = object> {
   dropdownPosition?: string;
   dropdownHeight?: string;
   autoFocus?: boolean;
-  portal?: string;
+  portal?: HTMLElement;
   create?: boolean;
   direction?: 'ltr' | 'rtl';
   name?: string;

@@ -86,6 +86,7 @@ exports[`<Clear/> component <Content/> renders correctly 1`] = `
     className="react-dropdown-select-input emotion-2 emotion-3"
     onBlur={[Function]}
     onClick={[Function]}
+    onFocus={[Function]}
     onKeyPress={[Function]}
     placeholder=""
     readOnly={true}

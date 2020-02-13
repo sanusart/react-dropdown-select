@@ -53,7 +53,8 @@ export class Select extends Component {
     direction: PropTypes.string,
     required: PropTypes.bool,
     pattern: PropTypes.string,
-    name: PropTypes.string
+    name: PropTypes.string,
+    backspaceDelete: PropTypes.bool
   };
 
   constructor(props) {
@@ -367,7 +368,8 @@ export class Select extends Component {
     const enter = event.key === 'Enter';
     const arrowUp = event.key === 'ArrowUp';
     const arrowDown = event.key === 'ArrowDown';
-    const tab = event.key === 'Tab' && !event.shiftKey;
+    const backspace = event.key === 'Backspace';
+      const tab = event.key === 'Tab' && !event.shiftKey;
     const shiftTab = event.shiftKey && event.key === 'Tab';
 
     if ((arrowDown || tab) && cursor === null) {
@@ -418,6 +420,12 @@ export class Select extends Component {
         cursor: methods.searchResults().length
       });
     }
+
+    if (backspace && props.multi && props.backspaceDelete && this.getInputSize() === 0) {
+      this.setState({
+        values: this.state.values.slice(0, -1)
+      });
+    }
   };
 
   renderDropdown = () =>
@@ -448,7 +456,7 @@ export class Select extends Component {
           onKeyDown={this.handleKeyDown}
           onClick={(event) => this.dropDown('open', event)}
           onFocus={(event) => this.dropDown('open', event)}
-          tabIndex="0"
+          tabIndex={this.props.disabled ? '-1' : '0'}
           direction={this.props.direction}
           style={this.props.style}
           ref={this.select}
@@ -460,11 +468,13 @@ export class Select extends Component {
 
           {(this.props.name || this.props.required) && (
             <input
+              tabIndex={-1}
               style={{ opacity: 0, width: 0, position: 'absolute' }}
               name={this.props.name}
               required={this.props.required}
               pattern={this.props.pattern}
               value={this.state.values.map(value => value[this.props.labelField]).toString() || []}
+              disabled={this.props.disabled}
             />
           )}
 
@@ -487,7 +497,7 @@ export class Select extends Component {
             />
           )}
 
-          {this.state.dropdown && this.renderDropdown()}
+          {this.state.dropdown && !this.props.disabled && this.renderDropdown()}
         </ReactDropdownSelect>
       </ClickOutside>
     );
@@ -538,7 +548,8 @@ Select.defaultProps = {
   onCreateNew: () => undefined,
   searchFn: () => undefined,
   handleKeyDownFn: () => undefined,
-  additionalProps: null
+  additionalProps: null,
+  backspaceDelete: true
 };
 
 const ReactDropdownSelect = styled.div`
