@@ -31,11 +31,11 @@
   "bundlesize": [
     {
       "path": "./dist/react-dropdown-select.js",
-      "maxSize": "15 kB"
+      "maxSize": "20 kB"
     },
     {
       "path": "./lib/index.js",
-      "maxSize": "15 kB"
+      "maxSize": "20 kB"
     }
   ],
   "keywords": [
