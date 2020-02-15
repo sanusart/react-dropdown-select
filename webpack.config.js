@@ -12,6 +12,7 @@ module.exports = {
     umdNamedDefine: true,
     globalObject: 'this'
   },
+  target: 'node',
   optimization: {
     minimizer: [
       new TerserPlugin({
