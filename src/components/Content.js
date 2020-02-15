@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import cxs from "cxs/component";
 
 import Option from './Option';
 import Input from './Input';
@@ -40,10 +40,10 @@ const Content = ({ props, state, methods }) => {
   );
 };
 
-const ContentComponent = styled.div`
-  display: flex;
-  flex: 1;
-  flex-wrap: wrap;
-`;
+const ContentComponent = cxs('div')({
+  display: 'flex',
+  flex: 1,
+  flexWrap: 'wrap'
+});
 
 export default Content;

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import cxs from 'cxs/component';
 import { LIB_NAME } from '../constants';
 
 const Clear = ({ props, state, methods }) =>
@@ -15,18 +15,12 @@ const Clear = ({ props, state, methods }) =>
     </ClearComponent>
   );
 
-const ClearComponent = styled.div`
-  line-height: 25px;
-  margin: 0 10px;
-  cursor: pointer;
-
-  :focus {
-    outline: none;
-  }
-
-  :hover {
-    color: tomato;
-  }
-`;
+const ClearComponent = cxs('div')({
+  lineHeight: '25px',
+  margin: '0 10px',
+  cursor: 'pointer',
+  ':focus': { outline: 'none' },
+  ':hover': { color: 'tomato' }
+});
 
 export default Clear;

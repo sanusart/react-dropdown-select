@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from '@emotion/styled';
+import cxs from 'cxs/component';
 import { valueExistInSelected } from '../util';
 import * as PropTypes from 'prop-types';
 import { LIB_NAME } from '../constants';
@@ -29,14 +29,15 @@ class Input extends Component {
 
   componentDidUpdate(prevProps) {
     if (
-      this.props.state.dropdown || (prevProps.state.dropdown !== this.props.state.dropdown && this.props.state.dropdown) ||
+      this.props.state.dropdown ||
+      (prevProps.state.dropdown !== this.props.state.dropdown && this.props.state.dropdown) ||
       this.props.props.autoFocus
     ) {
       this.input.current.focus();
     }
 
     if (prevProps.state.dropdown !== this.props.state.dropdown && !this.props.state.dropdown) {
-       this.input.current.blur();
+      this.input.current.blur();
     }
   }
 
@@ -95,17 +96,20 @@ Input.propTypes = {
   methods: PropTypes.object
 };
 
-const InputComponent = styled.input`
-  line-height: inherit;
-  width: calc(${({ size }) => `${size}ch`} + 5px);
-  border: none;
-  margin-left: 5px;
-  background: transparent;
-  font-size: smaller;
-  ${({ readOnly }) => readOnly && 'cursor: pointer;'}
-  :focus {
-    outline: none;
-  }
-`;
+const InputComponent = cxs('input')(
+  props => ({
+    lineHeight: 'inherit',
+    border: 'none',
+    marginLeft: '5px',
+    background: 'transparent',
+    fontSize: 'smaller',
+    ...(props.readOnly ? { cursor: 'pointer' } : {}),
+    width: `calc(${props.size}ch + '5px')`,
+
+    ':focus': {
+      outline: 'none'
+    }
+  })
+);
 
 export default Input;

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import cxs from 'cxs/component';
 
 import { LIB_NAME } from '../constants';
 import NoData from '../components/NoData';
@@ -10,13 +10,18 @@ import { valueExistInSelected, hexToRGBA, isomorphicWindow } from '../util';
 const dropdownPosition = (props, methods) => {
   const DropdownBoundingClientRect = methods.getSelectRef().getBoundingClientRect();
   const dropdownHeight =
-    DropdownBoundingClientRect.bottom + parseInt(props.dropdownHeight, 10) + parseInt(props.dropdownGap, 10);
+    DropdownBoundingClientRect.bottom +
+    parseInt(props.dropdownHeight, 10) +
+    parseInt(props.dropdownGap, 10);
 
   if (props.dropdownPosition !== 'auto') {
     return props.dropdownPosition;
   }
 
-  if (dropdownHeight > isomorphicWindow().innerHeight && dropdownHeight > DropdownBoundingClientRect.top) {
+  if (
+    dropdownHeight > isomorphicWindow().innerHeight &&
+    dropdownHeight > DropdownBoundingClientRect.top
+  ) {
     return 'top';
   }
 
@@ -50,12 +55,7 @@ const Dropdown = ({ props, state, methods }) => (
           </AddNew>
         )}
         {methods.searchResults().length === 0 ? (
-          <NoData
-            className={`${LIB_NAME}-no-data`}
-            state={state}
-            props={props}
-            methods={methods}
-          />
+          <NoData className={`${LIB_NAME}-no-data`} state={state} props={props} methods={methods} />
         ) : (
           methods
             .searchResults()
@@ -75,47 +75,46 @@ const Dropdown = ({ props, state, methods }) => (
   </DropDown>
 );
 
-const DropDown = styled.div`
-  position: absolute;
-  ${({ selectBounds, dropdownGap, dropdownPosition }) =>
-    dropdownPosition === 'top'
-      ? `bottom: ${selectBounds.height + 2 + dropdownGap}px`
-      : `top: ${selectBounds.height + 2 + dropdownGap}px`};
+const DropDown = cxs('div')((props) => ({
+  position: 'absolute',
+  border: '1px solid #ccc',
+  padding: '0',
+  display: 'flex',
+  flexDirection: 'column',
+  background: '#fff',
+  borderRadius: '2px',
+  overflow: 'auto',
+  zIndex: '9',
+  width: `${props.selectBounds.width || 0}px`,
+  boxShadow: `0 0 10px 0 ${hexToRGBA('#000000', 0.2)}`,
+  maxHeight: props.dropdownHeight,
 
-  ${({ selectBounds, dropdownGap, portal }) =>
-    portal
-      ? `
-      position: fixed;
-      top: ${selectBounds.bottom + dropdownGap}px;
-      left: ${selectBounds.left - 1}px;`
-      : 'left: -1px;'};
-  border: 1px solid #ccc;
-  width: ${({ selectBounds }) => selectBounds.width}px;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  border-radius: 2px;
-  box-shadow: 0 0 10px 0 ${() => hexToRGBA('#000000', 0.2)};
-  max-height: ${({ dropdownHeight }) => dropdownHeight};
-  overflow: auto;
-  z-index: 9;
+  ...(props.dropdownPosition === 'top'
+    ? { bottom: `${props.selectBounds.height + 2 + props.dropdownGap || 0}px` }
+    : { top: `${props.selectBounds.height + 2 + props.dropdownGap || 0}px` }),
 
-  :focus {
-    outline: none;
+  ...(props.portal
+    ? {
+        position: 'fixed',
+        top: `${props.selectBounds.bottom + props.dropdownGap || 0}px`,
+        left: `${props.selectBounds.left - 1 || 0}px`
+      }
+    : {
+        left: '-1px'
+      }),
+
+  ':focus': {
+    outline: 'none'
   }
-}
-`;
+}));
 
-const AddNew = styled.div`
-  color: ${({ color }) => color};
-  padding: 5px 10px;
-
-  :hover {
-    background: ${({ color }) => color && hexToRGBA(color, 0.1)};
-    outline: none;
-    cursor: pointer;
+const AddNew = cxs('div')((props) => ({
+  padding: '5px 10px',
+  ':hover': {
+    background: hexToRGBA(props.color, 0.1),
+    outline: 'none',
+    cursor: 'pointer'
   }
-`;
+}));
 
 export default Dropdown;

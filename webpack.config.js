@@ -11,7 +11,7 @@ module.exports = {
     umdNamedDefine: true,
     globalObject: 'this'
   },
-  target: 'node', // for support ssr in emotionjs
+  // target: 'node', // for support ssr in emotionjs
   externals: {
     react: {
       commonjs: 'react',

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from '@emotion/styled';
+import cxs from 'cxs/component';
 import { hexToRGBA, getByPath } from '../util';
 import * as PropTypes from 'prop-types';
 import { LIB_NAME } from '../constants';
@@ -57,52 +57,43 @@ Item.propTypes = {
   itemIndex: PropTypes.any
 };
 
-const ItemComponent = styled.span`
-  padding: 5px 10px;
-  cursor: pointer;
-  border-bottom: 1px solid #fff;
+const ItemComponent = cxs('span')((props) => ({
+  padding: '5px 10px',
+  cursor: 'pointer',
+  borderBottom: '1px solid #fff',
 
-  &.${LIB_NAME}-item-active {
-    border-bottom: 1px solid #fff;
-    ${({ disabled, color }) => !disabled && color && `background: ${hexToRGBA(color, 0.1)};`}
-  }
-
-  :hover,
-  :focus {
-    background: ${({ color }) => color && hexToRGBA(color, 0.1)};
-    outline: none;
-  }
-
-  &.${LIB_NAME}-item-selected {
-    ${({ disabled, color }) =>
-      disabled
-        ? `
-    background: #f2f2f2;
-    color: #ccc;
-    `
-        : `
-    background: ${color};
-    color: #fff;
-    border-bottom: 1px solid #fff;
-    `}
-  }
-
-  ${({ disabled }) =>
-    disabled
-      ? `
-    background: #f2f2f2;
-    color: #ccc;
-
-    ins {
-      text-decoration: none;
-      border:1px solid #ccc;
-      border-radius: 2px;
-      padding: 0px 3px;
-      font-size: x-small;
-      text-transform: uppercase;
+  [`&.${LIB_NAME}-item-active`]: {
+    borderBottom: '1px solid #fff',
+    ...(!props.disabled && props.color
+      ? {
+          background: hexToRGBA(props.color, 0.1)
+        }
+      : {})
+  },
+  ':hover, :focus': {
+    background: hexToRGBA(props.color, 0.1),
+    outline: 'none'
+  },
+  [`&.${LIB_NAME}-item-selected`]: {
+    ...(props.disabled ? {
+      background: "#f2f2f2", color: "#ccc"
+    }: {
+      background: props.color,
+      color: "#fff",
+      borderBottom: "1px solid #fff"
+    })},
+  ...(props.disabled ? {
+    background: "#f2f2f2",
+    color: "#ccc",
+    '> ins': {
+      textDecoration: "none",
+      border: "1px solid #ccc",
+      borderRadius: "2px",
+      padding: "0px 3px",
+      fontSize: "x-small",
+      textTransform: "uppercase"
     }
-    `
-      : ''}
-`;
+  } : {})
+}));
 
 export default Item;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import cxs from 'cxs/component';
 import ClickOutside from './components/ClickOutside';
 
 import Content from './components/Content';
@@ -11,7 +11,15 @@ import Clear from './components/Clear';
 import Separator from './components/Separator';
 import DropdownHandle from './components/DropdownHandle';
 
-import { debounce, hexToRGBA, isEqual, getByPath, getProp, valueExistInSelected, isomorphicWindow } from './util';
+import {
+  debounce,
+  hexToRGBA,
+  isEqual,
+  getByPath,
+  getProp,
+  valueExistInSelected,
+  isomorphicWindow
+} from './util';
 import { LIB_NAME } from './constants';
 
 export class Select extends Component {
@@ -110,11 +118,14 @@ export class Select extends Component {
       !isEqual(prevProps.values, this.props.values) &&
       isEqual(prevProps.values, prevState.values)
     ) {
-      this.setState({
-        values: this.props.values
-      }, () => {
-        this.props.onChange(this.state.values);
-      });
+      this.setState(
+        {
+          values: this.props.values
+        },
+        () => {
+          this.props.onChange(this.state.values);
+        }
+      );
       this.updateSelectBounds();
     }
 
@@ -150,7 +161,10 @@ export class Select extends Component {
       'resize',
       debounce(this.updateSelectBounds, this.props.debounceDelay)
     );
-    isomorphicWindow().removeEventListener('scroll', debounce(this.onScroll, this.props.debounceDelay));
+    isomorphicWindow().removeEventListener(
+      'scroll',
+      debounce(this.onScroll, this.props.debounceDelay)
+    );
   }
 
   onDropdownClose = () => {
@@ -289,11 +303,10 @@ export class Select extends Component {
     });
   };
 
-  selectAll = (valuesList=[]) => {
+  selectAll = (valuesList = []) => {
     this.props.onSelectAll();
-    const values = valuesList.length > 0
-      ? valuesList
-      : this.props.options.filter((option) => !option.disabled);
+    const values =
+      valuesList.length > 0 ? valuesList : this.props.options.filter((option) => !option.disabled);
 
     this.setState({ values });
   };
@@ -369,7 +382,7 @@ export class Select extends Component {
     const arrowUp = event.key === 'ArrowUp';
     const arrowDown = event.key === 'ArrowDown';
     const backspace = event.key === 'Backspace';
-      const tab = event.key === 'Tab' && !event.shiftKey;
+    const tab = event.key === 'Tab' && !event.shiftKey;
     const shiftTab = event.shiftKey && event.key === 'Tab';
 
     if ((arrowDown || tab) && cursor === null) {
@@ -473,7 +486,9 @@ export class Select extends Component {
               name={this.props.name}
               required={this.props.required}
               pattern={this.props.pattern}
-              value={this.state.values.map(value => value[this.props.labelField]).toString() || []}
+              value={
+                this.state.values.map((value) => value[this.props.labelField]).toString() || []
+              }
               disabled={this.props.disabled}
             />
           )}
@@ -552,31 +567,29 @@ Select.defaultProps = {
   backspaceDelete: true
 };
 
-const ReactDropdownSelect = styled.div`
-  position: relative;
-  display: flex;
-  border: 1px solid #ccc;
-  width: 100%;
-  border-radius: 2px;
-  padding: 2px 5px;
-  flex-direction: row;
-  direction: ${({ direction }) => direction};
-  align-items: center;
-  cursor: pointer;
-  min-height: 36px;
-  ${({ disabled }) =>
-    disabled ? 'cursor: not-allowed;pointer-events: none;opacity: 0.3;' : 'pointer-events: all;'}
+const ReactDropdownSelect = cxs('div')((props) => ({
+  position: 'relative',
+  display: 'flex',
+  border: '1px solid #ccc',
+  width: '100%',
+  borderRadius: '2px',
+  padding: '2px 5px',
+  flexDirection: 'row',
+  direction: props.direction,
+  alignItems: 'center',
+  cursor: 'pointer',
+  minHeight: '36px',
+  ...(props.disabled
+    ? 'cursor: not-allowed;pointer-events: none;opacity: 0.3;'
+    : 'pointer-events: all;'),
 
-  :hover,
-  :focus-within {
-    border-color: ${({ color }) => color};
+  ':hover, :focus-within': {
+    borderColor: props.color
+  },
+  ':focus, :focus-within': {
+    outline: 0,
+    boxShadow: `0 0 0 3px ${hexToRGBA(props.color, 0.2)}`
   }
-
-  :focus,
-  :focus-within {
-    outline: 0;
-    box-shadow: 0 0 0 3px ${({ color }) => hexToRGBA(color, 0.2)};
-  }
-`;
+}));
 
 export default Select;

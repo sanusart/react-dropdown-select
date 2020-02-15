@@ -87,8 +87,7 @@
     "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.27",
-    "@emotion/styled": "^10.0.27"
+    "cxs": "^6.2.0"
   },
   "jest": {
     "snapshotSerializers": [

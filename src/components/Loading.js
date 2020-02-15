@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import cxs from 'cxs/component';
 import { LIB_NAME } from '../constants';
 
 const Loading = ({ props }) =>
@@ -9,33 +9,30 @@ const Loading = ({ props }) =>
     <LoadingComponent className={`${LIB_NAME}-loading`} color={props.color} />
   );
 
-const LoadingComponent = styled.div`
-  @keyframes dual-ring-spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(180deg);
-    }
+const LoadingComponent = cxs('div')((props) => ({
+  padding: '0 5px',
+  display: 'block',
+  width: 'auto',
+  height: 'auto',
+  ':after': {
+    content: "' '",
+    display: 'block',
+    width: '16px',
+    height: '16px',
+    borderRadius: '50%',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: `${props.color} transparent`,
+    animationName: 'spin',
+    animationTimingFunction: 'ease-in-out',
+    animationDuration: '0.7s',
+    animationIterationCount: 'infinite',
+    margin: '0 0 0 -10px'
+  },
+  '@keyframes spin': {
+    from: { transform: 'rotate(0deg)' },
+    to: { transform: 'rotate(180deg)' }
   }
-
-  padding: 0 5px;
-  display: block;
-  width: auto;
-  height: auto;
-
-  :after {
-    content: ' ';
-    display: block;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    border-width: 1px;
-    border-style: solid;
-    border-color: ${({ color }) => color} transparent;
-    animation: dual-ring-spin 0.7s ease-in-out infinite;
-    margin: 0 0 0 -10px;
-  }
-`;
+}));
 
 export default Loading;
