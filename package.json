@@ -1,10 +1,11 @@
 {
   "name": "react-dropdown-select",
-  "version": "3.12.0",
+  "version": "4.0.0",
   "description": "Customizable dropdown select for react",
   "main": "dist/react-dropdown-select.js",
   "module": "lib/index.js",
   "types": "types.d.ts",
+  "sideEffects": false,
   "files": [
     "dist",
     "lib",
@@ -30,11 +31,11 @@
   "bundlesize": [
     {
       "path": "./dist/react-dropdown-select.js",
-      "maxSize": "15 kB"
+      "maxSize": "20 kB"
     },
     {
       "path": "./lib/index.js",
-      "maxSize": "15 kB"
+      "maxSize": "20 kB"
     }
   ],
   "keywords": [
@@ -114,7 +115,6 @@
       "!coverage/**"
     ]
   },
-  "sideEffects": false,
   "browserslist": [
     "last 2 versions",
     "not dead",

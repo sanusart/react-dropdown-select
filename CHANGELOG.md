@@ -1,3 +1,6 @@
+### v4.0.0
+*  FIX (ssr) [#66]: incompatible with SSR closes #66 [View](https://github.com/sanusart/react-dropdown-select/commit/e1a882dae3a298a75ad9cc6b6c11810a48a8cae8)
+
 ### v3.12.0
 *  FEATURE (events) [#70]: Remove selected option on key press of backspace button, closes #70 (#71) [View](https://github.com/sanusart/react-dropdown-select/commit/30a2aee405af2981eaa3aeb2a246f1d46f3647af)
 

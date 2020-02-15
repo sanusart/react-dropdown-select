@@ -11,7 +11,7 @@ import Clear from './components/Clear';
 import Separator from './components/Separator';
 import DropdownHandle from './components/DropdownHandle';
 
-import { debounce, hexToRGBA, isEqual, getByPath, getProp, valueExistInSelected } from './util';
+import { debounce, hexToRGBA, isEqual, getByPath, getProp, valueExistInSelected, isomorphicWindow } from './util';
 import { LIB_NAME } from './constants';
 
 export class Select extends Component {
@@ -95,8 +95,8 @@ export class Select extends Component {
 
   componentDidMount() {
     this.props.portal && this.props.portal.appendChild(this.dropdownRoot);
-    window.addEventListener('resize', debounce(this.updateSelectBounds));
-    window.addEventListener('scroll', debounce(this.onScroll));
+    isomorphicWindow().addEventListener('resize', debounce(this.updateSelectBounds));
+    isomorphicWindow().addEventListener('scroll', debounce(this.onScroll));
 
     this.dropDown('close');
 
@@ -146,11 +146,11 @@ export class Select extends Component {
 
   componentWillUnmount() {
     this.props.portal && this.props.portal.removeChild(this.dropdownRoot);
-    window.removeEventListener(
+    isomorphicWindow().removeEventListener(
       'resize',
       debounce(this.updateSelectBounds, this.props.debounceDelay)
     );
-    window.removeEventListener('scroll', debounce(this.onScroll, this.props.debounceDelay));
+    isomorphicWindow().removeEventListener('scroll', debounce(this.onScroll, this.props.debounceDelay));
   }
 
   onDropdownClose = () => {
