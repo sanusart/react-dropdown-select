@@ -9,6 +9,8 @@ module.exports = {
     filename: 'react-dropdown-select.js',
     library: 'reactDropdownSelect',
     libraryTarget: 'umd',
+    umdNamedDefine: true,
+    globalObject: 'this'
   },
   optimization: {
     minimizer: [

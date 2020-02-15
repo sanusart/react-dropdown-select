@@ -5,6 +5,7 @@
   "main": "dist/react-dropdown-select.js",
   "module": "lib/index.js",
   "types": "types.d.ts",
+  "sideEffects": false,
   "files": [
     "dist",
     "lib",
@@ -114,7 +115,6 @@
       "!coverage/**"
     ]
   },
-  "sideEffects": false,
   "browserslist": [
     "last 2 versions",
     "not dead",
