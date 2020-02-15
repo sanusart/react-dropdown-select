@@ -7,7 +7,7 @@ import '../demo-styles.css';
 
 import '../styles.css';
 
-import Select from '../../../src/index';
+import Select from '../../../src';
 
 import { options } from '../options';
 

@@ -13,22 +13,22 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.6",
-    "@emotion/styled": "^10.0.6",
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
     "faker": "^4.1.0",
-    "gatsby": "^2.0.84",
-    "gatsby-plugin-catch-links": "^2.0.9",
-    "gatsby-plugin-emotion": "^4.0.1",
-    "gatsby-plugin-styled-components": "^3.0.4",
-    "gatsby-source-filesystem": "^2.1.5",
-    "gatsby-transformer-remark": "^2.6.7",
+    "gatsby": "^2.19.17",
+    "gatsby-plugin-catch-links": "^2.1.25",
+    "gatsby-plugin-emotion": "^4.1.22",
+    "gatsby-plugin-styled-components": "^3.1.19",
+    "gatsby-source-filesystem": "^2.1.48",
+    "gatsby-transformer-remark": "^2.6.51",
     "normalize.css": "^8.0.1",
-    "react": "^16.5.1",
-    "react-dom": "^16.5.1",
-    "react-dropdown-select": "^3.2.0",
-    "react-live": "^2.2.1",
-    "react-markdown": "^4.0.6",
-    "react-virtualized": "^9.21.1"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-dropdown-select": "^3.12.0",
+    "react-live": "^2.2.2",
+    "react-markdown": "^4.3.1",
+    "react-virtualized": "^9.21.2"
   },
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.2",
-    "gh-pages": "^2.0.1"
+    "babel-eslint": "^10.0.3",
+    "gh-pages": "^2.2.0"
   }
 }

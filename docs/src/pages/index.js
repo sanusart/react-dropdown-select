@@ -9,8 +9,8 @@ import '../styles.css';
 const Home = () => (
   <Wrapper>
     <div className="flex flex-wrap">
-      <Side className="sm-col-12 md-col-6 border-right p1 overflow-auto">
-        <Inner className="px0 col-11 lg-col-8 px1 mx-auto">
+      <Side className="sm-col-12 md-col-6 border-right p1 overflow-auto home-Side">
+        <Inner className="px0 col-11 lg-col-8 px1 mx-auto home-Inner">
           <Header page="home" />
           <h1 id="what-it-is-all-about">Dropdown select for react</h1>
 
@@ -59,7 +59,7 @@ const Side = styled.div`
 
 const Wrapper = styled.div`
   width: 100vw;
-  
+
   pre {
     overflow: auto;
   }
