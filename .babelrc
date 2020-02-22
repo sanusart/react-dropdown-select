@@ -1,6 +1,6 @@
 {
   "plugins": [
-    "emotion",
+    "babel-plugin-transform-goober",
     "@babel/plugin-proposal-class-properties",
     [
       "transform-react-remove-prop-types",

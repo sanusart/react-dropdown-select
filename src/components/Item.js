@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from '@emotion/styled';
+import { styled, setup } from 'goober';setup(React.createElement);
 import { hexToRGBA, getByPath } from '../util';
 import * as PropTypes from 'prop-types';
 import { LIB_NAME } from '../constants';
@@ -9,7 +9,7 @@ class Item extends Component {
 
   componentDidUpdate() {
     if (this.props.state.cursor === this.props.itemIndex) {
-      this.item.current &&
+      this.item && this.item.current &&
         this.item.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     }
   }
@@ -57,7 +57,7 @@ Item.propTypes = {
   itemIndex: PropTypes.any
 };
 
-const ItemComponent = styled.span`
+const ItemComponent = styled('span')`
   padding: 5px 10px;
   cursor: pointer;
   border-bottom: 1px solid #fff;

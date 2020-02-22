@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import { styled, setup } from 'goober';setup(React.createElement);
 import { LIB_NAME } from '../constants';
 
 const Loading = ({ props }) =>
@@ -9,7 +9,7 @@ const Loading = ({ props }) =>
     <LoadingComponent className={`${LIB_NAME}-loading`} color={props.color} />
   );
 
-const LoadingComponent = styled.div`
+const LoadingComponent = styled('div')`
   @keyframes dual-ring-spin {
     0% {
       transform: rotate(0deg);

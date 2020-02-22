@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import { styled, setup } from 'goober';setup(React.createElement);
 
 import { LIB_NAME } from '../constants';
 import NoData from '../components/NoData';
@@ -75,7 +75,7 @@ const Dropdown = ({ props, state, methods }) => (
   </DropDown>
 );
 
-const DropDown = styled.div`
+const DropDown = styled('div')`
   position: absolute;
   ${({ selectBounds, dropdownGap, dropdownPosition }) =>
     dropdownPosition === 'top'
@@ -107,7 +107,7 @@ const DropDown = styled.div`
 }
 `;
 
-const AddNew = styled.div`
+const AddNew = styled('div')`
   color: ${({ color }) => color};
   padding: 5px 10px;
 

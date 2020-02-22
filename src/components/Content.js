@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import { styled, setup } from 'goober';setup(React.createElement);
 
 import Option from './Option';
 import Input from './Input';
@@ -40,7 +40,7 @@ const Content = ({ props, state, methods }) => {
   );
 };
 
-const ContentComponent = styled.div`
+const ContentComponent = styled('div')`
   display: flex;
   flex: 1;
   flex-wrap: wrap;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import { styled, setup } from 'goober';
 import ClickOutside from './components/ClickOutside';
 
 import Content from './components/Content';
@@ -13,6 +13,8 @@ import DropdownHandle from './components/DropdownHandle';
 
 import { debounce, hexToRGBA, isEqual, getByPath, getProp, valueExistInSelected, isomorphicWindow } from './util';
 import { LIB_NAME } from './constants';
+
+setup(React.createElement);
 
 export class Select extends Component {
   static propTypes = {
@@ -552,7 +554,7 @@ Select.defaultProps = {
   backspaceDelete: true
 };
 
-const ReactDropdownSelect = styled.div`
+const ReactDropdownSelect = styled('div')`
   position: relative;
   display: flex;
   border: 1px solid #ccc;

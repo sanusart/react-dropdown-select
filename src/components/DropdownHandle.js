@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import { styled, setup } from 'goober';setup(React.createElement);
 import { LIB_NAME } from '../constants';
 
 const DropdownHandle = ({ props, state, methods }) =>
@@ -18,7 +18,7 @@ const DropdownHandle = ({ props, state, methods }) =>
     </DropdownHandleComponent>
   );
 
-const DropdownHandleComponent = styled.div`
+const DropdownHandleComponent = styled('div')`
   text-align: center;
   ${({ dropdownOpen }) =>
     dropdownOpen

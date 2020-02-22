@@ -1,6 +1,8 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import { styled, setup } from 'goober';
 import { LIB_NAME } from '../constants';
+
+setup(React.createElement);
 
 const Clear = ({ props, state, methods }) =>
   props.clearRenderer ? (
@@ -15,7 +17,7 @@ const Clear = ({ props, state, methods }) =>
     </ClearComponent>
   );
 
-const ClearComponent = styled.div`
+const ClearComponent = styled('div')`
   line-height: 25px;
   margin: 0 10px;
   cursor: pointer;

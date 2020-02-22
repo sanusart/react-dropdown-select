@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import { styled, setup } from 'goober';setup(React.createElement);
 import {getByPath} from '../util';
 import { LIB_NAME } from '../constants';
 
@@ -22,7 +22,7 @@ const Option = ({ item, props, state, methods }) =>
     </OptionComponent>
   );
 
-const OptionComponent = styled.span`
+const OptionComponent = styled('span')`
   padding: 0 5px;
   border-radius: 2px;
   line-height: 21px;
@@ -31,7 +31,7 @@ const OptionComponent = styled.span`
   color: #fff;
   display: flex;
   flex-direction: ${({ direction }) => direction === 'rtl' ? 'row-reverse' : 'row'};
-  
+
 
   .${LIB_NAME}-option-remove {
     cursor: pointer;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from '@emotion/styled';
+import { styled, setup } from 'goober';setup(React.createElement);
 import { valueExistInSelected } from '../util';
 import * as PropTypes from 'prop-types';
 import { LIB_NAME } from '../constants';
@@ -95,7 +95,7 @@ Input.propTypes = {
   methods: PropTypes.object
 };
 
-const InputComponent = styled.input`
+const InputComponent = styled('input')`
   line-height: inherit;
   width: calc(${({ size }) => `${size}ch`} + 5px);
   border: none;
