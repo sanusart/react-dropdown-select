@@ -539,7 +539,7 @@ Select.defaultProps = {
   direction: 'ltr',
   name: null,
   required: false,
-  pattern: false,
+  pattern: undefined,
   onChange: () => undefined,
   onDropdownOpen: () => undefined,
   onDropdownClose: () => undefined,

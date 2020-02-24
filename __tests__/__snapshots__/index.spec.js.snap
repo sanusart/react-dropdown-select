@@ -727,7 +727,6 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
       defaultValue={Array []}
       disabled={false}
       name="form-select"
-      pattern={false}
       required={false}
       style={
         Object {
