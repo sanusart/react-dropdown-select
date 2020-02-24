@@ -724,6 +724,7 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
       />
     </div>
     <input
+      defaultValue={Array []}
       disabled={false}
       name="form-select"
       pattern={false}
@@ -736,7 +737,6 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
         }
       }
       tabIndex={-1}
-      value={Array []}
     />
     <div
       className="react-dropdown-select-dropdown-handle emotion-4 emotion-5"

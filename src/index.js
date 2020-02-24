@@ -473,7 +473,7 @@ export class Select extends Component {
               name={this.props.name}
               required={this.props.required}
               pattern={this.props.pattern}
-              value={this.state.values.map(value => value[this.props.labelField]).toString() || []}
+              defaultValue={this.state.values.map(value => value[this.props.labelField]).toString() || []}
               disabled={this.props.disabled}
             />
           )}
