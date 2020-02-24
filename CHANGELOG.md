@@ -1,16 +1,4 @@
 ### v4.0.1
-*  FIX (usage in form): add requered prop and pattern, closes #59 [View](https://github.com/sanusart/react-dropdown-select/commit/35ccb207c7b9bb98e8c924ac4358899fa538ab9e)
-*  CHORE (dependencies): update dependencies [View](https://github.com/sanusart/react-dropdown-select/commit/db4e2735f5e5c583cbb5627942e8adb6b83e804e)
-*  CHORE (merge): update from upstream [View](https://github.com/sanusart/react-dropdown-select/commit/43f6452e8aedf393be32962aa531343a9df625be)
-*  FIX (validation): proper validation hidden fields values [View](https://github.com/sanusart/react-dropdown-select/commit/09b7d2a3c846edead2cb93a4cd6c8644d41f0dd2)
-*  CLEANUP (remove unused): remove unused dirs from source [View](https://github.com/sanusart/react-dropdown-select/commit/60e5ef9f61a5af1f3aa0fa40329e7532eaf51697)
-*  v3.9.0 See changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md [View](https://github.com/sanusart/react-dropdown-select/commit/a383f582e967f03569e62881758634aa4c039f43)
-*  FEATURE (events) [#70]: Remove selected option on key press of backspace button, closes #70 [View](https://github.com/sanusart/react-dropdown-select/commit/c84bf4731be82a0977031ee458d776f38febebdb)
-*  FEATURE (events) [#70]: Remove selected option on key press of backspace button, closes #70 (#71) [View](https://github.com/sanusart/react-dropdown-select/commit/30a2aee405af2981eaa3aeb2a246f1d46f3647af)
-*  v3.12.0 See changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md [View](https://github.com/sanusart/react-dropdown-select/commit/aee2a84c4a2dbe1f84dcef4eb7f6ef9fe01baed2)
-*  CHORE (cleanup): cleanup unused [View](https://github.com/sanusart/react-dropdown-select/commit/6ece29c699f9cfc92fb68f18e8ce81191a2983c7)
-*  FIX (ssr) [#66]: incompatible with SSR closes #66 (#72) [View](https://github.com/sanusart/react-dropdown-select/commit/7470026260cb4191c394293e385b6d541d0eae85)
-*  DOCS (docs): fix docs and update packages [View](https://github.com/sanusart/react-dropdown-select/commit/e1fb27a8ea50ed89ca98a26f9b48387824562649)
 *  FIX (props): fix prop type warnings (#75) thanks to @kkkrist [View](https://github.com/sanusart/react-dropdown-select/commit/b7429cfe1a960ae84eea4c25663803545a8c6b8a)
 
 ### v4.0.0
