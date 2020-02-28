@@ -1,3 +1,6 @@
+### v4.1.1
+*  FIX (types): types improvement by @435352980 closes #76 [View](https://github.com/sanusart/react-dropdown-select/commit/8c9f47dec1201c9c5de0eee0e34968442b037a3e)
+
 ### v4.1.0
 *  Fixed an issue where top positioning would not work in portal mode (#77) closes #73 Thanks to @akdjr [View](https://github.com/sanusart/react-dropdown-select/commit/d7dc82d9261f9a4ed636c5b967b99fe72d1210f5)
 
