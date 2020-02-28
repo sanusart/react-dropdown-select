@@ -82,11 +82,11 @@ const DropDown = styled.div`
       ? `bottom: ${selectBounds.height + 2 + dropdownGap}px`
       : `top: ${selectBounds.height + 2 + dropdownGap}px`};
 
-  ${({ selectBounds, dropdownGap, portal }) =>
+  ${({ selectBounds, dropdownGap, dropdownPosition, portal }) =>
     portal
       ? `
       position: fixed;
-      top: ${selectBounds.bottom + dropdownGap}px;
+      ${dropdownPosition === 'bottom' ? `top: ${selectBounds.bottom + dropdownGap}px;` : `bottom: ${isomorphicWindow().innerHeight - selectBounds.top + dropdownGap}px;`}
       left: ${selectBounds.left - 1}px;`
       : 'left: -1px;'};
   border: 1px solid #ccc;
