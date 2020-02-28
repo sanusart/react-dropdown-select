@@ -1,3 +1,6 @@
+### v4.1.0
+*  Fixed an issue where top positioning would not work in portal mode (#77) closes #73 Thanks to @akdjr [View](https://github.com/sanusart/react-dropdown-select/commit/d7dc82d9261f9a4ed636c5b967b99fe72d1210f5)
+
 ### v4.0.1
 *  FIX (props): fix prop type warnings (#75) thanks to @kkkrist [View](https://github.com/sanusart/react-dropdown-select/commit/b7429cfe1a960ae84eea4c25663803545a8c6b8a)
 
