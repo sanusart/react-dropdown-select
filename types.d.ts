@@ -49,6 +49,13 @@ declare module 'react-dropdown-select' {
     methods: SelectMethods<T>;
   }
 
+  export interface SelectOnDropdownCloseRequest<T> {
+    props: SelectProps<T>;
+    state: SelectState<T>;
+    methods: SelectMethods<T>;
+    close: () => void;
+  }
+
   export interface SelectKeyDown<T> {
     event: KeyboardEvent;
     props: SelectProps<T>;
@@ -113,6 +120,12 @@ declare module 'react-dropdown-select' {
     onClearAll?: () => void;
     onSelectAll?: () => void;
     onCreateNew?: (item: T) => void;
+    onDropdownCloseRequest?: ({
+      props,
+      state,
+      methods,
+      close
+    }: SelectOnDropdownCloseRequest<T>) => T[];
     searchFn?: ({ props, state, methods }: SelectRenderer<T>) => T[];
     handleKeyDownFn?: ({ event, props, state, methods, setState }: SelectKeyDown<T>) => void;
     clearRenderer?: ({ props, state, methods }: SelectRenderer<T>) => JSX.Element;
@@ -127,7 +140,7 @@ declare module 'react-dropdown-select' {
     }: SelectRenderer<T> & {
       inputRef: React.RefObject<HTMLInputElement>;
     }) => JSX.Element;
-    itemRenderer?: ({
+		itemRenderer?: ({
       item,
       itemIndex,
       props,

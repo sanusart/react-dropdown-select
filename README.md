@@ -105,26 +105,27 @@ and use as:
 
 > by using renderer props to override components some of the functionality will have to be handled manually with a help of internal props, states and methods exposed
 
-| Prop                                                                                                     | Type | Default   | Description                                                                 |
-| -------------------------------------------------------------------------------------------------------- | ---- | --------- | --------------------------------------------------------------------------- |
-| onChange                                                                                                 | func |           | On values change callback, returns array of values objects                  |
-| onDropdownClose                                                                                          | func |           | Fires upon dropdown close                                                   |
-| onDropdownOpen                                                                                           | func |           | Fires upon dropdown open                                                    |
-| onCreateNew                                                                                              | func |           | Fires upon creation of new item if `create` prop set to `true`              |
-| onClearAll                                                                                               | func |           | Fires upon clearing all values (via custom renderers)                       |
-| onSelectAll                                                                                              | func |           | Fires upon selecting all values (via custom renderers)                      |
-| [contentRenderer](https://sanusart.github.io/react-dropdown-select/prop/content-renderer)                | func |           | Overrides internal content component (the contents of the select component) |
-| [itemRenderer](https://sanusart.github.io/react-dropdown-select/prop/item-renderer)                      | func |           | Overrides internal item in a dropdown                                       |
-| [noDataRenderer](https://sanusart.github.io/react-dropdown-select/prop/no-data-renderer)                 | func |           | Overrides internal "no data" (shown where search has no results)            |
-| [optionRenderer](https://sanusart.github.io/react-dropdown-select/prop/option-renderer)                  | func |           | Overrides internal option (the pillow with an "x") on the select content    |
-| [inputRenderer](https://sanusart.github.io/react-dropdown-select/prop/input-renderer)                    | func |           | Overrides internal input text                                               |
-| [loadingRenderer](https://sanusart.github.io/react-dropdown-select/prop/loading-renderer)                | func |           | Overrides internal loading                                                  |
-| [clearRenderer](https://sanusart.github.io/react-dropdown-select/prop/clear-renderer)                    | func |           | Overrides internal clear button                                             |
-| [separatorRenderer](https://sanusart.github.io/react-dropdown-select/prop/separator-renderer)            | func |           | Overrides internal separator                                                |
-| [dropdownRenderer](https://sanusart.github.io/react-dropdown-select/prop/dropdown-renderer)              | func |           | Overrides internal dropdown component                                       |
-| [dropdownHandleRenderer](https://sanusart.github.io/react-dropdown-select/prop/dropdown-handle-renderer) | func |           | Overrides internal dropdown handle                                          |
-| searchFn                                                                                                 | func | undefined | Overrides internal search function                                          |
-| handleKeyDownFn                                                                                          | func | undefined | Overrides internal keyDown function                                         |
+| Prop                                                                                                     | Type | Default   | Description                                                                            |
+| -------------------------------------------------------------------------------------------------------- | ---- | --------- | -------------------------------------------------------------------------------------- |
+| onChange                                                                                                 | func |           | On values change callback, returns array of values objects                             |
+| onDropdownClose                                                                                          | func |           | Fires upon dropdown close                                                              |
+| onDropdownOpen                                                                                           | func |           | Fires upon dropdown open                                                               |
+| onCreateNew                                                                                              | func |           | Fires upon creation of new item if `create` prop set to `true`                         |
+| onClearAll                                                                                               | func |           | Fires upon clearing all values (via custom renderers)                                  |
+| onSelectAll                                                                                              | func |           | Fires upon selecting all values (via custom renderers)                                 |
+| onDropdownCloseRequest                                                                                   | func | undefined | Fires upon dropdown closing state, stops the closing and provides own method `close()` |
+| [contentRenderer](https://sanusart.github.io/react-dropdown-select/prop/content-renderer)                | func |           | Overrides internal content component (the contents of the select component)            |
+| [itemRenderer](https://sanusart.github.io/react-dropdown-select/prop/item-renderer)                      | func |           | Overrides internal item in a dropdown                                                  |
+| [noDataRenderer](https://sanusart.github.io/react-dropdown-select/prop/no-data-renderer)                 | func |           | Overrides internal "no data" (shown where search has no results)                       |
+| [optionRenderer](https://sanusart.github.io/react-dropdown-select/prop/option-renderer)                  | func |           | Overrides internal option (the pillow with an "x") on the select content               |
+| [inputRenderer](https://sanusart.github.io/react-dropdown-select/prop/input-renderer)                    | func |           | Overrides internal input text                                                          |
+| [loadingRenderer](https://sanusart.github.io/react-dropdown-select/prop/loading-renderer)                | func |           | Overrides internal loading                                                             |
+| [clearRenderer](https://sanusart.github.io/react-dropdown-select/prop/clear-renderer)                    | func |           | Overrides internal clear button                                                        |
+| [separatorRenderer](https://sanusart.github.io/react-dropdown-select/prop/separator-renderer)            | func |           | Overrides internal separator                                                           |
+| [dropdownRenderer](https://sanusart.github.io/react-dropdown-select/prop/dropdown-renderer)              | func |           | Overrides internal dropdown component                                                  |
+| [dropdownHandleRenderer](https://sanusart.github.io/react-dropdown-select/prop/dropdown-handle-renderer) | func |           | Overrides internal dropdown handle                                                     |
+| searchFn                                                                                                 | func | undefined | Overrides internal search function                                                     |
+| handleKeyDownFn                                                                                          | func | undefined | Overrides internal keyDown function                                                    |
 
 ### License
 
