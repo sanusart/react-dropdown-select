@@ -22,7 +22,7 @@ const WithAnimation = ({ options, title }) => {
         isOpen={open}
         onDropdownCloseRequest={({ close }) => {
           setOpen(true);
-          sleep(298).then(() => {
+          sleep(300).then(() => {
             close();
             setOpen(false);
           });
@@ -37,41 +37,45 @@ const WithAnimation = ({ options, title }) => {
 
 const hide = keyframes`
   from {
-    transition: height 298ms ease;
-    overflow: hidden;
+    transition: height 310ms ease;
   }
 
   to {
-    transition: height 298ms ease;
+    transition: height 310ms ease;
     height: 0;
-    overflow: hidden;
+    opacity: 0;
   }
 `;
 
 const show = keyframes`
   from {
-    transition: height 298ms ease;
+    transition: height 310ms ease;
     height: 0;
-    overflow: hidden;
+    opacity: 0;
   }
 
   to {
-    transition: height 298ms ease;
-    overflow: hidden;
+    transition: height 310ms ease;
   }
 `;
 
 const StyledSelect = styled(Select)`
+  transition: all 0.3s ease-out;
+
   .react-dropdown-select-dropdown {
-    height: 300px;
+    height: 310px;
     ${({ isOpen }) =>
       isOpen
         ? css`
-            animation: ${hide} 298ms ease-in-out;
+            animation: ${hide} 310ms ease-in-out;
           `
         : css`
-            animation: ${show} 298ms ease-in-out;
+            animation: ${show} 310ms ease-in-out;
           `};
+  }
+
+  .react-dropdown-select-option {
+    transition: all 0.3s ease-out;
   }
 `;
 
