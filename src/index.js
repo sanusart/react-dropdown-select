@@ -11,13 +11,22 @@ import Clear from './components/Clear';
 import Separator from './components/Separator';
 import DropdownHandle from './components/DropdownHandle';
 
-import { debounce, hexToRGBA, isEqual, getByPath, getProp, valueExistInSelected, isomorphicWindow } from './util';
+import {
+  debounce,
+  hexToRGBA,
+  isEqual,
+  getByPath,
+  getProp,
+  valueExistInSelected,
+  isomorphicWindow
+} from './util';
 import { LIB_NAME } from './constants';
 
 export class Select extends Component {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
     onDropdownClose: PropTypes.func,
+    onDropdownCloseRequest: PropTypes.func,
     onDropdownOpen: PropTypes.func,
     onClearAll: PropTypes.func,
     onSelectAll: PropTypes.func,
@@ -110,11 +119,14 @@ export class Select extends Component {
       !isEqual(prevProps.values, this.props.values) &&
       isEqual(prevProps.values, prevState.values)
     ) {
-      this.setState({
-        values: this.props.values
-      }, () => {
-        this.props.onChange(this.state.values);
-      });
+      this.setState(
+        {
+          values: this.props.values
+        },
+        () => {
+          this.props.onChange(this.state.values);
+        }
+      );
       this.updateSelectBounds();
     }
 
@@ -150,7 +162,10 @@ export class Select extends Component {
       'resize',
       debounce(this.updateSelectBounds, this.props.debounceDelay)
     );
-    isomorphicWindow().removeEventListener('scroll', debounce(this.onScroll, this.props.debounceDelay));
+    isomorphicWindow().removeEventListener(
+      'scroll',
+      debounce(this.onScroll, this.props.debounceDelay)
+    );
   }
 
   onDropdownClose = () => {
@@ -174,8 +189,22 @@ export class Select extends Component {
 
   getSelectBounds = () => this.state.selectBounds;
 
-  dropDown = (action = 'toggle', event) => {
+  dropDown = (action = 'toggle', event, force = false) => {
     const target = (event && event.target) || (event && event.srcElement);
+
+    if (
+      this.props.onDropdownCloseRequest !== undefined &&
+      this.state.dropdown &&
+      force === false &&
+      action === 'close'
+    ) {
+      return this.props.onDropdownCloseRequest({
+        props: this.props,
+        methods: this.methods,
+        state: this.state,
+        close: () => this.dropDown('close', null, true)
+      });
+    }
 
     if (
       this.props.portal &&
@@ -289,11 +318,10 @@ export class Select extends Component {
     });
   };
 
-  selectAll = (valuesList=[]) => {
+  selectAll = (valuesList = []) => {
     this.props.onSelectAll();
-    const values = valuesList.length > 0
-      ? valuesList
-      : this.props.options.filter((option) => !option.disabled);
+    const values =
+      valuesList.length > 0 ? valuesList : this.props.options.filter((option) => !option.disabled);
 
     this.setState({ values });
   };
@@ -369,7 +397,7 @@ export class Select extends Component {
     const arrowUp = event.key === 'ArrowUp';
     const arrowDown = event.key === 'ArrowDown';
     const backspace = event.key === 'Backspace';
-      const tab = event.key === 'Tab' && !event.shiftKey;
+    const tab = event.key === 'Tab' && !event.shiftKey;
     const shiftTab = event.shiftKey && event.key === 'Tab';
 
     if ((arrowDown || tab) && cursor === null) {
@@ -473,7 +501,9 @@ export class Select extends Component {
               name={this.props.name}
               required={this.props.required}
               pattern={this.props.pattern}
-              defaultValue={this.state.values.map(value => value[this.props.labelField]).toString() || []}
+              defaultValue={
+                this.state.values.map((value) => value[this.props.labelField]).toString() || []
+              }
               disabled={this.props.disabled}
             />
           )}
@@ -543,6 +573,7 @@ Select.defaultProps = {
   onChange: () => undefined,
   onDropdownOpen: () => undefined,
   onDropdownClose: () => undefined,
+  onDropdownCloseRequest: undefined,
   onClearAll: () => undefined,
   onSelectAll: () => undefined,
   onCreateNew: () => undefined,
