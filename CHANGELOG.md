@@ -1,3 +1,6 @@
+### v4.3.0
+*  FIX (dropdownHandle) [#61, 82]: make dropdownHandleRenderer simpler (#83) [View](https://github.com/sanusart/react-dropdown-select/commit/68a172b1eb03bb4e4eb1134da859b0ae2ca6048b)
+
 ### v4.2.0
 *  FIX (changelog): update changelog [View](https://github.com/sanusart/react-dropdown-select/commit/cee760c1376ba684456765a8ff6dd2ef3e45e4a5)
 *  Fixed an issue where top positioning would not work in portal mode (#77) closes #73 Thanks to @akdjr [View](https://github.com/sanusart/react-dropdown-select/commit/d7dc82d9261f9a4ed636c5b967b99fe72d1210f5)
