@@ -25,6 +25,7 @@ exports[`<Clear/> component <DropdownHandle/> renders correctly 1`] = `
   onClick={[Function]}
   onKeyDown={[Function]}
   onKeyPress={[Function]}
+  rotate={true}
   tabIndex="-1"
 >
   <svg
