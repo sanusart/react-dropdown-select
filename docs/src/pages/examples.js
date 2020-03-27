@@ -26,6 +26,8 @@ import DropdownAutoPosition from '../examples/DropdownAutoPosition';
 import NoData from '../examples/NoData';
 import ExternalClear from '../examples/ExternalClear';
 import AccessDataByPath from '../examples/AccessDataByPath';
+import CustomDropdownHandle from '../examples/CustomDropdownHandle';
+import WithAnimation from '../examples/WithAnimation';
 
 const demoOptions = options.map((option) => ({
   ...option,
@@ -47,6 +49,10 @@ const Examples = () => (
 
     <Wrapper>
       <Multi options={demoOptions} title="Multi" />
+    </Wrapper>
+
+    <Wrapper>
+      <CustomDropdownHandle options={demoOptions} title="Custom dropdown handle" />
     </Wrapper>
 
     <Wrapper>
@@ -104,6 +110,10 @@ const Examples = () => (
 
     <Wrapper>
       <AccessDataByPath title={`Access data by dotted path`} />
+    </Wrapper>
+
+    <Wrapper>
+      <WithAnimation title={`With animations`} options={demoOptions} />
     </Wrapper>
 
     <br />

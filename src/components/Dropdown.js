@@ -5,7 +5,7 @@ import { LIB_NAME } from '../constants';
 import NoData from '../components/NoData';
 import Item from '../components/Item';
 
-import { valueExistInSelected, hexToRGBA } from '../util';
+import { valueExistInSelected, hexToRGBA, isomorphicWindow } from '../util';
 
 const dropdownPosition = (props, methods) => {
   const DropdownBoundingClientRect = methods.getSelectRef().getBoundingClientRect();
@@ -16,7 +16,7 @@ const dropdownPosition = (props, methods) => {
     return props.dropdownPosition;
   }
 
-  if (dropdownHeight > window.innerHeight && dropdownHeight > DropdownBoundingClientRect.top) {
+  if (dropdownHeight > isomorphicWindow().innerHeight && dropdownHeight > DropdownBoundingClientRect.top) {
     return 'top';
   }
 
@@ -81,12 +81,12 @@ const DropDown = styled.div`
     dropdownPosition === 'top'
       ? `bottom: ${selectBounds.height + 2 + dropdownGap}px`
       : `top: ${selectBounds.height + 2 + dropdownGap}px`};
-  
-  ${({ selectBounds, dropdownGap, portal }) =>
+
+  ${({ selectBounds, dropdownGap, dropdownPosition, portal }) =>
     portal
       ? `
       position: fixed;
-      top: ${selectBounds.bottom + dropdownGap}px;
+      ${dropdownPosition === 'bottom' ? `top: ${selectBounds.bottom + dropdownGap}px;` : `bottom: ${isomorphicWindow().innerHeight - selectBounds.top + dropdownGap}px;`}
       left: ${selectBounds.left - 1}px;`
       : 'left: -1px;'};
   border: 1px solid #ccc;
@@ -100,7 +100,7 @@ const DropDown = styled.div`
   max-height: ${({ dropdownHeight }) => dropdownHeight};
   overflow: auto;
   z-index: 9;
-  
+
   :focus {
     outline: none;
   }

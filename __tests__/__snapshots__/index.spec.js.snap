@@ -126,6 +126,7 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyPress={[Function]}
+      rotate={true}
       tabIndex="-1"
     >
       <svg
@@ -265,6 +266,7 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyPress={[Function]}
+      rotate={true}
       tabIndex="-1"
     >
       <svg
@@ -426,6 +428,7 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyPress={[Function]}
+      rotate={true}
       tabIndex="-1"
     >
       <svg
@@ -590,6 +593,7 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyPress={[Function]}
+      rotate={true}
       tabIndex="-1"
     >
       <svg
@@ -724,9 +728,9 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
       />
     </div>
     <input
+      defaultValue={Array []}
       disabled={false}
       name="form-select"
-      pattern={false}
       required={false}
       style={
         Object {
@@ -736,7 +740,6 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
         }
       }
       tabIndex={-1}
-      value={Array []}
     />
     <div
       className="react-dropdown-select-dropdown-handle emotion-4 emotion-5"
@@ -744,6 +747,7 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyPress={[Function]}
+      rotate={true}
       tabIndex="-1"
     >
       <svg
@@ -893,6 +897,7 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyPress={[Function]}
+      rotate={true}
       tabIndex="-1"
     >
       <svg

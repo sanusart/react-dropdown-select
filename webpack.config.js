@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: path.join(__dirname, 'src/index.js'),
@@ -9,28 +8,10 @@ module.exports = {
     filename: 'react-dropdown-select.js',
     library: 'reactDropdownSelect',
     libraryTarget: 'umd',
+    umdNamedDefine: true,
+    globalObject: 'this'
   },
-  optimization: {
-    minimizer: [
-      new TerserPlugin({
-        parallel: true,
-        terserOptions: {
-          sourceMap: true,
-          compress: {
-            arguments: true,
-            drop_console: true,
-            unsafe_proto: true,
-            unsafe_methods: true,
-            unsafe_comps: true,
-            unsafe_arrows: true
-          },
-          output: {
-            comments: false
-          },
-        }
-      }),
-    ],
-  },
+  target: 'node', // for support ssr in emotionjs
   externals: {
     react: {
       commonjs: 'react',

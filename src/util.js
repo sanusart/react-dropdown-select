@@ -30,7 +30,7 @@ export const getByPath = (object, path) => {
     return;
   }
 
-  return path.split('.').reduce((acc, value) => acc[value], object)
+  return path.split('.').reduce((acc, value) => acc[value], object);
 };
 
 export const getProp = (object, path, defaultValue) => {
@@ -45,4 +45,12 @@ export const getProp = (object, path, defaultValue) => {
   }
 
   return getProp(object[normalizedPath.shift()], normalizedPath, defaultValue);
+};
+
+export const isomorphicWindow = () => {
+  if (typeof window == 'undefined') {
+    global.window = {};
+  }
+
+  return window;
 };
