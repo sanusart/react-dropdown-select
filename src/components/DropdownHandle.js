@@ -10,7 +10,7 @@ const DropdownHandle = ({ props, state, methods }) => (
     onKeyPress={(event) => methods.dropDown('toggle', event)}
     onKeyDown={(event) => methods.dropDown('toggle', event)}
     className={`${LIB_NAME}-dropdown-handle`}
-    rotate={!props.dropdownHandleRenderer}
+    rotate={props.dropdownHandleRenderer ? 0 : 1}
     color={props.color}>
     {props.dropdownHandleRenderer ? (
       props.dropdownHandleRenderer({ props, state, methods })

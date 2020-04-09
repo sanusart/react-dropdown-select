@@ -126,7 +126,7 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyPress={[Function]}
-      rotate={true}
+      rotate={1}
       tabIndex="-1"
     >
       <svg
@@ -266,7 +266,7 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyPress={[Function]}
-      rotate={true}
+      rotate={1}
       tabIndex="-1"
     >
       <svg
@@ -428,7 +428,7 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyPress={[Function]}
-      rotate={true}
+      rotate={1}
       tabIndex="-1"
     >
       <svg
@@ -593,7 +593,7 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyPress={[Function]}
-      rotate={true}
+      rotate={1}
       tabIndex="-1"
     >
       <svg
@@ -747,7 +747,7 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyPress={[Function]}
-      rotate={true}
+      rotate={1}
       tabIndex="-1"
     >
       <svg
@@ -897,7 +897,7 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyPress={[Function]}
-      rotate={true}
+      rotate={1}
       tabIndex="-1"
     >
       <svg
