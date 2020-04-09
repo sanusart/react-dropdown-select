@@ -1,3 +1,7 @@
+### v4.3.1
+*  Bump acorn from 5.7.3 to 5.7.4 (#84) [View](https://github.com/sanusart/react-dropdown-select/commit/ab7dd60b1a5b78b683e2806a4a7a3cdfd461ce1d)
+*  FIX (dropdownHandleRenderer)[#86]: fix prop warning in development, c… (#87) [View](https://github.com/sanusart/react-dropdown-select/commit/cf7a0c262ffce05d60ad3ab9f54f80941712ef98)
+
 ### v4.3.0
 *  FIX (dropdownHandle) [#61, 82]: make dropdownHandleRenderer simpler (#83) [View](https://github.com/sanusart/react-dropdown-select/commit/68a172b1eb03bb4e4eb1134da859b0ae2ca6048b)
 
