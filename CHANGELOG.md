@@ -1,3 +1,11 @@
+### v4.4.0
+*  Bump acorn from 5.7.3 to 5.7.4 (#84) [View](https://github.com/sanusart/react-dropdown-select/commit/ab7dd60b1a5b78b683e2806a4a7a3cdfd461ce1d)
+*  FIX (dropdownHandleRenderer)[#86]: fix prop warning in development, c… (#87) [View](https://github.com/sanusart/react-dropdown-select/commit/cf7a0c262ffce05d60ad3ab9f54f80941712ef98)
+*  v4.3.1 See changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md [View](https://github.com/sanusart/react-dropdown-select/commit/cfd6ce0e7217d812bf88f5c91d8c02c2d6d502cb)
+*  CHORE (audit): npm audit [View](https://github.com/sanusart/react-dropdown-select/commit/873a66ecf233c8caf186786ed138ecade1e4ef0b)
+*  FIX (keyboard navigation): fix tab navigation from outside [View](https://github.com/sanusart/react-dropdown-select/commit/ebc15423f9816cf6c0259e6a4b7287f338d8b1d0)
+*  CHORE (examples): cleanup basic example [View](https://github.com/sanusart/react-dropdown-select/commit/bc9218fe96828e033818afd349e2384039fd2d8c)
+
 ### v4.3.1
 *  FIX (dropdownHandleRenderer)[#86]: fix prop warning in development, c… (#87) [View](https://github.com/sanusart/react-dropdown-select/commit/cf7a0c262ffce05d60ad3ab9f54f80941712ef98)
 
