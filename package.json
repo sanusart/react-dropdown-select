@@ -22,7 +22,8 @@
     "preversion": "sh change-log-builder.sh",
     "release:patch": "npm version patch -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
     "release:minor": "npm version minor -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
-    "release:major": "npm version major -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\""
+    "release:major": "npm version major -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
+    "cy:run": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -70,6 +71,7 @@
     "bundlesize": "^0.18.0",
     "coveralls": "^3.0.9",
     "css-loader": "^3.4.1",
+    "cypress": "^4.5.0",
     "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.1.0",
