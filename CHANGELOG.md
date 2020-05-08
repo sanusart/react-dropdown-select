@@ -1,3 +1,7 @@
+### v4.4.0
+*  FIX (keyboard navigation): fix tab navigation from outside [View](https://github.com/sanusart/react-dropdown-select/commit/ebc15423f9816cf6c0259e6a4b7287f338d8b1d0)
+*  CHORE (examples): cleanup basic example [View](https://github.com/sanusart/react-dropdown-select/commit/bc9218fe96828e033818afd349e2384039fd2d8c)
+
 ### v4.3.1
 *  FIX (dropdownHandleRenderer)[#86]: fix prop warning in development, c… (#87) [View](https://github.com/sanusart/react-dropdown-select/commit/cf7a0c262ffce05d60ad3ab9f54f80941712ef98)
 

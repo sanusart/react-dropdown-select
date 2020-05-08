@@ -400,13 +400,21 @@ export class Select extends Component {
     const tab = event.key === 'Tab' && !event.shiftKey;
     const shiftTab = event.shiftKey && event.key === 'Tab';
 
-    if ((arrowDown || tab) && cursor === null) {
+    if (arrowDown && !state.dropdown) {
+      event.preventDefault();
+      this.dropDown('open');
       return setState({
         cursor: 0
       });
     }
 
-    if (arrowUp || arrowDown || shiftTab || tab) {
+    if ((arrowDown || (tab && state.dropdown)) && cursor === null) {
+      return setState({
+        cursor: 0
+      });
+    }
+
+    if (arrowUp || arrowDown || (shiftTab && state.dropdown) || (tab && state.dropdown)) {
       event.preventDefault();
     }
 
@@ -425,25 +433,25 @@ export class Select extends Component {
       }
     }
 
-    if ((arrowDown || tab) && methods.searchResults().length === cursor) {
+    if ((arrowDown || (tab && state.dropdown)) && methods.searchResults().length === cursor) {
       return setState({
         cursor: 0
       });
     }
 
-    if (arrowDown || tab) {
+    if (arrowDown || (tab && state.dropdown)) {
       setState((prevState) => ({
         cursor: prevState.cursor + 1
       }));
     }
 
-    if ((arrowUp || shiftTab) && cursor > 0) {
+    if ((arrowUp || (shiftTab && state.dropdown)) && cursor > 0) {
       setState((prevState) => ({
         cursor: prevState.cursor - 1
       }));
     }
 
-    if ((arrowUp || shiftTab) && cursor === 0) {
+    if ((arrowUp || (shiftTab && state.dropdown)) && cursor === 0) {
       setState({
         cursor: methods.searchResults().length
       });
@@ -483,7 +491,6 @@ export class Select extends Component {
         <ReactDropdownSelect
           onKeyDown={this.handleKeyDown}
           onClick={(event) => this.dropDown('open', event)}
-          onFocus={(event) => this.dropDown('open', event)}
           tabIndex={this.props.disabled ? '-1' : '0'}
           direction={this.props.direction}
           style={this.props.style}

@@ -97,7 +97,6 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
     direction="ltr"
     disabled={true}
     onClick={[Function]}
-    onFocus={[Function]}
     onKeyDown={[Function]}
     tabIndex="-1"
   >
@@ -237,7 +236,6 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
     direction="ltr"
     disabled={false}
     onClick={[Function]}
-    onFocus={[Function]}
     onKeyDown={[Function]}
     tabIndex="0"
   >
@@ -391,7 +389,6 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
     direction="ltr"
     disabled={false}
     onClick={[Function]}
-    onFocus={[Function]}
     onKeyDown={[Function]}
     tabIndex="0"
   >
@@ -560,7 +557,6 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
     direction="ltr"
     disabled={false}
     onClick={[Function]}
-    onFocus={[Function]}
     onKeyDown={[Function]}
     tabIndex="0"
   >
@@ -704,7 +700,6 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
     direction="ltr"
     disabled={false}
     onClick={[Function]}
-    onFocus={[Function]}
     onKeyDown={[Function]}
     tabIndex="0"
   >
@@ -865,7 +860,6 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
     direction="ltr"
     disabled={false}
     onClick={[Function]}
-    onFocus={[Function]}
     onKeyDown={[Function]}
     tabIndex="0"
   >
