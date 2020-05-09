@@ -94,9 +94,8 @@
     "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.27",
-    "@emotion/styled": "^10.0.27",
-    "goober": "^1.7.1"
+    "@emotion/core": "^10.0.28",
+    "goober": "github:cristianbote/goober"
   },
   "jest": {
     "snapshotSerializers": [

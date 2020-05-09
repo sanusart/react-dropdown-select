@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { styled, setup } from 'goober';setup(React.createElement);
+import { styled, setup } from 'goober';
 import { valueExistInSelected } from '../util';
 import * as PropTypes from 'prop-types';
 import { LIB_NAME } from '../constants';
+
+setup(React.createElement, null, React.forwardRef);
 
 const handlePlaceHolder = (props, state) => {
   const { addPlaceholder, searchable, placeholder } = props;

@@ -14,7 +14,7 @@ import DropdownHandle from './components/DropdownHandle';
 import { debounce, hexToRGBA, isEqual, getByPath, getProp, valueExistInSelected, isomorphicWindow } from './util';
 import { LIB_NAME } from './constants';
 
-setup(React.createElement);
+setup(React.createElement, null, React.forwardRef);
 
 export class Select extends Component {
   static propTypes = {
@@ -554,7 +554,8 @@ Select.defaultProps = {
   backspaceDelete: true
 };
 
-const ReactDropdownSelect = styled('div')`
+const ReactDropdownSelect = styled('div')(
+  props => `
   position: relative;
   display: flex;
   border: 1px solid #ccc;
@@ -562,23 +563,23 @@ const ReactDropdownSelect = styled('div')`
   border-radius: 2px;
   padding: 2px 5px;
   flex-direction: row;
-  direction: ${({ direction }) => direction};
+  direction: ${props.direction};
   align-items: center;
   cursor: pointer;
   min-height: 36px;
-  ${({ disabled }) =>
-    disabled ? 'cursor: not-allowed;pointer-events: none;opacity: 0.3;' : 'pointer-events: all;'}
+  ${props.disabled ? 'cursor: not-allowed;pointer-events: none;opacity: 0.3;' : 'pointer-events: all;'}
 
   :hover,
   :focus-within {
-    border-color: ${({ color }) => color};
+    border-color: ${props.color};
   }
 
   :focus,
   :focus-within {
     outline: 0;
-    box-shadow: 0 0 0 3px ${({ color }) => hexToRGBA(color, 0.2)};
+    box-shadow: 0 0 0 3px ${hexToRGBA(props.color, 0.2)};
   }
-`;
+`
+);
 
 export default Select;

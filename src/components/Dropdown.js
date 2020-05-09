@@ -1,11 +1,13 @@
 import React from 'react';
-import { styled, setup } from 'goober';setup(React.createElement);
+import { styled, setup, css } from 'goober';
 
 import { LIB_NAME } from '../constants';
 import NoData from '../components/NoData';
 import Item from '../components/Item';
 
 import { valueExistInSelected, hexToRGBA, isomorphicWindow } from '../util';
+
+setup(React.createElement, null, React.forwardRef);
 
 const dropdownPosition = (props, methods) => {
   const DropdownBoundingClientRect = methods.getSelectRef().getBoundingClientRect();
@@ -75,29 +77,19 @@ const Dropdown = ({ props, state, methods }) => (
   </DropDown>
 );
 
-const DropDown = styled('div')`
+const DropDown = styled('div')(
+  props => `
   position: absolute;
-  ${({ selectBounds, dropdownGap, dropdownPosition }) =>
-    dropdownPosition === 'top'
-      ? `bottom: ${selectBounds.height + 2 + dropdownGap}px`
-      : `top: ${selectBounds.height + 2 + dropdownGap}px`};
 
-  ${({ selectBounds, dropdownGap, portal }) =>
-    portal
-      ? `
-      position: fixed;
-      top: ${selectBounds.bottom + dropdownGap}px;
-      left: ${selectBounds.left - 1}px;`
-      : 'left: -1px;'};
   border: 1px solid #ccc;
-  width: ${({ selectBounds }) => selectBounds.width}px;
+  width: ${props.selectBounds.width}px;
   padding: 0;
   display: flex;
   flex-direction: column;
   background: #fff;
   border-radius: 2px;
-  box-shadow: 0 0 10px 0 ${() => hexToRGBA('#000000', 0.2)};
-  max-height: ${({ dropdownHeight }) => dropdownHeight};
+  box-shadow: 0 0 10px 0 #000000;
+  max-height: ${props.dropdownHeight};
   overflow: auto;
   z-index: 9;
 
@@ -105,17 +97,19 @@ const DropDown = styled('div')`
     outline: none;
   }
 }
-`;
+`);
 
-const AddNew = styled('div')`
-  color: ${({ color }) => color};
+const AddNew = styled('div')(
+  props => `
+  color: ${props.color};
   padding: 5px 10px;
 
   :hover {
-    background: ${({ color }) => color && hexToRGBA(color, 0.1)};
+    background: ${props.color};
     outline: none;
     cursor: pointer;
   }
-`;
+`
+);
 
 export default Dropdown;

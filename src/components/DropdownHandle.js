@@ -1,6 +1,8 @@
 import React from 'react';
-import { styled, setup } from 'goober';setup(React.createElement);
+import { styled, setup } from 'goober';
 import { LIB_NAME } from '../constants';
+
+setup(React.createElement, null, React.forwardRef);
 
 const DropdownHandle = ({ props, state, methods }) =>
   props.dropdownHandleRenderer ? (

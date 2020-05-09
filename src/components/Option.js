@@ -1,7 +1,9 @@
 import React from 'react';
-import { styled, setup } from 'goober';setup(React.createElement);
+import { styled, setup } from 'goober';
 import {getByPath} from '../util';
 import { LIB_NAME } from '../constants';
+
+setup(React.createElement, null, React.forwardRef);
 
 const Option = ({ item, props, state, methods }) =>
   item && props.optionRenderer ? (

@@ -2,7 +2,7 @@ import React from 'react';
 import { styled, setup } from 'goober';
 import { LIB_NAME } from '../constants';
 
-setup(React.createElement);
+setup(React.createElement, null, React.forwardRef);
 
 const Clear = ({ props, state, methods }) =>
   props.clearRenderer ? (

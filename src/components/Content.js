@@ -1,10 +1,12 @@
 import React from 'react';
-import { styled, setup } from 'goober';setup(React.createElement);
+import { styled, setup } from 'goober';
 
 import Option from './Option';
 import Input from './Input';
 import { LIB_NAME } from '../constants';
 import {getByPath} from '../util';
+
+setup(React.createElement, null, React.forwardRef);
 
 const Content = ({ props, state, methods }) => {
   return (
