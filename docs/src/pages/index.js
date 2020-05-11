@@ -31,11 +31,15 @@ const Home = () => (
 
           <pre>
             <span>JSX</span>
-            {`<Select
-  multi
-  options={options}
-  onChange={(values) => this.onChange(values)}
-/>`}
+            {`import Select from 'react-dropdown-select';
+
+export const App = ({ options }) => (
+  <Select
+    multi
+    options={options}
+    onChange={(values) => this.onChange(values)}
+  />
+);`}
           </pre>
         </Inner>
       </Side>
