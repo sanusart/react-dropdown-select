@@ -591,6 +591,7 @@ Select.defaultProps = {
 };
 
 const ReactDropdownSelect = styled.div`
+  box-sizing: border-box;
   position: relative;
   display: flex;
   border: 1px solid #ccc;

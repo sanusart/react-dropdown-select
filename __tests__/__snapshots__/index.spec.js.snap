@@ -55,6 +55,7 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
 }
 
 .emotion-6 {
+  box-sizing: border-box;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -147,6 +148,7 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
 
 exports[`<Select/> component <Select/> renders correctly 1`] = `
 .emotion-6 {
+  box-sizing: border-box;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -290,6 +292,7 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
 
 exports[`<Select/> component <Select/> renders with clearable 1`] = `
 .emotion-8 {
+  box-sizing: border-box;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -455,6 +458,7 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
 
 exports[`<Select/> component <Select/> renders with loading 1`] = `
 .emotion-8 {
+  box-sizing: border-box;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -623,6 +627,7 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
 
 exports[`<Select/> component <Select/> renders with name 1`] = `
 .emotion-6 {
+  box-sizing: border-box;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -780,6 +785,7 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
 
 exports[`<Select/> component <Select/> renders with separator 1`] = `
 .emotion-8 {
+  box-sizing: border-box;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
