@@ -615,6 +615,10 @@ const ReactDropdownSelect = styled.div`
     outline: 0;
     box-shadow: 0 0 0 3px ${({ color }) => hexToRGBA(color, 0.2)};
   }
+
+  * {
+    box-sizing: border-box;
+  }
 `;
 
 export default Select;

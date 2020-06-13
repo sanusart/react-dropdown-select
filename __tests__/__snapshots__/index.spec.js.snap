@@ -90,6 +90,10 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
   box-shadow: 0 0 0 3px rgba(0,116,217,0.2);
 }
 
+.emotion-6 * {
+  box-sizing: border-box;
+}
+
 <div>
   <div
     className="react-dropdown-select undefined emotion-6 emotion-7"
@@ -174,6 +178,10 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
 .emotion-6:focus-within {
   outline: 0;
   box-shadow: 0 0 0 3px rgba(0,116,217,0.2);
+}
+
+.emotion-6 * {
+  box-sizing: border-box;
 }
 
 .emotion-2 {
@@ -313,6 +321,10 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
 .emotion-8:focus-within {
   outline: 0;
   box-shadow: 0 0 0 3px rgba(0,116,217,0.2);
+}
+
+.emotion-8 * {
+  box-sizing: border-box;
 }
 
 .emotion-2 {
@@ -474,6 +486,10 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
 .emotion-8:focus-within {
   outline: 0;
   box-shadow: 0 0 0 3px rgba(0,116,217,0.2);
+}
+
+.emotion-8 * {
+  box-sizing: border-box;
 }
 
 .emotion-2 {
@@ -640,6 +656,10 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
   box-shadow: 0 0 0 3px rgba(0,116,217,0.2);
 }
 
+.emotion-6 * {
+  box-sizing: border-box;
+}
+
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -791,6 +811,10 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
 .emotion-8:focus-within {
   outline: 0;
   box-shadow: 0 0 0 3px rgba(0,116,217,0.2);
+}
+
+.emotion-8 * {
+  box-sizing: border-box;
 }
 
 .emotion-2 {
