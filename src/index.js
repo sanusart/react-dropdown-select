@@ -591,6 +591,7 @@ Select.defaultProps = {
 };
 
 const ReactDropdownSelect = styled.div`
+  box-sizing: border-box;
   position: relative;
   display: flex;
   border: 1px solid #ccc;
@@ -614,6 +615,10 @@ const ReactDropdownSelect = styled.div`
   :focus-within {
     outline: 0;
     box-shadow: 0 0 0 3px ${({ color }) => hexToRGBA(color, 0.2)};
+  }
+
+  * {
+    box-sizing: border-box;
   }
 `;
 
