@@ -1,14 +1,4 @@
 ### v4.5.0
-*  Bump acorn from 5.7.3 to 5.7.4 (#84) [View](https://github.com/sanusart/react-dropdown-select/commit/ab7dd60b1a5b78b683e2806a4a7a3cdfd461ce1d)
-*  FIX (dropdownHandleRenderer)[#86]: fix prop warning in development, c… (#87) [View](https://github.com/sanusart/react-dropdown-select/commit/cf7a0c262ffce05d60ad3ab9f54f80941712ef98)
-*  v4.3.1 See changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md [View](https://github.com/sanusart/react-dropdown-select/commit/cfd6ce0e7217d812bf88f5c91d8c02c2d6d502cb)
-*  CHORE (audit): npm audit [View](https://github.com/sanusart/react-dropdown-select/commit/873a66ecf233c8caf186786ed138ecade1e4ef0b)
-*  FIX (keyboard navigation)[issue #88]: fix tab navigation from outside closes issue #88 (#90) [View](https://github.com/sanusart/react-dropdown-select/commit/e5429fecdf41eb93c883c1a7d942bbb209ed0ea9)
-*  CHORE (types): fix keepOpen type | closes #95 (#96) [View](https://github.com/sanusart/react-dropdown-select/commit/11dec26667901e3eee40facecb0f35d74d2742cf)
-*  DOCS (example): add import to example, thanks to @karland, closes #93 [View](https://github.com/sanusart/react-dropdown-select/commit/4e928ee8598262344c0706402134e37c13cd9890)
-*  Bump websocket-extensions from 0.1.3 to 0.1.4 (#102) [View](https://github.com/sanusart/react-dropdown-select/commit/762d06c3b984d7f3bf4300047ae3c89c930e7018)
-*  FIX (box-model): add box-sizing border-box, closes #94 (#104) [View](https://github.com/sanusart/react-dropdown-select/commit/c7fd267e3a465c27629ee4ad6ec841503c1b2fbc)
-*  v4.4.2 See changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md [View](https://github.com/sanusart/react-dropdown-select/commit/37d3241b8601930110c24113ac6bd6397f03ccfc)
 *  FIX (input) [#114]: fix chars truncated, closes #114 [View](https://github.com/sanusart/react-dropdown-select/commit/6c07893803697572881be7ed300e059b32504fbb)
 
 ### v4.4.2
