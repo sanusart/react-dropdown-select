@@ -41,7 +41,7 @@ const Dropdown = ({ props, state, methods }) => (
       props.dropdownRenderer({ props, state, methods })
     ) : (
       <React.Fragment>
-        {props.create && state.search && !valueExistInSelected(state.search, state.values, props) && (
+        {props.create && state.search && !valueExistInSelected(state.search, [...state.values, ...props.options], props) && (
           <AddNew
             className={`${LIB_NAME}-dropdown-add-new`}
             color={props.color}
