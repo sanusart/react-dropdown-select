@@ -97,7 +97,6 @@ Input.propTypes = {
 
 const InputComponent = styled.input`
   line-height: inherit;
-  width: calc(${({ size }) => `${size}ch`} + 5px);
   border: none;
   margin-left: 5px;
   background: transparent;

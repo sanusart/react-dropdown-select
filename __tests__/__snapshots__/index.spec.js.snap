@@ -16,7 +16,6 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
 
 .emotion-0 {
   line-height: inherit;
-  width: calc(9ch + 5px);
   border: none;
   margin-left: 5px;
   background: transparent;
@@ -201,7 +200,6 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
 
 .emotion-0 {
   line-height: inherit;
-  width: calc(9ch + 5px);
   border: none;
   margin-left: 5px;
   background: transparent;
@@ -345,7 +343,6 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
 
 .emotion-0 {
   line-height: inherit;
-  width: calc(9ch + 5px);
   border: none;
   margin-left: 5px;
   background: transparent;
@@ -511,7 +508,6 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
 
 .emotion-0 {
   line-height: inherit;
-  width: calc(9ch + 5px);
   border: none;
   margin-left: 5px;
   background: transparent;
@@ -680,7 +676,6 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
 
 .emotion-0 {
   line-height: inherit;
-  width: calc(9ch + 5px);
   border: none;
   margin-left: 5px;
   background: transparent;
@@ -838,7 +833,6 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
 
 .emotion-0 {
   line-height: inherit;
-  width: calc(9ch + 5px);
   border: none;
   margin-left: 5px;
   background: transparent;
