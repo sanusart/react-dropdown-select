@@ -1,5 +1,5 @@
 export const valueExistInSelected = (value, values, props) =>
-  !!values.find((val) => getByPath(val, props['valueField']) === value || getByPath(val, 'label') === value);
+  !!values.find((val) => getByPath(val, props['valueField']) === value || getByPath(val, props['labelField']) === value);
 
 export const hexToRGBA = (hex, alpha) => {
   const RR = parseInt(hex.slice(1, 3), 16);
