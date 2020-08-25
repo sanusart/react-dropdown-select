@@ -1,3 +1,6 @@
+### v4.5.1
+*  FIX (duplicates)[#116]: more proper way to check dupes, closes #116 [View](https://github.com/sanusart/react-dropdown-select/commit/6f06054de39007176d877c2d91b20cadf99fcd2c)
+
 ### v4.5.0
 *  FIX (input) [#114]: fix chars truncated, closes #114 [View](https://github.com/sanusart/react-dropdown-select/commit/6c07893803697572881be7ed300e059b32504fbb)
 
