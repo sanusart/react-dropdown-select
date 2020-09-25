@@ -41,6 +41,12 @@ describe('<Select/> component', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('<Select/> renders with short color', () => {
+    const tree = selectWithProps(<Select {...props({ color: '#000' })} />).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('<Select/> renders with loading', () => {
     const tree = selectWithProps(<Select {...props({ loading: true })} />).toJSON();
 
