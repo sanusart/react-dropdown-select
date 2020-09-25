@@ -2,6 +2,10 @@ export const valueExistInSelected = (value, values, props) =>
   !!values.find((val) => getByPath(val, props['valueField']) === value || getByPath(val, props['labelField']) === value);
 
 export const hexToRGBA = (hex, alpha) => {
+  if (hex.length === 4) {
+    hex = `${hex[1]}${hex[1]}${hex[2]}${hex[2]}${hex[3]}${hex[3]}}`;
+  }
+
   const RR = parseInt(hex.slice(1, 3), 16);
   const GG = parseInt(hex.slice(3, 5), 16);
   const BB = parseInt(hex.slice(5, 7), 16);
