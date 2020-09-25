@@ -1,3 +1,6 @@
+### v4.5.2
+*  FIX (style): Accepts a short color (#127) [View](https://github.com/sanusart/react-dropdown-select/commit/56dbe23c1f5224993f9979341d1fcc5f6615b170)
+
 ### v4.5.1
 *  FIX (duplicates)[#116]: more proper way to check dupes, closes #116 [View](https://github.com/sanusart/react-dropdown-select/commit/6f06054de39007176d877c2d91b20cadf99fcd2c)
 
