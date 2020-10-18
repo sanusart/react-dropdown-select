@@ -40,37 +40,37 @@ const Dropdown = ({ props, state, methods }) => (
     {props.dropdownRenderer ? (
       props.dropdownRenderer({ props, state, methods })
     ) : (
-        <React.Fragment>
-          {props.create && state.search && !valueExistInSelected(state.search, [...state.values, ...props.options], props) && (
-            <AddNew
-              className={`${LIB_NAME}-dropdown-add-new`}
-              color={props.color}
-              onClick={() => methods.createNew(state.search)}>
-              {props.createNewLabel.replace('{search}', `"${state.search}"`)}
-            </AddNew>
+      <React.Fragment>
+        {props.create && state.search && !valueExistInSelected(state.search, [...state.values, ...props.options], props) && (
+          <AddNew
+            className={`${LIB_NAME}-dropdown-add-new`}
+            color={props.color}
+            onClick={() => methods.createNew(state.search)}>
+            {props.createNewLabel.replace('{search}', `"${state.search}"`)}
+          </AddNew>
+        )}
+        {state.searchResults.length === 0 ? (
+          <NoData
+            className={`${LIB_NAME}-no-data`}
+            state={state}
+            props={props}
+            methods={methods}
+          />
+        ) : (
+            state.searchResults
+              .map((item, itemIndex) => (
+                <Item
+                  key={item[props.valueField]}
+                  item={item}
+                  itemIndex={itemIndex}
+                  state={state}
+                  props={props}
+                  methods={methods}
+                />
+              ))
           )}
-          {state.searchResults.length === 0 ? (
-            <NoData
-              className={`${LIB_NAME}-no-data`}
-              state={state}
-              props={props}
-              methods={methods}
-            />
-          ) : (
-              state.searchResults
-                .map((item, itemIndex) => (
-                  <Item
-                    key={item[props.valueField]}
-                    item={item}
-                    itemIndex={itemIndex}
-                    state={state}
-                    props={props}
-                    methods={methods}
-                  />
-                ))
-            )}
-        </React.Fragment>
-      )}
+      </React.Fragment>
+    )}
   </DropDown>
 );
 
