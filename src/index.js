@@ -285,20 +285,6 @@ export class Select extends Component {
   };
 
   setSearch = (event) => {
-    // // if (event.target.value !== this.state.search) {
-    //   this.setState((prevState) => {
-    //     if (prevState.search !== event.target.value) {
-    //       return ({
-    //         search: event.target.value,
-    //       });
-    //     }
-    //     const searchResults = this.searchResults();
-    //     search: event.target.value
-    //   });
-    //   this.setState({ searchResults });
-    //   console.log(searchResults)
-    // // }
-
     this.setState({
       cursor: null
     });
@@ -375,7 +361,6 @@ export class Select extends Component {
   };
 
   searchFn = ({ state, methods }) => {
-    console.log('searchFn is firing!');
     const regexp = new RegExp(methods.safeString(state.search), 'i');
 
     return methods
@@ -386,15 +371,9 @@ export class Select extends Component {
   };
 
   searchResults = () => {
-    console.log('searchResults');
     const args = { state: this.state, props: this.props, methods: this.methods };
 
-    if (typeof this.props.searchFn === 'function') {
-      return this.props.searchFn(args)
-    }
-
-    return this.searchFn(args);
-    // return this.props.searchFn(args) || this.searchFn(args);
+    return this.props.searchFn(args) || this.searchFn(args);
   };
 
   activeCursorItem = (activeCursorItem) =>
@@ -433,7 +412,7 @@ export class Select extends Component {
     }
 
     if ((arrowDown || (tab && state.dropdown)) && cursor === null) {
-      return setState({
+      setState({
         cursor: 0
       });
     }
@@ -458,48 +437,46 @@ export class Select extends Component {
     }
 
     if ((arrowDown || (tab && state.dropdown)) && searchResults.length === cursor) {
-      return setState({
+      setState({
         cursor: 0
       });
     }
 
     if (arrowDown || (tab && state.dropdown)) {
-      return setState((prevState) => ({
+      setState((prevState) => ({
         cursor: prevState.cursor + 1
       }));
     }
 
     if ((arrowUp || (shiftTab && state.dropdown)) && cursor > 0) {
-      return setState((prevState) => ({
+      setState((prevState) => ({
         cursor: prevState.cursor - 1
       }));
     }
 
     if ((arrowUp || (shiftTab && state.dropdown)) && cursor === 0) {
-      return setState({
+      setState({
         cursor: searchResults.length
       });
     }
 
     if (backspace && props.multi && props.backspaceDelete && this.getInputSize() === 0) {
-      return this.setState({
+      this.setState({
         values: this.state.values.slice(0, -1)
       });
     }
 
   };
 
-  renderDropdown = () => {
-    // console.log('render dropdown function');
-    return ( this.props.portal ? (
+  renderDropdown = () =>
+    this.props.portal ? (
       ReactDOM.createPortal(
         <Dropdown props={this.props} state={this.state} methods={this.methods} />,
         this.dropdownRoot
       )
     ) : (
-      <Dropdown props={this.props} state={this.state} methods={this.methods} />
-    ) );
-  }
+        <Dropdown props={this.props} state={this.state} methods={this.methods} />
+      );
 
   createNew = (item) => {
     const newValue = {

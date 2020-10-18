@@ -8,13 +8,14 @@ import {
 
 const WithSearchFn = ({ options, title }) => {
   const onSearch = ({ props, state, methods }) => {
-    console.log({ props, state, methods })
+    console.log({ props, state, methods });
+
     const regexp = new RegExp(methods.safeString(state.search), 'i');
     return methods
-    .sortBy()
-    .filter((item) =>
-      regexp.test(getByPath(item, props.searchBy) || getByPath(item, props.valueField))
-    );;
+      .sortBy()
+      .filter((item) =>
+        regexp.test(getByPath(item, props.searchBy) || getByPath(item, props.valueField))
+      );
   };
 
   return (

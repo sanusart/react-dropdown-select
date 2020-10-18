@@ -23,60 +23,56 @@ const dropdownPosition = (props, methods) => {
   return 'bottom';
 };
 
-const Dropdown = ({ props, state, methods }) => {
-  // console.log('Dropdown re-rendered');
-  // const searchResults = [];
-  return (
-    <DropDown
-      tabIndex="-1"
-      aria-expanded="true"
-      role="list"
-      dropdownPosition={dropdownPosition(props, methods)}
-      selectBounds={state.selectBounds}
-      portal={props.portal}
-      dropdownGap={props.dropdownGap}
-      dropdownHeight={props.dropdownHeight}
-      className={`${LIB_NAME}-dropdown ${LIB_NAME}-dropdown-position-${dropdownPosition(
-        props,
-        methods
-      )}`}>
-      {props.dropdownRenderer ? (
-        props.dropdownRenderer({ props, state, methods })
-      ) : (
-          <React.Fragment>
-            {props.create && state.search && !valueExistInSelected(state.search, [...state.values, ...props.options], props) && (
-              <AddNew
-                className={`${LIB_NAME}-dropdown-add-new`}
-                color={props.color}
-                onClick={() => methods.createNew(state.search)}>
-                {props.createNewLabel.replace('{search}', `"${state.search}"`)}
-              </AddNew>
+const Dropdown = ({ props, state, methods }) => (
+  <DropDown
+    tabIndex="-1"
+    aria-expanded="true"
+    role="list"
+    dropdownPosition={dropdownPosition(props, methods)}
+    selectBounds={state.selectBounds}
+    portal={props.portal}
+    dropdownGap={props.dropdownGap}
+    dropdownHeight={props.dropdownHeight}
+    className={`${LIB_NAME}-dropdown ${LIB_NAME}-dropdown-position-${dropdownPosition(
+      props,
+      methods
+    )}`}>
+    {props.dropdownRenderer ? (
+      props.dropdownRenderer({ props, state, methods })
+    ) : (
+        <React.Fragment>
+          {props.create && state.search && !valueExistInSelected(state.search, [...state.values, ...props.options], props) && (
+            <AddNew
+              className={`${LIB_NAME}-dropdown-add-new`}
+              color={props.color}
+              onClick={() => methods.createNew(state.search)}>
+              {props.createNewLabel.replace('{search}', `"${state.search}"`)}
+            </AddNew>
+          )}
+          {state.searchResults.length === 0 ? (
+            <NoData
+              className={`${LIB_NAME}-no-data`}
+              state={state}
+              props={props}
+              methods={methods}
+            />
+          ) : (
+              state.searchResults
+                .map((item, itemIndex) => (
+                  <Item
+                    key={item[props.valueField]}
+                    item={item}
+                    itemIndex={itemIndex}
+                    state={state}
+                    props={props}
+                    methods={methods}
+                  />
+                ))
             )}
-            {state.searchResults.length === 0 ? (
-              <NoData
-                className={`${LIB_NAME}-no-data`}
-                state={state}
-                props={props}
-                methods={methods}
-              />
-            ) : (
-                state.searchResults
-                  .map((item, itemIndex) => (
-                    <Item
-                      key={item[props.valueField]}
-                      item={item}
-                      itemIndex={itemIndex}
-                      state={state}
-                      props={props}
-                      methods={methods}
-                    />
-                  ))
-              )}
-          </React.Fragment>
-        )}
-    </DropDown>
-  );
-};
+        </React.Fragment>
+      )}
+  </DropDown>
+);
 
 const DropDown = styled.div`
   position: absolute;
