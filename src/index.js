@@ -412,7 +412,7 @@ export class Select extends Component {
     }
 
     if ((arrowDown || (tab && state.dropdown)) && cursor === null) {
-      setState({
+      return setState({
         cursor: 0
       });
     }
