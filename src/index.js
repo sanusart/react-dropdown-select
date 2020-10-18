@@ -465,7 +465,6 @@ export class Select extends Component {
         values: this.state.values.slice(0, -1)
       });
     }
-
   };
 
   renderDropdown = () =>
@@ -490,7 +489,6 @@ export class Select extends Component {
   };
 
   render() {
-    // console.log('re render select');
     return (
       <ClickOutside onClickOutside={(event) => this.dropDown('close', event)}>
         <ReactDropdownSelect
