@@ -437,7 +437,7 @@ export class Select extends Component {
     }
 
     if ((arrowDown || (tab && state.dropdown)) && searchResults.length === cursor) {
-      setState({
+      return setState({
         cursor: 0
       });
     }
@@ -475,8 +475,8 @@ export class Select extends Component {
         this.dropdownRoot
       )
     ) : (
-        <Dropdown props={this.props} state={this.state} methods={this.methods} />
-      );
+      <Dropdown props={this.props} state={this.state} methods={this.methods} />
+    );
 
   createNew = (item) => {
     const newValue = {
