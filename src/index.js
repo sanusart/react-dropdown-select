@@ -74,7 +74,8 @@ export class Select extends Component {
       values: props.values,
       search: '',
       selectBounds: {},
-      cursor: null
+      cursor: null,
+      searchResults: props.options,
     };
 
     this.methods = {
@@ -284,12 +285,28 @@ export class Select extends Component {
   };
 
   setSearch = (event) => {
+    // // if (event.target.value !== this.state.search) {
+    //   this.setState((prevState) => {
+    //     if (prevState.search !== event.target.value) {
+    //       return ({
+    //         search: event.target.value,
+    //       });
+    //     }
+    //     const searchResults = this.searchResults();
+    //     search: event.target.value
+    //   });
+    //   this.setState({ searchResults });
+    //   console.log(searchResults)
+    // // }
+
     this.setState({
       cursor: null
     });
 
     this.setState({
-      search: event.target.value
+      search: event.target.value,
+    }, () => {
+      this.setState({ searchResults: this.searchResults() })
     });
   };
 
@@ -358,6 +375,7 @@ export class Select extends Component {
   };
 
   searchFn = ({ state, methods }) => {
+    console.log('searchFn is firing!');
     const regexp = new RegExp(methods.safeString(state.search), 'i');
 
     return methods
@@ -368,9 +386,15 @@ export class Select extends Component {
   };
 
   searchResults = () => {
+    console.log('searchResults');
     const args = { state: this.state, props: this.props, methods: this.methods };
 
-    return this.props.searchFn(args) || this.searchFn(args);
+    if (typeof this.props.searchFn === 'function') {
+      return this.props.searchFn(args)
+    }
+
+    return this.searchFn(args);
+    // return this.props.searchFn(args) || this.searchFn(args);
   };
 
   activeCursorItem = (activeCursorItem) =>
@@ -391,7 +415,7 @@ export class Select extends Component {
   };
 
   handleKeyDownFn = ({ event, state, props, methods, setState }) => {
-    const { cursor } = state;
+    const { cursor, searchResults } = state;
     const escape = event.key === 'Escape';
     const enter = event.key === 'Enter';
     const arrowUp = event.key === 'ArrowUp';
@@ -423,7 +447,7 @@ export class Select extends Component {
     }
 
     if (enter) {
-      const currentItem = methods.searchResults()[cursor];
+      const currentItem = searchResults[cursor];
       if (currentItem && !currentItem.disabled) {
         if (props.create && valueExistInSelected(state.search, state.values, props)) {
           return null;
@@ -433,46 +457,49 @@ export class Select extends Component {
       }
     }
 
-    if ((arrowDown || (tab && state.dropdown)) && methods.searchResults().length === cursor) {
+    if ((arrowDown || (tab && state.dropdown)) && searchResults.length === cursor) {
       return setState({
         cursor: 0
       });
     }
 
     if (arrowDown || (tab && state.dropdown)) {
-      setState((prevState) => ({
+      return setState((prevState) => ({
         cursor: prevState.cursor + 1
       }));
     }
 
     if ((arrowUp || (shiftTab && state.dropdown)) && cursor > 0) {
-      setState((prevState) => ({
+      return setState((prevState) => ({
         cursor: prevState.cursor - 1
       }));
     }
 
     if ((arrowUp || (shiftTab && state.dropdown)) && cursor === 0) {
-      setState({
-        cursor: methods.searchResults().length
+      return setState({
+        cursor: searchResults.length
       });
     }
 
     if (backspace && props.multi && props.backspaceDelete && this.getInputSize() === 0) {
-      this.setState({
+      return this.setState({
         values: this.state.values.slice(0, -1)
       });
     }
+
   };
 
-  renderDropdown = () =>
-    this.props.portal ? (
+  renderDropdown = () => {
+    // console.log('render dropdown function');
+    return ( this.props.portal ? (
       ReactDOM.createPortal(
         <Dropdown props={this.props} state={this.state} methods={this.methods} />,
         this.dropdownRoot
       )
     ) : (
       <Dropdown props={this.props} state={this.state} methods={this.methods} />
-    );
+    ) );
+  }
 
   createNew = (item) => {
     const newValue = {
@@ -486,6 +513,7 @@ export class Select extends Component {
   };
 
   render() {
+    // console.log('re render select');
     return (
       <ClickOutside onClickOutside={(event) => this.dropDown('close', event)}>
         <ReactDropdownSelect
