@@ -59,9 +59,15 @@ describe('<Select/> component', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('<Select/> renders with custom search function', () => {
+    const tree = selectWithProps(<Select {...props({ searchFn: () => {} })} />).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('<Select/> is disabled', () => {
     const tree = selectWithProps(<Select {...props({ disabled: true })} />).toJSON();
 
     expect(tree).toMatchSnapshot();
-  })
+  });
 });
