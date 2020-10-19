@@ -73,7 +73,7 @@ describe('<Select/> component', () => {
 
     const component = selectWithProps(<Select {...props({ searchFn, options })} />);
 
-    const input = component.root.find(element => element.props.className === 'react-dropdown-select-input');
+    const input = component.root.find(element => element.props.className === `${LIB_NAME}-input`);
 
     TestRenderer.act(() => input.props.onChange({ target: { value: 'Zer' } }));
 
