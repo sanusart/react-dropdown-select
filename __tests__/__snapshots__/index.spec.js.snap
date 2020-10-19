@@ -569,9 +569,9 @@ exports[`<Select/> component <Select/> renders with custom search function 1`] =
         onKeyPress={[Function]}
         placeholder="Select..."
         readOnly={false}
-        size={9}
+        size={3}
         tabIndex="-1"
-        value=""
+        value="Zer"
       />
     </div>
     <div

@@ -382,6 +382,7 @@ export class Select extends Component {
     });
 
   handleKeyDown = (event) => {
+    console.log({ event });
     const args = {
       event,
       state: this.state,
