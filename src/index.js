@@ -74,7 +74,8 @@ export class Select extends Component {
       values: props.values,
       search: '',
       selectBounds: {},
-      cursor: null
+      cursor: null,
+      searchResults: props.options,
     };
 
     this.methods = {
@@ -289,7 +290,9 @@ export class Select extends Component {
     });
 
     this.setState({
-      search: event.target.value
+      search: event.target.value,
+    }, () => {
+      this.setState({ searchResults: this.searchResults() })
     });
   };
 
@@ -391,7 +394,7 @@ export class Select extends Component {
   };
 
   handleKeyDownFn = ({ event, state, props, methods, setState }) => {
-    const { cursor } = state;
+    const { cursor, searchResults } = state;
     const escape = event.key === 'Escape';
     const enter = event.key === 'Enter';
     const arrowUp = event.key === 'ArrowUp';
@@ -423,7 +426,7 @@ export class Select extends Component {
     }
 
     if (enter) {
-      const currentItem = methods.searchResults()[cursor];
+      const currentItem = searchResults[cursor];
       if (currentItem && !currentItem.disabled) {
         if (props.create && valueExistInSelected(state.search, state.values, props)) {
           return null;
@@ -433,7 +436,7 @@ export class Select extends Component {
       }
     }
 
-    if ((arrowDown || (tab && state.dropdown)) && methods.searchResults().length === cursor) {
+    if ((arrowDown || (tab && state.dropdown)) && searchResults.length === cursor) {
       return setState({
         cursor: 0
       });
@@ -453,7 +456,7 @@ export class Select extends Component {
 
     if ((arrowUp || (shiftTab && state.dropdown)) && cursor === 0) {
       setState({
-        cursor: methods.searchResults().length
+        cursor: searchResults.length
       });
     }
 
