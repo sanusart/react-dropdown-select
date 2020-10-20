@@ -1,3 +1,6 @@
+### v4.6.0
+*  FIX (searchFn)[#101] searchFn callback should only call once when typing in the search bar (#131) [View](https://github.com/sanusart/react-dropdown-select/commit/12164f95e5e152a6eb8643f6700186e8611530b4)
+
 ### v4.5.2
 *  FIX (style): Accepts a short color (#127) [View](https://github.com/sanusart/react-dropdown-select/commit/56dbe23c1f5224993f9979341d1fcc5f6615b170)
 
