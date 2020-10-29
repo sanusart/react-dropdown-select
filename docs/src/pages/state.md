@@ -11,6 +11,4 @@ Access to current state of &lt;Select/&gt; component
 | dropdown     | boolean | check if dropdown is open                            |
 | values       | array   | selected value(s)                                    |
 | search       | string  | current search string                                |
-| searchResults| string  | Filtered search results
-|
 | selectBounds | object  | current `getBoundingClientRect()` of &lt;Select/&gt; |
