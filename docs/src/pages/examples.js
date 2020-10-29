@@ -28,7 +28,6 @@ import ExternalClear from '../examples/ExternalClear';
 import AccessDataByPath from '../examples/AccessDataByPath';
 import CustomDropdownHandle from '../examples/CustomDropdownHandle';
 import WithAnimation from '../examples/WithAnimation';
-import WithSearchFn from '../examples/WithSearchFn';
 
 const demoOptions = options.map((option) => ({
   ...option,
@@ -115,10 +114,6 @@ const Examples = () => (
 
     <Wrapper>
       <WithAnimation title={`With animations`} options={demoOptions} />
-    </Wrapper>
-
-    <Wrapper>
-      <WithSearchFn title={`With a custom search function`} options={demoOptions} />
     </Wrapper>
 
     <br />
