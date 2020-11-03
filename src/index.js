@@ -228,7 +228,8 @@ export class Select extends Component {
 
       return this.setState({
         dropdown: false,
-        search: this.props.clearOnBlur ? '' : this.state.search
+        search: this.props.clearOnBlur ? '' : this.state.search,
+        searchResults: this.props.options,
       });
     }
 
