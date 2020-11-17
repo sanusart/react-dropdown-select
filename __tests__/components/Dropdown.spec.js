@@ -10,7 +10,8 @@ const props = {
     dropdownHeight: '300px'
   },
   state: {
-    selectBounds: {}
+    selectBounds: {},
+    searchResults: [],
   },
   methods: {
     searchResults: () => [],
