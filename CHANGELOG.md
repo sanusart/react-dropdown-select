@@ -1,3 +1,6 @@
+### v4.7.0
+*  FIX (searchFn)[#101] searchFn callback should only call once when typing in the search bar, #134, #133 (#136) [View](https://github.com/sanusart/react-dropdown-select/commit/64a737af3b50bf21c534606f4b27bbe60ffcbe03)
+
 ### v4.6.1
 *  Revert "FIX (searchFn)[#101] searchFn callback should only call once when typing in the search bar (#131)" (#135) [View](https://github.com/sanusart/react-dropdown-select/commit/30d7a78c330c50d4339226d5dfe27406d833af1a)
 
