@@ -465,7 +465,7 @@ export class Select extends Component {
       });
     }
 
-    if (backspace && props.multi && props.backspaceDelete && this.getInputSize() === 0) {
+    if (backspace && props.backspaceDelete && this.getInputSize() === 0) {
       this.setState({
         values: this.state.values.slice(0, -1)
       });
