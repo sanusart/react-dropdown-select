@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { Heading } from './components/Heading';
 import Select from '../../../src';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
@@ -26,13 +25,5 @@ const Basic = ({ options, title }) => (
     </LiveProvider>
   </React.Fragment>
 );
-
-Basic.propTypes = {};
-
-const Title = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-`;
 
 export default Basic;

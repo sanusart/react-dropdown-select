@@ -88,7 +88,7 @@ summary {
   position: relative;
   color: #555;
   font-weight: 400;
-  font-size: smaller !important;
+  font-size: 12px !important;
   background: #f7f7f7 !important;
   border-radius: 3px;
   box-shadow: 0 5px 10px #ccc inset;

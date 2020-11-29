@@ -55,7 +55,7 @@ class Input extends Component {
     return (
       props.create &&
       event.key === 'Enter' &&
-      !valueExistInSelected(state.search, state.values, this.props) &&
+      !valueExistInSelected(state.search, [...state.values, ...props.options], this.props) &&
       state.search &&
       state.cursor === null &&
       methods.createNew(state.search)
@@ -97,7 +97,6 @@ Input.propTypes = {
 
 const InputComponent = styled.input`
   line-height: inherit;
-  width: calc(${({ size }) => `${size}ch`} + 5px);
   border: none;
   margin-left: 5px;
   background: transparent;

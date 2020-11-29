@@ -74,7 +74,8 @@ export class Select extends Component {
       values: props.values,
       search: '',
       selectBounds: {},
-      cursor: null
+      cursor: null,
+      searchResults: props.options,
     };
 
     this.methods = {
@@ -128,6 +129,10 @@ export class Select extends Component {
         }
       );
       this.updateSelectBounds();
+    }
+
+    if (prevProps.options !== this.props.options) {
+      this.setState({ searchResults: this.props.options });
     }
 
     if (prevState.values !== this.state.values) {
@@ -227,7 +232,8 @@ export class Select extends Component {
 
       return this.setState({
         dropdown: false,
-        search: this.props.clearOnBlur ? '' : this.state.search
+        search: this.props.clearOnBlur ? '' : this.state.search,
+        searchResults: this.props.options,
       });
     }
 
@@ -289,7 +295,9 @@ export class Select extends Component {
     });
 
     this.setState({
-      search: event.target.value
+      search: event.target.value,
+    }, () => {
+      this.setState({ searchResults: this.searchResults() })
     });
   };
 
@@ -391,7 +399,7 @@ export class Select extends Component {
   };
 
   handleKeyDownFn = ({ event, state, props, methods, setState }) => {
-    const { cursor } = state;
+    const { cursor, searchResults } = state;
     const escape = event.key === 'Escape';
     const enter = event.key === 'Enter';
     const arrowUp = event.key === 'ArrowUp';
@@ -400,13 +408,21 @@ export class Select extends Component {
     const tab = event.key === 'Tab' && !event.shiftKey;
     const shiftTab = event.shiftKey && event.key === 'Tab';
 
-    if ((arrowDown || tab) && cursor === null) {
+    if (arrowDown && !state.dropdown) {
+      event.preventDefault();
+      this.dropDown('open');
       return setState({
         cursor: 0
       });
     }
 
-    if (arrowUp || arrowDown || shiftTab || tab) {
+    if ((arrowDown || (tab && state.dropdown)) && cursor === null) {
+      return setState({
+        cursor: 0
+      });
+    }
+
+    if (arrowUp || arrowDown || (shiftTab && state.dropdown) || (tab && state.dropdown)) {
       event.preventDefault();
     }
 
@@ -415,7 +431,7 @@ export class Select extends Component {
     }
 
     if (enter) {
-      const currentItem = methods.searchResults()[cursor];
+      const currentItem = searchResults[cursor];
       if (currentItem && !currentItem.disabled) {
         if (props.create && valueExistInSelected(state.search, state.values, props)) {
           return null;
@@ -425,27 +441,27 @@ export class Select extends Component {
       }
     }
 
-    if ((arrowDown || tab) && methods.searchResults().length === cursor) {
+    if ((arrowDown || (tab && state.dropdown)) && searchResults.length === cursor) {
       return setState({
         cursor: 0
       });
     }
 
-    if (arrowDown || tab) {
+    if (arrowDown || (tab && state.dropdown)) {
       setState((prevState) => ({
         cursor: prevState.cursor + 1
       }));
     }
 
-    if ((arrowUp || shiftTab) && cursor > 0) {
+    if ((arrowUp || (shiftTab && state.dropdown)) && cursor > 0) {
       setState((prevState) => ({
         cursor: prevState.cursor - 1
       }));
     }
 
-    if ((arrowUp || shiftTab) && cursor === 0) {
+    if ((arrowUp || (shiftTab && state.dropdown)) && cursor === 0) {
       setState({
-        cursor: methods.searchResults().length
+        cursor: searchResults.length
       });
     }
 
@@ -483,7 +499,6 @@ export class Select extends Component {
         <ReactDropdownSelect
           onKeyDown={this.handleKeyDown}
           onClick={(event) => this.dropDown('open', event)}
-          onFocus={(event) => this.dropDown('open', event)}
           tabIndex={this.props.disabled ? '-1' : '0'}
           direction={this.props.direction}
           style={this.props.style}
@@ -584,6 +599,7 @@ Select.defaultProps = {
 };
 
 const ReactDropdownSelect = styled.div`
+  box-sizing: border-box;
   position: relative;
   display: flex;
   border: 1px solid #ccc;
@@ -607,6 +623,10 @@ const ReactDropdownSelect = styled.div`
   :focus-within {
     outline: 0;
     box-shadow: 0 0 0 3px ${({ color }) => hexToRGBA(color, 0.2)};
+  }
+
+  * {
+    box-sizing: border-box;
   }
 `;
 

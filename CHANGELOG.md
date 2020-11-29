@@ -1,3 +1,39 @@
+### v4.7.0
+*  FIX (searchFn)[#101] searchFn callback should only call once when typing in the search bar, #134, #133 (#136) [View](https://github.com/sanusart/react-dropdown-select/commit/64a737af3b50bf21c534606f4b27bbe60ffcbe03)
+
+### v4.6.1
+*  Revert "FIX (searchFn)[#101] searchFn callback should only call once when typing in the search bar (#131)" (#135) [View](https://github.com/sanusart/react-dropdown-select/commit/30d7a78c330c50d4339226d5dfe27406d833af1a)
+
+### v4.6.0
+*  FIX (searchFn)[#101] searchFn callback should only call once when typing in the search bar (#131) [View](https://github.com/sanusart/react-dropdown-select/commit/12164f95e5e152a6eb8643f6700186e8611530b4)
+
+### v4.5.2
+*  FIX (style): Accepts a short color (#127) [View](https://github.com/sanusart/react-dropdown-select/commit/56dbe23c1f5224993f9979341d1fcc5f6615b170)
+
+### v4.5.1
+*  FIX (duplicates)[#116]: more proper way to check dupes, closes #116 [View](https://github.com/sanusart/react-dropdown-select/commit/6f06054de39007176d877c2d91b20cadf99fcd2c)
+
+### v4.5.0
+*  FIX (input) [#114]: fix chars truncated, closes #114 [View](https://github.com/sanusart/react-dropdown-select/commit/6c07893803697572881be7ed300e059b32504fbb)
+
+### v4.4.2
+*  FIX (box-model): add box-sizing border-box, closes #94 (#104) [View](https://github.com/sanusart/react-dropdown-select/commit/c7fd267e3a465c27629ee4ad6ec841503c1b2fbc)
+
+### v4.4.1
+*  Bump acorn from 5.7.3 to 5.7.4 (#84) [View](https://github.com/sanusart/react-dropdown-select/commit/ab7dd60b1a5b78b683e2806a4a7a3cdfd461ce1d)
+*  FIX (keyboard navigation)[issue #88]: fix tab navigation from outside closes issue #88 (#90) [View](https://github.com/sanusart/react-dropdown-select/commit/e5429fecdf41eb93c883c1a7d942bbb209ed0ea9)
+*  CHORE (types): fix keepOpen type [View](https://github.com/sanusart/react-dropdown-select/commit/60b1031376c40b5c0b227160fc2fabd01a22b406)
+
+### v4.4.0
+*  FIX (keyboard navigation): fix tab navigation from outside [View](https://github.com/sanusart/react-dropdown-select/commit/ebc15423f9816cf6c0259e6a4b7287f338d8b1d0)
+*  CHORE (examples): cleanup basic example [View](https://github.com/sanusart/react-dropdown-select/commit/bc9218fe96828e033818afd349e2384039fd2d8c)
+
+### v4.3.1
+*  FIX (dropdownHandleRenderer)[#86]: fix prop warning in development, c… (#87) [View](https://github.com/sanusart/react-dropdown-select/commit/cf7a0c262ffce05d60ad3ab9f54f80941712ef98)
+
+### v4.3.0
+*  FIX (dropdownHandle) [#61, 82]: make dropdownHandleRenderer simpler (#83) [View](https://github.com/sanusart/react-dropdown-select/commit/68a172b1eb03bb4e4eb1134da859b0ae2ca6048b)
+
 ### v4.2.0
 *  FIX (changelog): update changelog [View](https://github.com/sanusart/react-dropdown-select/commit/cee760c1376ba684456765a8ff6dd2ef3e45e4a5)
 *  Fixed an issue where top positioning would not work in portal mode (#77) closes #73 Thanks to @akdjr [View](https://github.com/sanusart/react-dropdown-select/commit/d7dc82d9261f9a4ed636c5b967b99fe72d1210f5)

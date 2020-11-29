@@ -50,7 +50,6 @@ exports[`<Clear/> component <Content/> renders correctly 1`] = `
 
 .emotion-2 {
   line-height: inherit;
-  width: calc(undefinedch + 5px);
   border: none;
   margin-left: 5px;
   background: transparent;

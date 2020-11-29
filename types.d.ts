@@ -91,7 +91,7 @@ declare module 'react-dropdown-select' {
     searchable?: boolean;
     dropdownHandle?: boolean;
     separator?: boolean;
-    keepOpen?: undefined;
+    keepOpen?: boolean;
     noDataLabel?: string;
     createNewLabel?: string;
     disabledLabel?: string;

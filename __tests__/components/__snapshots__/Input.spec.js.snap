@@ -3,7 +3,6 @@
 exports[`<Input/> is disabled 1`] = `
 .emotion-0 {
   line-height: inherit;
-  width: calc(undefinedch + 5px);
   border: none;
   margin-left: 5px;
   background: transparent;
@@ -29,7 +28,6 @@ exports[`<Input/> is disabled 1`] = `
 exports[`<Input/> renders correctly 1`] = `
 .emotion-0 {
   line-height: inherit;
-  width: calc(undefinedch + 5px);
   border: none;
   margin-left: 5px;
   background: transparent;
