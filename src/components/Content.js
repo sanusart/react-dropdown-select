@@ -32,7 +32,7 @@ const Content = ({ props, state, methods }) => {
                 />
               ))
             : state.values &&
-              state.values.length > 0 && <span>{getByPath(state.values[0], props.labelField)}</span>}
+              state.values.length > 0 && <span className={`${LIB_NAME}-content`}>{getByPath(state.values[0], props.labelField)}</span>}
           <Input props={props} methods={methods} state={state} />
         </React.Fragment>
       )}
