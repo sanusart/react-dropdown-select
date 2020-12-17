@@ -1,3 +1,8 @@
+### v4.7.2
+*  Next (#143) [View](https://github.com/sanusart/react-dropdown-select/commit/24720478afa4adf948cea827eb5bbde43b60a093)
+*  Bump ini from 1.3.5 to 1.3.7 (#144) [View](https://github.com/sanusart/react-dropdown-select/commit/c321c092ae462dfd0bfa36206d9cdd004830b379)
+*  FIX (aria)[#146]: add aria-expanded, closes #146 [View](https://github.com/sanusart/react-dropdown-select/commit/c81026b8f52cc3c24400b050a4a0075e10f5fddf)
+
 ### v4.7.1
 *  FIX (dropdownHandle) [#61, 82]: make dropdownHandleRenderer simpler [View](https://github.com/sanusart/react-dropdown-select/commit/fa343e4ec3af9956158e8244362e742c33f381f4)
 *  bump version [View](https://github.com/sanusart/react-dropdown-select/commit/ff29c3e36228ba7873bfd08c16eca7eb5f14741e)
