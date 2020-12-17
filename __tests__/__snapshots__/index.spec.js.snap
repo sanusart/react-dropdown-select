@@ -96,6 +96,8 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
 
 <div>
   <div
+    aria-expanded={false}
+    aria-label="Dropdown select"
     className="react-dropdown-select undefined emotion-6 emotion-7"
     color="#0074D9"
     direction="ltr"
@@ -239,6 +241,8 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
 
 <div>
   <div
+    aria-expanded={false}
+    aria-label="Dropdown select"
     className="react-dropdown-select undefined emotion-6 emotion-7"
     color="#0074D9"
     direction="ltr"
@@ -396,6 +400,8 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
 
 <div>
   <div
+    aria-expanded={false}
+    aria-label="Dropdown select"
     className="react-dropdown-select undefined emotion-8 emotion-9"
     color="#0074D9"
     direction="ltr"
@@ -547,6 +553,8 @@ exports[`<Select/> component <Select/> renders with custom search function 1`] =
 
 <div>
   <div
+    aria-expanded={false}
+    aria-label="Dropdown select"
     className="react-dropdown-select undefined emotion-6 emotion-7"
     color="#0074D9"
     direction="ltr"
@@ -711,6 +719,8 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
 
 <div>
   <div
+    aria-expanded={false}
+    aria-label="Dropdown select"
     className="react-dropdown-select undefined emotion-8 emotion-9"
     color="#0074D9"
     direction="ltr"
@@ -858,6 +868,8 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
 
 <div>
   <div
+    aria-expanded={false}
+    aria-label="Dropdown select"
     className="react-dropdown-select undefined emotion-6 emotion-7"
     color="#0074D9"
     direction="ltr"
@@ -1022,6 +1034,8 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
 
 <div>
   <div
+    aria-expanded={false}
+    aria-label="Dropdown select"
     className="react-dropdown-select undefined emotion-8 emotion-9"
     color="#0074D9"
     direction="ltr"
@@ -1168,6 +1182,8 @@ exports[`<Select/> component <Select/> renders with short color 1`] = `
 
 <div>
   <div
+    aria-expanded={false}
+    aria-label="Dropdown select"
     className="react-dropdown-select undefined emotion-6 emotion-7"
     color="#000"
     direction="ltr"

@@ -31,8 +31,8 @@ class Item extends Component {
         ref={this.item}
         aria-selected={methods.isSelected(item)}
         aria-disabled={item.disabled}
-        disabled={item.disabled}
         aria-label={getByPath(item, props.labelField)}
+        disabled={item.disabled}
         key={`${getByPath(item, props.valueField)}${getByPath(item, props.labelField)}`}
         tabIndex="-1"
         className={`${LIB_NAME}-item ${

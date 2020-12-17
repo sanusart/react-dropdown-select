@@ -43,6 +43,7 @@ const Dropdown = ({ props, state, methods }) => (
       <React.Fragment>
         {props.create && state.search && !valueExistInSelected(state.search, [...state.values, ...props.options], props) && (
           <AddNew
+            role="button"
             className={`${LIB_NAME}-dropdown-add-new`}
             color={props.color}
             onClick={() => methods.createNew(state.search)}>
