@@ -19,6 +19,7 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
   font-size: smaller;
 }
 
@@ -205,6 +206,7 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
   font-size: smaller;
 }
 
@@ -350,6 +352,7 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
   font-size: smaller;
 }
 
@@ -517,6 +520,7 @@ exports[`<Select/> component <Select/> renders with custom search function 1`] =
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
   font-size: smaller;
 }
 
@@ -662,6 +666,7 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
   font-size: smaller;
 }
 
@@ -832,6 +837,7 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
   font-size: smaller;
 }
 
@@ -991,6 +997,7 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
   font-size: smaller;
 }
 
@@ -1107,6 +1114,7 @@ exports[`<Select/> component <Select/> renders with short color 1`] = `
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
   font-size: smaller;
 }
 
