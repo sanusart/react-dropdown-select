@@ -100,6 +100,8 @@ const InputComponent = styled.input`
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
+  width: calc(${({ size }) => `${size}ch`} + 5px);
   font-size: smaller;
   ${({ readOnly }) => readOnly && 'cursor: pointer;'}
   :focus {

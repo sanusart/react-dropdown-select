@@ -19,6 +19,8 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
+  width: calc(9ch + 5px);
   font-size: smaller;
 }
 
@@ -205,6 +207,8 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
+  width: calc(9ch + 5px);
   font-size: smaller;
 }
 
@@ -350,6 +354,8 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
+  width: calc(9ch + 5px);
   font-size: smaller;
 }
 
@@ -512,18 +518,6 @@ exports[`<Select/> component <Select/> renders with custom search function 1`] =
   flex-wrap: wrap;
 }
 
-.emotion-0 {
-  line-height: inherit;
-  border: none;
-  margin-left: 5px;
-  background: transparent;
-  font-size: smaller;
-}
-
-.emotion-0:focus {
-  outline: none;
-}
-
 .emotion-4 {
   text-align: center;
   pointer-events: none;
@@ -549,6 +543,20 @@ exports[`<Select/> component <Select/> renders with custom search function 1`] =
 
 .emotion-4:focus path {
   stroke: #0074D9;
+}
+
+.emotion-0 {
+  line-height: inherit;
+  border: none;
+  margin-left: 5px;
+  background: transparent;
+  padding: 0;
+  width: calc(3ch + 5px);
+  font-size: smaller;
+}
+
+.emotion-0:focus {
+  outline: none;
 }
 
 <div>
@@ -662,6 +670,8 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
+  width: calc(9ch + 5px);
   font-size: smaller;
 }
 
@@ -832,6 +842,8 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
+  width: calc(9ch + 5px);
   font-size: smaller;
 }
 
@@ -991,6 +1003,8 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
+  width: calc(9ch + 5px);
   font-size: smaller;
 }
 
@@ -1107,6 +1121,8 @@ exports[`<Select/> component <Select/> renders with short color 1`] = `
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
+  width: calc(9ch + 5px);
   font-size: smaller;
 }
 

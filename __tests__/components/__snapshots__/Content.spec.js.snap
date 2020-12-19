@@ -53,6 +53,8 @@ exports[`<Clear/> component <Content/> renders correctly 1`] = `
   border: none;
   margin-left: 5px;
   background: transparent;
+  padding: 0;
+  width: calc(undefinedch + 5px);
   font-size: smaller;
   cursor: pointer;
 }
