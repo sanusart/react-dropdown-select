@@ -1,3 +1,6 @@
+### v4.7.3
+*  FIX (Input): breaking in two lines due to input, closes #138 (#148) [View](https://github.com/sanusart/react-dropdown-select/commit/66bd7219c2852a372441a7ddffb160abc8cfaf98)
+
 ### v4.7.2
 *  Bump ini from 1.3.5 to 1.3.7 (#144) [View](https://github.com/sanusart/react-dropdown-select/commit/c321c092ae462dfd0bfa36206d9cdd004830b379)
 *  FIX (aria)[#146]: add aria-expanded, closes #146 [View](https://github.com/sanusart/react-dropdown-select/commit/c81026b8f52cc3c24400b050a4a0075e10f5fddf)
