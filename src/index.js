@@ -132,7 +132,7 @@ export class Select extends Component {
     }
 
     if (prevProps.options !== this.props.options) {
-      this.setState({ searchResults: this.props.options });
+      this.setState({ searchResults: this.searchResults() });
     }
 
     if (prevState.values !== this.state.values) {
