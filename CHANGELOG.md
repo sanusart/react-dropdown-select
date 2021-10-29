@@ -1,3 +1,6 @@
+### v4.8.0
+*  Adds extended compare values function (#196) [View](https://github.com/sanusart/react-dropdown-select/commit/a9b5fb6d415e2fd8d608496bb969bb962ab6754a)
+
 ### v4.7.4
 *  Apply search filter when new options arrive via props (#163) [View](https://github.com/sanusart/react-dropdown-select/commit/c1e245aed07486b696ba23b1120b6f0f599bc4e2)
 
