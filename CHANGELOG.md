@@ -1,3 +1,20 @@
+### v4.8.0
+*  FIX (aria)[#146]: add aria-expanded, closes #146, bumb version [View](https://github.com/sanusart/react-dropdown-select/commit/fae4c984cbbe39d8ff4ee89f0c8c62a9290b5320)
+*  FIX (Input): breaking in two lines due to input, closes #138 (#148) [View](https://github.com/sanusart/react-dropdown-select/commit/66bd7219c2852a372441a7ddffb160abc8cfaf98)
+*  v4.7.3 See changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md [View](https://github.com/sanusart/react-dropdown-select/commit/381b34b3206727aadec65f0b7bfe08343adbd1ec)
+*  Apply search filter when new options arrive via props (#163) [View](https://github.com/sanusart/react-dropdown-select/commit/c1e245aed07486b696ba23b1120b6f0f599bc4e2)
+*  v4.7.4 See changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md [View](https://github.com/sanusart/react-dropdown-select/commit/d261453f7c4914a6764db7088970a048bacc66e1)
+*  Bump elliptic from 6.5.3 to 6.5.4 (#165) [View](https://github.com/sanusart/react-dropdown-select/commit/e98d9c9dd77ed55858858c18524c664c9096d4c7)
+*  Bump y18n from 4.0.0 to 4.0.1 (#170) [View](https://github.com/sanusart/react-dropdown-select/commit/660a5f9e9614e19ca32c7e64742130dbe08f21b2)
+*  Bump url-parse from 1.4.7 to 1.5.1 (#173) [View](https://github.com/sanusart/react-dropdown-select/commit/8b629f41070664e5de1aa36fd44eca3bcc409afe)
+*  Bump dns-packet from 1.3.1 to 1.3.4 (#178) [View](https://github.com/sanusart/react-dropdown-select/commit/af4445355157b4add81a01e66ab2c39574ce5156)
+*  Bump browserslist from 4.8.3 to 4.16.6 (#177) [View](https://github.com/sanusart/react-dropdown-select/commit/69fbd8c34063f01764b63adac86dfbe38008eb30)
+*  Bump hosted-git-info from 2.8.5 to 2.8.9 (#175) [View](https://github.com/sanusart/react-dropdown-select/commit/f4a371fcac488e502f42eaddd2a5b5754952f5de)
+*  Bump lodash from 4.17.20 to 4.17.21 (#174) [View](https://github.com/sanusart/react-dropdown-select/commit/ff38c25dbb05ab9a6f5dd220c3c55f96f4979061)
+*  npm audit [View](https://github.com/sanusart/react-dropdown-select/commit/af869409f80d6797e168a4ed2d33d16f2c2a133b)
+*  Bump postcss from 7.0.26 to 7.0.36 (#182) [View](https://github.com/sanusart/react-dropdown-select/commit/1ee52b2e26b2e3717d5d10f31e6658fe4c6de65f)
+*  Adds extended compare values function (#196) [View](https://github.com/sanusart/react-dropdown-select/commit/a9b5fb6d415e2fd8d608496bb969bb962ab6754a)
+
 ### v4.7.4
 *  Apply search filter when new options arrive via props (#163) [View](https://github.com/sanusart/react-dropdown-select/commit/c1e245aed07486b696ba23b1120b6f0f599bc4e2)
 
