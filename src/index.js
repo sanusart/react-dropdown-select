@@ -63,7 +63,8 @@ export class Select extends Component {
     required: PropTypes.bool,
     pattern: PropTypes.string,
     name: PropTypes.string,
-    backspaceDelete: PropTypes.bool
+    backspaceDelete: PropTypes.bool,
+    compareValuesFunc: PropTypes.func
   };
 
   constructor(props) {
@@ -117,8 +118,8 @@ export class Select extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (
-      !isEqual(prevProps.values, this.props.values) &&
-      isEqual(prevProps.values, prevState.values)
+      !this.props.compareValuesFunc(prevProps.values, this.props.values) &&
+      this.props.compareValuesFunc(prevProps.values, prevState.values)
     ) {
       this.setState(
         {
@@ -597,7 +598,8 @@ Select.defaultProps = {
   searchFn: () => undefined,
   handleKeyDownFn: () => undefined,
   additionalProps: null,
-  backspaceDelete: true
+  backspaceDelete: true,
+  compareValuesFunc: isEqual
 };
 
 const ReactDropdownSelect = styled.div`
