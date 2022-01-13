@@ -1,3 +1,6 @@
+### v4.8.1
+*  add callback to refetch search results after item is added and search is cleared (#198) [View](https://github.com/sanusart/react-dropdown-select/commit/dbca3894c28c4548d890274e37ad4c0bb66b29ed)
+
 ### v4.8.0
 *  Adds extended compare values function (#196) [View](https://github.com/sanusart/react-dropdown-select/commit/a9b5fb6d415e2fd8d608496bb969bb962ab6754a)
 
