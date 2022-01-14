@@ -270,7 +270,10 @@ export class Select extends Component {
       });
     }
 
-    this.props.clearOnSelect && this.setState({ search: '' });
+    this.props.clearOnSelect &&
+      this.setState({ search: '' }, () => {
+        this.setState({ searchResults: this.searchResults() });
+      });
 
     return true;
   };
