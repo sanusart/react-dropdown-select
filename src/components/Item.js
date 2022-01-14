@@ -7,6 +7,13 @@ import { LIB_NAME } from '../constants';
 class Item extends Component {
   item = React.createRef();
 
+  componentDidMount() {
+    const { props, methods } = this.props;
+
+    if (!props.multi && props.keepSelectedInList && methods.isSelected(this.props.item))
+      this.item.current.scrollIntoView({ block: 'nearest', inline: 'start' });
+  }
+
   componentDidUpdate() {
     if (this.props.state.cursor === this.props.itemIndex) {
       this.item.current &&
