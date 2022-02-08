@@ -10,7 +10,12 @@ class Item extends Component {
   componentDidMount() {
     const { props, methods } = this.props;
 
-    if (!props.multi && props.keepSelectedInList && methods.isSelected(this.props.item))
+    if (
+      this.item.current &&
+      !props.multi &&
+      props.keepSelectedInList &&
+      methods.isSelected(this.props.item)
+    )
       this.item.current.scrollIntoView({ block: 'nearest', inline: 'start' });
   }
 
