@@ -1,3 +1,7 @@
+### v4.8.3
+*  Bump color-string from 1.5.3 to 1.9.0 in /docs (#202) [View](https://github.com/sanusart/react-dropdown-select/commit/9141d66c7528508593bb78ab5dddd5d6a61fa1b7)
+*  add null check before scrollIntoView (#212) [View](https://github.com/sanusart/react-dropdown-select/commit/cee05faa4069c95f4f8628e301a73401e3c4c830)
+
 ### v4.8.2
 *  FIX (aria)[#146]: add aria-expanded, closes #146, bumb version [View](https://github.com/sanusart/react-dropdown-select/commit/fae4c984cbbe39d8ff4ee89f0c8c62a9290b5320)
 *  FIX (Input): breaking in two lines due to input, closes #138 (#148) [View](https://github.com/sanusart/react-dropdown-select/commit/66bd7219c2852a372441a7ddffb160abc8cfaf98)
