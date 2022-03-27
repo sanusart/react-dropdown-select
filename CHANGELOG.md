@@ -1,3 +1,15 @@
+### v4.8.4
+*  Bump simple-get from 2.8.1 to 2.8.2 (#213) [View](https://github.com/sanusart/react-dropdown-select/commit/cb8846882dd948c25996eba8590d301f6516ac52)
+*  Bump ws from 5.2.2 to 5.2.3 in /docs (#214) [View](https://github.com/sanusart/react-dropdown-select/commit/1306172c360994bfc2332057f447309cb2bb0f7d)
+*  Bump hosted-git-info from 2.8.8 to 2.8.9 in /docs (#215) [View](https://github.com/sanusart/react-dropdown-select/commit/a09c5e18e2635c539b661aeb2f07f96cf8d462e9)
+*  Bump socket.io-parser from 3.3.0 to 3.3.2 in /docs (#216) [View](https://github.com/sanusart/react-dropdown-select/commit/dfb0de8e6b583aa05b4295e26e3bd38da12de563)
+*  Bump ua-parser-js from 0.7.21 to 0.7.31 in /docs (#217) [View](https://github.com/sanusart/react-dropdown-select/commit/a3fe36d9156918ec846ef10d84969c573ff6e687)
+*  Bump follow-redirects from 1.14.1 to 1.14.8 (#218) [View](https://github.com/sanusart/react-dropdown-select/commit/ceb946bb7548817f18d048cf1f86f5ba6e6a901c)
+*  Bump url-parse from 1.5.1 to 1.5.7 (#219) [View](https://github.com/sanusart/react-dropdown-select/commit/11e44c260aeba4b96505c1e1fcf880bdf5977886)
+*  Bump url-parse from 1.5.4 to 1.5.7 in /docs (#220) [View](https://github.com/sanusart/react-dropdown-select/commit/6f3194e1d66800d5630ac7c262ab662ef308702e)
+*  Create npm-publish.yml [View](https://github.com/sanusart/react-dropdown-select/commit/72368fa851d760c314b6c9b8fb361a5b6a67e9d6)
+*  FIX (dropdown)[issue-221]: fix key, closes #221 [View](https://github.com/sanusart/react-dropdown-select/commit/3c88ebbaa6a760f37e79a53967b8f0fe1bbd2215)
+
 ### v4.8.3
 *  Bump color-string from 1.5.3 to 1.9.0 in /docs (#202) [View](https://github.com/sanusart/react-dropdown-select/commit/9141d66c7528508593bb78ab5dddd5d6a61fa1b7)
 *  add null check before scrollIntoView (#212) [View](https://github.com/sanusart/react-dropdown-select/commit/cee05faa4069c95f4f8628e301a73401e3c4c830)

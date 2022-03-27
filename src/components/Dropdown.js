@@ -61,7 +61,7 @@ const Dropdown = ({ props, state, methods }) => (
             state.searchResults
               .map((item, itemIndex) => (
                 <Item
-                  key={item[props.valueField]}
+                  key={item[props.valueField].toString()}
                   item={item}
                   itemIndex={itemIndex}
                   state={state}
