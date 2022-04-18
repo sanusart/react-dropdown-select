@@ -23,6 +23,7 @@ class Item extends Component {
     if (this.props.state.cursor === this.props.itemIndex) {
       this.item.current &&
         this.item.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      this.item.current.focus();
     }
   }
 

@@ -153,6 +153,7 @@ declare module 'react-dropdown-select' {
     separatorRenderer?: ({ props, state, methods }: SelectRenderer<T>) => JSX.Element;
     additionalProps?: React.HTMLAttributes<HTMLDivElement>;
     wrapperClassName?: string;
+    dropdownAriaLabel?: string;
   }
 
   export interface DropDownProps {
