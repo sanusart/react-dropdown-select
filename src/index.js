@@ -413,7 +413,7 @@ export class Select extends Component {
     const tab = event.key === 'Tab' && !event.shiftKey;
     const shiftTab = event.shiftKey && event.key === 'Tab';
 
-    if (arrowDown && !state.dropdown) {
+    if ((arrowDown || enter) && !state.dropdown) {
       event.preventDefault();
       this.dropDown('open');
       return setState({
@@ -605,7 +605,7 @@ Select.defaultProps = {
   additionalProps: null,
   backspaceDelete: true,
   compareValuesFunc: isEqual,
-  dropdownAriaDescription: 'Use the up and down arrows to focus on dropdown items.'
+  dropdownAriaDescription: 'Press the enter key or down arrow to show the dropdown menu. Then use the tab key, or up and down arrows to focus on the dropdown items.'
 };
 
 const ReactDropdownSelect = styled.div`
