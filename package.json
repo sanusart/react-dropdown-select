@@ -1,6 +1,6 @@
 {
-  "name": "react-dropdown-select",
   "version": "4.8.4",
+  "name": "@podverse/react-dropdown-select",
   "description": "Customizable dropdown select for react",
   "main": "dist/react-dropdown-select.js",
   "module": "lib/index.js",
