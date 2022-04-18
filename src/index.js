@@ -64,7 +64,8 @@ export class Select extends Component {
     pattern: PropTypes.string,
     name: PropTypes.string,
     backspaceDelete: PropTypes.bool,
-    compareValuesFunc: PropTypes.func
+    compareValuesFunc: PropTypes.func,
+    dropdownAriaDescription: PropTypes.string
   };
 
   constructor(props) {
@@ -502,6 +503,7 @@ export class Select extends Component {
       <ClickOutside onClickOutside={(event) => this.dropDown('close', event)}>
         <ReactDropdownSelect
           onKeyDown={this.handleKeyDown}
+          aria-description={this.props.dropdownAriaDescription}
           aria-label="Dropdown select"
           aria-expanded={this.state.dropdown}
           onClick={(event) => this.dropDown('open', event)}
@@ -602,7 +604,8 @@ Select.defaultProps = {
   handleKeyDownFn: () => undefined,
   additionalProps: null,
   backspaceDelete: true,
-  compareValuesFunc: isEqual
+  compareValuesFunc: isEqual,
+  dropdownAriaDescription: 'Use the up and down arrows to focus on dropdown items.'
 };
 
 const ReactDropdownSelect = styled.div`
