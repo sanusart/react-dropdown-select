@@ -1,10 +1,6 @@
 ### v4.9.0
 *  update packages and use node 16 [View](https://github.com/sanusart/react-dropdown-select/commit/c52f8c42c84325a846fd0f7f23369c8600f72fe0)
 *  fix docs build [View](https://github.com/sanusart/react-dropdown-select/commit/69d50799acd4abace57f4d53ed68949f1fe5584e)
-*  fix docs build [View](https://github.com/sanusart/react-dropdown-select/commit/245f4513916c77dd4c5c8f3f0f0785b944987b37)
-*  Bump url-parse from 1.5.7 to 1.5.10 (#223) [View](https://github.com/sanusart/react-dropdown-select/commit/a24c560bf394de2d81140af24ca96a3187c004f8)
-*  Bump url-parse from 1.5.7 to 1.5.10 in /docs (#224) [View](https://github.com/sanusart/react-dropdown-select/commit/52a42a503ae492126cdaf86a0a0fa1c33a143487)
-*  Bump lodash-es from 4.17.15 to 4.17.21 in /docs (#228) [View](https://github.com/sanusart/react-dropdown-select/commit/f9653a70efcffb61c16e4a2650c14a00dfa6b444)
 *  sync with master [View](https://github.com/sanusart/react-dropdown-select/commit/e26931dd5767e316edcbe4e95494271bec845df3)
 
 ### v4.8.4
