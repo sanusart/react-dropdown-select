@@ -1,4 +1,4 @@
-import faker from 'faker';
+import faker from '@faker-js/faker';
 
 export const options = [
   ...Array.from(Array(30).keys()).map((data) => ({

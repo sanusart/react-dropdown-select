@@ -31,7 +31,7 @@ exports[`<Option/> component renders correctly 1`] = `
 }
 
 .emotion-0:hover,
-.emotion-0:hover > span {
+.emotion-0:hover>span {
   opacity: 0.9;
 }
 

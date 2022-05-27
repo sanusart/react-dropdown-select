@@ -6,6 +6,7 @@ exports[`<Clear/> component <DropdownHandle/> renders correctly 1`] = `
   pointer-events: none;
   margin: 0 0 0 5px;
   -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
   cursor: pointer;

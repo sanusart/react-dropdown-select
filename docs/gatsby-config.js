@@ -1,6 +1,7 @@
 module.exports = {
   pathPrefix: process.env.NETLIFY ?  '/' : '/react-dropdown-select',
   plugins: [
+    "gatsby-plugin-emotion",
     {
       resolve: 'gatsby-plugin-emotion'
     },

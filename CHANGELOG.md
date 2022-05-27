@@ -1,3 +1,8 @@
+### v4.9.0
+*  update packages and use node 16 [View](https://github.com/sanusart/react-dropdown-select/commit/c52f8c42c84325a846fd0f7f23369c8600f72fe0)
+*  fix docs build [View](https://github.com/sanusart/react-dropdown-select/commit/69d50799acd4abace57f4d53ed68949f1fe5584e)
+*  sync with master [View](https://github.com/sanusart/react-dropdown-select/commit/e26931dd5767e316edcbe4e95494271bec845df3)
+
 ### v4.8.4
 *  Bump simple-get from 2.8.1 to 2.8.2 (#213) [View](https://github.com/sanusart/react-dropdown-select/commit/cb8846882dd948c25996eba8590d301f6516ac52)
 *  Bump ws from 5.2.2 to 5.2.3 in /docs (#214) [View](https://github.com/sanusart/react-dropdown-select/commit/1306172c360994bfc2332057f447309cb2bb0f7d)
