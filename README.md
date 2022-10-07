@@ -37,11 +37,43 @@ import:
 
 and use as:
 
+
+
 ```jsx
+const options = [
+  { 
+    value: 1,
+    label: "Leanne Graham"
+  },
+  {
+    value:  2,
+    label: "Ervin Howell"
+  }
+];
+
 <Select options={options} onChange={(values) => this.setValues(values)} />
 ```
 
+If your options don't have **value** and **label** fields, include **labelField** and **valueField** in the props:
+
+
+```jsx
+const options = [
+  {
+    id: 1,
+    name: "Leanne Graham"
+  },
+  {
+    id:  2,
+    name: "Ervin Howell"
+  }
+];
+
+<Select options={options} labelField="name" valueField="id" onChange={(values) => this.setValues(values)} />
+```
+
 > **options** and **onChange** are the minimum required props
+
 
 ### Help and Contributions
 
