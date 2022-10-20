@@ -1,5 +1,13 @@
 declare module 'react-dropdown-select' {
-  import React, { KeyboardEvent, CSSProperties, ChangeEvent } from 'react';
+  import {
+    ChangeEvent,
+    CSSProperties,
+    HTMLAttributes,
+    KeyboardEvent,
+    MouseEvent,
+    PropsWithRef,
+    RefObject
+  } from 'react';
 
   export interface SetStateFnArgs<T> {
     dropdown?: boolean;
@@ -19,12 +27,8 @@ declare module 'react-dropdown-select' {
   }
 
   export interface SelectMethods<T> {
-    removeItem: (
-      event: React.MouseEvent<HTMLElement, MouseEvent> | null,
-      item: T,
-      close: boolean
-    ) => void;
-    dropDown: (action: string, event?: React.MouseEvent<HTMLElement, MouseEvent> | null) => void;
+    removeItem: (event: MouseEvent<HTMLElement> | null, item: T, close: boolean) => void;
+    dropDown: (action: string, event?: MouseEvent<HTMLElement> | null) => void;
     addItem: (item: T) => void;
     setSearch: (event: ChangeEvent<HTMLInputElement>) => void;
     getInputSize: () => number;
@@ -138,9 +142,9 @@ declare module 'react-dropdown-select' {
       methods,
       inputRef
     }: SelectRenderer<T> & {
-      inputRef: React.RefObject<HTMLInputElement>;
+      inputRef: RefObject<HTMLInputElement>;
     }) => JSX.Element;
-		itemRenderer?: ({
+    itemRenderer?: ({
       item,
       itemIndex,
       props,
@@ -151,7 +155,7 @@ declare module 'react-dropdown-select' {
     noDataRenderer?: ({ props, state, methods }: SelectRenderer<T>) => JSX.Element;
     optionRenderer?: ({ item, props, state, methods }: SelectItemRenderer<T>) => JSX.Element;
     separatorRenderer?: ({ props, state, methods }: SelectRenderer<T>) => JSX.Element;
-    additionalProps?: React.HTMLAttributes<HTMLDivElement>;
+    additionalProps?: HTMLAttributes<HTMLDivElement>;
     wrapperClassName?: string;
   }
 
@@ -164,7 +168,7 @@ declare module 'react-dropdown-select' {
   }
 
   const Select: <T extends object | string = {}>(
-    props: React.PropsWithRef<SelectProps<T>>
+    props: PropsWithRef<SelectProps<T>>
   ) => JSX.Element;
   export default Select;
 }
