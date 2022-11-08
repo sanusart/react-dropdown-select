@@ -1,19 +1,9 @@
-name: Deploy Gatsby site to Pages
+name: Gatsby Publish
+
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["master"]
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-# Allow one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+    branches:
+      - dev
 
 jobs:
   build:
@@ -22,5 +12,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: enriikke/gatsby-gh-pages-action@v2
         with:
-          working-dir: 'docs'
+          working-dir: docs
           access-token: ${{ secrets.ACCESS_TOKEN }}
+          deploy-branch: gh-pages
+          gatsby-args: --prefix-paths
