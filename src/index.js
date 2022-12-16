@@ -124,9 +124,6 @@ export class Select extends Component {
       this.setState(
         {
           values: this.props.values
-        },
-        () => {
-          this.props.onChange(this.state.values);
         }
       );
       this.updateSelectBounds();
