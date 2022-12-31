@@ -1,3 +1,6 @@
+### v4.9.3
+*  fix dev dependencies [View](https://github.com/sanusart/react-dropdown-select/commit/42f891fe4c5b469bfb8a54f0464862ba4d50b77e)
+
 ### v4.9.0
 *  update packages and use node 16 [View](https://github.com/sanusart/react-dropdown-select/commit/c52f8c42c84325a846fd0f7f23369c8600f72fe0)
 *  fix docs build [View](https://github.com/sanusart/react-dropdown-select/commit/69d50799acd4abace57f4d53ed68949f1fe5584e)
