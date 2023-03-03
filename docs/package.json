@@ -20,7 +20,7 @@
     "gatsby-plugin-catch-links": "^4.8.0",
     "gatsby-plugin-styled-components": "^5.8.0",
     "gatsby-source-filesystem": "^4.8.1",
-    "gatsby-transformer-remark": "^5.8.1",
+    "gatsby-transformer-remark": "^5.25.1",
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
