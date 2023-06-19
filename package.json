@@ -60,8 +60,8 @@
     "@babel/plugin-syntax-dynamic-import": "^7.7.4",
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
-    "@emotion/babel-plugin": "11.7.2",
-    "@emotion/jest": "^11.8.0",
+    "@emotion/babel-plugin": "11.11.0",
+    "@emotion/jest": "11.11.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^25.3.0",
     "babel-loader": "^8.0.6",
@@ -88,8 +88,8 @@
     "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
-    "@emotion/react": "11.8.1",
-    "@emotion/styled": "11.8.1"
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0"
   },
   "jest": {
     "snapshotSerializers": [
