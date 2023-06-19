@@ -1,3 +1,17 @@
+### v4.9.4
+*  Bump moment from 2.29.1 to 2.29.4 in /docs (#249) [View](https://github.com/sanusart/react-dropdown-select/commit/5b446e2b4e0f4619f7094d4463452dc5f02df0d8)
+*  Bump socket.io-parser from 4.0.4 to 4.0.5 in /docs (#252) [View](https://github.com/sanusart/react-dropdown-select/commit/07878e68bedb109862ebf6969e25cf153863fc90)
+*  Bump decode-uri-component from 0.2.0 to 0.2.2 (#255) [View](https://github.com/sanusart/react-dropdown-select/commit/ec3895db680d5668f2cdb028185f5c2eac33d8ad)
+*  Bump json5 from 1.0.1 to 1.0.2 in /docs (#263) [View](https://github.com/sanusart/react-dropdown-select/commit/3c548c1669a4c711b44c31f5fff211f1a8fe6352)
+*  Bump qs from 6.5.2 to 6.5.3 (#257) [View](https://github.com/sanusart/react-dropdown-select/commit/b95648b723fc2b750c961357383bd08de604a888)
+*  Bump decode-uri-component from 0.2.0 to 0.2.2 in /docs (#256) [View](https://github.com/sanusart/react-dropdown-select/commit/e70450b7e26e339fa175648daa9b5e10612a1e0b)
+*  Bump @sideway/formula from 3.0.0 to 3.0.1 in /docs (#267) [View](https://github.com/sanusart/react-dropdown-select/commit/798d6ebdfa9178602ba50cc5a94aef4723c88ef4)
+*  Bump minimist and mkdirp (#271) [View](https://github.com/sanusart/react-dropdown-select/commit/595ed77e01a5a28628c16873aea000299f1bec9a)
+*  Bump shell-quote and gatsby in /docs (#250) [View](https://github.com/sanusart/react-dropdown-select/commit/46480e16bf6b1367830a0b0d04f4b9cf7990f481)
+*  Bump loader-utils from 1.4.0 to 1.4.2 in /docs (#253) [View](https://github.com/sanusart/react-dropdown-select/commit/64ab91e26d60e710f46f9294245d6b586c22db64)
+*  Bump http-cache-semantics from 4.1.0 to 4.1.1 in /docs (#266) [View](https://github.com/sanusart/react-dropdown-select/commit/84fe1fbffb78a4c2c2ccd7a69f1a4068f0ee4779)
+*  update emotion to latest [View](https://github.com/sanusart/react-dropdown-select/commit/f7a8d33baecffe81bf1910e748352dc32998dd6f)
+
 ### v4.9.3
 *  fix dev dependencies [View](https://github.com/sanusart/react-dropdown-select/commit/42f891fe4c5b469bfb8a54f0464862ba4d50b77e)
 
