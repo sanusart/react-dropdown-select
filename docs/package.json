@@ -13,8 +13,8 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
-    "@emotion/react": "11.8.1",
-    "@emotion/styled": "11.8.1",
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
     "gatsby": "4.25.7",
     "gatsby-cli": "4.8.1",
     "gatsby-plugin-catch-links": "^4.8.0",
