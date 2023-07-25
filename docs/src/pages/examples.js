@@ -15,6 +15,7 @@ import Basic from '../examples/Basic';
 import Form from '../examples/Form';
 import Windowed from '../examples/Windowed';
 import Multi from '../examples/Multi';
+import SelectAll from '../examples/SelectAll';
 import OpenOnTop from '../examples/OpenOnTop';
 import Styled from '../examples/Styled';
 import ItemRenderer from '../examples/ItemRenderer';
@@ -53,6 +54,10 @@ const Examples = () => (
     </Wrapper>
 
     <Wrapper>
+      <SelectAll options={demoOptions} title="With select/clear all" />
+    </Wrapper>
+
+    <Wrapper>
       <CustomDropdownHandle options={demoOptions} title="Custom dropdown handle" />
     </Wrapper>
 
@@ -72,10 +77,7 @@ const Examples = () => (
     </Wrapper>
 
     <Wrapper>
-      <CreateEntries
-        options={demoOptions}
-        title="Create new Entries"
-      />
+      <CreateEntries options={demoOptions} title="Create new Entries" />
     </Wrapper>
 
     <Wrapper>
@@ -83,14 +85,11 @@ const Examples = () => (
     </Wrapper>
 
     <Wrapper>
-      <DropdownAutoPosition options={demoOptions} title="Dropdown auto-position"/>
+      <DropdownAutoPosition options={demoOptions} title="Dropdown auto-position" />
     </Wrapper>
 
     <Wrapper>
-      <RenderInBody
-        options={demoOptions}
-        title="Render dropdown in body"
-      />
+      <RenderInBody options={demoOptions} title="Render dropdown in body" />
     </Wrapper>
 
     <Wrapper>

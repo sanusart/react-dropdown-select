@@ -10,13 +10,18 @@ import { valueExistInSelected, hexToRGBA, isomorphicWindow } from '../util';
 const dropdownPosition = (props, methods) => {
   const DropdownBoundingClientRect = methods.getSelectRef().getBoundingClientRect();
   const dropdownHeight =
-    DropdownBoundingClientRect.bottom + parseInt(props.dropdownHeight, 10) + parseInt(props.dropdownGap, 10);
+    DropdownBoundingClientRect.bottom +
+    parseInt(props.dropdownHeight, 10) +
+    parseInt(props.dropdownGap, 10);
 
   if (props.dropdownPosition !== 'auto') {
     return props.dropdownPosition;
   }
 
-  if (dropdownHeight > isomorphicWindow().innerHeight && dropdownHeight > DropdownBoundingClientRect.top) {
+  if (
+    dropdownHeight > isomorphicWindow().innerHeight &&
+    dropdownHeight > DropdownBoundingClientRect.top
+  ) {
     return 'top';
   }
 
@@ -41,35 +46,41 @@ const Dropdown = ({ props, state, methods }) => (
       props.dropdownRenderer({ props, state, methods })
     ) : (
       <React.Fragment>
-        {props.create && state.search && !valueExistInSelected(state.search, [...state.values, ...props.options], props) && (
-          <AddNew
-            role="button"
-            className={`${LIB_NAME}-dropdown-add-new`}
-            color={props.color}
-            onClick={() => methods.createNew(state.search)}>
-            {props.createNewLabel.replace('{search}', `"${state.search}"`)}
-          </AddNew>
-        )}
-        {state.searchResults.length === 0 ? (
-          <NoData
-            className={`${LIB_NAME}-no-data`}
-            state={state}
-            props={props}
-            methods={methods}
-          />
-        ) : (
-            state.searchResults
-              .map((item, itemIndex) => (
-                <Item
-                  key={item[props.valueField].toString()}
-                  item={item}
-                  itemIndex={itemIndex}
-                  state={state}
-                  props={props}
-                  methods={methods}
-                />
-              ))
+        {props.create &&
+          state.search &&
+          !valueExistInSelected(state.search, [...state.values, ...props.options], props) && (
+            <AddNew
+              role="button"
+              className={`${LIB_NAME}-dropdown-add-new`}
+              color={props.color}
+              onClick={() => methods.createNew(state.search)}>
+              {props.createNewLabel.replace('{search}', `"${state.search}"`)}
+            </AddNew>
           )}
+        {state.searchResults.length === 0 ? (
+          <NoData className={`${LIB_NAME}-no-data`} state={state} props={props} methods={methods} />
+        ) : (
+          state.searchResults.map((item, itemIndex) => (
+            <Item
+              key={item[props.valueField].toString()}
+              item={item}
+              itemIndex={itemIndex}
+              state={state}
+              props={props}
+              methods={methods}
+            />
+          ))
+        )}
+
+        {props.selectAll && props.options && props.multi && (
+          <SelectAll
+            role="button"
+            className={`${LIB_NAME}-dropdown-select-all`}
+            color={props.color}
+            onClick={() => (methods.areAllSelected() ? methods.clearAll() : methods.selectAll())}>
+            {methods.areAllSelected() ? props.clearAllLabel : props.selectAllLabel}
+          </SelectAll>
+        )}
       </React.Fragment>
     )}
   </DropDown>
@@ -86,7 +97,11 @@ const DropDown = styled.div`
     portal
       ? `
       position: fixed;
-      ${dropdownPosition === 'bottom' ? `top: ${selectBounds.bottom + dropdownGap}px;` : `bottom: ${isomorphicWindow().innerHeight - selectBounds.top + dropdownGap}px;`}
+      ${
+        dropdownPosition === 'bottom'
+          ? `top: ${selectBounds.bottom + dropdownGap}px;`
+          : `bottom: ${isomorphicWindow().innerHeight - selectBounds.top + dropdownGap}px;`
+      }
       left: ${selectBounds.left - 1}px;`
       : 'left: -1px;'};
   border: 1px solid #ccc;
@@ -113,6 +128,22 @@ const AddNew = styled.div`
 
   :hover {
     background: ${({ color }) => color && hexToRGBA(color, 0.1)};
+    outline: none;
+    cursor: pointer;
+  }
+`;
+
+const SelectAll = styled.div`
+  color: ${({ color }) => color};
+  padding: 5px 10px;
+  position: sticky;
+  bottom: 0;
+  margin: 0;
+  opacity: 1;
+  background: #fff;
+  box-shadow: 0 0 10px 0 ${() => hexToRGBA('#000000', 0.2)};
+
+  :hover {
     outline: none;
     cursor: pointer;
   }
