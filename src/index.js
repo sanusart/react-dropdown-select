@@ -76,7 +76,7 @@ export class Select extends Component {
       search: '',
       selectBounds: {},
       cursor: null,
-      searchResults: props.options,
+      searchResults: props.options
     };
 
     this.methods = {
@@ -234,7 +234,7 @@ export class Select extends Component {
       return this.setState({
         dropdown: false,
         search: this.props.clearOnBlur ? '' : this.state.search,
-        searchResults: this.props.options,
+        searchResults: this.props.options
       });
     }
 
@@ -298,11 +298,14 @@ export class Select extends Component {
       cursor: null
     });
 
-    this.setState({
-      search: event.target.value,
-    }, () => {
-      this.setState({ searchResults: this.searchResults() })
-    });
+    this.setState(
+      {
+        search: event.target.value
+      },
+      () => {
+        this.setState({ searchResults: this.searchResults() });
+      }
+    );
   };
 
   getInputSize = () => {
@@ -558,6 +561,9 @@ export class Select extends Component {
 Select.defaultProps = {
   addPlaceholder: '',
   placeholder: 'Select...',
+  selectAll: false,
+  selectAllLabel: 'Select all',
+  clearAllLabel: 'Clear all',
   values: [],
   options: [],
   multi: false,
