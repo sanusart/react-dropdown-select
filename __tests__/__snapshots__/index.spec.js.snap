@@ -922,12 +922,12 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
       />
     </div>
     <input
-      defaultValue={Array []}
+      defaultValue={[]}
       disabled={false}
       name="form-select"
       required={false}
       style={
-        Object {
+        {
           "opacity": 0,
           "position": "absolute",
           "width": 0,

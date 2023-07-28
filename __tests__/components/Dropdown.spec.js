@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import renderer from 'react-test-renderer';
 
@@ -11,19 +14,19 @@ const props = {
   },
   state: {
     selectBounds: {},
-    searchResults: [],
+    searchResults: []
   },
   methods: {
     searchResults: () => [],
     getSelectRef: () => ({
       blur: () => {},
-      getBoundingClientRect: () => ({top: 100, bottom: 100})
-    }),
+      getBoundingClientRect: () => ({ top: 100, bottom: 100 })
+    })
   }
 };
 
 it('<Dropdown/> renders correctly', () => {
-  const tree = renderer.create(<Dropdown {...props}/>).toJSON();
+  const tree = renderer.create(<Dropdown {...props} />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

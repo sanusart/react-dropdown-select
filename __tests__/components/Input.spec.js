@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import renderer from 'react-test-renderer';
 
@@ -20,13 +23,13 @@ const props = (props = {}) => ({
 });
 
 it('<Input/> renders correctly', () => {
-  const tree = renderer.create(<Input {...props()}/>).toJSON();
+  const tree = renderer.create(<Input {...props()} />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
 
 it('<Input/> is disabled', () => {
-  const tree = renderer.create(<Input {...props({disabled: true})}/>).toJSON();
+  const tree = renderer.create(<Input {...props({ disabled: true })} />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

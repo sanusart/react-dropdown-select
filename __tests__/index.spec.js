@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { LIB_NAME } from '../src/constants';
@@ -61,24 +64,22 @@ describe('<Select/> component', () => {
   });
 
   it('<Select/> renders with custom search function', () => {
-    const options = [
-      { id: 0, name: 'Zero' },
-      { id: 1, name: 'One' },
-      { id: 2, name: 'Two' },
-    ];
+    const options = [{ id: 0, name: 'Zero' }, { id: 1, name: 'One' }, { id: 2, name: 'Two' }];
 
     const searchFn = ({ props, state }) => {
-      return props.options.filter(({ name }) => new RegExp(state.search).test(name) );
+      return props.options.filter(({ name }) => new RegExp(state.search).test(name));
     };
 
     const component = selectWithProps(<Select {...props({ searchFn, options })} />);
 
-    const input = component.root.find(element => element.props.className === `${LIB_NAME}-input`);
+    const input = component.root.find((element) => element.props.className === `${LIB_NAME}-input`);
 
     TestRenderer.act(() => input.props.onChange({ target: { value: 'Zer' } }));
 
     expect(component.toTree().instance.state.search).toBe('Zer');
-    expect(component.toTree().instance.state.searchResults).toStrictEqual([{ id: 0, name: 'Zero'}])
+    expect(component.toTree().instance.state.searchResults).toStrictEqual([
+      { id: 0, name: 'Zero' }
+    ]);
     expect(component.toJSON()).toMatchSnapshot();
   });
 

@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import renderer from 'react-test-renderer';
 
@@ -10,7 +13,7 @@ const props = {
 };
 
 it('<Separator/> renders correctly', () => {
-  const tree = renderer.create(<Separator {...props}/>).toJSON();
+  const tree = renderer.create(<Separator {...props} />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
