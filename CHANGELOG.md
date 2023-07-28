@@ -1,3 +1,6 @@
+### v4.10.0
+*  Add select all issue (#287) [View](https://github.com/sanusart/react-dropdown-select/commit/86d05e1de4b074f0b3b81438dae42ba3c9cf6e8e)
+
 ### v4.9.4
 *  Bump moment from 2.29.1 to 2.29.4 in /docs (#249) [View](https://github.com/sanusart/react-dropdown-select/commit/5b446e2b4e0f4619f7094d4463452dc5f02df0d8)
 *  Bump socket.io-parser from 4.0.4 to 4.0.5 in /docs (#252) [View](https://github.com/sanusart/react-dropdown-select/commit/07878e68bedb109862ebf6969e25cf153863fc90)

@@ -1,17 +1,21 @@
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['./stories/*.mdx', './stories/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
+    '@storybook/addon-interactions'
   ],
   framework: {
     name: '@storybook/react-webpack5',
-    options: {},
+    options: {}
   },
   docs: {
-    autodocs: 'tag',
-  },
+    toc: true,
+    autodocs: true,
+    defaultName: 'Documentation',
+    story: { inline: true } // render the story in an iframe
+    // source: { type: 'code' } // forces the raw source code (rather than the rendered JSX).
+  }
 };
 export default config;

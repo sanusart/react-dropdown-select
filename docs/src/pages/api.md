@@ -45,6 +45,9 @@ title: 'API'
 | backspaceDelete                                                                             | bool        | true           | If true, backspace key will delete last value                                                                                          |
 | createNewLabel                                                                              | string      | "add {search}" | If create set to true, this will be the label of the "add new" component. `{search}` will be replaced by search value                  |
 | disabledLabel                                                                               | string      | "disabled"     | Label shown on disabled field (after) the text                                                                                         |
+| selectAll                                                                                   | bool      | false          | Allow to select all                                                                                                                    |
+| selectAllLabel                                                                              | string    | "Select all"   | Label for "Select all"                                                                                                                 |
+| clearAllLabel                                                                               | string    | "Clear all"    | Label for "Clear all"                                                                                                                  |
 | additionalProps                                                                             | object      | null           | Additional props to pass to Select                                                                                                     |
 
 ## Callback props

@@ -136,9 +136,14 @@ const AddNew = styled.div`
 const SelectAll = styled.div`
   color: ${({ color }) => color};
   padding: 5px 10px;
+  position: sticky;
+  bottom: 0;
+  margin: 0;
+  opacity: 1;
+  background: #fff;
+  box-shadow: 0 0 10px 0 ${() => hexToRGBA('#000000', 0.2)};
 
   :hover {
-    background: ${({ color }) => color && hexToRGBA(color, 0.1)};
     outline: none;
     cursor: pointer;
   }
