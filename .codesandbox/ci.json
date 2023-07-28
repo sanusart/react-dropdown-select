@@ -1,6 +1,5 @@
 {
   "node": "16",
-  "installCommand": "install",
   "buildCommand": "build",
   "sandboxes": ["react-dropdown-select-nzto7"]
 }
