@@ -75,7 +75,6 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^25.3.0",
     "babel-loader": "^8.0.6",
-    "babel-plugin-emotion": "^11.0.0",
     "babel-plugin-transform-dynamic-import": "^2.1.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-preset-minify": "^0.5.1",
