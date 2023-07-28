@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 
@@ -23,7 +26,6 @@ const props = (props = {}) => ({
 });
 
 describe('<Option/> component', () => {
-
   beforeEach(() => {
     spy = jest.fn();
   });
@@ -33,19 +35,16 @@ describe('<Option/> component', () => {
   });
 
   it('renders correctly', () => {
-    const tree = TestRenderer.create(
-      <Option {...props({ item: options[0] })}/>
-    ).toJSON();
+    const tree = TestRenderer.create(<Option {...props({ item: options[0] })} />).toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
   it('onClick remove item', () => {
-    TestRenderer.create(
-      <Option {...props({ item: options[0] })} onClick={spy}/>)
-      .root.findByProps({ className: 'react-dropdown-select-option-remove' }).props.onClick();
+    TestRenderer.create(<Option {...props({ item: options[0] })} onClick={spy} />)
+      .root.findByProps({ className: 'react-dropdown-select-option-remove' })
+      .props.onClick();
 
     expect(spy).toHaveBeenCalled;
   });
-
 });

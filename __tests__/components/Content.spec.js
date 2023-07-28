@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { unmountComponentAtNode, render } from 'react-dom';
@@ -47,7 +50,7 @@ describe('<Clear/> component', () => {
     const componentProps = props();
 
     act(() => {
-      render(<Content {...componentProps}/>, container);
+      render(<Content {...componentProps} />, container);
     });
 
     const content = document.querySelector('.react-dropdown-select-content');

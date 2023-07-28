@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 
@@ -56,5 +59,4 @@ describe('<Clear/> component', () => {
 
     expect(spy).toHaveBeenCalled;
   });
-
 });

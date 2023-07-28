@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 
@@ -32,17 +35,17 @@ describe('<Clear/> component', () => {
   });
 
   it('onClick clears all', () => {
-    TestRenderer.create(
-      <Clear {...props({ parentItem: options[0] })} onClick={spy}/>)
-      .root.findByProps({ className: 'react-dropdown-select-clear' }).props.onClick();
+    TestRenderer.create(<Clear {...props({ parentItem: options[0] })} onClick={spy} />)
+      .root.findByProps({ className: 'react-dropdown-select-clear' })
+      .props.onClick();
 
     expect(spy).toHaveBeenCalled;
   });
 
   it('onKeyPress clears all', () => {
-    TestRenderer.create(
-      <Clear {...props({ parentItem: options[0] })} onKeyPress={spy}/>)
-      .root.findByProps({ className: 'react-dropdown-select-clear' }).props.onKeyPress();
+    TestRenderer.create(<Clear {...props({ parentItem: options[0] })} onKeyPress={spy} />)
+      .root.findByProps({ className: 'react-dropdown-select-clear' })
+      .props.onKeyPress();
 
     expect(spy).toHaveBeenCalled;
   });

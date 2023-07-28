@@ -22,7 +22,9 @@
     "preversion": "sh change-log-builder.sh",
     "release:patch": "npm version patch -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
     "release:minor": "npm version minor -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
-    "release:major": "npm version major -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\""
+    "release:major": "npm version major -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "repository": {
     "type": "git",
@@ -62,10 +64,17 @@
     "@babel/preset-react": "^7.7.4",
     "@emotion/babel-plugin": "11.11.0",
     "@emotion/jest": "11.11.0",
+    "@storybook/addon-docs": "7.1.1",
+    "@storybook/addon-essentials": "7.1.1",
+    "@storybook/addon-interactions": "7.1.1",
+    "@storybook/addon-links": "7.1.1",
+    "@storybook/blocks": "7.1.1",
+    "@storybook/react": "7.1.1",
+    "@storybook/react-webpack5": "7.1.1",
+    "@storybook/testing-library": "^0.2.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^25.3.0",
     "babel-loader": "^8.0.6",
-    "babel-plugin-emotion": "^10.0.27",
     "babel-plugin-transform-dynamic-import": "^2.1.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-preset-minify": "^0.5.1",
@@ -75,20 +84,22 @@
     "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^3.1.0",
-    "jest": "^25.5.4",
+    "jest": "29.6.2",
+    "jest-environment-jsdom": "29.6.2",
     "prettier": "1.18.2",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
+    "react": "16.14.0",
     "react-dom": "^16.12.0",
     "react-test-renderer": "^16.12.0",
     "replace": "^1.2.0",
+    "storybook": "7.1.1",
     "style-loader": "^3.3.1",
-    "webpack": "^5.75.0",
+    "webpack": "5.88.1",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "4.15.1"
   },
   "dependencies": {
-    "@emotion/react": "11.11.1",
+    "@emotion/react": "11.11.0",
     "@emotion/styled": "11.11.0"
   },
   "jest": {
@@ -101,7 +112,9 @@
     "testMatch": [
       "**/?(*.)+(spec|test).js?(x)"
     ],
-    "testURL": "http://localhost/",
+    "testEnvironmentOptions": {
+      "url": "http://localhost/"
+    },
     "collectCoverage": false,
     "bail": true,
     "roots": [

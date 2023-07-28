@@ -25,3 +25,17 @@ export const options = [
     }
   }))
 ];
+
+export const optionsBase = (count = 30) => [
+  ...Array.from(Array(count).keys()).map((data) => ({
+    value: faker.random.uuid(),
+    label: `${faker.name.firstName()} ${faker.name.lastName()}`
+  }))
+];
+
+export const optionsSimple = (count = 30) => [
+  ...Array.from(Array(count).keys()).map((data) => ({
+    id: faker.random.uuid(),
+    name: `${faker.name.firstName()} ${faker.name.lastName()}`
+  }))
+];

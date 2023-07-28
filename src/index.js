@@ -24,47 +24,263 @@ import { LIB_NAME } from './constants';
 
 export class Select extends Component {
   static propTypes = {
-    onChange: PropTypes.func.isRequired,
-    onDropdownClose: PropTypes.func,
-    onDropdownCloseRequest: PropTypes.func,
-    onDropdownOpen: PropTypes.func,
-    onClearAll: PropTypes.func,
-    onSelectAll: PropTypes.func,
-    values: PropTypes.array,
-    options: PropTypes.array.isRequired,
-    keepOpen: PropTypes.bool,
-    dropdownGap: PropTypes.number,
-    multi: PropTypes.bool,
-    placeholder: PropTypes.string,
+    /**
+     * Secondary placeholder on search field if any value selected
+     */
     addPlaceholder: PropTypes.string,
-    disabled: PropTypes.bool,
-    className: PropTypes.string,
-    loading: PropTypes.bool,
-    clearable: PropTypes.bool,
-    searchable: PropTypes.bool,
-    separator: PropTypes.bool,
-    dropdownHandle: PropTypes.bool,
-    searchBy: PropTypes.string,
-    sortBy: PropTypes.string,
-    closeOnScroll: PropTypes.bool,
-    openOnTop: PropTypes.bool,
-    style: PropTypes.object,
-    contentRenderer: PropTypes.func,
-    dropdownRenderer: PropTypes.func,
-    itemRenderer: PropTypes.func,
-    noDataRenderer: PropTypes.func,
-    optionRenderer: PropTypes.func,
-    inputRenderer: PropTypes.func,
-    loadingRenderer: PropTypes.func,
-    clearRenderer: PropTypes.func,
-    separatorRenderer: PropTypes.func,
-    dropdownHandleRenderer: PropTypes.func,
-    direction: PropTypes.string,
-    required: PropTypes.bool,
-    pattern: PropTypes.string,
-    name: PropTypes.string,
+    /**
+     * Additional props to pass to Select
+     */
+    additionalProps: PropTypes.object,
+    /**
+     * If true, and searchable, dropdown will autofocus
+     */
+    autoFocus: PropTypes.bool,
+    /**
+     * If true, backspace key will delete last value
+     */
     backspaceDelete: PropTypes.bool,
-    compareValuesFunc: PropTypes.func
+    /**
+     * CSS class attribute to pass to select
+     */
+    className: PropTypes.string,
+    /**
+     * Label for "Clear all"
+     */
+    clearAllLabel: PropTypes.string,
+    /**
+     * If true, and searchable, search value will be cleared on blur
+     */
+    clearOnBlur: PropTypes.bool,
+    /**
+     * If true, and searchable, search value will be cleared upon value select/de-select
+     */
+    clearOnSelect: PropTypes.bool,
+    /**
+     * Overrides internal clear button
+     */
+    clearRenderer: PropTypes.func,
+    /**
+     * Clear all indicator
+     */
+    clearable: PropTypes.bool,
+    /**
+     * If true, scrolling the page will close the dropdown
+     */
+    closeOnScroll: PropTypes.bool,
+    /**
+     * If true, selecting option will close the dropdown
+     */
+    closeOnSelect: PropTypes.bool,
+    /**
+     * Base color (any css compatible) to use in component, also can be overwritten via CSS
+     */
+    color: PropTypes.string,
+    /**
+     * Compare values override function
+     */
+    compareValuesFunc: PropTypes.func,
+    /**
+     * Overrides internal content component (the contents of the select component)
+     * | <a href="https://sanusart.github.io/react-dropdown-select/prop/content-renderer">example</a>
+     */
+    contentRenderer: PropTypes.func,
+    /**
+     * If true, select will create value from search string and fire onCreateNew callback prop
+     */
+    create: PropTypes.bool,
+    /**
+     * If create set to true, this will be the label of the "add new" component. {search} will be replaced by search value
+     */
+    createNewLabel: PropTypes.string,
+    /**
+     * Debounce Delay for updates upon component interactions
+     */
+    debounceDelay: PropTypes.number,
+
+    /**
+     * Direction of a dropdown "ltr", "rtl" or "auto"
+     */
+    direction: PropTypes.string,
+    /**
+     * Disable select and all interactions
+     */
+    disabled: PropTypes.bool,
+    /**
+     * Label shown on disabled field (after) the text
+     */
+    disabledLabel: PropTypes.string,
+    /**
+     * Gap between select element and dropdown
+     */
+    dropdownGap: PropTypes.number,
+    /**
+     * Show or hide dropdown handle to open/close dropdown
+     */
+    dropdownHandle: PropTypes.bool,
+    /**
+     * Overrides internal dropdown handle
+     */
+    dropdownHandleRenderer: PropTypes.func,
+    /**
+     * Minimum height of a dropdown
+     */
+    dropdownHeight: PropTypes.string,
+    /**
+     * Available options are "auto", "top" and "bottom" defaults to "bottom". Auto will adjust itself according Select's position on the page
+     * | <a href="https://sanusart.github.io/react-dropdown-select/prop/dropdown-position">example</a>
+     */
+    dropdownPosition: PropTypes.oneOf(['top', 'bottom', 'auto']),
+    /**
+     * Overrides internal dropdown handle
+     */
+    dropdownRenderer: PropTypes.func,
+    /**
+     * Overrides internal keyDown function
+     */
+    handleKeyDownFn: PropTypes.func,
+    /**
+     * Overrides internal input text
+     */
+    inputRenderer: PropTypes.func,
+    /**
+     * Overrides internal item in a dropdown
+     */
+    itemRenderer: PropTypes.func,
+    /**
+     * If true, dropdown will always stay open (good for debugging)
+     */
+    keepOpen: PropTypes.bool,
+    /**
+     * If false, selected item will not appear in a list
+     */
+    keepSelectedInList: PropTypes.bool,
+    /**
+     * Field in data to use for label
+     */
+    labelField: PropTypes.string,
+    /**
+     * Loading indicator
+     */
+    loading: PropTypes.bool,
+    /**
+     * Overrides internal loading
+     */
+    loadingRenderer: PropTypes.func,
+    /**
+     * If true - will act as multi-select, if false - only one option will be selected at the time
+     */
+    multi: PropTypes.bool,
+    /**
+     * If set, input type hidden would be added in the component with the value of the `name` prop as `name` and select's `values` as `value`
+     * Useful for html forms
+     */
+    name: PropTypes.string,
+    /**
+     * Label for "No data"
+     */
+    noDataLabel: PropTypes.string,
+    /**
+     * Overrides internal "no data" (shown where search has no results)
+     */
+    noDataRenderer: PropTypes.func,
+    /**
+     * onChange callback handler
+     */
+    onChange: PropTypes.func.isRequired,
+    /**
+     * Fires upon clearing all values (via custom renderers)
+     */
+    onClearAll: PropTypes.func,
+    /**
+     * Fires upon creation of new item if create prop set to true
+     */
+    onCreateNew: PropTypes.func,
+    /**
+     * Fires upon dropdown close
+     */
+    onDropdownClose: PropTypes.func,
+    /**
+     * Fires upon dropdown closing state, stops the closing and provides own method close()
+     * @return undefined
+     */
+    onDropdownCloseRequest: PropTypes.func,
+    /**
+     * Fires upon dropdown open
+     */
+    onDropdownOpen: PropTypes.func,
+    /**
+     * Fires upon selecting all values (via custom renderers)
+     */
+    onSelectAll: PropTypes.func,
+    /**
+     * Overrides internal option (the pillow with an "x") on the select content
+     */
+    optionRenderer: PropTypes.func,
+    /**
+     * Available options, (option with key disabled: true will be disabled)
+     */
+    options: PropTypes.array.isRequired,
+    /**
+     * If set, input type hidden would be added in the component with pattern prop as regex
+     */
+    pattern: PropTypes.string,
+    /**
+     * Placeholder shown where there are no selected values
+     */
+    placeholder: PropTypes.string,
+    /**
+     * If valid dom element specified - dropdown will break out to render inside the specified element
+     */
+    portal: PropTypes.element,
+    /**
+     * If set, input type hidden would be added in the component with required prop as true/false
+     */
+    required: PropTypes.bool,
+    /**
+     * Search by object property in values
+     */
+    searchBy: PropTypes.string,
+    /**
+     * Overrides internal search function
+     */
+    searchFn: PropTypes.func,
+    /**
+     * If true, select will have search input text
+     */
+    searchable: PropTypes.bool,
+    /**
+     * Allow to select all (if select is multi select)
+     */
+    selectAll: PropTypes.bool,
+    /**
+     * Label for "Select all"
+     */
+    selectAllLabel: PropTypes.string,
+    /**
+     * Separator line between close all and dropdown handle
+     */
+    separator: PropTypes.bool,
+    /**
+     * Overrides internal separator
+     */
+    separatorRenderer: PropTypes.func,
+    /**
+     * Sort by object property in values
+     */
+    sortBy: PropTypes.string,
+    /**
+     * Style object to pass to select
+     */
+    style: PropTypes.object,
+    /**
+     * Field in data to use for value
+     */
+    valueField: PropTypes.string,
+    /**
+     * Selected values
+     */
+    values: PropTypes.array
   };
 
   constructor(props) {
@@ -80,24 +296,24 @@ export class Select extends Component {
     };
 
     this.methods = {
-      removeItem: this.removeItem,
-      dropDown: this.dropDown,
-      addItem: this.addItem,
-      setSearch: this.setSearch,
-      getInputSize: this.getInputSize,
-      toggleSelectAll: this.toggleSelectAll,
-      clearAll: this.clearAll,
-      selectAll: this.selectAll,
-      searchResults: this.searchResults,
-      getSelectRef: this.getSelectRef,
-      isSelected: this.isSelected,
-      getSelectBounds: this.getSelectBounds,
-      areAllSelected: this.areAllSelected,
-      handleKeyDown: this.handleKeyDown,
       activeCursorItem: this.activeCursorItem,
+      addItem: this.addItem,
+      areAllSelected: this.areAllSelected,
+      clearAll: this.clearAll,
       createNew: this.createNew,
+      dropDown: this.dropDown,
+      getInputSize: this.getInputSize,
+      getSelectBounds: this.getSelectBounds,
+      getSelectRef: this.getSelectRef,
+      handleKeyDown: this.handleKeyDown,
+      isSelected: this.isSelected,
+      removeItem: this.removeItem,
+      safeString: this.safeString,
+      searchResults: this.searchResults,
+      selectAll: this.selectAll,
+      setSearch: this.setSearch,
       sortBy: this.sortBy,
-      safeString: this.safeString
+      toggleSelectAll: this.toggleSelectAll
     };
 
     this.select = React.createRef();
@@ -560,55 +776,56 @@ export class Select extends Component {
 
 Select.defaultProps = {
   addPlaceholder: '',
-  placeholder: 'Select...',
-  selectAll: false,
-  selectAllLabel: 'Select all',
+  additionalProps: null,
+  autoFocus: false,
+  backspaceDelete: true,
   clearAllLabel: 'Clear all',
-  values: [],
-  options: [],
-  multi: false,
-  disabled: false,
-  searchBy: 'label',
-  sortBy: null,
-  clearable: false,
-  searchable: true,
-  dropdownHandle: true,
-  separator: false,
-  keepOpen: undefined,
-  noDataLabel: 'No data',
-  createNewLabel: 'add {search}',
-  disabledLabel: 'disabled',
-  dropdownGap: 5,
-  closeOnScroll: false,
-  debounceDelay: 0,
-  labelField: 'label',
-  valueField: 'value',
-  color: '#0074D9',
-  keepSelectedInList: true,
-  closeOnSelect: false,
   clearOnBlur: true,
   clearOnSelect: true,
-  dropdownPosition: 'bottom',
-  dropdownHeight: '300px',
-  autoFocus: false,
-  portal: null,
+  clearable: false,
+  closeOnScroll: false,
+  closeOnSelect: false,
+  color: '#0074D9',
+  compareValuesFunc: isEqual,
   create: false,
+  createNewLabel: 'add {search}',
+  debounceDelay: 0,
   direction: 'ltr',
+  disabled: false,
+  disabledLabel: 'disabled',
+  dropdownGap: 5,
+  dropdownHandle: true,
+  dropdownHeight: '300px',
+  dropdownPosition: 'bottom',
+  handleKeyDownFn: () => undefined,
+  keepOpen: false,
+  keepSelectedInList: true,
+  labelField: 'label',
+  loading: false,
+  multi: false,
   name: null,
-  required: false,
-  pattern: undefined,
+  noDataLabel: 'No data',
   onChange: () => undefined,
-  onDropdownOpen: () => undefined,
+  onClearAll: () => undefined,
+  onCreateNew: () => undefined,
   onDropdownClose: () => undefined,
   onDropdownCloseRequest: undefined,
-  onClearAll: () => undefined,
+  onDropdownOpen: () => undefined,
   onSelectAll: () => undefined,
-  onCreateNew: () => undefined,
+  options: [],
+  pattern: undefined,
+  placeholder: 'Select...',
+  portal: null,
+  required: false,
+  searchBy: 'label',
   searchFn: () => undefined,
-  handleKeyDownFn: () => undefined,
-  additionalProps: null,
-  backspaceDelete: true,
-  compareValuesFunc: isEqual
+  searchable: true,
+  selectAll: false,
+  selectAllLabel: 'Select all',
+  separator: false,
+  sortBy: null,
+  valueField: 'value',
+  values: []
 };
 
 const ReactDropdownSelect = styled.div`
@@ -624,9 +841,9 @@ const ReactDropdownSelect = styled.div`
   align-items: center;
   cursor: pointer;
   min-height: 36px;
+
   ${({ disabled }) =>
     disabled ? 'cursor: not-allowed;pointer-events: none;opacity: 0.3;' : 'pointer-events: all;'}
-
   :hover,
   :focus-within {
     border-color: ${({ color }) => color};

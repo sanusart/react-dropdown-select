@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import renderer from 'react-test-renderer';
 
@@ -10,7 +13,7 @@ const props = {
 };
 
 it('<Loading/> renders correctly', () => {
-  const tree = renderer.create(<Loading {...props}/>).toJSON();
+  const tree = renderer.create(<Loading {...props} />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
