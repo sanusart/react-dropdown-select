@@ -35,6 +35,7 @@ export class Select extends Component {
     keepOpen: PropTypes.bool,
     dropdownGap: PropTypes.number,
     multi: PropTypes.bool,
+    fullObjectValues: PropTypes.bool,
     placeholder: PropTypes.string,
     addPlaceholder: PropTypes.string,
     disabled: PropTypes.bool,
@@ -261,11 +262,13 @@ export class Select extends Component {
       }
 
       this.setState({
-        values: [...this.state.values, item]
+        values: this.props.fullObjectValues
+          ? [...this.state.values, item]
+          : [...this.state.values, item[this.props.valueField]]
       });
     } else {
       this.setState({
-        values: [item],
+        values: this.props.fullObjectValues ? [item] : [item[this.props.valueField]],
         dropdown: false
       });
     }
@@ -286,10 +289,12 @@ export class Select extends Component {
     }
 
     this.setState({
-      values: this.state.values.filter(
-        (values) =>
-          getByPath(values, this.props.valueField) !== getByPath(item, this.props.valueField)
-      )
+      values: this.props.fullObjectValues
+        ? this.state.values.filter(
+            (values) =>
+              getByPath(values, this.props.valueField) !== getByPath(item, this.props.valueField)
+          )
+        : this.state.values.filter((value) => value !== getByPath(item, this.props.valueField))
     });
   };
 
@@ -342,10 +347,12 @@ export class Select extends Component {
   };
 
   isSelected = (option) =>
-    !!this.state.values.find(
-      (value) =>
-        getByPath(value, this.props.valueField) === getByPath(option, this.props.valueField)
-    );
+    this.props.fullObjectValues
+      ? !!this.state.values.find(
+          (value) =>
+            getByPath(value, this.props.valueField) === getByPath(option, this.props.valueField)
+        )
+      : !!this.state.values.find((value) => value === option[this.props.valueField]);
 
   areAllSelected = () =>
     this.state.values.length === this.props.options.filter((option) => !option.disabled).length;
@@ -496,6 +503,7 @@ export class Select extends Component {
     };
 
     this.addItem(newValue);
+    this.props.options.push(newValue);
     this.props.onCreateNew(newValue);
     this.setState({ search: '' });
   };
@@ -585,6 +593,7 @@ Select.defaultProps = {
   valueField: 'value',
   color: '#0074D9',
   keepSelectedInList: true,
+  fullObjectValues: true,
   closeOnSelect: false,
   clearOnBlur: true,
   clearOnSelect: true,

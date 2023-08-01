@@ -1,5 +1,11 @@
 export const valueExistInSelected = (value, values, props) =>
-  !!values.find((val) => getByPath(val, props['valueField']) === value || getByPath(val, props['labelField']) === value);
+  props.fullObjectValues
+    ? !!values.find(
+        (val) =>
+          getByPath(val, props['valueField']) === value ||
+          getByPath(val, props['labelField']) === value
+      )
+    : !!values.find((val) => val === value);
 
 export const hexToRGBA = (hex, alpha) => {
   if (hex.length === 4) {
@@ -35,6 +41,10 @@ export const getByPath = (object, path) => {
   }
 
   return path.split('.').reduce((acc, value) => acc[value], object);
+};
+
+export const getItemByValue = (val, key, options) => {
+  return options.find((opt) => opt[key] === val);
 };
 
 export const getProp = (object, path, defaultValue) => {

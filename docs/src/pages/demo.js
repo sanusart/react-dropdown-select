@@ -25,7 +25,8 @@ export class Demo extends React.Component {
       itemRenderer: false,
       optionRenderer: false,
       noDataRenderer: false,
-      values: options ? [options.find((opt, index) => index === 3)] : [],
+      //values: options ? [options.find((opt, index) => index === 3)] : [],
+      values: options ? [options[0][props.valueField]] : [],
       searchBy: 'name',
       clearable: false,
       searchable: true,
@@ -41,28 +42,29 @@ export class Demo extends React.Component {
       closeOnSelect: false,
       dropdownPosition: 'bottom',
       direction: 'ltr',
-      dropdownHeight: '300px'
+      dropdownHeight: '300px',
+      fullObjectValues: false
     };
   }
 
   getObjectKeys = (obj) => {
-    const keyList = Object.keys(obj).map(k => {
-    const keys = [];
+    const keyList = Object.keys(obj).map((k) => {
+      const keys = [];
 
-    if (typeof obj[k] !== 'string') {
-      Object.keys(obj[k]).forEach((f) => {
-        if (f === 'geo') return;
+      if (typeof obj[k] !== 'string') {
+        Object.keys(obj[k]).forEach((f) => {
+          if (f === 'geo') return;
 
-        return keys.push(`${k}.${f}`);
-      });
-    } else {
-      keys.push(k);
-    }
+          return keys.push(`${k}.${f}`);
+        });
+      } else {
+        keys.push(k);
+      }
 
-    return keys;
-  });
+      return keys;
+    });
 
-  return [].concat.apply([], keyList)
+    return [].concat.apply([], keyList);
   };
 
   setValues = (values) => this.setState({ values });
@@ -83,7 +85,7 @@ export class Demo extends React.Component {
     );
   };
 
-  itemRenderer = ({item, props, methods}) => (
+  itemRenderer = ({ item, props, methods }) => (
     <div key={item[props.valueField]} onClick={() => methods.addItem(item)}>
       <div style={{ margin: '10px' }}>
         <input type="checkbox" checked={methods.isSelected(item)} />
@@ -185,6 +187,7 @@ export class Demo extends React.Component {
               dropdownHeight={this.state.dropdownHeight}
               direction={this.state.direction}
               multi={this.state.multi}
+              fullObjectValues={this.state.fullObjectValues}
               values={this.state.values}
               labelField={this.state.labelField || 'name'}
               valueField={this.state.valueField || 'email'}
@@ -200,31 +203,11 @@ export class Demo extends React.Component {
               closeOnSelect={this.state.closeOnSelect}
               noDataRenderer={this.state.noDataRenderer ? () => this.noDataRenderer() : undefined}
               dropdownPosition={this.state.dropdownPosition}
-              itemRenderer={
-                this.state.itemRenderer
-                  ? this.itemRenderer
-                  : undefined
-              }
-              inputRenderer={
-                this.state.inputRenderer
-                  ? this.inputRenderer
-                  : undefined
-              }
-              optionRenderer={
-                this.state.optionRenderer
-                  ? this.optionRenderer
-                  : undefined
-              }
-              contentRenderer={
-                this.state.contentRenderer
-                  ? this.contentRenderer
-                  : undefined
-              }
-              dropdownRenderer={
-                this.state.dropdownRenderer
-                  ? this.dropdownRenderer
-                  : undefined
-              }
+              itemRenderer={this.state.itemRenderer ? this.itemRenderer : undefined}
+              inputRenderer={this.state.inputRenderer ? this.inputRenderer : undefined}
+              optionRenderer={this.state.optionRenderer ? this.optionRenderer : undefined}
+              contentRenderer={this.state.contentRenderer ? this.contentRenderer : undefined}
+              dropdownRenderer={this.state.dropdownRenderer ? this.dropdownRenderer : undefined}
             />
             <ClearButton onClick={this.onClear}>Clear</ClearButton>
           </div>

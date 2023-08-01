@@ -12,7 +12,8 @@ const props = (props = {}) => ({
   props: {
     contentRenderer: null,
     multi: true,
-    labelField: 'name'
+    labelField: 'name',
+    fullObjectValues: true
   },
   state: {
     search: '',
@@ -47,7 +48,7 @@ describe('<Clear/> component', () => {
     const componentProps = props();
 
     act(() => {
-      render(<Content {...componentProps}/>, container);
+      render(<Content {...componentProps} />, container);
     });
 
     const content = document.querySelector('.react-dropdown-select-content');
