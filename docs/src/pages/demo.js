@@ -25,8 +25,12 @@ export class Demo extends React.Component {
       itemRenderer: false,
       optionRenderer: false,
       noDataRenderer: false,
-      //values: options ? [options.find((opt, index) => index === 3)] : [],
-      values: options ? [options[0][props.valueField]] : [],
+
+      fullObjectValues: true,
+      // comment next line and uncomment the line after the next line when fullObjectValues = false
+      values: options ? [options.find((opt, index) => index === 3)] : [],
+      //values: options ? [options[0]['email']] : [],
+
       searchBy: 'name',
       clearable: false,
       searchable: true,
@@ -43,7 +47,7 @@ export class Demo extends React.Component {
       dropdownPosition: 'bottom',
       direction: 'ltr',
       dropdownHeight: '300px',
-      fullObjectValues: false
+      sortBy: 'name'
     };
   }
 
@@ -193,6 +197,7 @@ export class Demo extends React.Component {
               valueField={this.state.valueField || 'email'}
               options={options}
               dropdownGap={5}
+              sortBy={this.state.sortBy}
               keepSelectedInList={this.state.keepSelectedInList}
               onDropdownOpen={() => undefined}
               onDropdownClose={() => undefined}
