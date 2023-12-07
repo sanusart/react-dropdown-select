@@ -1,3 +1,6 @@
+### v4.11.0
+*  Feat: 303 added closeOnClickInput support (#304) [View](https://github.com/sanusart/react-dropdown-select/commit/6d9e37d719eb9a9340456be19249986eada39e3d)
+
 ### v4.10.0
 *  Add select all issue (#287) [View](https://github.com/sanusart/react-dropdown-select/commit/86d05e1de4b074f0b3b81438dae42ba3c9cf6e8e)
 
