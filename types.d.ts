@@ -107,6 +107,7 @@ declare module 'react-dropdown-select' {
     color?: string;
     keepSelectedInList?: boolean;
     closeOnSelect?: boolean;
+    closeOnClickInput?: boolean;
     clearOnBlur?: boolean;
     clearOnSelect?: boolean;
     dropdownPosition?: 'top' | 'bottom' | 'auto';

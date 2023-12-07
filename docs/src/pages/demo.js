@@ -39,6 +39,7 @@ export class Demo extends React.Component {
       color: '#0074D9',
       keepSelectedInList: true,
       closeOnSelect: false,
+      closeOnClickInput: false,
       dropdownPosition: 'bottom',
       direction: 'ltr',
       dropdownHeight: '300px'
@@ -198,6 +199,7 @@ export class Demo extends React.Component {
               onChange={(values) => this.setValues(values)}
               noDataLabel="No matches found"
               closeOnSelect={this.state.closeOnSelect}
+              closeOnClickInput={this.state.closeOnClickInput}
               noDataRenderer={this.state.noDataRenderer ? () => this.noDataRenderer() : undefined}
               dropdownPosition={this.state.dropdownPosition}
               itemRenderer={
@@ -384,6 +386,17 @@ export class Demo extends React.Component {
             }
           />{' '}
           Close dropdown on select/deselect
+          <br />
+          <input
+            type="checkbox"
+            checked={this.state.closeOnClickInput}
+            onChange={() =>
+              this.setState({
+                closeOnClickInput: !this.state.closeOnClickInput
+              })
+            }
+          />{' '}
+          Close dropdown on click input
           <br />
           Custom color{' '}
           <input
