@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 import Option from './Option';
 import Input from './Input';
 import { LIB_NAME } from '../constants';
 import {getByPath} from '../util';
+import SelectPropsModel from '../models/SelectPropsModel';
+import SelectMethodsModel from '../models/SelectMethodsModel';
+import SelectStateModel from '../models/SelectStateModel';
 
 const Content = ({ props, state, methods }) => {
   return (
@@ -14,7 +18,11 @@ const Content = ({ props, state, methods }) => {
       }`}
       onClick={(event) => {
         event.stopPropagation();
-        methods.dropDown('open');
+        if (state.dropdown === true && props.closeOnClickInput && !state.search) {
+          return methods.dropDown('close');
+        } else {
+          return methods.dropDown('open');
+        }
       }}>
       {props.contentRenderer ? (
         props.contentRenderer({ props, state, methods })
@@ -40,6 +48,11 @@ const Content = ({ props, state, methods }) => {
   );
 };
 
+Content.propTypes = {
+  props: PropTypes.shape(SelectPropsModel),
+  state: PropTypes.shape(SelectStateModel),
+  methods: PropTypes.shape(SelectMethodsModel),
+};
 const ContentComponent = styled.div`
   display: flex;
   flex: 1;
