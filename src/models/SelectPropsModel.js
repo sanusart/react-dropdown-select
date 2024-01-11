@@ -261,6 +261,10 @@ const SelectPropsModel = Object.freeze({
    * Selected values
    */
   values: PropTypes.array,
+   /**
+    * If true, dropdown will be open by default
+    */
+  defaultMenuIsOpen: PropTypes.bool,
 });
 
 export default SelectPropsModel;
