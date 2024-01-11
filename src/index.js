@@ -72,6 +72,9 @@ export class Select extends Component {
     if (this.select) {
       this.updateSelectBounds();
     }
+    if (this.props.defaultMenuIsOpen) {
+      this.dropDown('open');
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -568,7 +571,8 @@ Select.defaultProps = {
   separator: false,
   sortBy: null,
   valueField: 'value',
-  values: []
+  values: [],
+  defaultMenuIsOpen: false
 };
 
 const ReactDropdownSelect = styled.div`
