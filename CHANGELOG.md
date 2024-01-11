@@ -1,3 +1,6 @@
+### v4.11.1
+*  Added defaultMenuISOpen prop (#306) [View](https://github.com/sanusart/react-dropdown-select/commit/2b00a86224a13064597646acd7e3bec6f22b81b0)
+
 ### v4.11.0
 *  Feat: 303 added closeOnClickInput support (#304) [View](https://github.com/sanusart/react-dropdown-select/commit/6d9e37d719eb9a9340456be19249986eada39e3d)
 
