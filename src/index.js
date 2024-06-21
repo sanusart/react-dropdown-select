@@ -486,6 +486,7 @@ export class Select extends Component {
               name={this.props.name}
               required={this.props.required}
               pattern={this.props.pattern}
+              maxLength={this.props.maxLength}
               defaultValue={
                 this.state.values.map((value) => value[this.props.labelField]).toString() || []
               }
