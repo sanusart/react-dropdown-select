@@ -3,5 +3,3 @@ node_modules
 /src/helpers.js
 .DS_Store
 coverage
-dist/
-lib/
