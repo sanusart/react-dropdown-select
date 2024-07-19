@@ -1,3 +1,12 @@
+### v4.11.3
+*  fix release action [View](https://github.com/sanusart/react-dropdown-select/commit/f313cc0870d835972d1c5989ef2dd6336e64691d)
+*  update packages [View](https://github.com/sanusart/react-dropdown-select/commit/d06abcabf83910a021e82b48c1464cdf79bab3c0)
+*  update packages [View](https://github.com/sanusart/react-dropdown-select/commit/befd7345404d0a8bc0df397d6a572db6fd476bf2)
+*  fix docs [View](https://github.com/sanusart/react-dropdown-select/commit/afe27a71a7ba69cfb127dfec0e2c1243f206e52d)
+*  Update types.d.ts (#311) [View](https://github.com/sanusart/react-dropdown-select/commit/98464ae702ae5d613f9badba6533641db8215486)
+*  bump version [View](https://github.com/sanusart/react-dropdown-select/commit/0a3d58fad126311b3d7924e8e0852f76e97dccda)
+*  Add missing type definition for defaultMenuIsOpen (#317) [View](https://github.com/sanusart/react-dropdown-select/commit/0f89f1eef39856d8fdd1f47d34d6ad0ad99c5103)
+
 ### v4.11.1
 *  Added defaultMenuISOpen prop (#306) [View](https://github.com/sanusart/react-dropdown-select/commit/2b00a86224a13064597646acd7e3bec6f22b81b0)
 
