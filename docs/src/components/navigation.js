@@ -8,11 +8,11 @@ const Navigation = () => (
       Home
     </Link>
 
-    <Link className="m1" to="api">
+    <Link className="m1" to="/api">
       API
     </Link>
 
-    <Link to="examples" className="m1">
+    <Link to="/examples" className="m1">
       Examples
     </Link>
 
