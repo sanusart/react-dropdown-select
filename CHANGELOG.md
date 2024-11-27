@@ -1,4 +1,8 @@
 ### v4.11.3
+* FIX (types): clearAllLabel missing in types (#322) [View](https://github.com/sanusart/react-dropdown-select/pull/322/commits/9aa7c8d683a0fde367e96f1ecf8022065b0656eb)
+
+
+### v4.11.3
 *  fix release action [View](https://github.com/sanusart/react-dropdown-select/commit/f313cc0870d835972d1c5989ef2dd6336e64691d)
 *  update packages [View](https://github.com/sanusart/react-dropdown-select/commit/d06abcabf83910a021e82b48c1464cdf79bab3c0)
 *  update packages [View](https://github.com/sanusart/react-dropdown-select/commit/befd7345404d0a8bc0df397d6a572db6fd476bf2)
