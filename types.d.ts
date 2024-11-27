@@ -119,11 +119,12 @@ declare module 'react-dropdown-select' {
     name?: string;
     required?: boolean;
     pattern?: string;
-    defaultMenuIsOpen?: boolean; 
+    defaultMenuIsOpen?: boolean;
     onChange: (value: T[]) => void;
     onDropdownOpen?: () => void;
     onDropdownClose?: () => void;
     onClearAll?: () => void;
+		clearAllLabel?: string;
     onSelectAll?: () => void;
     onCreateNew?: (item: T) => void;
     onDropdownCloseRequest?: ({
