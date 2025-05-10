@@ -1,5 +1,8 @@
 export const valueExistInSelected = (value, values, props) =>
-  !!values.find((val) => getByPath(val, props['valueField']) === value || getByPath(val, props['labelField']) === value);
+  !!values.find(
+    (val) =>
+      getByPath(val, props['valueField']) === value || getByPath(val, props['labelField']) === value
+  );
 
 export const hexToRGBA = (hex, alpha) => {
   if (hex.length === 4) {
@@ -30,11 +33,21 @@ export const debounce = (fn, delay = 0) => {
 export const isEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
 export const getByPath = (object, path) => {
-  if (!path) {
-    return;
+  if (!path || !object) {
+    return object;
   }
 
-  return path.split('.').reduce((acc, value) => acc[value], object);
+  try {
+    return path.split('.').reduce((acc, value) => {
+      if (acc === null || acc === undefined) {
+        return undefined;
+      }
+      return acc[value];
+    }, object);
+    // eslint-disable-next-line no-unused-vars
+  } catch (e) {
+    return undefined;
+  }
 };
 
 export const getProp = (object, path, defaultValue) => {

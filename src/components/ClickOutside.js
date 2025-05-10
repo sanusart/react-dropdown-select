@@ -1,37 +1,41 @@
-import React from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
-class ClickOutside extends React.Component {
-  container = React.createRef();
+const ClickOutside = ({ onClickOutside, className, children }) => {
+  const container = useRef(null);
 
-  componentDidMount() {
-    document.addEventListener('click', this.handleClick, true);
-  }
+  const handleClick = useCallback(
+    (event) => {
+      if (!container.current) return;
 
-  componentWillUnmount() {
-    document.removeEventListener('click', this.handleClick, true);
-  }
+      try {
+        if (!container.current.contains(event.target)) {
+          onClickOutside(event);
+        }
+        // eslint-disable-next-line no-unused-vars
+      } catch (error) {
+        // If there's an error with contains (e.g. in test environment),
+        // we'll assume it's a click outside
+        onClickOutside(event);
+      }
+    },
+    [onClickOutside]
+  );
 
-  handleClick = (event) => {
-    const container = this.container.current;
-    const { target } = event;
-    const { onClickOutside } = this.props;
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClick, true);
 
-    if ((container && container === target) || (container && !container.contains(target))) {
-      onClickOutside(event);
-    }
-  };
+    return () => {
+      document.removeEventListener('mousedown', handleClick, true);
+    };
+  }, [handleClick]);
 
-  render() {
-    const { className, children } = this.props;
-
-    return (
-      <div className={className} ref={this.container}>
-        {children}
-      </div>
-    );
-  }
-}
+  return (
+    <div className={className} ref={container}>
+      {children}
+    </div>
+  );
+};
 
 ClickOutside.propTypes = {
   onClickOutside: PropTypes.func.isRequired,

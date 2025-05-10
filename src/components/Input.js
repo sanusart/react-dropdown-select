@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import { valueExistInSelected } from '../util';
 import * as PropTypes from 'prop-types';
@@ -24,70 +24,65 @@ const handlePlaceHolder = (props, state) => {
   return '';
 };
 
-class Input extends Component {
-  input = React.createRef();
+const Input = ({ props, state, methods }) => {
+  const input = useRef();
 
-  componentDidUpdate(prevProps) {
-    if (
-      this.props.state.dropdown || (prevProps.state.dropdown !== this.props.state.dropdown && this.props.state.dropdown) ||
-      this.props.props.autoFocus
-    ) {
-      this.input.current.focus();
+  useEffect(() => {
+    if ((state.dropdown || props.autoFocus) && input.current) {
+      input.current.focus();
     }
+  }, [state.dropdown, props.autoFocus]);
 
-    if (prevProps.state.dropdown !== this.props.state.dropdown && !this.props.state.dropdown) {
-       this.input.current.blur();
+  useEffect(() => {
+    if (!state.dropdown && input.current) {
+      input.current.blur();
     }
-  }
+  }, [state.dropdown]);
 
-  onBlur = (event) => {
+  const onBlur = (event) => {
     event.stopPropagation();
-    if (!this.props.state.dropdown) {
-      return this.input.current.blur();
+    if (!state.dropdown && input.current) {
+      return input.current.blur();
     }
 
-    return this.input.current.focus();
+    if (input.current) {
+      return input.current.focus();
+    }
   };
 
-  handleKeyPress = (event) => {
-    const { props, state, methods } = this.props;
-
+  const handleKeyPress = (event) => {
     return (
       props.create &&
       event.key === 'Enter' &&
-      !valueExistInSelected(state.search, [...state.values, ...props.options], this.props) &&
+      !valueExistInSelected(state.search, [...state.values, ...props.options], props) &&
       state.search &&
       state.cursor === null &&
       methods.createNew(state.search)
     );
   };
 
-  render() {
-    const { props, state, methods } = this.props;
-
-    if (props.inputRenderer) {
-      return props.inputRenderer({ props, state, methods, inputRef: this.input });
-    }
-
-    return (
-      <InputComponent
-        ref={this.input}
-        tabIndex="-1"
-        onFocus={(event) => event.stopPropagation()}
-        className={`${LIB_NAME}-input`}
-        size={methods.getInputSize()}
-        value={state.search}
-        readOnly={!props.searchable}
-        onClick={() => methods.dropDown('open')}
-        onKeyPress={this.handleKeyPress}
-        onChange={methods.setSearch}
-        onBlur={this.onBlur}
-        placeholder={handlePlaceHolder(props, state)}
-        disabled={props.disabled}
-      />
-    );
+  if (props.inputRenderer) {
+    return props.inputRenderer({ props, state, methods, inputRef: input });
   }
-}
+
+  return (
+    <InputComponent
+      ref={input}
+      tabIndex="-1"
+      onFocus={(event) => event.stopPropagation()}
+      className={`${LIB_NAME}-input`}
+      size={methods.getInputSize()}
+      value={state.search}
+      readOnly={!props.searchable}
+      onClick={() => methods.dropDown('open')}
+      onKeyPress={handleKeyPress}
+      onChange={methods.setSearch}
+      onBlur={onBlur}
+      placeholder={handlePlaceHolder(props, state)}
+      disabled={props.disabled}
+    />
+  );
+};
 
 Input.propTypes = {
   props: PropTypes.object,
