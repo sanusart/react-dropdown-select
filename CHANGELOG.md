@@ -1,3 +1,6 @@
+### v4.12.0
+*  fix(callbacks): add onSelect and onDeselect callbacks that will indicate user triggered values change as appose to onChange - firing upon any values changes even internal [View](https://github.com/sanusart/react-dropdown-select/commit/a35c74619f8f6bce08071ab44ca7b409587a64c7)
+
 ### v4.11.3
 * FIX (types): clearAllLabel missing in types (#322) [View](https://github.com/sanusart/react-dropdown-select/pull/322/commits/9aa7c8d683a0fde367e96f1ecf8022065b0656eb)
 
