@@ -224,11 +224,13 @@ export class Select extends Component {
       this.setState({
         values: [...this.state.values, item]
       });
+      this.props.onSelect([...this.state.values, item]);
     } else {
       this.setState({
         values: [item],
         dropdown: false
       });
+      this.props.onSelect([item]);
     }
 
     this.props.clearOnSelect &&
@@ -246,12 +248,14 @@ export class Select extends Component {
       this.dropDown('close');
     }
 
+    const values = this.state.values.filter(
+      (values) =>
+        getByPath(values, this.props.valueField) !== getByPath(item, this.props.valueField)
+    );
     this.setState({
-      values: this.state.values.filter(
-        (values) =>
-          getByPath(values, this.props.valueField) !== getByPath(item, this.props.valueField)
-      )
+      values
     });
+    this.props.onDeselect(values)
   };
 
   setSearch = (event) => {
@@ -552,6 +556,8 @@ Select.defaultProps = {
   name: null,
   noDataLabel: 'No data',
   onChange: () => undefined,
+  onSelect: () => undefined,
+  onDeselect: () => undefined,
   onClearAll: () => undefined,
   onCreateNew: () => undefined,
   onDropdownClose: () => undefined,
