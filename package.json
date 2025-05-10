@@ -24,7 +24,9 @@
     "release:minor": "npm version minor -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
     "release:major": "npm version major -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prettier": "prettier --write \"./src/**/*.{js,jsx,json,css,scss,md}\"",
+    "eslint": "eslint ./src --ext .js,.jsx"
   },
   "repository": {
     "type": "git",
@@ -57,6 +59,7 @@
   "devDependencies": {
     "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
+    "@babel/eslint-parser": "^7.27.1",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
     "@babel/plugin-syntax-dynamic-import": "^7.7.4",
@@ -64,6 +67,10 @@
     "@babel/preset-react": "^7.7.4",
     "@emotion/babel-plugin": "11.11.0",
     "@emotion/jest": "11.11.0",
+    "@eslint/css": "^0.7.0",
+    "@eslint/js": "^9.26.0",
+    "@eslint/json": "^0.12.0",
+    "@eslint/markdown": "^6.4.0",
     "@storybook/addon-docs": "7.1.1",
     "@storybook/addon-essentials": "7.1.1",
     "@storybook/addon-interactions": "7.1.1",
@@ -72,6 +79,9 @@
     "@storybook/react": "7.1.1",
     "@storybook/react-webpack5": "7.1.1",
     "@storybook/testing-library": "^0.2.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^13.5.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^25.3.0",
     "babel-loader": "^8.0.6",
@@ -81,9 +91,16 @@
     "bundlesize": "1.0.0-beta.2",
     "coveralls": "^3.0.9",
     "css-loader": "^6.7.3",
+    "eslint": "^9.26.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.4.0",
+    "eslint-plugin-react": "^7.37.5",
     "gh-pages": "^2.2.0",
+    "globals": "^16.1.0",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^3.1.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "29.6.2",
     "jest-environment-jsdom": "29.6.2",
     "prettier": "1.18.2",
@@ -103,6 +120,13 @@
     "@emotion/styled": "11.11.0"
   },
   "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ],
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    },
     "snapshotSerializers": [
       "@emotion/jest/serializer"
     ],
@@ -136,7 +160,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "npm test"
+      "pre-commit": "npm run prettier && npm run eslint && npm test"
     }
   }
 }

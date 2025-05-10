@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Option from './Option';
 import Input from './Input';
 import { LIB_NAME } from '../constants';
-import {getByPath} from '../util';
+import { getByPath } from '../util';
 import SelectPropsModel from '../models/SelectPropsModel';
 import SelectMethodsModel from '../models/SelectMethodsModel';
 import SelectStateModel from '../models/SelectStateModel';
@@ -40,7 +40,9 @@ const Content = ({ props, state, methods }) => {
                 />
               ))
             : state.values &&
-              state.values.length > 0 && <span>{getByPath(state.values[0], props.labelField)}</span>}
+              state.values.length > 0 && (
+                <span>{getByPath(state.values[0], props.labelField)}</span>
+              )}
           <Input props={props} methods={methods} state={state} />
         </React.Fragment>
       )}
@@ -51,7 +53,7 @@ const Content = ({ props, state, methods }) => {
 Content.propTypes = {
   props: PropTypes.shape(SelectPropsModel),
   state: PropTypes.shape(SelectStateModel),
-  methods: PropTypes.shape(SelectMethodsModel),
+  methods: PropTypes.shape(SelectMethodsModel)
 };
 const ContentComponent = styled.div`
   display: flex;

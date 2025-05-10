@@ -1,0 +1,7 @@
+engines:
+  eslint:
+    enabled: true
+  prettier:
+    enabled: true
+exclude_paths:
+  - "**/*.md"
