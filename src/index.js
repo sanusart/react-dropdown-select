@@ -494,6 +494,7 @@ export class Select extends Component {
                 this.state.values.map((value) => value[this.props.labelField]).toString() || []
               }
               disabled={this.props.disabled}
+              {...this.props.inputProps}
             />
           )}
 
