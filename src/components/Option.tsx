@@ -1,9 +1,34 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import {getByPath} from '../util';
+import { getByPath } from '../util';
 import { LIB_NAME } from '../constants';
 
-const Option = ({ item, props, state, methods }) =>
+interface Props {
+  item: Record<string, any>;
+  props: {
+    optionRenderer?: (args: {
+      item: Record<string, any>;
+      props: Props['props'];
+      state: any;
+      methods: any;
+    }) => React.ReactNode;
+    disabled?: boolean;
+    direction?: 'ltr' | 'rtl';
+    labelField: string;
+    color?: string;
+    closeOnSelect?: boolean;
+  };
+  state: any;
+  methods: {
+    removeItem: (
+      event: React.MouseEvent,
+      item: Record<string, any>,
+      closeOnSelect?: boolean
+    ) => void;
+  };
+}
+
+const Option: React.FC<Props> = ({ item, props, state, methods }) =>
   item && props.optionRenderer ? (
     props.optionRenderer({ item, props, state, methods })
   ) : (
@@ -22,7 +47,7 @@ const Option = ({ item, props, state, methods }) =>
     </OptionComponent>
   );
 
-const OptionComponent = styled.span`
+const OptionComponent = styled.span<{ color?: string; direction?: 'ltr' | 'rtl' }>`
   padding: 0 5px;
   border-radius: 2px;
   line-height: 21px;
@@ -30,8 +55,7 @@ const OptionComponent = styled.span`
   background: ${({ color }) => color};
   color: #fff;
   display: flex;
-  flex-direction: ${({ direction }) => direction === 'rtl' ? 'row-reverse' : 'row'};
-  
+  flex-direction: ${({ direction }) => (direction === 'rtl' ? 'row-reverse' : 'row')};
 
   .${LIB_NAME}-option-remove {
     cursor: pointer;
@@ -39,7 +63,7 @@ const OptionComponent = styled.span`
     height: 22px;
     display: inline-block;
     text-align: center;
-    margin: 0 -5px 0 0px;
+    margin: 0 -5px 0 0;
     border-radius: 0 3px 3px 0;
 
     :hover {

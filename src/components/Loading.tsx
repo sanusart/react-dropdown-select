@@ -2,14 +2,22 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { LIB_NAME } from '../constants';
 
-const Loading = ({ props }) =>
+interface Props {
+  props: {
+    loadingRenderer?: (args: { props: Props['props'] }) => React.ReactNode;
+    color?: string;
+  };
+  color?: string | undefined;
+}
+
+const Loading: React.FC<Props> = ({ props, color }) =>
   props.loadingRenderer ? (
     props.loadingRenderer({ props })
   ) : (
-    <LoadingComponent className={`${LIB_NAME}-loading`} color={props.color} />
+    <LoadingComponent className={`${LIB_NAME}-loading`} color={color} />
   );
 
-const LoadingComponent = styled.div`
+const LoadingComponent = styled.div<{ color?: string }>`
   @keyframes dual-ring-spin {
     0% {
       transform: rotate(0deg);

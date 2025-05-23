@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["DOM", "ESNext"],
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "emitDeclarationOnly": true,
+    "moduleResolution": "Node",
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "baseUrl": "./src",
+    "outDir": "dist"
+  },
+  "include": ["src/**/*", "type.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}

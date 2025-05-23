@@ -2,7 +2,19 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { LIB_NAME } from '../constants';
 
-const Separator = ({ props, state, methods }) =>
+interface SeparatorProps {
+  props: {
+    separatorRenderer?: (args: {
+      props: SeparatorProps['props'];
+      state: any;
+      methods: any;
+    }) => React.ReactNode;
+  };
+  state: any;
+  methods: any;
+}
+
+const Separator: React.FC<SeparatorProps> = ({ props, state, methods }) =>
   props.separatorRenderer ? (
     props.separatorRenderer({ props, state, methods })
   ) : (

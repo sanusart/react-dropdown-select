@@ -3,6 +3,7 @@ declare module 'react-dropdown-select' {
     ChangeEvent,
     CSSProperties,
     HTMLAttributes,
+    JSX,
     KeyboardEvent,
     MouseEvent,
     PropsWithRef,
@@ -126,7 +127,7 @@ declare module 'react-dropdown-select' {
     onDropdownOpen?: () => void;
     onDropdownClose?: () => void;
     onClearAll?: () => void;
-		clearAllLabel?: string;
+    clearAllLabel?: string;
     onSelectAll?: () => void;
     onCreateNew?: (item: T) => void;
     onDropdownCloseRequest?: ({

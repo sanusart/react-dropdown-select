@@ -1,28 +1,50 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import styled from '@emotion/styled';
 import { hexToRGBA, getByPath } from '../util';
-import * as PropTypes from 'prop-types';
 import { LIB_NAME } from '../constants';
 
-class Item extends Component {
-  item = React.createRef();
+interface ItemProps<T = any> {
+  props: {
+    multi: boolean;
+    keepSelectedInList: boolean;
+    itemRenderer?: (args: {
+      item: T;
+      itemIndex: number;
+      props: any;
+      state: any;
+      methods: any;
+    }) => React.ReactNode;
+    labelField: string;
+    valueField: string;
+    disabledLabel?: string;
+    color?: string;
+  };
+  state: {
+    cursor: number;
+  };
+  methods: {
+    isSelected: (item: T) => boolean;
+    addItem: (item: T) => void;
+  };
+  item: T & { disabled?: boolean };
+  itemIndex: number;
+}
+
+class Item<T = any> extends Component<ItemProps<T>> {
+  item: React.RefObject<HTMLSpanElement | null> = createRef();
 
   componentDidMount() {
-    const { props, methods } = this.props;
+    const { props, methods, item } = this.props;
 
-    if (
-      this.item.current &&
-      !props.multi &&
-      props.keepSelectedInList &&
-      methods.isSelected(this.props.item)
-    )
+    if (this.item.current && !props.multi && props.keepSelectedInList && methods.isSelected(item)) {
       this.item.current.scrollIntoView({ block: 'nearest', inline: 'start' });
+    }
   }
 
   componentDidUpdate() {
-    if (this.props.state.cursor === this.props.itemIndex) {
-      this.item.current &&
-        this.item.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    const { state, itemIndex } = this.props;
+    if (this.item.current && state.cursor === itemIndex) {
+      this.item.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     }
   }
 
@@ -37,21 +59,20 @@ class Item extends Component {
       return null;
     }
 
+    const isSelected = methods.isSelected(item);
+
     return (
       <ItemComponent
         role="option"
         ref={this.item}
-        aria-selected={methods.isSelected(item)}
+        aria-selected={isSelected}
         aria-disabled={item.disabled}
         aria-label={getByPath(item, props.labelField)}
         disabled={item.disabled}
-        key={`${getByPath(item, props.valueField)}${getByPath(item, props.labelField)}`}
-        tabIndex="-1"
-        className={`${LIB_NAME}-item ${
-          methods.isSelected(item) ? `${LIB_NAME}-item-selected` : ''
-        } ${state.cursor === itemIndex ? `${LIB_NAME}-item-active` : ''} ${
-          item.disabled ? `${LIB_NAME}-item-disabled` : ''
-        }`}
+        tabIndex={-1}
+        className={`${LIB_NAME}-item ${isSelected ? `${LIB_NAME}-item-selected` : ''} ${
+          state.cursor === itemIndex ? `${LIB_NAME}-item-active` : ''
+        } ${item.disabled ? `${LIB_NAME}-item-disabled` : ''}`}
         onClick={item.disabled ? undefined : () => methods.addItem(item)}
         onKeyPress={item.disabled ? undefined : () => methods.addItem(item)}
         color={props.color}>
@@ -61,15 +82,7 @@ class Item extends Component {
   }
 }
 
-Item.propTypes = {
-  props: PropTypes.any,
-  state: PropTypes.any,
-  methods: PropTypes.any,
-  item: PropTypes.any,
-  itemIndex: PropTypes.any
-};
-
-const ItemComponent = styled.span`
+const ItemComponent = styled.span<{ color?: string; disabled?: boolean }>`
   padding: 5px 10px;
   cursor: pointer;
   border-bottom: 1px solid #fff;
