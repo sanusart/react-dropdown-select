@@ -1,3 +1,6 @@
+### v4.12.1
+*  feat: easier to add input props to the input instead of creating whole input renderer (#327) [View](https://github.com/sanusart/react-dropdown-select/commit/71b8d53e093b766370d9e27402acbadc0361f1ed)
+
 ### v4.12.0
 *  fix(callbacks): add onSelect and onDeselect callbacks that will indicate user triggered values change as appose to onChange - firing upon any values changes even internal [View](https://github.com/sanusart/react-dropdown-select/commit/a35c74619f8f6bce08071ab44ca7b409587a64c7)
 
