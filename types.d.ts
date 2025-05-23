@@ -126,7 +126,7 @@ declare module 'react-dropdown-select' {
     onDropdownOpen?: () => void;
     onDropdownClose?: () => void;
     onClearAll?: () => void;
-		clearAllLabel?: string;
+    clearAllLabel?: string;
     onSelectAll?: () => void;
     onCreateNew?: (item: T) => void;
     onDropdownCloseRequest?: ({
@@ -164,6 +164,7 @@ declare module 'react-dropdown-select' {
     wrapperClassName?: string;
     selectAll?: boolean;
     selectAllLabel?: string;
+    inputProps?: HTMLAttributes<HTMLInputElement>;
   }
 
   export interface DropDownProps {

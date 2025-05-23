@@ -50,6 +50,7 @@ title: 'API'
 | selectAllLabel                                                                              | string      | "Select all"   | Label for "Select all"                                                                                                                 |
 | clearAllLabel                                                                               | string      | "Clear all"    | Label for "Clear all"                                                                                                                  |
 | additionalProps                                                                             | object      | null           | Additional props to pass to Select                                                                                                     |
+| inputProps                                                                                  | object      | null           | Additional props to pass to internal input                                                                                             |
 
 ## Callback props
 

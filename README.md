@@ -38,14 +38,14 @@ and use as:
 
 ```jsx
 const options = [
-  {
-    value: 1,
-    label: 'Leanne Graham'
-  },
-  {
-    value: 2,
-    label: 'Ervin Howell'
-  }
+	{
+		value: 1,
+		label: 'Leanne Graham'
+	},
+	{
+		value: 2,
+		label: 'Ervin Howell'
+	}
 ];
 
 <Select options={options} onChange={(values) => this.setValues(values)} />;
@@ -55,21 +55,21 @@ If your options don't have **value** and **label** fields, include **labelField*
 
 ```jsx
 const options = [
-  {
-    id: 1,
-    name: 'Leanne Graham'
-  },
-  {
-    id: 2,
-    name: 'Ervin Howell'
-  }
+	{
+		id: 1,
+		name: 'Leanne Graham'
+	},
+	{
+		id: 2,
+		name: 'Ervin Howell'
+	}
 ];
 
 <Select
-  options={options}
-  labelField="name"
-  valueField="id"
-  onChange={(values) => this.setValues(values)}
+	options={options}
+	labelField="name"
+	valueField="id"
+	onChange={(values) => this.setValues(values)}
 />;
 ```
 
@@ -93,7 +93,7 @@ const options = [
 ### Component props
 
 | Prop                                                                                        | Type        | Default        | Description                                                                                                                            |
-| ------------------------------------------------------------------------------------------- | ----------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+|---------------------------------------------------------------------------------------------|-------------|----------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | values                                                                                      | array       | []             | Selected values                                                                                                                        |
 | options                                                                                     | array       | []             | Available options, (option with key `disabled: true` will be disabled)                                                                 |
 | keepOpen                                                                                    | bool        | false          | If true, dropdown will always stay open (good for debugging)                                                                           |
@@ -137,13 +137,14 @@ const options = [
 | selectAllLabel                                                                              | string      | "Select all"   | Label for "Select all"                                                                                                                 |
 | clearAllLabel                                                                               | string      | "Clear all"    | Label for "Clear all"                                                                                                                  |
 | additionalProps                                                                             | object      | null           | Additional props to pass to Select                                                                                                     |
+| inputProps                                                                                  | object      | null           | Additional props to pass to internal input                                                                                             |
 
 ### Callback props
 
 > by using renderer props to override components some of the functionality will have to be handled manually with a help of internal props, states and methods exposed
 
 | Prop                                                                                                     | Type | Default   | Description                                                                                    |
-|----------------------------------------------------------------------------------------------------------| ---- | --------- |------------------------------------------------------------------------------------------------|
+|----------------------------------------------------------------------------------------------------------|------|-----------|------------------------------------------------------------------------------------------------|
 | onChange                                                                                                 | func |           | On values change **(user and internally triggered)** callback, returns array of values objects |
 | onSelect                                                                                                 | func |           | On values change (user triggered) callback, returns array of values objects                    |
 | onDeselect                                                                                               | func |           | On values change (user triggered) callback, returns array of values objects                    |
