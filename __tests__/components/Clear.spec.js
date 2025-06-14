@@ -2,51 +2,128 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import TestRenderer from 'react-test-renderer';
-
+import { render, fireEvent, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Clear from '../../src/components/Clear';
-import { options } from '../options';
 
-let spy;
-
-const props = (props = {}) => ({
+const mockProps = (customProps = {}) => ({
   props: {
-    clearRenderer: null
+    clearRenderer: null,
+    ...customProps.props
+  },
+  state: {
+    values: [],
+    ...customProps.state
   },
   methods: {
-    clearAll: () => undefined
-  },
-  ...props
+    clearAll: jest.fn(),
+    ...customProps.methods
+  }
 });
 
-describe('<Clear/> component', () => {
-  beforeEach(() => {
-    spy = jest.fn();
+describe('Clear Component', () => {
+  it('renders correctly', () => {
+    const { container } = render(<Clear {...mockProps()} />);
+    expect(container.querySelector('.react-dropdown-select-clear')).toBeInTheDocument();
   });
 
-  afterEach(() => {
-    spy = null;
+  it('calls clearAll method on click', () => {
+    const clearAll = jest.fn();
+    const props = mockProps({
+      methods: {
+        clearAll
+      }
+    });
+    const { container } = render(<Clear {...props} />);
+    const clearButton = container.querySelector('.react-dropdown-select-clear');
+    fireEvent.click(clearButton);
+    expect(clearAll).toHaveBeenCalled();
   });
 
-  it('<Clear/> renders correctly', () => {
-    const tree = TestRenderer.create(<Clear {...props()} />).toJSON();
-
-    expect(tree).toMatchSnapshot();
+  it('calls clearAll method on keypress', () => {
+    const clearAll = jest.fn();
+    const props = mockProps({
+      methods: {
+        clearAll
+      }
+    });
+    const { container } = render(<Clear {...props} />);
+    const clearButton = container.querySelector('.react-dropdown-select-clear');
+    fireEvent.keyPress(clearButton, { key: 'Enter', code: 'Enter', charCode: 13 });
+    expect(clearAll).toHaveBeenCalled();
   });
 
-  it('onClick clears all', () => {
-    TestRenderer.create(<Clear {...props({ parentItem: options[0] })} onClick={spy} />)
-      .root.findByProps({ className: 'react-dropdown-select-clear' })
-      .props.onClick();
-
-    expect(spy).toHaveBeenCalled;
+  it('uses custom clearRenderer when provided', () => {
+    const customRenderer = jest.fn(() => <div data-testid="custom-clear">Custom Clear</div>);
+    const props = mockProps({
+      props: {
+        clearRenderer: customRenderer
+      }
+    });
+    render(<Clear {...props} />);
+    expect(screen.getByTestId('custom-clear')).toBeInTheDocument();
+    expect(customRenderer).toHaveBeenCalled();
   });
 
-  it('onKeyPress clears all', () => {
-    TestRenderer.create(<Clear {...props({ parentItem: options[0] })} onKeyPress={spy} />)
-      .root.findByProps({ className: 'react-dropdown-select-clear' })
-      .props.onKeyPress();
+  it('passes correct props to custom clearRenderer', () => {
+    const customRenderer = jest.fn(() => <div>Custom Clear</div>);
+    const props = mockProps({
+      props: {
+        clearRenderer: customRenderer
+      }
+    });
+    render(<Clear {...props} />);
+    expect(customRenderer).toHaveBeenCalledWith(
+      expect.objectContaining({
+        props: expect.any(Object),
+        state: expect.any(Object),
+        methods: expect.any(Object)
+      })
+    );
+  });
 
-    expect(spy).toHaveBeenCalled;
+  it('has correct tab index for accessibility', () => {
+    const { container } = render(<Clear {...mockProps()} />);
+    const clearButton = container.querySelector('.react-dropdown-select-clear');
+    expect(clearButton).toHaveAttribute('tabIndex', '-1');
+  });
+
+  it('handles multiple click events correctly', () => {
+    const clearAll = jest.fn();
+    const props = mockProps({
+      methods: {
+        clearAll
+      }
+    });
+    const { container } = render(<Clear {...props} />);
+    const clearButton = container.querySelector('.react-dropdown-select-clear');
+
+    fireEvent.click(clearButton);
+    fireEvent.click(clearButton);
+    fireEvent.click(clearButton);
+
+    expect(clearAll).toHaveBeenCalledTimes(3);
+  });
+
+  it('handles multiple keypress events correctly', () => {
+    const clearAll = jest.fn();
+    const props = mockProps({
+      methods: {
+        clearAll
+      }
+    });
+    const { container } = render(<Clear {...props} />);
+    const clearButton = container.querySelector('.react-dropdown-select-clear');
+
+    fireEvent.keyPress(clearButton, { key: 'Enter', code: 'Enter', charCode: 13 });
+    fireEvent.keyPress(clearButton, { key: 'Enter', code: 'Enter', charCode: 13 });
+
+    expect(clearAll).toHaveBeenCalledTimes(2);
+  });
+
+  it('renders with correct content', () => {
+    const { container } = render(<Clear {...mockProps()} />);
+    const clearButton = container.querySelector('.react-dropdown-select-clear');
+    expect(clearButton).toHaveTextContent('×');
   });
 });

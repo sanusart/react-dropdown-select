@@ -69,7 +69,7 @@ const SelectMethodsModel = Object.freeze({
   /**
    * Toggle select all
    */
-  toggleSelectAll: PropTypes.func.isRequired,
+  toggleSelectAll: PropTypes.func.isRequired
 });
 
 export default SelectMethodsModel;

@@ -24,7 +24,7 @@ const SelectStateModel = Object.freeze({
   /**
    * Array of search results
    */
-  searchResults: PropTypes.arrayOf(PropTypes.shape({})),
+  searchResults: PropTypes.arrayOf(PropTypes.shape({}))
 });
 
 export default SelectStateModel;

@@ -2,8 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import { LIB_NAME } from '../constants';
-import NoData from '../components/NoData';
-import Item from '../components/Item';
+import NoData from './NoData';
+import Item from './Item';
 
 import { valueExistInSelected, hexToRGBA, isomorphicWindow } from '../util';
 
@@ -62,7 +62,7 @@ const Dropdown = ({ props, state, methods }) => (
         ) : (
           state.searchResults.map((item, itemIndex) => (
             <Item
-              key={item[props.valueField].toString()}
+              key={`${item[props.valueField]?.toString() || itemIndex}`}
               item={item}
               itemIndex={itemIndex}
               state={state}
@@ -119,7 +119,6 @@ const DropDown = styled.div`
   :focus {
     outline: none;
   }
-}
 `;
 
 const AddNew = styled.div`

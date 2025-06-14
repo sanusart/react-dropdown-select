@@ -60,12 +60,14 @@ export class Select extends Component {
 
     this.select = React.createRef();
     this.dropdownRoot = typeof document !== 'undefined' && document.createElement('div');
+    this.debouncedUpdateSelectBounds = debounce(this.updateSelectBounds, this.props.debounceDelay);
+    this.debouncedOnScroll = debounce(this.onScroll, this.props.debounceDelay);
   }
 
   componentDidMount() {
     this.props.portal && this.props.portal.appendChild(this.dropdownRoot);
-    isomorphicWindow().addEventListener('resize', debounce(this.updateSelectBounds));
-    isomorphicWindow().addEventListener('scroll', debounce(this.onScroll));
+    isomorphicWindow().addEventListener('resize', this.debouncedUpdateSelectBounds);
+    isomorphicWindow().addEventListener('scroll', this.debouncedOnScroll);
 
     this.dropDown('close');
 
@@ -125,14 +127,8 @@ export class Select extends Component {
 
   componentWillUnmount() {
     this.props.portal && this.props.portal.removeChild(this.dropdownRoot);
-    isomorphicWindow().removeEventListener(
-      'resize',
-      debounce(this.updateSelectBounds, this.props.debounceDelay)
-    );
-    isomorphicWindow().removeEventListener(
-      'scroll',
-      debounce(this.onScroll, this.props.debounceDelay)
-    );
+    isomorphicWindow().removeEventListener('resize', this.debouncedUpdateSelectBounds);
+    isomorphicWindow().removeEventListener('scroll', this.debouncedOnScroll);
   }
 
   onDropdownClose = () => {
@@ -141,8 +137,8 @@ export class Select extends Component {
   };
 
   onScroll = () => {
-    if (this.props.closeOnScroll) {
-      this.dropDown('close');
+    if (this.props.closeOnScroll && this.state.dropdown) {
+      this.dropDown('close', null, false);
     }
 
     this.updateSelectBounds();
@@ -200,12 +196,20 @@ export class Select extends Component {
     }
 
     if (action === 'open' && !this.state.dropdown) {
-      return this.setState({ dropdown: true });
+      this.select.current.focus();
+      return this.setState({ dropdown: true }, () => {
+        this.updateSelectBounds();
+      });
     }
 
     if (action === 'toggle') {
       this.select.current.focus();
-      return this.setState({ dropdown: !this.state.dropdown });
+      return this.setState(
+        (prevState) => ({ dropdown: !prevState.dropdown }),
+        () => {
+          this.updateSelectBounds();
+        }
+      );
     }
 
     return false;
@@ -255,7 +259,7 @@ export class Select extends Component {
     this.setState({
       values
     });
-    this.props.onDeselect(values)
+    this.props.onDeselect(values);
   };
 
   setSearch = (event) => {
@@ -473,6 +477,7 @@ export class Select extends Component {
           aria-label="Dropdown select"
           aria-expanded={this.state.dropdown}
           onClick={(event) => this.dropDown('open', event)}
+          onMouseDown={(event) => this.dropDown('open', event)}
           tabIndex={this.props.disabled ? '-1' : '0'}
           direction={this.props.direction}
           style={this.props.style}
@@ -594,16 +599,16 @@ const ReactDropdownSelect = styled.div`
   align-items: center;
   cursor: pointer;
   min-height: 36px;
-
   ${({ disabled }) =>
-    disabled ? 'cursor: not-allowed;pointer-events: none;opacity: 0.3;' : 'pointer-events: all;'}
-  :hover,
-  :focus-within {
+    disabled ? 'cursor: not-allowed; pointer-events: none; opacity: 0.3;' : 'pointer-events: all;'}
+
+  &:hover,
+  &:focus-within {
     border-color: ${({ color }) => color};
   }
 
-  :focus,
-  :focus-within {
+  &:focus,
+  &:focus-within {
     outline: 0;
     box-shadow: 0 0 0 3px ${({ color }) => hexToRGBA(color, 0.2)};
   }
