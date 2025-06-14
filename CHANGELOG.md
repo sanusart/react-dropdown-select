@@ -1,3 +1,6 @@
+### v4.12.2
+*  fix(types): set onSelect and onDeselect optional [View](https://github.com/sanusart/react-dropdown-select/commit/1493a3d8419a16a0608b41a05cd47ff6c3af9390)
+
 ### v4.12.1
 *  feat: easier to add input props to the input instead of creating whole input renderer (#327) [View](https://github.com/sanusart/react-dropdown-select/commit/71b8d53e093b766370d9e27402acbadc0361f1ed)
 
