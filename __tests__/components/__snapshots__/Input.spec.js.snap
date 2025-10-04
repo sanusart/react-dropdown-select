@@ -23,7 +23,7 @@ exports[`<Input/> is disabled 1`] = `
   onKeyPress={[Function]}
   placeholder=""
   readOnly={false}
-  tabIndex="-1"
+  tabIndex={-1}
 />
 `;
 
@@ -50,6 +50,6 @@ exports[`<Input/> renders correctly 1`] = `
   onKeyPress={[Function]}
   placeholder=""
   readOnly={false}
-  tabIndex="-1"
+  tabIndex={-1}
 />
 `;

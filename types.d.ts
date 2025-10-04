@@ -22,13 +22,18 @@ declare module 'react-dropdown-select' {
     dropdown: boolean;
     values: T[];
     search: string;
-    selectBounds: object;
-    cursor: number;
+    selectBounds: DOMRect | {};
+    cursor: number | null;
   }
 
   export interface SelectMethods<T> {
-    removeItem: (event: MouseEvent<HTMLElement> | null, item: T, close: boolean) => void;
-    dropDown: (action: string, event?: MouseEvent<HTMLElement> | null) => void;
+    removeItem: (event: MouseEvent<HTMLElement> | null, item: T, close?: boolean) => void;
+    // Accept either mouse or keyboard React events (or null) for dropdown toggling
+    dropDown: (
+      action: string,
+      event?: MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement> | null,
+      force?: boolean,
+    ) => void;
     addItem: (item: T) => void;
     setSearch: (event: ChangeEvent<HTMLInputElement>) => void;
     getInputSize: () => number;
@@ -36,7 +41,7 @@ declare module 'react-dropdown-select' {
     clearAll: () => void;
     selectAll: (items?: T[]) => void;
     searchResults: () => T[];
-    getSelectRef: () => HTMLDivElement;
+    getSelectRef: () => HTMLDivElement | null;
     isSelected: (item: T) => boolean;
     getSelectBounds: () => {} | DOMRect;
     areAllSelected: () => boolean;
@@ -164,6 +169,8 @@ declare module 'react-dropdown-select' {
     wrapperClassName?: string;
     selectAll?: boolean;
     selectAllLabel?: string;
+    // compareValuesFunc compares arrays of values (previous/next), so accept arrays of T.
+    compareValuesFunc: (a: T[], b: T[]) => boolean;
   }
 
   export interface DropDownProps {

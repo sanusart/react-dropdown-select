@@ -15,16 +15,22 @@
     "test": "jest --bail",
     "test:watch": "jest --bail --watch",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "build": "webpack && npm run transpile",
+    "build:ts": "tsc",
+    "ts-check": "tsc --noEmit",
+    "build": "webpack && pnpm run transpile && pnpm run build:ts",
     "transpile": "babel src -d lib",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "pnpm run build",
     "version": "replace \"vPLACEHOLDER\" \"v$npm_package_version\" ./CHANGELOG.md && git add .",
     "preversion": "sh change-log-builder.sh",
-    "release:patch": "npm version patch -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
-    "release:minor": "npm version minor -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
-    "release:major": "npm version major -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
+    "release:patch": "pnpm version patch -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
+    "release:minor": "pnpm version minor -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
+    "release:major": "pnpm version major -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md}\""
   },
   "repository": {
     "type": "git",
@@ -72,6 +78,8 @@
     "@storybook/react": "7.1.1",
     "@storybook/react-webpack5": "7.1.1",
     "@storybook/testing-library": "^0.2.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^25.3.0",
     "babel-loader": "^8.0.6",
@@ -86,17 +94,26 @@
     "husky": "^3.1.0",
     "jest": "29.6.2",
     "jest-environment-jsdom": "29.6.2",
-    "prettier": "1.18.2",
-    "prop-types": "^15.7.2",
-    "react": "16.14.0",
-    "react-dom": "^16.12.0",
-    "react-test-renderer": "^16.12.0",
+    "prettier": "^2.8.8",
     "replace": "^1.2.0",
-    "storybook": "7.1.1",
     "style-loader": "^3.3.1",
+    "type-fest": "^4.41.0",
+    "typescript": "^5.9.3",
     "webpack": "5.88.1",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "4.15.1"
+    "webpack-dev-server": "4.15.1",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "@typescript-eslint/parser": "^6.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-test-renderer": "^18.2.0",
+    "@babel/preset-typescript": "^7.22.5"
   },
   "dependencies": {
     "@emotion/react": "11.11.0",
@@ -107,7 +124,7 @@
       "@emotion/jest/serializer"
     ],
     "transform": {
-      "^.+\\.(js)$": "babel-jest"
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
     },
     "testMatch": [
       "**/?(*.)+(spec|test).js?(x)"
@@ -136,7 +153,8 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "npm test"
+      "pre-commit": "pnpm ts-check && pnpm lint && pnpm test"
     }
-  }
+  },
+  "packageManager": "pnpm@9.0.0"
 }
