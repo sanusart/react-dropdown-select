@@ -124,7 +124,13 @@ declare module 'react-dropdown-select' {
     onSelect?: (value: T[]) => void;
     onDeselect?: (value: T[]) => void;
     onDropdownOpen?: () => void;
+    /**
+     * Callback when the dropdown is closed, allowing for custom logic.
+     */
     onDropdownClose?: () => void;
+    /**
+     * Callback when the "Clear All" button is clicked.
+     */
     onClearAll?: () => void;
     clearAllLabel?: string;
     onSelectAll?: () => void;

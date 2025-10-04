@@ -15,7 +15,19 @@ const config = {
     autodocs: true,
     defaultName: 'Documentation',
     story: { inline: true } // render the story in an iframe
-    // source: { type: 'code' } // forces the raw source code (rather than the rendered JSX).
+  },
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) => {
+        // Exclude props that are not relevant for the storybook
+        if (prop.parent) {
+          return !prop.parent.fileName.includes('node_modules');
+        }
+        return true;
+      }
+    }
   }
 };
 export default config;
