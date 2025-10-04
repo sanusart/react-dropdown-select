@@ -1,5 +1,0 @@
-{
-  "node": "16",
-  "buildCommand": "build",
-  "sandboxes": ["react-dropdown-select-nzto7"]
-}

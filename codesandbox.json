@@ -1,0 +1,7 @@
+{
+  "sandbox": {
+    "path": "./example",
+    "node": "23",
+    "startCommand": "npm start"
+  }
+}

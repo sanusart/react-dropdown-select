@@ -1,0 +1,12 @@
+node_modules/
+dist/
+lib/
+coverage/
+build/
+docs/
+public/
+*.min.js
+*.bundle.js
+.vscode/
+.idea/
+
