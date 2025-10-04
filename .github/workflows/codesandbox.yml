@@ -1,0 +1,22 @@
+name: CodeSandbox Preview for Forks
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Mirror fork branch
+        run: |
+          git fetch origin
+          git checkout ${{ github.event.pull_request.head.ref }}
+          git push origin HEAD:refs/heads/sandbox-preview/${{ github.event.pull_request.number }}
+      - name: Comment CodeSandbox Preview Link
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            🚀 Preview this PR on CodeSandbox:
+            https://codesandbox.io/p/github/${{ github.repository }}/tree/sandbox-preview/${{ github.event.pull_request.number }}
