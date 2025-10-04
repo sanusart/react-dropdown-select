@@ -2,12 +2,24 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { LIB_NAME } from '../constants';
 
-const Loading = ({ props }) =>
-  props.loadingRenderer ? (
-    props.loadingRenderer({ props })
-  ) : (
-    <LoadingComponent className={`${LIB_NAME}-loading`} color={props.color} />
-  );
+import { SelectItemRenderer, SelectProps } from '../../types';
+
+interface LoadingProps<T extends object | string = NonNullable<unknown>> {
+  props: SelectProps<T>;
+}
+
+function Loading<T extends object | string = NonNullable<unknown>>({
+  props,
+}: LoadingProps<T>): React.ReactNode {
+  if (props.loadingRenderer) {
+    return props.loadingRenderer({ props } as SelectItemRenderer<T>);
+  }
+
+  return React.createElement(LoadingComponent, {
+    className: `${LIB_NAME}-loading`,
+    color: props.color,
+  });
+}
 
 const LoadingComponent = styled.div`
   @keyframes dual-ring-spin {

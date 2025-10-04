@@ -1,0 +1,14 @@
+node_modules/
+dist/
+lib/
+coverage/
+build/
+public/
+*.min.js
+*.bundle.js
+.vscode/
+.idea/
+coverage/
+coverage/**/*
+coverage/*
+

@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: path.join(__dirname, 'src/index.js'),
+  entry: path.join(__dirname, 'src/index.tsx'),
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'react-dropdown-select.js',
@@ -36,7 +36,7 @@ module.exports = {
   mode: 'production',
   resolve: {
     modules: [path.resolve(__dirname, './src'), 'node_modules'],
-    extensions: ['.js']
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
   module: {
     rules: [

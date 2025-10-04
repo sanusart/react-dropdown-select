@@ -25,6 +25,7 @@
 				"loose": true
 			}
 		],
+		"@babel/preset-typescript",
 		"@babel/preset-react"
 	]
 }

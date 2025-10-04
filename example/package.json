@@ -1,0 +1,19 @@
+{
+  "name": "my-react-lib-demo",
+  "private": true,
+  "main": "src/index.js",
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-dropdown-select": "file:../"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "typescript": "^5.6.0"
+  }
+}
