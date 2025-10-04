@@ -1,0 +1,26 @@
+name: CodeSandbox Preview for Forks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write  # ✅ allows push access to your repo
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Mirror fork branch to main repo
+        run: |
+          git fetch origin
+          git checkout ${{ github.event.pull_request.head.ref }}
+          git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:refs/heads/sandbox-preview/${{ github.event.pull_request.number }}
+
+      - name: Print preview link
+        run: |
+          echo "🚀 Preview this PR on CodeSandbox:"
+          echo "https://codesandbox.io/p/github/${{ github.repository }}/tree/sandbox-preview/${{ github.event.pull_request.number }}/example"
+      

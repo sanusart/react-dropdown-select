@@ -42,31 +42,31 @@ export class Demo extends React.Component {
       closeOnClickInput: false,
       dropdownPosition: 'bottom',
       direction: 'ltr',
-      dropdownHeight: '300px'
+      dropdownHeight: '300px',
     };
   }
 
-  getObjectKeys = (obj) => {
+  getObjectKeys = obj => {
     const keyList = Object.keys(obj).map(k => {
-    const keys = [];
+      const keys = [];
 
-    if (typeof obj[k] !== 'string') {
-      Object.keys(obj[k]).forEach((f) => {
-        if (f === 'geo') return;
+      if (typeof obj[k] !== 'string') {
+        Object.keys(obj[k]).forEach(f => {
+          if (f === 'geo') return;
 
-        return keys.push(`${k}.${f}`);
-      });
-    } else {
-      keys.push(k);
-    }
+          return keys.push(`${k}.${f}`);
+        });
+      } else {
+        keys.push(k);
+      }
 
-    return keys;
-  });
+      return keys;
+    });
 
-  return [].concat.apply([], keyList)
+    return [].concat.apply([], keyList);
   };
 
-  setValues = (values) => this.setState({ values });
+  setValues = values => this.setState({ values });
 
   contentRenderer = ({ props, state }) => {
     return (
@@ -84,7 +84,7 @@ export class Demo extends React.Component {
     );
   };
 
-  itemRenderer = ({item, props, methods}) => (
+  itemRenderer = ({ item, props, methods }) => (
     <div key={item[props.valueField]} onClick={() => methods.addItem(item)}>
       <div style={{ margin: '10px' }}>
         <input type="checkbox" checked={methods.isSelected(item)} />
@@ -118,8 +118,8 @@ export class Demo extends React.Component {
         </SearchAndToggle>
         <Items>
           {props.options
-            .filter((item) => regexp.test(item[props.searchBy] || item[props.labelField]))
-            .map((option) => {
+            .filter(item => regexp.test(item[props.searchBy] || item[props.labelField]))
+            .map(option => {
               if (!this.state.keepSelectedInList && methods.isSelected(option)) {
                 return null;
               }
@@ -128,7 +128,8 @@ export class Demo extends React.Component {
                 <Item
                   disabled={option.disabled}
                   key={option[props.valueField]}
-                  onClick={option.disabled ? null : () => methods.addItem(option)}>
+                  onClick={option.disabled ? null : () => methods.addItem(option)}
+                >
                   <input
                     type="checkbox"
                     onChange={() => methods.addItem(option)}
@@ -145,7 +146,7 @@ export class Demo extends React.Component {
 
   optionRenderer = ({ option, methods }) => (
     <React.Fragment>
-      <div onClick={(event) => methods.removeItem(event, option, true)}>{option.label}</div>
+      <div onClick={event => methods.removeItem(event, option, true)}>{option.label}</div>
     </React.Fragment>
   );
 
@@ -162,7 +163,7 @@ export class Demo extends React.Component {
   );
   onClear = () =>
     this.setState({
-      values: []
+      values: [],
     });
 
   render() {
@@ -196,37 +197,17 @@ export class Demo extends React.Component {
               onDropdownClose={() => undefined}
               onClearAll={() => undefined}
               onSelectAll={() => undefined}
-              onChange={(values) => this.setValues(values)}
+              onChange={values => this.setValues(values)}
               noDataLabel="No matches found"
               closeOnSelect={this.state.closeOnSelect}
               closeOnClickInput={this.state.closeOnClickInput}
               noDataRenderer={this.state.noDataRenderer ? () => this.noDataRenderer() : undefined}
               dropdownPosition={this.state.dropdownPosition}
-              itemRenderer={
-                this.state.itemRenderer
-                  ? this.itemRenderer
-                  : undefined
-              }
-              inputRenderer={
-                this.state.inputRenderer
-                  ? this.inputRenderer
-                  : undefined
-              }
-              optionRenderer={
-                this.state.optionRenderer
-                  ? this.optionRenderer
-                  : undefined
-              }
-              contentRenderer={
-                this.state.contentRenderer
-                  ? this.contentRenderer
-                  : undefined
-              }
-              dropdownRenderer={
-                this.state.dropdownRenderer
-                  ? this.dropdownRenderer
-                  : undefined
-              }
+              itemRenderer={this.state.itemRenderer ? this.itemRenderer : undefined}
+              inputRenderer={this.state.inputRenderer ? this.inputRenderer : undefined}
+              optionRenderer={this.state.optionRenderer ? this.optionRenderer : undefined}
+              contentRenderer={this.state.contentRenderer ? this.contentRenderer : undefined}
+              dropdownRenderer={this.state.dropdownRenderer ? this.dropdownRenderer : undefined}
             />
             <ClearButton onClick={this.onClear}>Clear</ClearButton>
           </div>
@@ -238,7 +219,7 @@ export class Demo extends React.Component {
             checked={this.state.multi}
             onChange={() =>
               this.setState({
-                multi: !this.state.multi
+                multi: !this.state.multi,
               })
             }
           />{' '}
@@ -249,7 +230,7 @@ export class Demo extends React.Component {
             checked={this.state.disabled}
             onChange={() =>
               this.setState({
-                disabled: !this.state.disabled
+                disabled: !this.state.disabled,
               })
             }
           />{' '}
@@ -260,7 +241,7 @@ export class Demo extends React.Component {
             checked={this.state.loading}
             onChange={() =>
               this.setState({
-                loading: !this.state.loading
+                loading: !this.state.loading,
               })
             }
           />{' '}
@@ -271,7 +252,7 @@ export class Demo extends React.Component {
             checked={this.state.clearable}
             onChange={() =>
               this.setState({
-                clearable: !this.state.clearable
+                clearable: !this.state.clearable,
               })
             }
           />{' '}
@@ -282,7 +263,7 @@ export class Demo extends React.Component {
             checked={this.state.searchable}
             onChange={() =>
               this.setState({
-                searchable: !this.state.searchable
+                searchable: !this.state.searchable,
               })
             }
           />{' '}
@@ -293,7 +274,7 @@ export class Demo extends React.Component {
             checked={this.state.create}
             onChange={() =>
               this.setState({
-                create: !this.state.create
+                create: !this.state.create,
               })
             }
           />{' '}
@@ -304,7 +285,7 @@ export class Demo extends React.Component {
             checked={this.state.separator}
             onChange={() =>
               this.setState({
-                separator: !this.state.separator
+                separator: !this.state.separator,
               })
             }
           />{' '}
@@ -315,7 +296,7 @@ export class Demo extends React.Component {
             checked={this.state.handle}
             onChange={() =>
               this.setState({
-                handle: !this.state.handle
+                handle: !this.state.handle,
               })
             }
           />{' '}
@@ -326,7 +307,7 @@ export class Demo extends React.Component {
             checked={this.state.forceOpen}
             onChange={() =>
               this.setState({
-                forceOpen: !this.state.forceOpen
+                forceOpen: !this.state.forceOpen,
               })
             }
           />{' '}
@@ -337,7 +318,7 @@ export class Demo extends React.Component {
             checked={this.state.contentRenderer}
             onChange={() =>
               this.setState({
-                contentRenderer: !this.state.contentRenderer
+                contentRenderer: !this.state.contentRenderer,
               })
             }
           />{' '}
@@ -348,7 +329,7 @@ export class Demo extends React.Component {
             checked={this.state.dropdownRenderer}
             onChange={() =>
               this.setState({
-                dropdownRenderer: !this.state.dropdownRenderer
+                dropdownRenderer: !this.state.dropdownRenderer,
               })
             }
           />{' '}
@@ -359,7 +340,7 @@ export class Demo extends React.Component {
             checked={this.state.itemRenderer}
             onChange={() =>
               this.setState({
-                itemRenderer: !this.state.itemRenderer
+                itemRenderer: !this.state.itemRenderer,
               })
             }
           />{' '}
@@ -370,7 +351,7 @@ export class Demo extends React.Component {
             checked={this.state.keepSelectedInList}
             onChange={() =>
               this.setState({
-                keepSelectedInList: !this.state.keepSelectedInList
+                keepSelectedInList: !this.state.keepSelectedInList,
               })
             }
           />{' '}
@@ -381,7 +362,7 @@ export class Demo extends React.Component {
             checked={this.state.closeOnSelect}
             onChange={() =>
               this.setState({
-                closeOnSelect: !this.state.closeOnSelect
+                closeOnSelect: !this.state.closeOnSelect,
               })
             }
           />{' '}
@@ -392,7 +373,7 @@ export class Demo extends React.Component {
             checked={this.state.closeOnClickInput}
             onChange={() =>
               this.setState({
-                closeOnClickInput: !this.state.closeOnClickInput
+                closeOnClickInput: !this.state.closeOnClickInput,
               })
             }
           />{' '}
@@ -402,9 +383,9 @@ export class Demo extends React.Component {
           <input
             type="color"
             defaultValue={this.state.color}
-            onChange={(event) =>
+            onChange={event =>
               this.setState({
-                color: event.target.value
+                color: event.target.value,
               })
             }
           />
@@ -412,7 +393,8 @@ export class Demo extends React.Component {
           Dropdown position
           <StyledHtmlSelect
             defaultValue={this.state.dropdownPosition}
-            onChange={(event) => this.setState({ dropdownPosition: event.target.value })}>
+            onChange={event => this.setState({ dropdownPosition: event.target.value })}
+          >
             <option value="auto">auto</option>
             <option value="top">top</option>
             <option value="bottom">bottom</option>
@@ -423,9 +405,9 @@ export class Demo extends React.Component {
             type="text"
             checked={this.state.dropdownHeight}
             value={this.state.dropdownHeight}
-            onChange={(event) =>
+            onChange={event =>
               this.setState({
-                dropdownHeight: event.target.value
+                dropdownHeight: event.target.value,
               })
             }
           />
@@ -433,7 +415,8 @@ export class Demo extends React.Component {
           Dropdown direction
           <StyledHtmlSelect
             defaultValue={this.state.direction}
-            onChange={(event) => this.setState({ direction: event.target.value })}>
+            onChange={event => this.setState({ direction: event.target.value })}
+          >
             <option value="auto">auto</option>
             <option value="rtl">right-to-left</option>
             <option value="ltr">left-to-right</option>
@@ -444,9 +427,9 @@ export class Demo extends React.Component {
             type="text"
             checked={this.state.addPlaceholder}
             value={this.state.addPlaceholder}
-            onChange={(event) =>
+            onChange={event =>
               this.setState({
-                addPlaceholder: event.target.value
+                addPlaceholder: event.target.value,
               })
             }
           />
@@ -454,8 +437,9 @@ export class Demo extends React.Component {
           Search by field:{' '}
           <StyledHtmlSelect
             defaultValue={this.state.searchBy}
-            onChange={(event) => this.setState({ searchBy: event.target.value })}>
-            {this.getObjectKeys(options[0]).map((f) => (
+            onChange={event => this.setState({ searchBy: event.target.value })}
+          >
+            {this.getObjectKeys(options[0]).map(f => (
               <option key={f} value={f}>
                 {f}
               </option>
@@ -465,13 +449,14 @@ export class Demo extends React.Component {
           Label field:{' '}
           <StyledHtmlSelect
             defaultValue={this.state.labelField}
-            onChange={(event) =>
+            onChange={event =>
               this.setState({
                 labelField: event.target.value,
-                searchBy: event.target.value
+                searchBy: event.target.value,
               })
-            }>
-            {this.getObjectKeys(options[0]).map((f) => (
+            }
+          >
+            {this.getObjectKeys(options[0]).map(f => (
               <option key={f} value={f}>
                 {f}
               </option>
@@ -481,8 +466,9 @@ export class Demo extends React.Component {
           Value field:{' '}
           <StyledHtmlSelect
             defaultValue={this.state.valueField}
-            onChange={(event) => this.setState({ valueField: event.target.value })}>
-            {this.getObjectKeys(options[0]).map((f) => (
+            onChange={event => this.setState({ valueField: event.target.value })}
+          >
+            {this.getObjectKeys(options[0]).map(f => (
               <option key={f} value={f}>
                 {f}
               </option>

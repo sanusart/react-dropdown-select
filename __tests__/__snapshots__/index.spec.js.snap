@@ -4,9 +4,6 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   border: 1px solid #ccc;
   width: 100%;
@@ -20,9 +17,8 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  cursor: pointer;
-  min-height: 36px;
   cursor: not-allowed;
+  min-height: 36px;
   pointer-events: none;
   opacity: 0.3;
 }
@@ -43,9 +39,6 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
 }
 
 .emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -125,7 +118,7 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
         placeholder="Select..."
         readOnly={false}
         size={9}
-        tabIndex="-1"
+        tabIndex={-1}
         value=""
       />
     </div>
@@ -155,9 +148,6 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   border: 1px solid #ccc;
   width: 100%;
@@ -192,9 +182,6 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
 }
 
 .emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -274,7 +261,7 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
         placeholder="Select..."
         readOnly={false}
         size={9}
-        tabIndex="-1"
+        tabIndex={-1}
         value=""
       />
     </div>
@@ -304,9 +291,6 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   border: 1px solid #ccc;
   width: 100%;
@@ -341,9 +325,6 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
 }
 
 .emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -437,7 +418,7 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
         placeholder="Select..."
         readOnly={false}
         size={9}
-        tabIndex="-1"
+        tabIndex={-1}
         value=""
       />
     </div>
@@ -475,9 +456,6 @@ exports[`<Select/> component <Select/> renders with custom search function 1`] =
 .emotion-0 {
   box-sizing: border-box;
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   border: 1px solid #ccc;
   width: 100%;
@@ -512,9 +490,6 @@ exports[`<Select/> component <Select/> renders with custom search function 1`] =
 }
 
 .emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -594,7 +569,7 @@ exports[`<Select/> component <Select/> renders with custom search function 1`] =
         placeholder="Select..."
         readOnly={false}
         size={3}
-        tabIndex="-1"
+        tabIndex={-1}
         value="Zer"
       />
     </div>
@@ -624,9 +599,6 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   border: 1px solid #ccc;
   width: 100%;
@@ -661,9 +633,6 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
 }
 
 .emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -764,7 +733,7 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
         placeholder="Select..."
         readOnly={false}
         size={9}
-        tabIndex="-1"
+        tabIndex={-1}
         value=""
       />
     </div>
@@ -798,9 +767,6 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   border: 1px solid #ccc;
   width: 100%;
@@ -835,9 +801,6 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
 }
 
 .emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -917,7 +880,7 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
         placeholder="Select..."
         readOnly={false}
         size={9}
-        tabIndex="-1"
+        tabIndex={-1}
         value=""
       />
     </div>
@@ -961,9 +924,6 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   border: 1px solid #ccc;
   width: 100%;
@@ -998,9 +958,6 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
 }
 
 .emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -1087,7 +1044,7 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
         placeholder="Select..."
         readOnly={false}
         size={9}
-        tabIndex="-1"
+        tabIndex={-1}
         value=""
       />
     </div>
@@ -1120,9 +1077,6 @@ exports[`<Select/> component <Select/> renders with short color 1`] = `
 .emotion-0 {
   box-sizing: border-box;
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   border: 1px solid #ccc;
   width: 100%;
@@ -1157,9 +1111,6 @@ exports[`<Select/> component <Select/> renders with short color 1`] = `
 }
 
 .emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -1239,7 +1190,7 @@ exports[`<Select/> component <Select/> renders with short color 1`] = `
         placeholder="Select..."
         readOnly={false}
         size={9}
-        tabIndex="-1"
+        tabIndex={-1}
         value=""
       />
     </div>
