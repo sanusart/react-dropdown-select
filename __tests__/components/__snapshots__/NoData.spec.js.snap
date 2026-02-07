@@ -7,6 +7,6 @@ exports[`<NoData/> renders correctly 1`] = `
 }
 
 <div
-  className="react-dropdown-select-no-data emotion-0 emotion-1"
+  className="react-dropdown-select-no-data emotion-0"
 />
 `;

@@ -1,19 +1,25 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { LIB_NAME } from '../constants';
+import { SelectRenderer, SelectProps, SelectState, SelectMethods } from '../types';
 
-const DropdownHandle = ({ props, state, methods }) => (
+interface DropdownHandleProps<T> {
+  props: SelectProps<T>;
+  state: SelectState<T>;
+  methods: SelectMethods<T>;
+}
+
+const DropdownHandle = <T extends object>({ props, state, methods }: DropdownHandleProps<T>) => (
   <DropdownHandleComponent
     tabIndex="-1"
-    onClick={(event) => methods.dropDown(state.dropdown ? 'close' : 'open', event)}
-    dropdownOpen={state.dropdown}
-    onKeyPress={(event) => methods.dropDown('toggle', event)}
-    onKeyDown={(event) => methods.dropDown('toggle', event)}
+    onClick={(event: any) => methods.dropDown(state.dropdown ? 'close' : 'open', event)}
+    onKeyPress={(event: any) => methods.dropDown('toggle', event)}
+    onKeyDown={(event: any) => methods.dropDown('toggle', event)}
     className={`${LIB_NAME}-dropdown-handle`}
     rotate={props.dropdownHandleRenderer ? 0 : 1}
     color={props.color}>
     {props.dropdownHandleRenderer ? (
-      props.dropdownHandleRenderer({ props, state, methods })
+      props.dropdownHandleRenderer({ props, state, methods } as SelectRenderer<T>)
     ) : (
       <svg fill="currentColor" viewBox="0 0 40 40">
         <path d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z" />
@@ -22,7 +28,13 @@ const DropdownHandle = ({ props, state, methods }) => (
   </DropdownHandleComponent>
 );
 
-const DropdownHandleComponent = styled.div`
+interface DropdownHandleComponentProps {
+  dropdownOpen: boolean;
+  rotate: number;
+  color?: string;
+}
+
+const DropdownHandleComponent = styled.div<DropdownHandleComponentProps>`
   text-align: center;
   ${({ dropdownOpen, rotate }) =>
     dropdownOpen

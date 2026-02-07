@@ -2,9 +2,6 @@
 
 exports[`<Clear/> component <Content/> renders correctly 1`] = `
 .emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -15,22 +12,19 @@ exports[`<Clear/> component <Content/> renders correctly 1`] = `
   flex-wrap: wrap;
 }
 
-.emotion-2 {
+.emotion-1 {
   padding: 0 5px;
   border-radius: 2px;
   line-height: 21px;
   margin: 3px 0 3px 5px;
   color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
 }
 
-.emotion-2 .react-dropdown-select-option-remove {
+.emotion-1 .react-dropdown-select-option-remove {
   cursor: pointer;
   width: 22px;
   height: 22px;
@@ -40,16 +34,16 @@ exports[`<Clear/> component <Content/> renders correctly 1`] = `
   border-radius: 0 3px 3px 0;
 }
 
-.emotion-2 .react-dropdown-select-option-remove:hover {
+.emotion-1 .react-dropdown-select-option-remove:hover {
   color: tomato;
 }
 
-.emotion-2:hover,
-.emotion-2:hover>span {
+.emotion-1:hover,
+.emotion-1:hover>span {
   opacity: 0.9;
 }
 
-.emotion-4 {
+.emotion-2 {
   line-height: inherit;
   border: none;
   margin-left: 5px;
@@ -60,16 +54,16 @@ exports[`<Clear/> component <Content/> renders correctly 1`] = `
   cursor: pointer;
 }
 
-.emotion-4:focus {
+.emotion-2:focus {
   outline: none;
 }
 
 <div
-  className="react-dropdown-select-content react-dropdown-select-type-multi emotion-0 emotion-1"
+  className="react-dropdown-select-content react-dropdown-select-type-multi emotion-0"
   onClick={[Function]}
 >
   <span
-    className="react-dropdown-select-option emotion-2 emotion-3"
+    className="react-dropdown-select-option emotion-1"
     role="listitem"
   >
     <span
@@ -85,7 +79,7 @@ exports[`<Clear/> component <Content/> renders correctly 1`] = `
     </span>
   </span>
   <input
-    className="react-dropdown-select-input emotion-4 emotion-5"
+    className="react-dropdown-select-input emotion-2"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}

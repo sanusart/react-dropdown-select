@@ -6,13 +6,20 @@ import NoData from '../components/NoData';
 import Item from '../components/Item';
 
 import { valueExistInSelected, hexToRGBA, isomorphicWindow } from '../util';
+import { SelectRenderer, SelectProps, SelectState, SelectMethods } from 'react-dropdown-select';
 
-const dropdownPosition = (props, methods) => {
+interface DropdownProps<T> {
+  props: SelectProps<T>;
+  state: SelectState<T>;
+  methods: SelectMethods<T>;
+}
+
+const dropdownPosition = <T extends object>(props: SelectProps<T>, methods: SelectMethods<T>) => {
   const DropdownBoundingClientRect = methods.getSelectRef().getBoundingClientRect();
   const dropdownHeight =
     DropdownBoundingClientRect.bottom +
-    parseInt(props.dropdownHeight, 10) +
-    parseInt(props.dropdownGap, 10);
+    parseInt(props.dropdownHeight || '300', 10) +
+    (props.dropdownGap || 5);
 
   if (props.dropdownPosition !== 'auto') {
     return props.dropdownPosition;
@@ -28,7 +35,7 @@ const dropdownPosition = (props, methods) => {
   return 'bottom';
 };
 
-const Dropdown = ({ props, state, methods }) => (
+const Dropdown = <T extends object>({ props, state, methods }: DropdownProps<T>) => (
   <DropDown
     tabIndex="-1"
     aria-expanded="true"
@@ -36,14 +43,15 @@ const Dropdown = ({ props, state, methods }) => (
     dropdownPosition={dropdownPosition(props, methods)}
     selectBounds={state.selectBounds}
     portal={props.portal}
-    dropdownGap={props.dropdownGap}
-    dropdownHeight={props.dropdownHeight}
+    dropdownGap={props.dropdownGap || 5}
+    dropdownHeight={props.dropdownHeight || '300'}
     className={`${LIB_NAME}-dropdown ${LIB_NAME}-dropdown-position-${dropdownPosition(
       props,
       methods
-    )}`}>
+    )}`}
+  >
     {props.dropdownRenderer ? (
-      props.dropdownRenderer({ props, state, methods })
+      props.dropdownRenderer({ props, state, methods } as SelectRenderer<T>)
     ) : (
       <React.Fragment>
         {props.create &&
@@ -53,16 +61,17 @@ const Dropdown = ({ props, state, methods }) => (
               role="button"
               className={`${LIB_NAME}-dropdown-add-new`}
               color={props.color}
-              onClick={() => methods.createNew(state.search)}>
-              {props.createNewLabel.replace('{search}', `"${state.search}"`)}
+              onClick={() => methods.createNew(state.search)}
+            >
+              {props.createNewLabel?.replace('{search}', `"${state.search}"`) || 'add'}
             </AddNew>
           )}
         {state.searchResults.length === 0 ? (
-          <NoData className={`${LIB_NAME}-no-data`} state={state} props={props} methods={methods} />
+          <NoData state={state} props={props} methods={methods} />
         ) : (
           state.searchResults.map((item, itemIndex) => (
             <Item
-              key={item[props.valueField].toString()}
+              key={(item && (item as any)[props.valueField || 'value'] || itemIndex)?.toString() || itemIndex}
               item={item}
               itemIndex={itemIndex}
               state={state}
@@ -77,7 +86,8 @@ const Dropdown = ({ props, state, methods }) => (
             role="button"
             className={`${LIB_NAME}-dropdown-select-all`}
             color={props.color}
-            onClick={() => (methods.areAllSelected() ? methods.clearAll() : methods.selectAll())}>
+            onClick={() => (methods.areAllSelected() ? methods.clearAll() : methods.selectAll())}
+          >
             {methods.areAllSelected() ? props.clearAllLabel : props.selectAllLabel}
           </SelectAll>
         )}
@@ -86,7 +96,15 @@ const Dropdown = ({ props, state, methods }) => (
   </DropDown>
 );
 
-const DropDown = styled.div`
+interface DropDownProps {
+  selectBounds: DOMRect;
+  dropdownGap: number;
+  dropdownHeight: string;
+  dropdownPosition: 'auto' | 'top' | 'bottom';
+  portal?: HTMLElement;
+}
+
+const DropDown = styled.div<DropDownProps>`
   position: absolute;
   ${({ selectBounds, dropdownGap, dropdownPosition }) =>
     dropdownPosition === 'top'
@@ -122,7 +140,7 @@ const DropDown = styled.div`
 }
 `;
 
-const AddNew = styled.div`
+const AddNew = styled.div<{ color?: string }>`
   color: ${({ color }) => color};
   padding: 5px 10px;
 
@@ -133,7 +151,7 @@ const AddNew = styled.div`
   }
 `;
 
-const SelectAll = styled.div`
+const SelectAll = styled.div<{ color?: string }>`
   color: ${({ color }) => color};
   padding: 5px 10px;
   position: sticky;

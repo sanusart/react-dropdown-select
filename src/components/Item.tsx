@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import { hexToRGBA, getByPath } from '../util';
-import * as PropTypes from 'prop-types';
 import { LIB_NAME } from '../constants';
+import { SelectItemRenderer, SelectProps, SelectState, SelectMethods } from 'react-dropdown-select';
 
-class Item extends Component {
-  item = React.createRef();
+interface ItemProps<T> {
+  props: SelectProps<T>;
+  state: SelectState<T>;
+  methods: SelectMethods<T>;
+  item: T;
+  itemIndex?: number;
+}
+
+class Item<T extends object> extends Component<ItemProps<T>> {
+  private item = React.createRef<HTMLSpanElement>();
 
   componentDidMount() {
     const { props, methods } = this.props;
@@ -30,7 +38,13 @@ class Item extends Component {
     const { props, state, methods, item, itemIndex } = this.props;
 
     if (props.itemRenderer) {
-      return props.itemRenderer({ item, itemIndex, props, state, methods });
+      return props.itemRenderer({
+        item,
+        itemIndex,
+        props,
+        state,
+        methods
+      } as SelectItemRenderer<T>);
     }
 
     if (!props.keepSelectedInList && methods.isSelected(item)) {
@@ -42,34 +56,32 @@ class Item extends Component {
         role="option"
         ref={this.item}
         aria-selected={methods.isSelected(item)}
-        aria-disabled={item.disabled}
+        aria-disabled={(item as any).disabled}
         aria-label={getByPath(item, props.labelField)}
-        disabled={item.disabled}
+        disabled={(item as any).disabled}
         key={`${getByPath(item, props.valueField)}${getByPath(item, props.labelField)}`}
         tabIndex="-1"
         className={`${LIB_NAME}-item ${
           methods.isSelected(item) ? `${LIB_NAME}-item-selected` : ''
         } ${state.cursor === itemIndex ? `${LIB_NAME}-item-active` : ''} ${
-          item.disabled ? `${LIB_NAME}-item-disabled` : ''
+          (item as any).disabled ? `${LIB_NAME}-item-disabled` : ''
         }`}
-        onClick={item.disabled ? undefined : () => methods.addItem(item)}
-        onKeyPress={item.disabled ? undefined : () => methods.addItem(item)}
+        onClick={(item as any).disabled ? undefined : () => methods.addItem(item)}
+        onKeyPress={(item as any).disabled ? undefined : () => methods.addItem(item)}
         color={props.color}>
-        {getByPath(item, props.labelField)} {item.disabled && <ins>{props.disabledLabel}</ins>}
+        {getByPath(item, props.labelField)}{' '}
+        {(item as any).disabled && <ins>{props.disabledLabel}</ins>}
       </ItemComponent>
     );
   }
 }
 
-Item.propTypes = {
-  props: PropTypes.any,
-  state: PropTypes.any,
-  methods: PropTypes.any,
-  item: PropTypes.any,
-  itemIndex: PropTypes.any
-};
+interface ItemComponentProps {
+  disabled?: boolean;
+  color?: string;
+}
 
-const ItemComponent = styled.span`
+const ItemComponent = styled.span<ItemComponentProps>`
   padding: 5px 10px;
   cursor: pointer;
   border-bottom: 1px solid #fff;

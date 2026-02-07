@@ -7,9 +7,6 @@ exports[`<Option/> component renders correctly 1`] = `
   line-height: 21px;
   margin: 3px 0 3px 5px;
   color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -36,7 +33,7 @@ exports[`<Option/> component renders correctly 1`] = `
 }
 
 <span
-  className="react-dropdown-select-option emotion-0 emotion-1"
+  className="react-dropdown-select-option emotion-0"
   role="listitem"
 >
   <span

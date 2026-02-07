@@ -8,9 +8,6 @@ exports[`<Dropdown/> renders correctly 1`] = `
   border: 1px solid #ccc;
   width: px;
   padding: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -27,19 +24,19 @@ exports[`<Dropdown/> renders correctly 1`] = `
   outline: none;
 }
 
-.emotion-2 {
+.emotion-1 {
   padding: 10px;
   text-align: center;
 }
 
 <div
   aria-expanded="true"
-  className="react-dropdown-select-dropdown react-dropdown-select-dropdown-position-undefined emotion-0 emotion-1"
+  className="react-dropdown-select-dropdown react-dropdown-select-dropdown-position-undefined emotion-0"
   role="list"
   tabIndex="-1"
 >
   <div
-    className="react-dropdown-select-no-data emotion-2 emotion-3"
+    className="react-dropdown-select-no-data emotion-1"
   />
 </div>
 `;

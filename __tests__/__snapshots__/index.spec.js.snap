@@ -2,50 +2,6 @@
 
 exports[`<Select/> component <Select/> is disabled 1`] = `
 .emotion-0 {
-  box-sizing: border-box;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  border: 1px solid #ccc;
-  width: 100%;
-  border-radius: 2px;
-  padding: 2px 5px;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  direction: ltr;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  min-height: 36px;
-  cursor: not-allowed;
-  pointer-events: none;
-  opacity: 0.3;
-}
-
-.emotion-0:hover,
-.emotion-0:focus-within {
-  border-color: #0074D9;
-}
-
-.emotion-0:focus,
-.emotion-0:focus-within {
-  outline: 0;
-  box-shadow: 0 0 0 3px rgba(0, 116, 217, 0.2);
-}
-
-.emotion-0 * {
-  box-sizing: border-box;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -56,96 +12,65 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
   flex-wrap: wrap;
 }
 
-.emotion-4 {
+.emotion-1 {
   line-height: inherit;
   border: none;
   margin-left: 5px;
   background: transparent;
   padding: 0;
-  width: calc(9ch + 5px);
+  width: calc(0ch + 5px);
   font-size: smaller;
-}
-
-.emotion-4:focus {
-  outline: none;
-}
-
-.emotion-6 {
-  text-align: center;
-  pointer-events: none;
-  margin: 0 0 0 5px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
   cursor: pointer;
 }
 
-.emotion-6 svg {
-  width: 16px;
-  height: 16px;
-}
-
-.emotion-6:hover path {
-  stroke: #0074D9;
-}
-
-.emotion-6:focus {
+.emotion-1:focus {
   outline: none;
-}
-
-.emotion-6:focus path {
-  stroke: #0074D9;
 }
 
 <div>
   <div
     aria-expanded={false}
     aria-label="Dropdown select"
-    className="react-dropdown-select undefined emotion-0 emotion-1"
-    color="#0074D9"
-    direction="ltr"
-    disabled={true}
+    className="react-dropdown-select undefined"
     onClick={[Function]}
     onKeyDown={[Function]}
-    tabIndex="-1"
+    style={
+      {
+        "alignItems": "center",
+        "border": "1px solid #ccc",
+        "borderRadius": "2px",
+        "boxSizing": "border-box",
+        "cursor": "not-allowed",
+        "direction": "ltr",
+        "display": "flex",
+        "flexDirection": "row",
+        "minHeight": "36px",
+        "opacity": 0.3,
+        "padding": "2px 5px",
+        "pointerEvents": "none",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+    tabIndex={-1}
   >
     <div
-      className="react-dropdown-select-content react-dropdown-select-type-single emotion-2 emotion-3"
+      className="react-dropdown-select-content react-dropdown-select-type-single emotion-0"
       onClick={[Function]}
     >
       <input
-        className="react-dropdown-select-input emotion-4 emotion-5"
+        className="react-dropdown-select-input emotion-1"
         disabled={true}
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
         onKeyPress={[Function]}
-        placeholder="Select..."
-        readOnly={false}
-        size={9}
+        readOnly={true}
+        size={0}
         tabIndex="-1"
         value=""
       />
-    </div>
-    <div
-      className="react-dropdown-select-dropdown-handle emotion-6 emotion-7"
-      color="#0074D9"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      onKeyPress={[Function]}
-      rotate={1}
-      tabIndex="-1"
-    >
-      <svg
-        fill="currentColor"
-        viewBox="0 0 40 40"
-      >
-        <path
-          d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z"
-        />
-      </svg>
     </div>
   </div>
 </div>
@@ -153,48 +78,6 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
 
 exports[`<Select/> component <Select/> renders correctly 1`] = `
 .emotion-0 {
-  box-sizing: border-box;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  border: 1px solid #ccc;
-  width: 100%;
-  border-radius: 2px;
-  padding: 2px 5px;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  direction: ltr;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  min-height: 36px;
-  pointer-events: all;
-}
-
-.emotion-0:hover,
-.emotion-0:focus-within {
-  border-color: #0074D9;
-}
-
-.emotion-0:focus,
-.emotion-0:focus-within {
-  outline: 0;
-  box-shadow: 0 0 0 3px rgba(0, 116, 217, 0.2);
-}
-
-.emotion-0 * {
-  box-sizing: border-box;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -205,96 +88,64 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
   flex-wrap: wrap;
 }
 
-.emotion-4 {
+.emotion-1 {
   line-height: inherit;
   border: none;
   margin-left: 5px;
   background: transparent;
   padding: 0;
-  width: calc(9ch + 5px);
+  width: calc(0ch + 5px);
   font-size: smaller;
-}
-
-.emotion-4:focus {
-  outline: none;
-}
-
-.emotion-6 {
-  text-align: center;
-  pointer-events: none;
-  margin: 0 0 0 5px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
   cursor: pointer;
 }
 
-.emotion-6 svg {
-  width: 16px;
-  height: 16px;
-}
-
-.emotion-6:hover path {
-  stroke: #0074D9;
-}
-
-.emotion-6:focus {
+.emotion-1:focus {
   outline: none;
-}
-
-.emotion-6:focus path {
-  stroke: #0074D9;
 }
 
 <div>
   <div
     aria-expanded={false}
     aria-label="Dropdown select"
-    className="react-dropdown-select undefined emotion-0 emotion-1"
-    color="#0074D9"
-    direction="ltr"
-    disabled={false}
+    className="react-dropdown-select undefined"
     onClick={[Function]}
     onKeyDown={[Function]}
-    tabIndex="0"
+    style={
+      {
+        "alignItems": "center",
+        "border": "1px solid #ccc",
+        "borderRadius": "2px",
+        "boxSizing": "border-box",
+        "cursor": "pointer",
+        "direction": "ltr",
+        "display": "flex",
+        "flexDirection": "row",
+        "minHeight": "36px",
+        "opacity": 1,
+        "padding": "2px 5px",
+        "pointerEvents": "all",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+    tabIndex={0}
   >
     <div
-      className="react-dropdown-select-content react-dropdown-select-type-single emotion-2 emotion-3"
+      className="react-dropdown-select-content react-dropdown-select-type-single emotion-0"
       onClick={[Function]}
     >
       <input
-        className="react-dropdown-select-input emotion-4 emotion-5"
-        disabled={false}
+        className="react-dropdown-select-input emotion-1"
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
         onKeyPress={[Function]}
-        placeholder="Select..."
-        readOnly={false}
-        size={9}
+        readOnly={true}
+        size={0}
         tabIndex="-1"
         value=""
       />
-    </div>
-    <div
-      className="react-dropdown-select-dropdown-handle emotion-6 emotion-7"
-      color="#0074D9"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      onKeyPress={[Function]}
-      rotate={1}
-      tabIndex="-1"
-    >
-      <svg
-        fill="currentColor"
-        viewBox="0 0 40 40"
-      >
-        <path
-          d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z"
-        />
-      </svg>
     </div>
   </div>
 </div>
@@ -302,48 +153,6 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
 
 exports[`<Select/> component <Select/> renders with clearable 1`] = `
 .emotion-0 {
-  box-sizing: border-box;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  border: 1px solid #ccc;
-  width: 100%;
-  border-radius: 2px;
-  padding: 2px 5px;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  direction: ltr;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  min-height: 36px;
-  pointer-events: all;
-}
-
-.emotion-0:hover,
-.emotion-0:focus-within {
-  border-color: #0074D9;
-}
-
-.emotion-0:focus,
-.emotion-0:focus-within {
-  outline: 0;
-  box-shadow: 0 0 0 3px rgba(0, 116, 217, 0.2);
-}
-
-.emotion-0 * {
-  box-sizing: border-box;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -354,118 +163,86 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
   flex-wrap: wrap;
 }
 
-.emotion-4 {
+.emotion-1 {
   line-height: inherit;
   border: none;
   margin-left: 5px;
   background: transparent;
   padding: 0;
-  width: calc(9ch + 5px);
+  width: calc(0ch + 5px);
   font-size: smaller;
+  cursor: pointer;
 }
 
-.emotion-4:focus {
+.emotion-1:focus {
   outline: none;
 }
 
-.emotion-6 {
+.emotion-2 {
   line-height: 25px;
   margin: 0 10px;
   cursor: pointer;
 }
 
-.emotion-6:focus {
+.emotion-2:focus {
   outline: none;
 }
 
-.emotion-6:hover {
+.emotion-2:hover {
   color: tomato;
-}
-
-.emotion-8 {
-  text-align: center;
-  pointer-events: none;
-  margin: 0 0 0 5px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-  cursor: pointer;
-}
-
-.emotion-8 svg {
-  width: 16px;
-  height: 16px;
-}
-
-.emotion-8:hover path {
-  stroke: #0074D9;
-}
-
-.emotion-8:focus {
-  outline: none;
-}
-
-.emotion-8:focus path {
-  stroke: #0074D9;
 }
 
 <div>
   <div
     aria-expanded={false}
     aria-label="Dropdown select"
-    className="react-dropdown-select undefined emotion-0 emotion-1"
-    color="#0074D9"
-    direction="ltr"
-    disabled={false}
+    className="react-dropdown-select undefined"
     onClick={[Function]}
     onKeyDown={[Function]}
-    tabIndex="0"
+    style={
+      {
+        "alignItems": "center",
+        "border": "1px solid #ccc",
+        "borderRadius": "2px",
+        "boxSizing": "border-box",
+        "cursor": "pointer",
+        "direction": "ltr",
+        "display": "flex",
+        "flexDirection": "row",
+        "minHeight": "36px",
+        "opacity": 1,
+        "padding": "2px 5px",
+        "pointerEvents": "all",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+    tabIndex={0}
   >
     <div
-      className="react-dropdown-select-content react-dropdown-select-type-single emotion-2 emotion-3"
+      className="react-dropdown-select-content react-dropdown-select-type-single emotion-0"
       onClick={[Function]}
     >
       <input
-        className="react-dropdown-select-input emotion-4 emotion-5"
-        disabled={false}
+        className="react-dropdown-select-input emotion-1"
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
         onKeyPress={[Function]}
-        placeholder="Select..."
-        readOnly={false}
-        size={9}
+        readOnly={true}
+        size={0}
         tabIndex="-1"
         value=""
       />
     </div>
     <div
-      className="react-dropdown-select-clear emotion-6 emotion-7"
+      className="react-dropdown-select-clear emotion-2"
       onClick={[Function]}
       onKeyPress={[Function]}
       tabIndex="-1"
     >
       ×
-    </div>
-    <div
-      className="react-dropdown-select-dropdown-handle emotion-8 emotion-9"
-      color="#0074D9"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      onKeyPress={[Function]}
-      rotate={1}
-      tabIndex="-1"
-    >
-      <svg
-        fill="currentColor"
-        viewBox="0 0 40 40"
-      >
-        <path
-          d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z"
-        />
-      </svg>
     </div>
   </div>
 </div>
@@ -473,48 +250,6 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
 
 exports[`<Select/> component <Select/> renders with custom search function 1`] = `
 .emotion-0 {
-  box-sizing: border-box;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  border: 1px solid #ccc;
-  width: 100%;
-  border-radius: 2px;
-  padding: 2px 5px;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  direction: ltr;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  min-height: 36px;
-  pointer-events: all;
-}
-
-.emotion-0:hover,
-.emotion-0:focus-within {
-  border-color: #0074D9;
-}
-
-.emotion-0:focus,
-.emotion-0:focus-within {
-  outline: 0;
-  box-shadow: 0 0 0 3px rgba(0, 116, 217, 0.2);
-}
-
-.emotion-0 * {
-  box-sizing: border-box;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -525,7 +260,7 @@ exports[`<Select/> component <Select/> renders with custom search function 1`] =
   flex-wrap: wrap;
 }
 
-.emotion-4 {
+.emotion-1 {
   line-height: inherit;
   border: none;
   margin-left: 5px;
@@ -533,88 +268,56 @@ exports[`<Select/> component <Select/> renders with custom search function 1`] =
   padding: 0;
   width: calc(3ch + 5px);
   font-size: smaller;
-}
-
-.emotion-4:focus {
-  outline: none;
-}
-
-.emotion-6 {
-  text-align: center;
-  pointer-events: none;
-  margin: 0 0 0 5px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
   cursor: pointer;
 }
 
-.emotion-6 svg {
-  width: 16px;
-  height: 16px;
-}
-
-.emotion-6:hover path {
-  stroke: #0074D9;
-}
-
-.emotion-6:focus {
+.emotion-1:focus {
   outline: none;
-}
-
-.emotion-6:focus path {
-  stroke: #0074D9;
 }
 
 <div>
   <div
     aria-expanded={false}
     aria-label="Dropdown select"
-    className="react-dropdown-select undefined emotion-0 emotion-1"
-    color="#0074D9"
-    direction="ltr"
-    disabled={false}
+    className="react-dropdown-select undefined"
     onClick={[Function]}
     onKeyDown={[Function]}
-    tabIndex="0"
+    style={
+      {
+        "alignItems": "center",
+        "border": "1px solid #ccc",
+        "borderRadius": "2px",
+        "boxSizing": "border-box",
+        "cursor": "pointer",
+        "direction": "ltr",
+        "display": "flex",
+        "flexDirection": "row",
+        "minHeight": "36px",
+        "opacity": 1,
+        "padding": "2px 5px",
+        "pointerEvents": "all",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+    tabIndex={0}
   >
     <div
-      className="react-dropdown-select-content react-dropdown-select-type-single emotion-2 emotion-3"
+      className="react-dropdown-select-content react-dropdown-select-type-single emotion-0"
       onClick={[Function]}
     >
       <input
-        className="react-dropdown-select-input emotion-4 emotion-5"
-        disabled={false}
+        className="react-dropdown-select-input emotion-1"
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
         onKeyPress={[Function]}
-        placeholder="Select..."
-        readOnly={false}
+        readOnly={true}
         size={3}
         tabIndex="-1"
         value="Zer"
       />
-    </div>
-    <div
-      className="react-dropdown-select-dropdown-handle emotion-6 emotion-7"
-      color="#0074D9"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      onKeyPress={[Function]}
-      rotate={1}
-      tabIndex="-1"
-    >
-      <svg
-        fill="currentColor"
-        viewBox="0 0 40 40"
-      >
-        <path
-          d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z"
-        />
-      </svg>
     </div>
   </div>
 </div>
@@ -622,48 +325,6 @@ exports[`<Select/> component <Select/> renders with custom search function 1`] =
 
 exports[`<Select/> component <Select/> renders with loading 1`] = `
 .emotion-0 {
-  box-sizing: border-box;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  border: 1px solid #ccc;
-  width: 100%;
-  border-radius: 2px;
-  padding: 2px 5px;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  direction: ltr;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  min-height: 36px;
-  pointer-events: all;
-}
-
-.emotion-0:hover,
-.emotion-0:focus-within {
-  border-color: #0074D9;
-}
-
-.emotion-0:focus,
-.emotion-0:focus-within {
-  outline: 0;
-  box-shadow: 0 0 0 3px rgba(0, 116, 217, 0.2);
-}
-
-.emotion-0 * {
-  box-sizing: border-box;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -674,28 +335,29 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
   flex-wrap: wrap;
 }
 
-.emotion-4 {
+.emotion-1 {
   line-height: inherit;
   border: none;
   margin-left: 5px;
   background: transparent;
   padding: 0;
-  width: calc(9ch + 5px);
+  width: calc(0ch + 5px);
   font-size: smaller;
+  cursor: pointer;
 }
 
-.emotion-4:focus {
+.emotion-1:focus {
   outline: none;
 }
 
-.emotion-6 {
+.emotion-2 {
   padding: 0 5px;
   display: block;
   width: auto;
   height: auto;
 }
 
-.emotion-6:after {
+.emotion-2:after {
   content: ' ';
   display: block;
   width: 16px;
@@ -703,141 +365,65 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
   border-radius: 50%;
   border-width: 1px;
   border-style: solid;
-  border-color: #0074D9 transparent;
+  border-color: transparent;
   -webkit-animation: dual-ring-spin 0.7s ease-in-out infinite;
   animation: dual-ring-spin 0.7s ease-in-out infinite;
   margin: 0 0 0 -10px;
-}
-
-.emotion-8 {
-  text-align: center;
-  pointer-events: none;
-  margin: 0 0 0 5px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-  cursor: pointer;
-}
-
-.emotion-8 svg {
-  width: 16px;
-  height: 16px;
-}
-
-.emotion-8:hover path {
-  stroke: #0074D9;
-}
-
-.emotion-8:focus {
-  outline: none;
-}
-
-.emotion-8:focus path {
-  stroke: #0074D9;
 }
 
 <div>
   <div
     aria-expanded={false}
     aria-label="Dropdown select"
-    className="react-dropdown-select undefined emotion-0 emotion-1"
-    color="#0074D9"
-    direction="ltr"
-    disabled={false}
+    className="react-dropdown-select undefined"
     onClick={[Function]}
     onKeyDown={[Function]}
-    tabIndex="0"
+    style={
+      {
+        "alignItems": "center",
+        "border": "1px solid #ccc",
+        "borderRadius": "2px",
+        "boxSizing": "border-box",
+        "cursor": "pointer",
+        "direction": "ltr",
+        "display": "flex",
+        "flexDirection": "row",
+        "minHeight": "36px",
+        "opacity": 1,
+        "padding": "2px 5px",
+        "pointerEvents": "all",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+    tabIndex={0}
   >
     <div
-      className="react-dropdown-select-content react-dropdown-select-type-single emotion-2 emotion-3"
+      className="react-dropdown-select-content react-dropdown-select-type-single emotion-0"
       onClick={[Function]}
     >
       <input
-        className="react-dropdown-select-input emotion-4 emotion-5"
-        disabled={false}
+        className="react-dropdown-select-input emotion-1"
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
         onKeyPress={[Function]}
-        placeholder="Select..."
-        readOnly={false}
-        size={9}
+        readOnly={true}
+        size={0}
         tabIndex="-1"
         value=""
       />
     </div>
     <div
-      className="react-dropdown-select-loading emotion-6 emotion-7"
-      color="#0074D9"
+      className="react-dropdown-select-loading emotion-2"
     />
-    <div
-      className="react-dropdown-select-dropdown-handle emotion-8 emotion-9"
-      color="#0074D9"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      onKeyPress={[Function]}
-      rotate={1}
-      tabIndex="-1"
-    >
-      <svg
-        fill="currentColor"
-        viewBox="0 0 40 40"
-      >
-        <path
-          d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z"
-        />
-      </svg>
-    </div>
   </div>
 </div>
 `;
 
 exports[`<Select/> component <Select/> renders with name 1`] = `
 .emotion-0 {
-  box-sizing: border-box;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  border: 1px solid #ccc;
-  width: 100%;
-  border-radius: 2px;
-  padding: 2px 5px;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  direction: ltr;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  min-height: 36px;
-  pointer-events: all;
-}
-
-.emotion-0:hover,
-.emotion-0:focus-within {
-  border-color: #0074D9;
-}
-
-.emotion-0:focus,
-.emotion-0:focus-within {
-  outline: 0;
-  box-shadow: 0 0 0 3px rgba(0, 116, 217, 0.2);
-}
-
-.emotion-0 * {
-  box-sizing: border-box;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -848,84 +434,68 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
   flex-wrap: wrap;
 }
 
-.emotion-4 {
+.emotion-1 {
   line-height: inherit;
   border: none;
   margin-left: 5px;
   background: transparent;
   padding: 0;
-  width: calc(9ch + 5px);
+  width: calc(0ch + 5px);
   font-size: smaller;
-}
-
-.emotion-4:focus {
-  outline: none;
-}
-
-.emotion-6 {
-  text-align: center;
-  pointer-events: none;
-  margin: 0 0 0 5px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
   cursor: pointer;
 }
 
-.emotion-6 svg {
-  width: 16px;
-  height: 16px;
-}
-
-.emotion-6:hover path {
-  stroke: #0074D9;
-}
-
-.emotion-6:focus {
+.emotion-1:focus {
   outline: none;
-}
-
-.emotion-6:focus path {
-  stroke: #0074D9;
 }
 
 <div>
   <div
     aria-expanded={false}
     aria-label="Dropdown select"
-    className="react-dropdown-select undefined emotion-0 emotion-1"
-    color="#0074D9"
-    direction="ltr"
-    disabled={false}
+    className="react-dropdown-select undefined"
     onClick={[Function]}
     onKeyDown={[Function]}
-    tabIndex="0"
+    style={
+      {
+        "alignItems": "center",
+        "border": "1px solid #ccc",
+        "borderRadius": "2px",
+        "boxSizing": "border-box",
+        "cursor": "pointer",
+        "direction": "ltr",
+        "display": "flex",
+        "flexDirection": "row",
+        "minHeight": "36px",
+        "opacity": 1,
+        "padding": "2px 5px",
+        "pointerEvents": "all",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+    tabIndex={0}
   >
     <div
-      className="react-dropdown-select-content react-dropdown-select-type-single emotion-2 emotion-3"
+      className="react-dropdown-select-content react-dropdown-select-type-single emotion-0"
       onClick={[Function]}
     >
       <input
-        className="react-dropdown-select-input emotion-4 emotion-5"
-        disabled={false}
+        className="react-dropdown-select-input emotion-1"
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
         onKeyPress={[Function]}
-        placeholder="Select..."
-        readOnly={false}
-        size={9}
+        readOnly={true}
+        size={0}
         tabIndex="-1"
         value=""
       />
     </div>
     <input
       defaultValue={[]}
-      disabled={false}
       name="form-select"
-      required={false}
       style={
         {
           "opacity": 0,
@@ -935,72 +505,12 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
       }
       tabIndex={-1}
     />
-    <div
-      className="react-dropdown-select-dropdown-handle emotion-6 emotion-7"
-      color="#0074D9"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      onKeyPress={[Function]}
-      rotate={1}
-      tabIndex="-1"
-    >
-      <svg
-        fill="currentColor"
-        viewBox="0 0 40 40"
-      >
-        <path
-          d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z"
-        />
-      </svg>
-    </div>
   </div>
 </div>
 `;
 
 exports[`<Select/> component <Select/> renders with separator 1`] = `
 .emotion-0 {
-  box-sizing: border-box;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  border: 1px solid #ccc;
-  width: 100%;
-  border-radius: 2px;
-  padding: 2px 5px;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  direction: ltr;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  min-height: 36px;
-  pointer-events: all;
-}
-
-.emotion-0:hover,
-.emotion-0:focus-within {
-  border-color: #0074D9;
-}
-
-.emotion-0:focus,
-.emotion-0:focus-within {
-  outline: 0;
-  box-shadow: 0 0 0 3px rgba(0, 116, 217, 0.2);
-}
-
-.emotion-0 * {
-  box-sizing: border-box;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -1011,155 +521,81 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
   flex-wrap: wrap;
 }
 
-.emotion-4 {
+.emotion-1 {
   line-height: inherit;
   border: none;
   margin-left: 5px;
   background: transparent;
   padding: 0;
-  width: calc(9ch + 5px);
+  width: calc(0ch + 5px);
   font-size: smaller;
+  cursor: pointer;
 }
 
-.emotion-4:focus {
+.emotion-1:focus {
   outline: none;
 }
 
-.emotion-6 {
+.emotion-2 {
   border-left: 1px solid #ccc;
   width: 1px;
   height: 25px;
   display: block;
 }
 
-.emotion-8 {
-  text-align: center;
-  pointer-events: none;
-  margin: 0 0 0 5px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-  cursor: pointer;
-}
-
-.emotion-8 svg {
-  width: 16px;
-  height: 16px;
-}
-
-.emotion-8:hover path {
-  stroke: #0074D9;
-}
-
-.emotion-8:focus {
-  outline: none;
-}
-
-.emotion-8:focus path {
-  stroke: #0074D9;
-}
-
 <div>
   <div
     aria-expanded={false}
     aria-label="Dropdown select"
-    className="react-dropdown-select undefined emotion-0 emotion-1"
-    color="#0074D9"
-    direction="ltr"
-    disabled={false}
+    className="react-dropdown-select undefined"
     onClick={[Function]}
     onKeyDown={[Function]}
-    tabIndex="0"
+    style={
+      {
+        "alignItems": "center",
+        "border": "1px solid #ccc",
+        "borderRadius": "2px",
+        "boxSizing": "border-box",
+        "cursor": "pointer",
+        "direction": "ltr",
+        "display": "flex",
+        "flexDirection": "row",
+        "minHeight": "36px",
+        "opacity": 1,
+        "padding": "2px 5px",
+        "pointerEvents": "all",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+    tabIndex={0}
   >
     <div
-      className="react-dropdown-select-content react-dropdown-select-type-single emotion-2 emotion-3"
+      className="react-dropdown-select-content react-dropdown-select-type-single emotion-0"
       onClick={[Function]}
     >
       <input
-        className="react-dropdown-select-input emotion-4 emotion-5"
-        disabled={false}
+        className="react-dropdown-select-input emotion-1"
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
         onKeyPress={[Function]}
-        placeholder="Select..."
-        readOnly={false}
-        size={9}
+        readOnly={true}
+        size={0}
         tabIndex="-1"
         value=""
       />
     </div>
     <div
-      className="react-dropdown-select-separator emotion-6 emotion-7"
+      className="react-dropdown-select-separator emotion-2"
     />
-    <div
-      className="react-dropdown-select-dropdown-handle emotion-8 emotion-9"
-      color="#0074D9"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      onKeyPress={[Function]}
-      rotate={1}
-      tabIndex="-1"
-    >
-      <svg
-        fill="currentColor"
-        viewBox="0 0 40 40"
-      >
-        <path
-          d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z"
-        />
-      </svg>
-    </div>
   </div>
 </div>
 `;
 
 exports[`<Select/> component <Select/> renders with short color 1`] = `
 .emotion-0 {
-  box-sizing: border-box;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  border: 1px solid #ccc;
-  width: 100%;
-  border-radius: 2px;
-  padding: 2px 5px;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  direction: ltr;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  min-height: 36px;
-  pointer-events: all;
-}
-
-.emotion-0:hover,
-.emotion-0:focus-within {
-  border-color: #000;
-}
-
-.emotion-0:focus,
-.emotion-0:focus-within {
-  outline: 0;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
-}
-
-.emotion-0 * {
-  box-sizing: border-box;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -1170,96 +606,64 @@ exports[`<Select/> component <Select/> renders with short color 1`] = `
   flex-wrap: wrap;
 }
 
-.emotion-4 {
+.emotion-1 {
   line-height: inherit;
   border: none;
   margin-left: 5px;
   background: transparent;
   padding: 0;
-  width: calc(9ch + 5px);
+  width: calc(0ch + 5px);
   font-size: smaller;
-}
-
-.emotion-4:focus {
-  outline: none;
-}
-
-.emotion-6 {
-  text-align: center;
-  pointer-events: none;
-  margin: 0 0 0 5px;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
   cursor: pointer;
 }
 
-.emotion-6 svg {
-  width: 16px;
-  height: 16px;
-}
-
-.emotion-6:hover path {
-  stroke: #000;
-}
-
-.emotion-6:focus {
+.emotion-1:focus {
   outline: none;
-}
-
-.emotion-6:focus path {
-  stroke: #000;
 }
 
 <div>
   <div
     aria-expanded={false}
     aria-label="Dropdown select"
-    className="react-dropdown-select undefined emotion-0 emotion-1"
-    color="#000"
-    direction="ltr"
-    disabled={false}
+    className="react-dropdown-select undefined"
     onClick={[Function]}
     onKeyDown={[Function]}
-    tabIndex="0"
+    style={
+      {
+        "alignItems": "center",
+        "border": "1px solid #ccc",
+        "borderRadius": "2px",
+        "boxSizing": "border-box",
+        "cursor": "pointer",
+        "direction": "ltr",
+        "display": "flex",
+        "flexDirection": "row",
+        "minHeight": "36px",
+        "opacity": 1,
+        "padding": "2px 5px",
+        "pointerEvents": "all",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+    tabIndex={0}
   >
     <div
-      className="react-dropdown-select-content react-dropdown-select-type-single emotion-2 emotion-3"
+      className="react-dropdown-select-content react-dropdown-select-type-single emotion-0"
       onClick={[Function]}
     >
       <input
-        className="react-dropdown-select-input emotion-4 emotion-5"
-        disabled={false}
+        className="react-dropdown-select-input emotion-1"
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
         onKeyPress={[Function]}
-        placeholder="Select..."
-        readOnly={false}
-        size={9}
+        readOnly={true}
+        size={0}
         tabIndex="-1"
         value=""
       />
-    </div>
-    <div
-      className="react-dropdown-select-dropdown-handle emotion-6 emotion-7"
-      color="#000"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      onKeyPress={[Function]}
-      rotate={1}
-      tabIndex="-1"
-    >
-      <svg
-        fill="currentColor"
-        viewBox="0 0 40 40"
-      >
-        <path
-          d="M31 26.4q0 .3-.2.5l-1.1 1.2q-.3.2-.6.2t-.5-.2l-8.7-8.8-8.8 8.8q-.2.2-.5.2t-.5-.2l-1.2-1.2q-.2-.2-.2-.5t.2-.5l10.4-10.4q.3-.2.6-.2t.5.2l10.4 10.4q.2.2.2.5z"
-        />
-      </svg>
     </div>
   </div>
 </div>

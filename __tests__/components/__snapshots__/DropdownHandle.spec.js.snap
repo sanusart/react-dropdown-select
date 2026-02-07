@@ -22,7 +22,7 @@ exports[`<Clear/> component <DropdownHandle/> renders correctly 1`] = `
 }
 
 <div
-  className="react-dropdown-select-dropdown-handle emotion-0 emotion-1"
+  className="react-dropdown-select-dropdown-handle emotion-0"
   onClick={[Function]}
   onKeyDown={[Function]}
   onKeyPress={[Function]}

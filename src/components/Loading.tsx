@@ -1,15 +1,20 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { LIB_NAME } from '../constants';
+import { SelectProps } from 'react-dropdown-select';
 
-const Loading = ({ props }) =>
+interface LoadingProps<T> {
+  props: SelectProps<T>;
+}
+
+const Loading = <T extends object>({ props }: LoadingProps<T>) =>
   props.loadingRenderer ? (
-    props.loadingRenderer({ props })
+    props.loadingRenderer({ props } as any)
   ) : (
     <LoadingComponent className={`${LIB_NAME}-loading`} color={props.color} />
   );
 
-const LoadingComponent = styled.div`
+const LoadingComponent = styled.div<{ color?: string }>`
   @keyframes dual-ring-spin {
     0% {
       transform: rotate(0deg);

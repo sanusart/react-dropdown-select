@@ -1,28 +1,44 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import {getByPath} from '../util';
+import { getByPath } from '../util';
 import { LIB_NAME } from '../constants';
+import { SelectItemRenderer, SelectProps, SelectState, SelectMethods } from 'react-dropdown-select';
 
-const Option = ({ item, props, state, methods }) =>
+interface OptionProps<T> {
+  item: T;
+  props: SelectProps<T>;
+  state: SelectState<T>;
+  methods: SelectMethods<T>;
+}
+
+const Option = <T extends object>({ item, props, state, methods }: OptionProps<T>) =>
   item && props.optionRenderer ? (
-    props.optionRenderer({ item, props, state, methods })
+    props.optionRenderer({ item, props, state, methods } as SelectItemRenderer<T>)
   ) : (
     <OptionComponent
       role="listitem"
       disabled={props.disabled}
       direction={props.direction}
       className={`${LIB_NAME}-option`}
-      color={props.color}>
+      color={props.color}
+    >
       <span className={`${LIB_NAME}-option-label`}>{getByPath(item, props.labelField)}</span>
       <span
         className={`${LIB_NAME}-option-remove`}
-        onClick={(event) => methods.removeItem(event, item, props.closeOnSelect)}>
+        onClick={(event) => methods.removeItem(event, item, props.closeOnSelect || false)}
+      >
         &times;
       </span>
     </OptionComponent>
   );
 
-const OptionComponent = styled.span`
+interface OptionComponentProps {
+  disabled?: boolean;
+  direction?: 'ltr' | 'rtl';
+  color?: string;
+}
+
+const OptionComponent = styled.span<OptionComponentProps>`
   padding: 0 5px;
   border-radius: 2px;
   line-height: 21px;
@@ -30,8 +46,7 @@ const OptionComponent = styled.span`
   background: ${({ color }) => color};
   color: #fff;
   display: flex;
-  flex-direction: ${({ direction }) => direction === 'rtl' ? 'row-reverse' : 'row'};
-  
+  flex-direction: ${({ direction }) => (direction === 'rtl' ? 'row-reverse' : 'row')};
 
   .${LIB_NAME}-option-remove {
     cursor: pointer;

@@ -23,7 +23,7 @@ exports[`<Item/> component pass item renderer 1`] = `
 }
 
 <span
-  className="react-dropdown-select-item    emotion-0 emotion-1"
+  className="react-dropdown-select-item emotion-0"
   onClick={[Function]}
   onKeyPress={[Function]}
   role="option"
@@ -56,7 +56,7 @@ exports[`<Item/> component renders correctly 1`] = `
 }
 
 <span
-  className="react-dropdown-select-item    emotion-0 emotion-1"
+  className="react-dropdown-select-item emotion-0"
   onClick={[Function]}
   onKeyPress={[Function]}
   role="option"
