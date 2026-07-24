@@ -16,7 +16,7 @@ export declare class Select<T extends Record<string, any>> extends Component<Sel
     onScroll: () => void;
     updateSelectBounds: () => void | null;
     getSelectBounds: () => DOMRect | Record<string, never>;
-    dropDown: (action?: string, event?: React.MouseEvent | React.KeyboardEvent | null, force?: boolean) => false | void;
+    dropDown: (action?: string, event?: React.MouseEvent | React.KeyboardEvent | null, force?: boolean) => void;
     getSelectRef: () => HTMLDivElement | null;
     addItem: (item: T) => true | void;
     removeItem: (event: React.MouseEvent<HTMLElement> | null, item: T, close?: boolean) => void;
