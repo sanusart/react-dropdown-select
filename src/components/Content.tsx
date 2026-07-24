@@ -1,18 +1,13 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import PropTypes from 'prop-types';
-
 import Option from './Option';
 import Input from './Input';
 import { LIB_NAME } from '../constants';
-import {getByPath} from '../util';
-import SelectPropsModel from '../models/SelectPropsModel';
-import SelectMethodsModel from '../models/SelectMethodsModel';
-import SelectStateModel from '../models/SelectStateModel';
+import { getByPath } from '../util';
+import { ComponentRendererArgs } from '../select-types';
 
-const Content = ({ props, state, methods }) => {
+const Content = <T extends Record<string, any>>({ props, state, methods }: ComponentRendererArgs<T>) => {
   return (
-    <ContentComponent
+    <div
       className={`${LIB_NAME}-content ${
         props.multi ? `${LIB_NAME}-type-multi` : `${LIB_NAME}-type-single`
       }`}
@@ -30,7 +25,7 @@ const Content = ({ props, state, methods }) => {
         <React.Fragment>
           {props.multi
             ? state.values &&
-              state.values.map((item) => (
+              state.values.map((item: T) => (
                 <Option
                   key={`${getByPath(item, props.valueField)}${getByPath(item, props.labelField)}`}
                   item={item}
@@ -44,19 +39,8 @@ const Content = ({ props, state, methods }) => {
           <Input props={props} methods={methods} state={state} />
         </React.Fragment>
       )}
-    </ContentComponent>
+    </div>
   );
 };
-
-Content.propTypes = {
-  props: PropTypes.shape(SelectPropsModel),
-  state: PropTypes.shape(SelectStateModel),
-  methods: PropTypes.shape(SelectMethodsModel),
-};
-const ContentComponent = styled.div`
-  display: flex;
-  flex: 1;
-  flex-wrap: wrap;
-`;
 
 export default Content;

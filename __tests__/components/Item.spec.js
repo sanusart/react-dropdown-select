@@ -34,19 +34,25 @@ describe('<Item/> component', () => {
   });
 
   test('onChange with click', () => {
-    TestRenderer.create(<Item {...props({ item: options[0] })} onClick={spy} />)
+    const addItemSpy = jest.fn();
+    TestRenderer.create(
+      <Item {...props({ item: options[0], methods: { isSelected: () => undefined, addItem: addItemSpy } })} />
+    )
       .root.findByType('span')
       .props.onClick();
 
-    expect(spy).toHaveBeenCalled;
+    expect(addItemSpy).toHaveBeenCalled;
   });
 
   test('onChange with key press', () => {
-    TestRenderer.create(<Item {...props({ item: options[0] })} ononKeyPress={spy} />)
+    const addItemSpy = jest.fn();
+    TestRenderer.create(
+      <Item {...props({ item: options[0], methods: { isSelected: () => undefined, addItem: addItemSpy } })} />
+    )
       .root.findByType('span')
-      .props.onKeyPress();
+      .props.onKeyDown({ key: 'Enter' });
 
-    expect(spy).toHaveBeenCalled;
+    expect(addItemSpy).toHaveBeenCalled;
   });
 
   test('keepSelectedInList: false', () => {

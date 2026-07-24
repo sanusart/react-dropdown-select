@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { ClickOutsideProps } from '../select-types';
 
-class ClickOutside extends React.Component {
-  container = React.createRef();
+class ClickOutside extends React.Component<ClickOutsideProps> {
+  container = React.createRef<HTMLDivElement>();
 
   componentDidMount() {
     document.addEventListener('click', this.handleClick, true);
@@ -12,13 +12,13 @@ class ClickOutside extends React.Component {
     document.removeEventListener('click', this.handleClick, true);
   }
 
-  handleClick = (event) => {
+  handleClick = (event: MouseEvent) => {
     const container = this.container.current;
     const { target } = event;
     const { onClickOutside } = this.props;
 
-    if ((container && container === target) || (container && !container.contains(target))) {
-      onClickOutside(event);
+    if ((container && container === target) || (container && !container.contains(target as Node))) {
+      onClickOutside(event as any);
     }
   };
 
@@ -32,11 +32,5 @@ class ClickOutside extends React.Component {
     );
   }
 }
-
-ClickOutside.propTypes = {
-  onClickOutside: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string
-};
 
 export default ClickOutside;

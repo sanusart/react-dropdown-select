@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import styled from '@emotion/styled';
 import ClickOutside from './components/ClickOutside';
+import { injectStyles } from './styles';
 
 import Content from './components/Content';
 import Dropdown from './components/Dropdown';
@@ -20,21 +20,90 @@ import {
   isomorphicWindow
 } from './util';
 import { LIB_NAME } from './constants';
-import SelectPropsModel from './models/SelectPropsModel';
+import { SelectProps, SelectState, SelectMethods, HandleKeyDownArgs } from './select-types';
 
-export class Select extends Component {
-  static propTypes = SelectPropsModel;
+interface SelectComponentState<T> extends SelectState<T> {
+  searchResults: T[];
+}
 
-  constructor(props) {
+injectStyles();
+
+export class Select<T extends Record<string, any>> extends Component<
+  SelectProps<T>,
+  SelectComponentState<T>
+> {
+  methods!: SelectMethods<T>;
+  select: React.RefObject<HTMLDivElement>;
+  dropdownRoot: HTMLDivElement | false;
+
+  static defaultProps: SelectProps<any> = {
+    addPlaceholder: '',
+    additionalProps: undefined,
+    autoFocus: false,
+    backspaceDelete: true,
+    clearAllLabel: 'Clear all',
+    clearOnBlur: true,
+    clearOnSelect: true,
+    clearable: false,
+    closeOnScroll: false,
+    closeOnSelect: false,
+    closeOnClickInput: false,
+    color: '#0074D9',
+    compareValuesFunc: isEqual,
+    create: false,
+    createNewLabel: 'add {search}',
+    debounceDelay: 0,
+    direction: 'ltr',
+    disabled: false,
+    disabledLabel: 'disabled',
+    dropdownGap: 5,
+    dropdownHandle: true,
+    dropdownHeight: '300px',
+    dropdownPosition: 'bottom',
+    handleKeyDownFn: () => undefined,
+    keepOpen: false,
+    keepSelectedInList: true,
+    labelField: 'label',
+    loading: false,
+    multi: false,
+    name: null,
+    noDataLabel: 'No data',
+    onChange: () => undefined,
+    onSelect: () => undefined,
+    onDeselect: () => undefined,
+    onClearAll: () => undefined,
+    onCreateNew: () => undefined,
+    onDropdownClose: () => undefined,
+    onDropdownCloseRequest: undefined,
+    onDropdownOpen: () => undefined,
+    onSelectAll: () => undefined,
+    options: [],
+    pattern: undefined,
+    placeholder: 'Select...',
+    portal: undefined,
+    required: false,
+    searchBy: 'label',
+    searchFn: () => undefined as any,
+    searchable: true,
+    selectAll: false,
+    selectAllLabel: 'Select all',
+    separator: false,
+    sortBy: null,
+    valueField: 'value',
+    values: [],
+    defaultMenuIsOpen: false
+  };
+
+  constructor(props: SelectProps<T>) {
     super(props);
 
     this.state = {
       dropdown: false,
-      values: props.values,
+      values: (props.values || []) as T[],
       search: '',
-      selectBounds: {},
+      selectBounds: {} as DOMRect,
       cursor: null,
-      searchResults: props.options
+      searchResults: (props.options || []) as T[]
     };
 
     this.methods = {
@@ -59,11 +128,12 @@ export class Select extends Component {
     };
 
     this.select = React.createRef();
-    this.dropdownRoot = typeof document !== 'undefined' && document.createElement('div');
+    this.dropdownRoot =
+      typeof document !== 'undefined' && document.createElement('div');
   }
 
   componentDidMount() {
-    this.props.portal && this.props.portal.appendChild(this.dropdownRoot);
+    this.props.portal && this.props.portal.appendChild(this.dropdownRoot as HTMLDivElement);
     isomorphicWindow().addEventListener('resize', debounce(this.updateSelectBounds));
     isomorphicWindow().addEventListener('scroll', debounce(this.onScroll));
 
@@ -77,17 +147,17 @@ export class Select extends Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps: SelectProps<T>, prevState: SelectComponentState<T>) {
     if (
-      !this.props.compareValuesFunc(prevProps.values, this.props.values) &&
-      this.props.compareValuesFunc(prevProps.values, prevState.values)
+      !this.props.compareValuesFunc!(prevProps.values || [], this.props.values || []) &&
+      this.props.compareValuesFunc!(prevProps.values || [], prevState.values)
     ) {
       this.setState(
         {
-          values: this.props.values
+          values: this.props.values || []
         },
         () => {
-          this.props.onChange(this.state.values);
+          this.props.onChange!(this.state.values);
         }
       );
       this.updateSelectBounds();
@@ -98,7 +168,7 @@ export class Select extends Component {
     }
 
     if (prevState.values !== this.state.values) {
-      this.props.onChange(this.state.values);
+      this.props.onChange!(this.state.values);
       this.updateSelectBounds();
     }
 
@@ -119,12 +189,12 @@ export class Select extends Component {
     }
 
     if (!prevState.dropdown && prevState.dropdown !== this.state.dropdown) {
-      this.props.onDropdownOpen();
+      this.props.onDropdownOpen!();
     }
   }
 
   componentWillUnmount() {
-    this.props.portal && this.props.portal.removeChild(this.dropdownRoot);
+    this.props.portal && this.props.portal.removeChild(this.dropdownRoot as HTMLDivElement);
     isomorphicWindow().removeEventListener(
       'resize',
       debounce(this.updateSelectBounds, this.props.debounceDelay)
@@ -137,7 +207,7 @@ export class Select extends Component {
 
   onDropdownClose = () => {
     this.setState({ cursor: null });
-    this.props.onDropdownClose();
+    this.props.onDropdownClose!();
   };
 
   onScroll = () => {
@@ -156,8 +226,8 @@ export class Select extends Component {
 
   getSelectBounds = () => this.state.selectBounds;
 
-  dropDown = (action = 'toggle', event, force = false) => {
-    const target = (event && event.target) || (event && event.srcElement);
+  dropDown = (action = 'toggle', event?: React.MouseEvent | React.KeyboardEvent | null, force = false) => {
+    const target = (event && (event.target as HTMLElement)) || (event && (event as any).srcElement);
 
     if (
       this.props.onDropdownCloseRequest !== undefined &&
@@ -179,8 +249,8 @@ export class Select extends Component {
       !this.props.closeOnSelect &&
       event &&
       target &&
-      target.offsetParent &&
-      target.offsetParent.classList.contains('react-dropdown-select-dropdown')
+      (target as HTMLElement).offsetParent &&
+      (target as HTMLElement).offsetParent!.classList.contains('react-dropdown-select-dropdown')
     ) {
       return;
     }
@@ -190,12 +260,12 @@ export class Select extends Component {
     }
 
     if (action === 'close' && this.state.dropdown) {
-      this.select.current.blur();
+      this.select.current!.blur();
 
       return this.setState({
         dropdown: false,
         search: this.props.clearOnBlur ? '' : this.state.search,
-        searchResults: this.props.options
+        searchResults: this.props.options || []
       });
     }
 
@@ -204,7 +274,7 @@ export class Select extends Component {
     }
 
     if (action === 'toggle') {
-      this.select.current.focus();
+      this.select.current!.focus();
       return this.setState({ dropdown: !this.state.dropdown });
     }
 
@@ -213,7 +283,7 @@ export class Select extends Component {
 
   getSelectRef = () => this.select.current;
 
-  addItem = (item) => {
+  addItem = (item: T) => {
     if (this.props.multi) {
       if (
         valueExistInSelected(getByPath(item, this.props.valueField), this.state.values, this.props)
@@ -224,13 +294,13 @@ export class Select extends Component {
       this.setState({
         values: [...this.state.values, item]
       });
-      this.props.onSelect([...this.state.values, item]);
+      this.props.onSelect!([...this.state.values, item]);
     } else {
       this.setState({
         values: [item],
         dropdown: false
       });
-      this.props.onSelect([item]);
+      this.props.onSelect!([item]);
     }
 
     this.props.clearOnSelect &&
@@ -241,7 +311,7 @@ export class Select extends Component {
     return true;
   };
 
-  removeItem = (event, item, close = false) => {
+  removeItem = (event: React.MouseEvent<HTMLElement> | null, item: T, close = false) => {
     if (event && close) {
       event.preventDefault();
       event.stopPropagation();
@@ -249,16 +319,16 @@ export class Select extends Component {
     }
 
     const values = this.state.values.filter(
-      (values) =>
-        getByPath(values, this.props.valueField) !== getByPath(item, this.props.valueField)
+      (v) =>
+        getByPath(v, this.props.valueField) !== getByPath(item, this.props.valueField)
     );
     this.setState({
       values
     });
-    this.props.onDeselect(values)
+    this.props.onDeselect!(values);
   };
 
-  setSearch = (event) => {
+  setSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
       cursor: null
     });
@@ -279,52 +349,58 @@ export class Select extends Component {
     }
 
     if (this.state.values.length > 0) {
-      return this.props.addPlaceholder.length;
+      return (this.props.addPlaceholder || '').length;
     }
 
-    return this.props.placeholder.length;
+    return (this.props.placeholder || '').length;
   };
 
   toggleSelectAll = () => {
     return this.setState({
-      values: this.state.values.length === 0 ? this.selectAll() : this.clearAll()
+      values: this.state.values.length === 0 ? this.selectAll() : (this.clearAll() as any)
     });
   };
 
   clearAll = () => {
-    this.props.onClearAll();
+    this.props.onClearAll!();
     this.setState({
       values: []
     });
+    return [];
   };
 
-  selectAll = (valuesList = []) => {
-    this.props.onSelectAll();
+  selectAll = (valuesList: T[] = []) => {
+    this.props.onSelectAll!();
     const values =
-      valuesList.length > 0 ? valuesList : this.props.options.filter((option) => !option.disabled);
+      valuesList.length > 0
+        ? valuesList
+        : (this.props.options || []).filter((option: any) => !option.disabled);
 
     this.setState({ values });
+    return values;
   };
 
-  isSelected = (option) =>
+  isSelected = (option: T) =>
     !!this.state.values.find(
       (value) =>
         getByPath(value, this.props.valueField) === getByPath(option, this.props.valueField)
     );
 
   areAllSelected = () =>
-    this.state.values.length === this.props.options.filter((option) => !option.disabled).length;
+    this.state.values.length ===
+    (this.props.options || []).filter((option: any) => !option.disabled).length;
 
-  safeString = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  safeString = (string: string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
   sortBy = () => {
     const { sortBy, options } = this.props;
 
     if (!sortBy) {
-      return options;
+      return options || [];
     }
 
-    options.sort((a, b) => {
+    const sorted = [...(options || [])];
+    sorted.sort((a: any, b: any) => {
       if (getProp(a, sortBy) < getProp(b, sortBy)) {
         return -1;
       } else if (getProp(a, sortBy) > getProp(b, sortBy)) {
@@ -334,15 +410,15 @@ export class Select extends Component {
       }
     });
 
-    return options;
+    return sorted;
   };
 
-  searchFn = ({ state, methods }) => {
+  searchFn = ({ state, methods }: { state: SelectState<T>; methods: SelectMethods<T> }) => {
     const regexp = new RegExp(methods.safeString(state.search), 'i');
 
     return methods
       .sortBy()
-      .filter((item) =>
+      .filter((item: any) =>
         regexp.test(getByPath(item, this.props.searchBy) || getByPath(item, this.props.valueField))
       );
   };
@@ -350,15 +426,15 @@ export class Select extends Component {
   searchResults = () => {
     const args = { state: this.state, props: this.props, methods: this.methods };
 
-    return this.props.searchFn(args) || this.searchFn(args);
+    return this.props.searchFn!(args) || this.searchFn(args);
   };
 
-  activeCursorItem = (activeCursorItem) =>
+  activeCursorItem = (activeCursorItem: any) =>
     this.setState({
       activeCursorItem
     });
 
-  handleKeyDown = (event) => {
+  handleKeyDown = (event: React.KeyboardEvent) => {
     const args = {
       event,
       state: this.state,
@@ -367,10 +443,14 @@ export class Select extends Component {
       setState: this.setState.bind(this)
     };
 
-    return this.props.handleKeyDownFn(args) || this.handleKeyDownFn(args);
+    if (this.props.handleKeyDownFn) {
+      this.props.handleKeyDownFn(args);
+    } else {
+      this.handleKeyDownFn(args);
+    }
   };
 
-  handleKeyDownFn = ({ event, state, props, methods, setState }) => {
+  handleKeyDownFn = ({ event, state, props, methods, setState }: HandleKeyDownArgs<T>) => {
     const { cursor, searchResults } = state;
     const escape = event.key === 'Escape';
     const enter = event.key === 'Enter';
@@ -403,8 +483,8 @@ export class Select extends Component {
     }
 
     if (enter) {
-      const currentItem = searchResults[cursor];
-      if (currentItem && !currentItem.disabled) {
+      const currentItem = searchResults[cursor as number];
+      if (currentItem && !(currentItem as any).disabled) {
         if (props.create && valueExistInSelected(state.search, state.values, props)) {
           return null;
         }
@@ -420,14 +500,14 @@ export class Select extends Component {
     }
 
     if (arrowDown || (tab && state.dropdown)) {
-      setState((prevState) => ({
-        cursor: prevState.cursor + 1
+      setState((prevState: SelectComponentState<T>) => ({
+        cursor: (prevState.cursor || 0) + 1
       }));
     }
 
-    if ((arrowUp || (shiftTab && state.dropdown)) && cursor > 0) {
-      setState((prevState) => ({
-        cursor: prevState.cursor - 1
+    if ((arrowUp || (shiftTab && state.dropdown)) && cursor! > 0) {
+      setState((prevState: SelectComponentState<T>) => ({
+        cursor: prevState.cursor! - 1
       }));
     }
 
@@ -448,50 +528,55 @@ export class Select extends Component {
     this.props.portal ? (
       ReactDOM.createPortal(
         <Dropdown props={this.props} state={this.state} methods={this.methods} />,
-        this.dropdownRoot
+        this.dropdownRoot as HTMLDivElement
       )
     ) : (
       <Dropdown props={this.props} state={this.state} methods={this.methods} />
     );
 
-  createNew = (item) => {
+  createNew = (item: string) => {
     const newValue = {
-      [this.props.labelField]: item,
-      [this.props.valueField]: item
-    };
+      [this.props.labelField!]: item,
+      [this.props.valueField!]: item
+    } as unknown as T;
 
     this.addItem(newValue);
-    this.props.onCreateNew(newValue);
+    this.props.onCreateNew!(newValue);
     this.setState({ search: '' });
   };
 
   render() {
     return (
-      <ClickOutside onClickOutside={(event) => this.dropDown('close', event)}>
-        <ReactDropdownSelect
+      <ClickOutside onClickOutside={(event) => this.dropDown('close', event as React.MouseEvent)}>
+        <div
           onKeyDown={this.handleKeyDown}
           aria-label="Dropdown select"
           aria-expanded={this.state.dropdown}
           onClick={(event) => this.dropDown('open', event)}
-          tabIndex={this.props.disabled ? '-1' : '0'}
-          direction={this.props.direction}
-          style={this.props.style}
+          tabIndex={this.props.disabled ? -1 : 0}
           ref={this.select}
-          disabled={this.props.disabled}
-          className={`${LIB_NAME} ${this.props.className}`}
-          color={this.props.color}
+          className={`${this.props.disabled ? `${LIB_NAME}-disabled` : ''} ${LIB_NAME} ${
+            this.props.className || ''
+          }`}
+          style={{
+            '--select-direction': this.props.direction,
+            '--select-color': this.props.color,
+            '--select-color-shadow': this.props.color ? hexToRGBA(this.props.color, 0.2) : hexToRGBA('#000', 0.2)
+          } as React.CSSProperties}
           {...this.props.additionalProps}>
           <Content props={this.props} state={this.state} methods={this.methods} />
 
           {(this.props.name || this.props.required) && (
             <input
               tabIndex={-1}
-              style={{ opacity: 0, width: 0, position: 'absolute' }}
-              name={this.props.name}
+              style={{ opacity: 0, width: 0, position: 'absolute' } as React.CSSProperties}
+              name={this.props.name || ''}
               required={this.props.required}
               pattern={this.props.pattern}
               defaultValue={
-                this.state.values.map((value) => value[this.props.labelField]).toString() || []
+                this.state.values
+                  .map((value: any) => value[this.props.labelField!])
+                  .toString() || ''
               }
               disabled={this.props.disabled}
             />
@@ -509,7 +594,7 @@ export class Select extends Component {
 
           {this.props.dropdownHandle && (
             <DropdownHandle
-              onClick={() => this.select.current.focus()}
+              onClick={() => this.select.current!.focus()}
               props={this.props}
               state={this.state}
               methods={this.methods}
@@ -517,100 +602,10 @@ export class Select extends Component {
           )}
 
           {this.state.dropdown && !this.props.disabled && this.renderDropdown()}
-        </ReactDropdownSelect>
+        </div>
       </ClickOutside>
     );
   }
 }
-
-Select.defaultProps = {
-  addPlaceholder: '',
-  additionalProps: null,
-  autoFocus: false,
-  backspaceDelete: true,
-  clearAllLabel: 'Clear all',
-  clearOnBlur: true,
-  clearOnSelect: true,
-  clearable: false,
-  closeOnScroll: false,
-  closeOnSelect: false,
-  closeOnClickInput: false,
-  color: '#0074D9',
-  compareValuesFunc: isEqual,
-  create: false,
-  createNewLabel: 'add {search}',
-  debounceDelay: 0,
-  direction: 'ltr',
-  disabled: false,
-  disabledLabel: 'disabled',
-  dropdownGap: 5,
-  dropdownHandle: true,
-  dropdownHeight: '300px',
-  dropdownPosition: 'bottom',
-  handleKeyDownFn: () => undefined,
-  keepOpen: false,
-  keepSelectedInList: true,
-  labelField: 'label',
-  loading: false,
-  multi: false,
-  name: null,
-  noDataLabel: 'No data',
-  onChange: () => undefined,
-  onSelect: () => undefined,
-  onDeselect: () => undefined,
-  onClearAll: () => undefined,
-  onCreateNew: () => undefined,
-  onDropdownClose: () => undefined,
-  onDropdownCloseRequest: undefined,
-  onDropdownOpen: () => undefined,
-  onSelectAll: () => undefined,
-  options: [],
-  pattern: undefined,
-  placeholder: 'Select...',
-  portal: null,
-  required: false,
-  searchBy: 'label',
-  searchFn: () => undefined,
-  searchable: true,
-  selectAll: false,
-  selectAllLabel: 'Select all',
-  separator: false,
-  sortBy: null,
-  valueField: 'value',
-  values: [],
-  defaultMenuIsOpen: false
-};
-
-const ReactDropdownSelect = styled.div`
-  box-sizing: border-box;
-  position: relative;
-  display: flex;
-  border: 1px solid #ccc;
-  width: 100%;
-  border-radius: 2px;
-  padding: 2px 5px;
-  flex-direction: row;
-  direction: ${({ direction }) => direction};
-  align-items: center;
-  cursor: pointer;
-  min-height: 36px;
-
-  ${({ disabled }) =>
-    disabled ? 'cursor: not-allowed;pointer-events: none;opacity: 0.3;' : 'pointer-events: all;'}
-  :hover,
-  :focus-within {
-    border-color: ${({ color }) => color};
-  }
-
-  :focus,
-  :focus-within {
-    outline: 0;
-    box-shadow: 0 0 0 3px ${({ color }) => hexToRGBA(color, 0.2)};
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-`;
 
 export default Select;
