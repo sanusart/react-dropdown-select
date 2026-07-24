@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "prebuild": "cd .. && npm run build",
+    "prebuild": "cd .. && npm ci && npm run build",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
