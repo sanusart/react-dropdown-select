@@ -226,7 +226,7 @@ export class Select<T extends Record<string, any>> extends Component<
 
   getSelectBounds = () => this.state.selectBounds;
 
-  dropDown = (action = 'toggle', event?: React.MouseEvent | React.KeyboardEvent | null, force = false) => {
+  dropDown = (action = 'toggle', event?: React.MouseEvent | React.KeyboardEvent | null, force = false): void => {
     const target = (event && (event.target as HTMLElement)) || (event && (event as any).srcElement);
 
     if (
@@ -278,7 +278,7 @@ export class Select<T extends Record<string, any>> extends Component<
       return this.setState({ dropdown: !this.state.dropdown });
     }
 
-    return false;
+    return;
   };
 
   getSelectRef = () => this.select.current;
