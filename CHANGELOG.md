@@ -4,6 +4,18 @@ All significant updates and improvements
 
 ## Upcoming version
 
+### ⚙️ Miscellaneous Tasks
+
+- Update release
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([cebbbaf](https://github.com/sanusart/react-dropdown-select/commit/cebbbaf0a174065eeb3468c9041000e8443f7e2a))
+
+
+## v5.0.0
+
+Released on: Jul 25, 2026
+
 ### 🚀 Features
 
 - New site ([#340](https://github.com/sanusart/react-dropdown-select/issues/340))
@@ -111,6 +123,11 @@ All significant updates and improvements
 · by Sasha Khamkov
 ([@sanusart](https://github.com/sanusart))
 ([1a254df](https://github.com/sanusart/react-dropdown-select/commit/1a254df6b07500ac148847c49d7b5e31344d2080))
+
+- Release v5.0.0
+· by github-actions[bot]
+([@github-actions[bot]](https://github.com/github-actions[bot]))
+([6995045](https://github.com/sanusart/react-dropdown-select/commit/69950452a373b0ed80092ffb8c3a3c9d15c986f1))
 
 
 ## v4.11.3
