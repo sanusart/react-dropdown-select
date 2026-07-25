@@ -4,6 +4,18 @@ All significant updates and improvements
 
 ## Upcoming version
 
+### 📚 Documentation
+
+- *(add gh pages)* Add github pages ([#354](https://github.com/sanusart/react-dropdown-select/issues/354))
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([906e244](https://github.com/sanusart/react-dropdown-select/commit/906e2443153bcf4e2776bcb2fd160623eb0f4b62))
+
+
+## v5.0.2
+
+Released on: Jul 25, 2026
+
 ### ⚙️ Miscellaneous Tasks
 
 - Update release
@@ -15,6 +27,11 @@ All significant updates and improvements
 · by Sasha Khamkov
 ([@sanusart](https://github.com/sanusart))
 ([ac7e613](https://github.com/sanusart/react-dropdown-select/commit/ac7e61346bb0505b7548af44640c3658f332fc60))
+
+- Release v5.0.2
+· by github-actions[bot]
+([@github-actions[bot]](https://github.com/github-actions[bot]))
+([66648db](https://github.com/sanusart/react-dropdown-select/commit/66648dbef4fe926773e665c7c30c77acc0c29459))
 
 
 ## v5.0.1
