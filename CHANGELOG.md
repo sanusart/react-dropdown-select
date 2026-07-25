@@ -14,63 +14,6 @@ All significant updates and improvements
 
 ### 🐛 Bug Fixes
 
-- Site
-· by Sasha Khamkov
-([@sanusart](https://github.com/sanusart))
-([ab46e9a](https://github.com/sanusart/react-dropdown-select/commit/ab46e9a906861cc65218af35397ca5f33a25bf5d))
-
-- Convert to typescript and strip emotion
-· by Sasha Khamkov
-([4a797f6](https://github.com/sanusart/react-dropdown-select/commit/4a797f6b35b5478c862584c2dd873f851d51e5cd))
-
-- Convert to typescript and strip emotion
-· by Sasha Khamkov
-([8ede6f6](https://github.com/sanusart/react-dropdown-select/commit/8ede6f652262cfbadd44607b4d03c8082b70cfd3))
-
-- Convert to typescript and strip emotion
-· by Sasha Khamkov
-([971f2f9](https://github.com/sanusart/react-dropdown-select/commit/971f2f90460df7581a3b1b2906b9bfbda132d775))
-
-- Convert to typescript and strip emotion
-· by Sasha Khamkov
-([dcf3c06](https://github.com/sanusart/react-dropdown-select/commit/dcf3c066fa1222302439befdc13af02207124bbb))
-
-- Docs version
-· by Sasha Khamkov
-([d49cfcc](https://github.com/sanusart/react-dropdown-select/commit/d49cfcc50418350f094f268f132c90ed0221f449))
-
-
-### 💼 Other
-
-- Update .nvmrc
-· by Sasha Khamkov
-([@sanusart](https://github.com/sanusart))
-([e1645a8](https://github.com/sanusart/react-dropdown-select/commit/e1645a8ee618a36f48d03ad1b6fdaf694051fd83))
-
-- Update .nvmrc
-· by Sasha Khamkov
-([@sanusart](https://github.com/sanusart))
-([3966e82](https://github.com/sanusart/react-dropdown-select/commit/3966e82341a68b7759d1bdb03ee4bcd64aa2c1b5))
-
-
-## v4.12.2
-
-Released on: Jun 14, 2025
-
-### 🐛 Bug Fixes
-
-- *(types)* Set onSelect and onDeselect optional ([#330](https://github.com/sanusart/react-dropdown-select/issues/330))
-· by Sasha Khamkov
-([@sanusart](https://github.com/sanusart))
-([c58e31e](https://github.com/sanusart/react-dropdown-select/commit/c58e31ea4ed8106dce0317e25212673624bd0095))
-
-
-## v4.12.0
-
-Released on: May 10, 2025
-
-### 🐛 Bug Fixes
-
 - Fix docs footer routing ([#320](https://github.com/sanusart/react-dropdown-select/issues/320))
 · by Sasha Khamkov
 ([@sanusart](https://github.com/sanusart))
@@ -80,6 +23,21 @@ Released on: May 10, 2025
 · by Sasha Khamkov
 ([@sanusart](https://github.com/sanusart))
 ([b804c0b](https://github.com/sanusart/react-dropdown-select/commit/b804c0b3d9616b8ced101f889f24cc6a550c991e))
+
+- *(types)* Set onSelect and onDeselect optional ([#330](https://github.com/sanusart/react-dropdown-select/issues/330))
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([c58e31e](https://github.com/sanusart/react-dropdown-select/commit/c58e31ea4ed8106dce0317e25212673624bd0095))
+
+- Site
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([ab46e9a](https://github.com/sanusart/react-dropdown-select/commit/ab46e9a906861cc65218af35397ca5f33a25bf5d))
+
+- Convert to typescript and strip emotion ([#341](https://github.com/sanusart/react-dropdown-select/issues/341))
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([c21db14](https://github.com/sanusart/react-dropdown-select/commit/c21db1440d21d3dace45920e0e60995de1fd42ea))
 
 
 ### 💼 Other
@@ -94,6 +52,24 @@ Released on: May 10, 2025
 · by Sasha Khamkov
 ([@sanusart](https://github.com/sanusart))
 ([bbbc6f9](https://github.com/sanusart/react-dropdown-select/commit/bbbc6f99d019aab832e2b9ce1962420d201a7915))
+
+- Update .nvmrc
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([e1645a8](https://github.com/sanusart/react-dropdown-select/commit/e1645a8ee618a36f48d03ad1b6fdaf694051fd83))
+
+- Update .nvmrc
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([3966e82](https://github.com/sanusart/react-dropdown-select/commit/3966e82341a68b7759d1bdb03ee4bcd64aa2c1b5))
+
+
+### 🚜 Refactor
+
+- *(release cycle)* Release cycle ([#342](https://github.com/sanusart/react-dropdown-select/issues/342))
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([6e8d71a](https://github.com/sanusart/react-dropdown-select/commit/6e8d71a2ec2fcb861bbe051151c3a013f3d0256d))
 
 
 ## v4.11.3
