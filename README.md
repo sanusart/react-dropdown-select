@@ -20,9 +20,9 @@ Customisable dropdown select for react
 
 > `npm install --save react-dropdown-select`
 
-### Storybook
+### Docs and Storybook
 
-[storybook](https://sanusart.github.io/react-dropdown-select)
+[Docs](https://sanusart.github.io/react-dropdown-select/) | [Storybook](https://sanusart.github.io/react-dropdown-select/storybook/)
 
 ### Motivation
 
