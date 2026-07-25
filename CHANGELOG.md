@@ -19,6 +19,11 @@ All significant updates and improvements
 ([@sanusart](https://github.com/sanusart))
 ([35ae967](https://github.com/sanusart/react-dropdown-select/commit/35ae967dd5de4e3717e332d32bdc0a0993542301))
 
+- Update site and storybook
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([5c37759](https://github.com/sanusart/react-dropdown-select/commit/5c37759be7735b1a38a5cfb2b84a9921b49638d7))
+
 
 ## v5.0.2
 
