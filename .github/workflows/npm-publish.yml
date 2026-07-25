@@ -10,6 +10,9 @@ jobs:
   publish-npm:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
 
@@ -25,6 +28,4 @@ jobs:
       - run: pnpm install
       - run: pnpm test -- --maxWorkers=2 --maxConcurrent=2
       - run: pnpm run build
-      - run: pnpm publish --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: pnpm publish --no-git-checks --provenance
