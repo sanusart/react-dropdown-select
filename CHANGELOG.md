@@ -14,21 +14,6 @@ All significant updates and improvements
 
 ### 🐛 Bug Fixes
 
-- Fix docs footer routing ([#320](https://github.com/sanusart/react-dropdown-select/issues/320))
-· by Sasha Khamkov
-([@sanusart](https://github.com/sanusart))
-([8a4583b](https://github.com/sanusart/react-dropdown-select/commit/8a4583b1ff2047b3be5466d7418ed6fe260bf616))
-
-- *(calbacks)* Add onSelect and onDeselect callbacks ([#326](https://github.com/sanusart/react-dropdown-select/issues/326))
-· by Sasha Khamkov
-([@sanusart](https://github.com/sanusart))
-([b804c0b](https://github.com/sanusart/react-dropdown-select/commit/b804c0b3d9616b8ced101f889f24cc6a550c991e))
-
-- *(types)* Set onSelect and onDeselect optional ([#330](https://github.com/sanusart/react-dropdown-select/issues/330))
-· by Sasha Khamkov
-([@sanusart](https://github.com/sanusart))
-([c58e31e](https://github.com/sanusart/react-dropdown-select/commit/c58e31ea4ed8106dce0317e25212673624bd0095))
-
 - Site
 · by Sasha Khamkov
 ([@sanusart](https://github.com/sanusart))
@@ -41,17 +26,6 @@ All significant updates and improvements
 
 
 ### 💼 Other
-
-- FIX (types): clearAllLabel missing in types issues-321 ([#322](https://github.com/sanusart/react-dropdown-select/issues/322))
-
-* FIX (types): clearAllLabel missing in types issues-321
-
-* bump version
-
-* bump version
-· by Sasha Khamkov
-([@sanusart](https://github.com/sanusart))
-([bbbc6f9](https://github.com/sanusart/react-dropdown-select/commit/bbbc6f99d019aab832e2b9ce1962420d201a7915))
 
 - Update .nvmrc
 · by Sasha Khamkov
@@ -83,6 +57,49 @@ All significant updates and improvements
 · by Sasha Khamkov
 ([@sanusart](https://github.com/sanusart))
 ([94c0b4d](https://github.com/sanusart/react-dropdown-select/commit/94c0b4dea5f4fe53095f59b3a222edd6b2ad1664))
+
+
+## v4.12.2
+
+Released on: Jun 14, 2025
+
+### 🐛 Bug Fixes
+
+- *(types)* Set onSelect and onDeselect optional ([#330](https://github.com/sanusart/react-dropdown-select/issues/330))
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([c58e31e](https://github.com/sanusart/react-dropdown-select/commit/c58e31ea4ed8106dce0317e25212673624bd0095))
+
+
+## v4.12.0
+
+Released on: May 10, 2025
+
+### 🐛 Bug Fixes
+
+- Fix docs footer routing ([#320](https://github.com/sanusart/react-dropdown-select/issues/320))
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([8a4583b](https://github.com/sanusart/react-dropdown-select/commit/8a4583b1ff2047b3be5466d7418ed6fe260bf616))
+
+- *(calbacks)* Add onSelect and onDeselect callbacks ([#326](https://github.com/sanusart/react-dropdown-select/issues/326))
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([b804c0b](https://github.com/sanusart/react-dropdown-select/commit/b804c0b3d9616b8ced101f889f24cc6a550c991e))
+
+
+### 💼 Other
+
+- FIX (types): clearAllLabel missing in types issues-321 ([#322](https://github.com/sanusart/react-dropdown-select/issues/322))
+
+* FIX (types): clearAllLabel missing in types issues-321
+
+* bump version
+
+* bump version
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([bbbc6f9](https://github.com/sanusart/react-dropdown-select/commit/bbbc6f99d019aab832e2b9ce1962420d201a7915))
 
 
 ## v4.11.3

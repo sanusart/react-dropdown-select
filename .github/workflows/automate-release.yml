@@ -43,6 +43,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Validate semver
+        run: |
+          node -e "
+            const v = require('./package.json').version;
+            if (!/^\d+\.\d+\.\d+$/.test(v)) {
+              console.error('Error: Version \"' + v + '\" is not valid semver (expected MAJOR.MINOR.PATCH)');
+              process.exit(1);
+            }
+            console.log('Current version: ' + v);
+          "
+
       - name: Bump version and update changelog
         run: |
           pnpm run release:${{ github.event.inputs.bump }}
