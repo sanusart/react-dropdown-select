@@ -58,6 +58,10 @@ All significant updates and improvements
 ([@sanusart](https://github.com/sanusart))
 ([94c0b4d](https://github.com/sanusart/react-dropdown-select/commit/94c0b4dea5f4fe53095f59b3a222edd6b2ad1664))
 
+- Update readme
+· by Sasha Khamkov
+([1b49bd3](https://github.com/sanusart/react-dropdown-select/commit/1b49bd38baed983effa1706e87497af6c36e2428))
+
 
 ## v4.12.2
 
