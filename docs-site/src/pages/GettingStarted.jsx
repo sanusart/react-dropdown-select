@@ -1,8 +1,5 @@
-import CodeBlock from '../components/CodeBlock'
-
-const installNpm = `npm install react-dropdown-select`
-const installYarn = `yarn add react-dropdown-select`
-const installPnpm = `pnpm add react-dropdown-select`
+import CodeBlock from '../components/CodeBlock';
+import PackageManager from '../components/PackageManager';
 
 const basicSingle = `import Select from 'react-dropdown-select';
 
@@ -20,7 +17,7 @@ function App() {
       placeholder="Pick a flavor"
     />
   );
-}`
+}`;
 
 const controlledSingle = `import { useState } from 'react';
 import Select from 'react-dropdown-select';
@@ -46,7 +43,7 @@ function App() {
       <p>Selected: {values.map(v => v.label).join(', ') || 'None'}</p>
     </>
   );
-}`
+}`;
 
 const multiSelect = `import { useState } from 'react';
 import Select from 'react-dropdown-select';
@@ -74,7 +71,7 @@ function App() {
       placeholder="Pick your favorite colors"
     />
   );
-}`
+}`;
 
 const nestedData = `import Select from 'react-dropdown-select';
 
@@ -102,7 +99,7 @@ function App() {
       placeholder="Search by company name"
     />
   );
-}`
+}`;
 
 const createEntries = `import Select from 'react-dropdown-select';
 
@@ -128,7 +125,7 @@ function App() {
       placeholder="Type to add a framework"
     />
   );
-}`
+}`;
 
 const formIntegration = `import Select from 'react-dropdown-select';
 
@@ -157,7 +154,7 @@ function App() {
       <button type="submit">Submit</button>
     </form>
   );
-}`
+}`;
 
 const withStyling = `import Select from 'react-dropdown-select';
 import './CustomSelect.css';
@@ -211,7 +208,7 @@ function App() {
 .custom-select-wrapper .react-dropdown-select-item-active {
   background-color: #eef2ff;
   color: #4f46e5;
-}`
+}`;
 
 const customRenderers = `import Select from 'react-dropdown-select';
 
@@ -254,7 +251,7 @@ function App() {
       )}
     />
   );
-}`
+}`;
 
 export default function GettingStarted() {
   return (
@@ -272,21 +269,23 @@ export default function GettingStarted() {
       <section className="space-y-6">
         <h2 className="text-2xl font-bold text-gray-900">Installation</h2>
         <p className="text-gray-600">
-          Install the package using your preferred package manager. The only runtime
-          dependencies are <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">@emotion/react</code> and{' '}
-          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">@emotion/styled</code>,
-          which are included automatically.
+          Install the package using your preferred package manager. The only peer dependencies are{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            react
+          </code>{' '}
+          and{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            react-dom
+          </code>
+          .
         </p>
 
-        <div className="space-y-3">
-          <CodeBlock code={installNpm} language="bash" title="npm" />
-          <CodeBlock code={installYarn} language="bash" title="yarn" />
-          <CodeBlock code={installPnpm} language="bash" title="pnpm" />
-        </div>
+        <PackageManager />
 
         <div className="p-4 rounded-xl bg-amber-50 border border-amber-200">
           <p className="text-sm text-amber-800">
-            <strong>Requirements:</strong> React 16.x or higher. The component supports both CommonJS and ESM, and works with TypeScript out of the box.
+            <strong>Requirements:</strong> React 16.x or higher. The component supports both
+            CommonJS and ESM, and works with TypeScript out of the box.
           </p>
         </div>
       </section>
@@ -295,9 +294,14 @@ export default function GettingStarted() {
       <section className="space-y-6">
         <h2 className="text-2xl font-bold text-gray-900">Basic Single Select</h2>
         <p className="text-gray-600">
-          The simplest usage — pass an array of{' '}
-          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">{'{ value, label }'}</code>{' '}
-          objects and an <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">onChange</code>{' '}
+          The simplest usage - pass an array of{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            {'{ value, label }'}
+          </code>{' '}
+          objects and an{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            onChange
+          </code>{' '}
           handler.
         </p>
         <CodeBlock code={basicSingle} language="jsx" title="Basic single select" showLineNumbers />
@@ -307,21 +311,38 @@ export default function GettingStarted() {
       <section className="space-y-6">
         <h2 className="text-2xl font-bold text-gray-900">Controlled Mode</h2>
         <p className="text-gray-600">
-          Pass the <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">values</code> prop for
-          full control over the selected state. This is the recommended pattern for most applications.
+          Pass the{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            values
+          </code>{' '}
+          prop for full control over the selected state. This is the recommended pattern for most
+          applications.
         </p>
-        <CodeBlock code={controlledSingle} language="jsx" title="Controlled single select" showLineNumbers />
+        <CodeBlock
+          code={controlledSingle}
+          language="jsx"
+          title="Controlled single select"
+          showLineNumbers
+        />
       </section>
 
       {/* Multi Select */}
       <section className="space-y-6">
         <h2 className="text-2xl font-bold text-gray-900">Multi Select</h2>
         <p className="text-gray-600">
-          Add the <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">multi</code> prop to
-          enable selecting multiple values. Combine with{' '}
-          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">searchable</code> and{' '}
-          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">clearable</code> for a full
-          experience.
+          Add the{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            multi
+          </code>{' '}
+          prop to enable selecting multiple values. Combine with{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            searchable
+          </code>{' '}
+          and{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            clearable
+          </code>{' '}
+          for a full experience.
         </p>
         <CodeBlock code={multiSelect} language="jsx" title="Multi select" showLineNumbers />
       </section>
@@ -330,10 +351,19 @@ export default function GettingStarted() {
       <section className="space-y-6">
         <h2 className="text-2xl font-bold text-gray-900">Working with Nested Data</h2>
         <p className="text-gray-600">
-          Use dot notation in <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">labelField</code>,{' '}
-          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">valueField</code>, and{' '}
-          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">searchBy</code> to
-          access deeply nested properties.
+          Use dot notation in{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            labelField
+          </code>
+          ,{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            valueField
+          </code>
+          , and{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            searchBy
+          </code>{' '}
+          to access deeply nested properties.
         </p>
         <CodeBlock code={nestedData} language="jsx" title="Nested data access" showLineNumbers />
       </section>
@@ -342,10 +372,15 @@ export default function GettingStarted() {
       <section className="space-y-6">
         <h2 className="text-2xl font-bold text-gray-900">Create New Entries</h2>
         <p className="text-gray-600">
-          Enable the <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">create</code> prop to
-          let users type and add new options. Use{' '}
-          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">onCreateNew</code> to
-          handle the new entry.
+          Enable the{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            create
+          </code>{' '}
+          prop to let users type and add new options. Use{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            onCreateNew
+          </code>{' '}
+          to handle the new entry.
         </p>
         <CodeBlock code={createEntries} language="jsx" title="Create new entries" showLineNumbers />
       </section>
@@ -354,10 +389,19 @@ export default function GettingStarted() {
       <section className="space-y-6">
         <h2 className="text-2xl font-bold text-gray-900">Form Integration</h2>
         <p className="text-gray-600">
-          Pass the <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">name</code>,{' '}
-          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">required</code>, and{' '}
-          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">pattern</code> props to
-          create a hidden input for standard HTML form submission.
+          Pass the{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            name
+          </code>
+          ,{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            required
+          </code>
+          , and{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            pattern
+          </code>{' '}
+          props to create a hidden input for standard HTML form submission.
         </p>
         <CodeBlock code={formIntegration} language="jsx" title="Form integration" showLineNumbers />
       </section>
@@ -366,20 +410,33 @@ export default function GettingStarted() {
       <section className="space-y-6">
         <h2 className="text-2xl font-bold text-gray-900">Custom Styling</h2>
         <p className="text-gray-600">
-          Wrap with Emotion's <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">styled()</code> to
-          override any internal class. Every element has a predictable{' '}
-          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">.react-dropdown-select-*</code> class name.
+          Wrap with Emotion's{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            styled()
+          </code>{' '}
+          to override any internal class. Every element has a predictable{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            .react-dropdown-select-*
+          </code>{' '}
+          class name.
         </p>
-        <CodeBlock code={withStyling} language="jsx" title="Custom styling with Emotion" showLineNumbers />
+        <CodeBlock
+          code={withStyling}
+          language="jsx"
+          title="Custom styling with Emotion"
+          showLineNumbers
+        />
       </section>
 
       {/* Custom Renderers */}
       <section className="space-y-6">
         <h2 className="text-2xl font-bold text-gray-900">Custom Renderers</h2>
         <p className="text-gray-600">
-          Use render props to completely replace any visual component. Every renderer
-          receives <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">{'{ props, state, methods }'}</code> giving
-          you full access to the component's internals.
+          Use render props to completely replace any visual component. Every renderer receives{' '}
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-sm font-medium text-gray-800">
+            {'{ props, state, methods }'}
+          </code>{' '}
+          giving you full access to the component's internals.
         </p>
         <CodeBlock code={customRenderers} language="jsx" title="Custom renderers" showLineNumbers />
       </section>
@@ -389,19 +446,31 @@ export default function GettingStarted() {
         <h2 className="text-2xl font-bold text-gray-900 mb-3">What's next?</h2>
         <ul className="space-y-2 text-gray-600">
           <li className="flex items-center gap-2">
-            <svg className="w-5 h-5 text-indigo-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg
+              className="w-5 h-5 text-indigo-500 shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
             Try the interactive <strong>Demo</strong> to toggle every feature
           </li>
           <li className="flex items-center gap-2">
-            <svg className="w-5 h-5 text-indigo-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg
+              className="w-5 h-5 text-indigo-500 shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
             Browse the <strong>Examples</strong> for real-world patterns
           </li>
           <li className="flex items-center gap-2">
-            <svg className="w-5 h-5 text-indigo-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg
+              className="w-5 h-5 text-indigo-500 shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
             Read the full <strong>API Reference</strong> for every prop and method
@@ -409,5 +478,5 @@ export default function GettingStarted() {
         </ul>
       </section>
     </div>
-  )
+  );
 }

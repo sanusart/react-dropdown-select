@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 import CodeBlock from '../components/CodeBlock';
+import PackageManager from '../components/PackageManager';
 import { version } from 'root-pkg';
-
-const installCode = `npm install react-dropdown-select`;
 
 const quickStartCode = `import Select from 'react-dropdown-select';
 
@@ -48,12 +47,12 @@ const features = [
           d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
         />
       </svg>
-    )
+    ),
   },
   {
     title: 'Full Render Overrides',
     description:
-      'Replace any visual component with your own renderer. Content, dropdown, items, options, inputs — everything is customizable.',
+      'Replace any visual component with your own renderer. Content, dropdown, items, options, inputs - everything is customizable.',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
@@ -63,7 +62,7 @@ const features = [
           d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
         />
       </svg>
-    )
+    ),
   },
   {
     title: 'Portal Support',
@@ -78,7 +77,7 @@ const features = [
           d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
         />
       </svg>
-    )
+    ),
   },
   {
     title: 'Auto Positioning',
@@ -93,7 +92,7 @@ const features = [
           d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"
         />
       </svg>
-    )
+    ),
   },
   {
     title: 'RTL Support',
@@ -108,7 +107,7 @@ const features = [
           d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
         />
       </svg>
-    )
+    ),
   },
   {
     title: 'Create New Entries',
@@ -118,7 +117,7 @@ const features = [
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
       </svg>
-    )
+    ),
   },
   {
     title: 'Keyboard Navigation',
@@ -133,12 +132,11 @@ const features = [
           d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
         />
       </svg>
-    )
+    ),
   },
   {
     title: 'Lightweight',
-    description:
-      'Only 2 runtime dependencies (Emotion for CSS-in-JS). Tree-shakable ESM and UMD builds under 20kB.',
+    description: 'Zero runtime dependencies. Tree-shakable ESM and UMD builds under 20kB.',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
@@ -148,8 +146,8 @@ const features = [
           d="M13 10V3L4 14h7v7l9-11h-7z"
         />
       </svg>
-    )
-  }
+    ),
+  },
 ];
 
 export default function Home() {
@@ -195,7 +193,7 @@ export default function Home() {
 
       {/* Install */}
       <div className="max-w-lg mx-auto">
-        <CodeBlock code={installCode} language="bash" title="Install" />
+        <PackageManager />
       </div>
 
       {/* Quick Start */}
