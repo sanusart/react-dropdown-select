@@ -17,7 +17,7 @@ import {
   getByPath,
   getProp,
   valueExistInSelected,
-  isomorphicWindow
+  isomorphicWindow,
 } from './util';
 import { LIB_NAME } from './constants';
 import { SelectProps, SelectState, SelectMethods, HandleKeyDownArgs } from './select-types';
@@ -91,7 +91,7 @@ export class Select<T extends Record<string, any>> extends Component<
     sortBy: null,
     valueField: 'value',
     values: [],
-    defaultMenuIsOpen: false
+    defaultMenuIsOpen: false,
   };
 
   constructor(props: SelectProps<T>) {
@@ -103,7 +103,7 @@ export class Select<T extends Record<string, any>> extends Component<
       search: '',
       selectBounds: {} as DOMRect,
       cursor: null,
-      searchResults: (props.options || []) as T[]
+      searchResults: (props.options || []) as T[],
     };
 
     this.methods = {
@@ -124,12 +124,11 @@ export class Select<T extends Record<string, any>> extends Component<
       selectAll: this.selectAll,
       setSearch: this.setSearch,
       sortBy: this.sortBy,
-      toggleSelectAll: this.toggleSelectAll
+      toggleSelectAll: this.toggleSelectAll,
     };
 
     this.select = React.createRef();
-    this.dropdownRoot =
-      typeof document !== 'undefined' && document.createElement('div');
+    this.dropdownRoot = typeof document !== 'undefined' && document.createElement('div');
   }
 
   componentDidMount() {
@@ -154,11 +153,11 @@ export class Select<T extends Record<string, any>> extends Component<
     ) {
       this.setState(
         {
-          values: this.props.values || []
+          values: this.props.values || [],
         },
         () => {
           this.props.onChange!(this.state.values);
-        }
+        },
       );
       this.updateSelectBounds();
     }
@@ -197,11 +196,11 @@ export class Select<T extends Record<string, any>> extends Component<
     this.props.portal && this.props.portal.removeChild(this.dropdownRoot as HTMLDivElement);
     isomorphicWindow().removeEventListener(
       'resize',
-      debounce(this.updateSelectBounds, this.props.debounceDelay)
+      debounce(this.updateSelectBounds, this.props.debounceDelay),
     );
     isomorphicWindow().removeEventListener(
       'scroll',
-      debounce(this.onScroll, this.props.debounceDelay)
+      debounce(this.onScroll, this.props.debounceDelay),
     );
   }
 
@@ -221,12 +220,16 @@ export class Select<T extends Record<string, any>> extends Component<
   updateSelectBounds = () =>
     this.select.current &&
     this.setState({
-      selectBounds: this.select.current.getBoundingClientRect()
+      selectBounds: this.select.current.getBoundingClientRect(),
     });
 
   getSelectBounds = () => this.state.selectBounds;
 
-  dropDown = (action = 'toggle', event?: React.MouseEvent | React.KeyboardEvent | null, force = false): void => {
+  dropDown = (
+    action = 'toggle',
+    event?: React.MouseEvent | React.KeyboardEvent | null,
+    force = false,
+  ): void => {
     const target = (event && (event.target as HTMLElement)) || (event && (event as any).srcElement);
 
     if (
@@ -239,7 +242,7 @@ export class Select<T extends Record<string, any>> extends Component<
         props: this.props,
         methods: this.methods,
         state: this.state,
-        close: () => this.dropDown('close', null, true)
+        close: () => this.dropDown('close', null, true),
       });
     }
 
@@ -265,7 +268,7 @@ export class Select<T extends Record<string, any>> extends Component<
       return this.setState({
         dropdown: false,
         search: this.props.clearOnBlur ? '' : this.state.search,
-        searchResults: this.props.options || []
+        searchResults: this.props.options || [],
       });
     }
 
@@ -292,13 +295,13 @@ export class Select<T extends Record<string, any>> extends Component<
       }
 
       this.setState({
-        values: [...this.state.values, item]
+        values: [...this.state.values, item],
       });
       this.props.onSelect!([...this.state.values, item]);
     } else {
       this.setState({
         values: [item],
-        dropdown: false
+        dropdown: false,
       });
       this.props.onSelect!([item]);
     }
@@ -319,27 +322,26 @@ export class Select<T extends Record<string, any>> extends Component<
     }
 
     const values = this.state.values.filter(
-      (v) =>
-        getByPath(v, this.props.valueField) !== getByPath(item, this.props.valueField)
+      (v) => getByPath(v, this.props.valueField) !== getByPath(item, this.props.valueField),
     );
     this.setState({
-      values
+      values,
     });
     this.props.onDeselect!(values);
   };
 
   setSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
-      cursor: null
+      cursor: null,
     });
 
     this.setState(
       {
-        search: event.target.value
+        search: event.target.value,
       },
       () => {
         this.setState({ searchResults: this.searchResults() });
-      }
+      },
     );
   };
 
@@ -357,14 +359,14 @@ export class Select<T extends Record<string, any>> extends Component<
 
   toggleSelectAll = () => {
     return this.setState({
-      values: this.state.values.length === 0 ? this.selectAll() : (this.clearAll() as any)
+      values: this.state.values.length === 0 ? this.selectAll() : (this.clearAll() as any),
     });
   };
 
   clearAll = () => {
     this.props.onClearAll!();
     this.setState({
-      values: []
+      values: [],
     });
     return [];
   };
@@ -383,7 +385,7 @@ export class Select<T extends Record<string, any>> extends Component<
   isSelected = (option: T) =>
     !!this.state.values.find(
       (value) =>
-        getByPath(value, this.props.valueField) === getByPath(option, this.props.valueField)
+        getByPath(value, this.props.valueField) === getByPath(option, this.props.valueField),
     );
 
   areAllSelected = () =>
@@ -419,7 +421,7 @@ export class Select<T extends Record<string, any>> extends Component<
     return methods
       .sortBy()
       .filter((item: any) =>
-        regexp.test(getByPath(item, this.props.searchBy) || getByPath(item, this.props.valueField))
+        regexp.test(getByPath(item, this.props.searchBy) || getByPath(item, this.props.valueField)),
       );
   };
 
@@ -431,7 +433,7 @@ export class Select<T extends Record<string, any>> extends Component<
 
   activeCursorItem = (activeCursorItem: any) =>
     this.setState({
-      activeCursorItem
+      activeCursorItem,
     });
 
   handleKeyDown = (event: React.KeyboardEvent) => {
@@ -440,7 +442,7 @@ export class Select<T extends Record<string, any>> extends Component<
       state: this.state,
       props: this.props,
       methods: this.methods,
-      setState: this.setState.bind(this)
+      setState: this.setState.bind(this),
     };
 
     if (this.props.handleKeyDownFn) {
@@ -464,13 +466,13 @@ export class Select<T extends Record<string, any>> extends Component<
       event.preventDefault();
       this.dropDown('open');
       return setState({
-        cursor: 0
+        cursor: 0,
       });
     }
 
     if ((arrowDown || (tab && state.dropdown)) && cursor === null) {
       return setState({
-        cursor: 0
+        cursor: 0,
       });
     }
 
@@ -495,31 +497,31 @@ export class Select<T extends Record<string, any>> extends Component<
 
     if ((arrowDown || (tab && state.dropdown)) && searchResults.length === cursor) {
       return setState({
-        cursor: 0
+        cursor: 0,
       });
     }
 
     if (arrowDown || (tab && state.dropdown)) {
       setState((prevState: SelectComponentState<T>) => ({
-        cursor: (prevState.cursor || 0) + 1
+        cursor: (prevState.cursor || 0) + 1,
       }));
     }
 
     if ((arrowUp || (shiftTab && state.dropdown)) && cursor! > 0) {
       setState((prevState: SelectComponentState<T>) => ({
-        cursor: prevState.cursor! - 1
+        cursor: prevState.cursor! - 1,
       }));
     }
 
     if ((arrowUp || (shiftTab && state.dropdown)) && cursor === 0) {
       setState({
-        cursor: searchResults.length
+        cursor: searchResults.length,
       });
     }
 
     if (backspace && props.backspaceDelete && this.getInputSize() === 0) {
       this.setState({
-        values: this.state.values.slice(0, -1)
+        values: this.state.values.slice(0, -1),
       });
     }
   };
@@ -528,7 +530,7 @@ export class Select<T extends Record<string, any>> extends Component<
     this.props.portal ? (
       ReactDOM.createPortal(
         <Dropdown props={this.props} state={this.state} methods={this.methods} />,
-        this.dropdownRoot as HTMLDivElement
+        this.dropdownRoot as HTMLDivElement,
       )
     ) : (
       <Dropdown props={this.props} state={this.state} methods={this.methods} />
@@ -537,7 +539,7 @@ export class Select<T extends Record<string, any>> extends Component<
   createNew = (item: string) => {
     const newValue = {
       [this.props.labelField!]: item,
-      [this.props.valueField!]: item
+      [this.props.valueField!]: item,
     } as unknown as T;
 
     this.addItem(newValue);
@@ -558,11 +560,15 @@ export class Select<T extends Record<string, any>> extends Component<
           className={`${this.props.disabled ? `${LIB_NAME}-disabled` : ''} ${LIB_NAME} ${
             this.props.className || ''
           }`}
-          style={{
-            '--select-direction': this.props.direction,
-            '--select-color': this.props.color,
-            '--select-color-shadow': this.props.color ? hexToRGBA(this.props.color, 0.2) : hexToRGBA('#000', 0.2)
-          } as React.CSSProperties}
+          style={
+            {
+              '--select-direction': this.props.direction,
+              '--select-color': this.props.color,
+              '--select-color-shadow': this.props.color
+                ? hexToRGBA(this.props.color, 0.2)
+                : hexToRGBA('#000', 0.2),
+            } as React.CSSProperties
+          }
           {...this.props.additionalProps}>
           <Content props={this.props} state={this.state} methods={this.methods} />
 
@@ -574,9 +580,8 @@ export class Select<T extends Record<string, any>> extends Component<
               required={this.props.required}
               pattern={this.props.pattern}
               defaultValue={
-                this.state.values
-                  .map((value: any) => value[this.props.labelField!])
-                  .toString() || ''
+                this.state.values.map((value: any) => value[this.props.labelField!]).toString() ||
+                ''
               }
               disabled={this.props.disabled}
             />

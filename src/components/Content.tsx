@@ -5,7 +5,11 @@ import { LIB_NAME } from '../constants';
 import { getByPath } from '../util';
 import { ComponentRendererArgs } from '../select-types';
 
-const Content = <T extends Record<string, any>>({ props, state, methods }: ComponentRendererArgs<T>) => {
+const Content = <T extends Record<string, any>>({
+  props,
+  state,
+  methods,
+}: ComponentRendererArgs<T>) => {
   return (
     <div
       className={`${LIB_NAME}-content ${
@@ -35,7 +39,9 @@ const Content = <T extends Record<string, any>>({ props, state, methods }: Compo
                 />
               ))
             : state.values &&
-              state.values.length > 0 && <span>{getByPath(state.values[0], props.labelField)}</span>}
+              state.values.length > 0 && (
+                <span>{getByPath(state.values[0], props.labelField)}</span>
+              )}
           <Input props={props} methods={methods} state={state} />
         </React.Fragment>
       )}
