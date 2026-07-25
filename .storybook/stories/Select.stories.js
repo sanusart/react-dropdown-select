@@ -1,13 +1,13 @@
 import React from 'react';
 import { Select } from '../../src';
-import { optionsBase } from '../../docs/src/options';
+import { optionsBase } from './options';
 
 const options = optionsBase(4);
 const baseArgs = {
   ...Select.defaultProps,
   options,
   multi: false,
-  onChange: (values) => console.log(values)
+  onChange: (values) => console.log(values),
 };
 
 export default {
@@ -16,10 +16,10 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Basic select examples'
-      }
-    }
-  }
+        component: 'Basic select examples',
+      },
+    },
+  },
 };
 
 export const Basic = { args: baseArgs };

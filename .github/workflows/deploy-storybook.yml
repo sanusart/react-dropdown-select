@@ -1,4 +1,4 @@
-name: Deploy Storybook
+name: Deploy Docs & Storybook
 
 on:
   push:
@@ -30,11 +30,28 @@ jobs:
           node-version: 22
 
       - run: pnpm install
-      - run: pnpm run build-storybook
+
+      - name: Install docs-site dependencies
+        run: npm install
+        working-directory: docs-site
+
+      - name: Build docs-site
+        run: npx vite build
+        working-directory: docs-site
+
+      - name: Build storybook
+        run: pnpm run build-storybook
+
+      - name: Prepare output
+        run: |
+          mkdir -p output/storybook
+          cp -r docs-site/dist/* output/
+          cp -r storybook-static/* output/storybook/
+          touch output/.nojekyll
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: storybook-static
+          path: output
 
   deploy:
     needs: build
