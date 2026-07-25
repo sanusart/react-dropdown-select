@@ -1,7 +1,6 @@
 {
   "src/**/*.{ts,tsx}": [
-    "prettier --write",
-    "tsc --noEmit"
+    "prettier --write"
   ],
   "__tests__/**/*.{js,jsx,ts,tsx}": [
     "prettier --write"

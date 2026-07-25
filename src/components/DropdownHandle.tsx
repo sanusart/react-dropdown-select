@@ -6,7 +6,12 @@ interface DropdownHandleProps<T> extends ComponentRendererArgs<T> {
   onClick?: () => void;
 }
 
-const DropdownHandle = <T extends Record<string, any>>({ props, state, methods, onClick }: DropdownHandleProps<T>) => (
+const DropdownHandle = <T extends Record<string, any>>({
+  props,
+  state,
+  methods,
+  onClick,
+}: DropdownHandleProps<T>) => (
   <div
     tabIndex={-1}
     onClick={(event) => {

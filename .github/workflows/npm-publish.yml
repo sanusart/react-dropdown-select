@@ -20,7 +20,7 @@ jobs:
           node-version: 22
 
       - run: pnpm install
-      - run: pnpm test --maxWorkers=2 --maxConcurrent=2
+      - run: pnpm test -- --maxWorkers=2 --maxConcurrent=2
 
   publish-npm:
     needs: build
@@ -38,7 +38,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - run: pnpm install
-      - run: pnpm test --maxWorkers=2 --maxConcurrent=2
+      - run: pnpm test -- --maxWorkers=2 --maxConcurrent=2
       - run: pnpm run build
       - run: pnpm publish --no-git-checks
         env:

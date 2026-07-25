@@ -15,7 +15,7 @@ interface DropdownProps<T> {
 
 const dropdownPosition = <T extends Record<string, any>>(
   props: SelectProps<T>,
-  methods: SelectMethods<T>
+  methods: SelectMethods<T>,
 ): string => {
   const DropdownBoundingClientRect = methods.getSelectRef()!.getBoundingClientRect();
   const dropdownHeight =
@@ -49,7 +49,7 @@ const Dropdown = <T extends Record<string, any>>({ props, state, methods }: Drop
     '--dropdown-offset': offset,
     '--select-color': props.color,
     '--select-color-hover': props.color ? hexToRGBA(props.color, 0.1) : undefined,
-    width: selectBounds.width
+    width: selectBounds.width,
   } as React.CSSProperties;
 
   if (props.portal) {
@@ -59,7 +59,7 @@ const Dropdown = <T extends Record<string, any>>({ props, state, methods }: Drop
       ...(isBottom
         ? { top: selectBounds.bottom + dropdownGap }
         : { bottom: isomorphicWindow().innerHeight - selectBounds.top + dropdownGap }),
-      left: selectBounds.left - 1
+      left: selectBounds.left - 1,
     });
   } else {
     Object.assign(dropdownStyle, { left: -1 });
@@ -89,7 +89,12 @@ const Dropdown = <T extends Record<string, any>>({ props, state, methods }: Drop
               </div>
             )}
           {state.searchResults.length === 0 ? (
-            <NoData className={`${LIB_NAME}-no-data`} state={state} props={props} methods={methods} />
+            <NoData
+              className={`${LIB_NAME}-no-data`}
+              state={state}
+              props={props}
+              methods={methods}
+            />
           ) : (
             state.searchResults.map((item: T, itemIndex: number) => (
               <Item

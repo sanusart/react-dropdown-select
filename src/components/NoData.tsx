@@ -6,7 +6,12 @@ interface NoDataProps<T> extends ComponentRendererArgs<T> {
   className?: string;
 }
 
-const NoData = <T extends Record<string, any>>({ props, state, methods, className }: NoDataProps<T>) =>
+const NoData = <T extends Record<string, any>>({
+  props,
+  state,
+  methods,
+  className,
+}: NoDataProps<T>) =>
   props.noDataRenderer ? (
     props.noDataRenderer({ props, state, methods })
   ) : (

@@ -9,7 +9,10 @@ interface InputProps<T> {
   methods: SelectMethods<T>;
 }
 
-const handlePlaceHolder = <T extends Record<string, any>>(props: SelectProps<T>, state: SelectState<T>): string => {
+const handlePlaceHolder = <T extends Record<string, any>>(
+  props: SelectProps<T>,
+  state: SelectState<T>,
+): string => {
   const { addPlaceholder, searchable, placeholder } = props;
   const noValues = state.values && state.values.length === 0;
   const hasValues = state.values && state.values.length > 0;
@@ -58,14 +61,12 @@ class Input<T extends Record<string, any>> extends Component<InputProps<T>> {
   handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const { props, state, methods } = this.props;
 
-    return (
-      (props.create &&
-        event.key === 'Enter' &&
-        !valueExistInSelected(state.search, [...state.values, ...props.options!], props) &&
-        state.search &&
-        state.cursor === null &&
-        methods.createNew(state.search)) as any
-    );
+    return (props.create &&
+      event.key === 'Enter' &&
+      !valueExistInSelected(state.search, [...state.values, ...props.options!], props) &&
+      state.search &&
+      state.cursor === null &&
+      methods.createNew(state.search)) as any;
   };
 
   render() {

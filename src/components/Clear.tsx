@@ -5,7 +5,7 @@ import { ComponentRendererArgs } from '../select-types';
 const Clear = <T extends Record<string, any>>({
   props,
   state,
-  methods
+  methods,
 }: ComponentRendererArgs<T>) =>
   props.clearRenderer ? (
     props.clearRenderer({ props, state, methods })
@@ -14,7 +14,9 @@ const Clear = <T extends Record<string, any>>({
       className={`${LIB_NAME}-clear`}
       tabIndex={-1}
       onClick={() => methods.clearAll()}
-      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') methods.clearAll(); }}>
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') methods.clearAll();
+      }}>
       &times;
     </div>
   );

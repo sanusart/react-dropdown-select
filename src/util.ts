@@ -3,11 +3,11 @@ import { SelectProps } from './select-types';
 export const valueExistInSelected = <T extends Record<string, any>>(
   value: any,
   values: T[],
-  props: SelectProps<T>
+  props: SelectProps<T>,
 ): boolean =>
   !!values.find(
     (val) =>
-      getByPath(val, props.valueField!) === value || getByPath(val, props.labelField!) === value
+      getByPath(val, props.valueField!) === value || getByPath(val, props.labelField!) === value,
   );
 
 export const hexToRGBA = (hex: string, alpha?: number): string => {
@@ -64,7 +64,7 @@ export const getProp = (object: any, path?: string | string[], defaultValue?: an
 
 export const isomorphicWindow = (): Window & typeof globalThis => {
   if (typeof window === 'undefined') {
-    (global as any).window = {};
+    (globalThis as any).window = {};
   }
 
   return window;

@@ -50,9 +50,10 @@ class Item<T extends Record<string, any>> extends Component<ItemProps<T>> {
 
     const itemClassName = [
       isActive && `${LIB_NAME}-item-active`,
-      isSelected && (isDisabled ? `${LIB_NAME}-item-selected-disabled` : `${LIB_NAME}-item-selected`),
+      isSelected &&
+        (isDisabled ? `${LIB_NAME}-item-selected-disabled` : `${LIB_NAME}-item-selected`),
       isDisabled && `${LIB_NAME}-item-disabled`,
-      `${LIB_NAME}-item`
+      `${LIB_NAME}-item`,
     ]
       .filter(Boolean)
       .join(' ');
@@ -69,13 +70,22 @@ class Item<T extends Record<string, any>> extends Component<ItemProps<T>> {
         className={itemClassName}
         data-disabled={isDisabled || undefined}
         onClick={isDisabled ? undefined : () => methods.addItem(item)}
-        onKeyDown={isDisabled ? undefined : (e) => { if (e.key === 'Enter' || e.key === ' ') methods.addItem(item); }}
-        style={{
-          '--select-item-active-bg': !isDisabled && props.color ? hexToRGBA(props.color, 0.1) : undefined,
-          '--select-item-hover-bg': props.color ? hexToRGBA(props.color, 0.1) : undefined,
-          '--select-item-selected-bg': isDisabled ? undefined : props.color,
-          '--select-item-selected-color': isDisabled ? undefined : '#fff'
-        } as React.CSSProperties}>
+        onKeyDown={
+          isDisabled
+            ? undefined
+            : (e) => {
+                if (e.key === 'Enter' || e.key === ' ') methods.addItem(item);
+              }
+        }
+        style={
+          {
+            '--select-item-active-bg':
+              !isDisabled && props.color ? hexToRGBA(props.color, 0.1) : undefined,
+            '--select-item-hover-bg': props.color ? hexToRGBA(props.color, 0.1) : undefined,
+            '--select-item-selected-bg': isDisabled ? undefined : props.color,
+            '--select-item-selected-color': isDisabled ? undefined : '#fff',
+          } as React.CSSProperties
+        }>
         {getByPath(item, props.labelField)} {isDisabled && <ins>{props.disabledLabel}</ins>}
       </span>
     );

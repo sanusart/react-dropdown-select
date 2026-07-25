@@ -4,7 +4,7 @@ import {
   KeyboardEvent,
   MouseEvent,
   RefObject,
-  ChangeEvent
+  ChangeEvent,
 } from 'react';
 
 export interface SelectState<T> {
@@ -26,7 +26,7 @@ export interface SelectMethods<T> {
   dropDown: (
     action: string,
     event?: React.MouseEvent | React.KeyboardEvent | null,
-    force?: boolean
+    force?: boolean,
   ) => void | false;
   getInputSize: () => number;
   getSelectBounds: () => DOMRect | Record<string, never>;

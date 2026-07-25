@@ -38,7 +38,7 @@ jobs:
 
       - name: Run tests
         if: matrix.task == 'test'
-        run: pnpm test --maxWorkers=2 --maxConcurrent=2
+        run: pnpm test -- --maxWorkers=2 --maxConcurrent=2
 
   build:
     runs-on: ubuntu-latest
