@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: path.join(__dirname, 'src/index.js'),
+  entry: path.join(__dirname, 'src/index.tsx'),
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'react-dropdown-select.js',
@@ -11,7 +11,7 @@ module.exports = {
     umdNamedDefine: true,
     globalObject: 'this'
   },
-  target: 'node', // for support ssr in emotionjs
+  target: 'node',
   externals: {
     react: {
       commonjs: 'react',
@@ -24,28 +24,24 @@ module.exports = {
       commonjs2: 'react-dom',
       amd: 'react-dom',
       root: 'ReactDOM'
-    },
-    'prop-types': {
-      commonjs: 'prop-types',
-      commonjs2: 'prop-types',
-      amd: 'prop-types',
-      root: 'PropTypes'
     }
   },
   bail: true,
   mode: 'production',
   resolve: {
     modules: [path.resolve(__dirname, './src'), 'node_modules'],
-    extensions: ['.js']
+    extensions: ['.ts', '.tsx', '.js']
   },
   module: {
     rules: [
       {
-        test: /\.(ts|js)x?$/,
+        test: /\.(ts|tsx|js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
+        use: [
+          {
+            loader: 'babel-loader'
+          }
+        ]
       }
     ]
   },

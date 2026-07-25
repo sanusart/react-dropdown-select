@@ -38,23 +38,15 @@ describe('<Clear/> component', () => {
 
   it('onClick toggles dropdown', () => {
     TestRenderer.create(<DropdownHandle {...props()} onClick={spy} />)
-      .root.findByProps({ className: 'react-dropdown-select-dropdown-handle' })
+      .root.findByType('div')
       .props.onClick();
-
-    expect(spy).toHaveBeenCalled;
-  });
-
-  it('onKeyPress toggles dropdown', () => {
-    TestRenderer.create(<DropdownHandle {...props()} onKeyPress={spy} />)
-      .root.findByProps({ className: 'react-dropdown-select-dropdown-handle' })
-      .props.onKeyPress();
 
     expect(spy).toHaveBeenCalled;
   });
 
   it('onKeyDown toggles dropdown', () => {
     TestRenderer.create(<DropdownHandle {...props()} onKeyDown={spy} />)
-      .root.findByProps({ className: 'react-dropdown-select-dropdown-handle' })
+      .root.findByType('div')
       .props.onKeyDown();
 
     expect(spy).toHaveBeenCalled;

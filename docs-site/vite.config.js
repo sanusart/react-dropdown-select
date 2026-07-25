@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
-const vendorSrc = path.resolve(__dirname, './vendor/src')
+const libSrc = path.resolve(__dirname, '../src/index.tsx')
+const rootPkg = path.resolve(__dirname, '../package.json')
 
 export default defineConfig({
   plugins: [
@@ -12,7 +13,8 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      'react-dropdown-select': vendorSrc,
+      'react-dropdown-select': libSrc,
+      'root-pkg': rootPkg,
     },
   },
   optimizeDeps: {

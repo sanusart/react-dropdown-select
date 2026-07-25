@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import Select from 'react-dropdown-select'
-import styled from '@emotion/styled'
 import CodeBlock from '../components/CodeBlock'
 
 const countryOptions = [
@@ -666,41 +665,43 @@ function DirectionExample() {
 }
 
 function StyledExample() {
-  const StyledSelect = styled(Select)`
-    .react-dropdown-select {
-      border-radius: 16px;
-      border: 2px solid #e5e7eb;
-      padding: 6px 10px;
-      font-size: 14px;
-      transition: all 0.2s;
-    }
-    .react-dropdown-select:hover { border-color: #818cf8; }
-    .react-dropdown-select:focus-within {
-      border-color: #6366f1;
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
-    }
-    .react-dropdown-select-dropdown {
-      border-radius: 16px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-      overflow: hidden;
-      margin-top: 6px;
-    }
-    .react-dropdown-select-item {
-      padding: 10px 16px;
-      margin: 2px 6px;
-      border-radius: 8px;
-    }
-    .react-dropdown-select-item:hover,
-    .react-dropdown-select-item-active {
-      background: linear-gradient(135deg, #eef2ff, #e0e7ff);
-      color: #4f46e5;
-    }
-  `
   const [values, setValues] = useState([])
   return (
     <div>
-      <StyledSelect options={countryOptions} values={values} onChange={setValues} multi searchable placeholder="Custom styled..." />
+      <style>{`
+        .styled-demo .react-dropdown-select {
+          border-radius: 16px;
+          border: 2px solid #e5e7eb;
+          padding: 6px 10px;
+          font-size: 14px;
+          transition: all 0.2s;
+        }
+        .styled-demo .react-dropdown-select:hover { border-color: #818cf8; }
+        .styled-demo .react-dropdown-select:focus-within {
+          border-color: #6366f1;
+          box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+        }
+        .styled-demo .react-dropdown-select-dropdown {
+          border-radius: 16px;
+          border: 1px solid #e5e7eb;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+          overflow: hidden;
+          margin-top: 6px;
+        }
+        .styled-demo .react-dropdown-select-item {
+          padding: 10px 16px;
+          margin: 2px 6px;
+          border-radius: 8px;
+        }
+        .styled-demo .react-dropdown-select-item:hover,
+        .styled-demo .react-dropdown-select-item-active {
+          background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+          color: #4f46e5;
+        }
+      `}</style>
+      <div className="styled-demo">
+        <Select options={countryOptions} values={values} onChange={setValues} multi searchable placeholder="Custom styled..." />
+      </div>
     </div>
   )
 }
@@ -1406,25 +1407,28 @@ setValues(values.slice(0, -1))` },
   onChange={setValues}
   direction="rtl"
 />` },
-      { id: 'styled', title: 'Styled with Emotion', description: 'Full CSS override with styled() wrapper.', Component: StyledExample,
-        code: `const StyledSelect = styled(Select)\`
-  .react-dropdown-select {
+      { id: 'styled', title: 'Styled Override', description: 'Full CSS override with a wrapper class.', Component: StyledExample,
+        code: `// Add a wrapper class and override styles:
+<style>{\`
+  .styled-demo .react-dropdown-select {
     border-radius: 16px;
     border: 2px solid #e5e7eb;
     padding: 6px 10px;
     font-size: 14px;
   }
-  .react-dropdown-select-dropdown {
+  .styled-demo .react-dropdown-select-dropdown {
     border-radius: 16px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
   }
-  .react-dropdown-select-item:hover {
+  .styled-demo .react-dropdown-select-item:hover {
     background: linear-gradient(135deg, #eef2ff, #e0e7ff);
     color: #4f46e5;
   }
-\`
+\`}</style>
 
-<StyledSelect options={options} values={values} onChange={setValues} multi searchable />` },
+<div className="styled-demo">
+  <Select options={options} values={values} onChange={setValues} multi searchable />
+</div>` },
       { id: 'customItem', title: 'Custom Item Renderer', description: 'Replace the dropdown item with a custom component.', Component: CustomItemRendererExample,
         code: `<Select
   options={emojiOptions}

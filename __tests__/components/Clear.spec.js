@@ -42,11 +42,19 @@ describe('<Clear/> component', () => {
     expect(spy).toHaveBeenCalled;
   });
 
-  it('onKeyPress clears all', () => {
-    TestRenderer.create(<Clear {...props({ parentItem: options[0] })} onKeyPress={spy} />)
+  it('onKeyDown clears all', () => {
+    const clearSpy = jest.fn();
+    TestRenderer.create(
+      <Clear
+        {...props({
+          parentItem: options[0],
+          methods: { clearAll: clearSpy }
+        })}
+      />
+    )
       .root.findByProps({ className: 'react-dropdown-select-clear' })
-      .props.onKeyPress();
+      .props.onKeyDown({ key: 'Enter' });
 
-    expect(spy).toHaveBeenCalled;
+    expect(clearSpy).toHaveBeenCalled;
   });
 });

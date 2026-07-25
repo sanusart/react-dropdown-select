@@ -4,14 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "prebuild": "node copy-src.mjs",
-    "dev": "node copy-src.mjs && vite",
-    "build": "node copy-src.mjs && vite build",
+    "prebuild": "cd .. && npm ci && npm run build",
+    "dev": "vite",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.18.1",

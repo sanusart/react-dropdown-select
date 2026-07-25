@@ -160,56 +160,57 @@ function App() {
 }`
 
 const withStyling = `import Select from 'react-dropdown-select';
-import styled from '@emotion/styled';
-
-const CustomSelect = styled(Select)\`
-  .react-dropdown-select {
-    border-radius: 12px;
-    border: 2px solid #e5e7eb;
-    padding: 4px 8px;
-    font-size: 14px;
-    transition: border-color 0.2s;
-
-    &:hover {
-      border-color: #818cf8;
-    }
-
-    &:focus-within {
-      border-color: #6366f1;
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-    }
-  }
-
-  .react-dropdown-select-dropdown {
-    border-radius: 12px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-
-  .react-dropdown-select-item {
-    border-radius: 8px;
-    margin: 2px 4px;
-    padding: 8px 12px;
-  }
-
-  .react-dropdown-select-item:hover,
-  .react-dropdown-select-item-active {
-    background-color: #eef2ff;
-    color: #4f46e5;
-  }
-\`;
+import './CustomSelect.css';
 
 function App() {
   return (
-    <CustomSelect
-      options={[
-        { value: 'a', label: 'Option A' },
-        { value: 'b', label: 'Option B' },
-        { value: 'c', label: 'Option C' },
-      ]}
-      onChange={(values) => console.log(values)}
-    />
+    <div className="custom-select-wrapper">
+      <Select
+        options={[
+          { value: 'a', label: 'Option A' },
+          { value: 'b', label: 'Option B' },
+          { value: 'c', label: 'Option C' },
+        ]}
+        onChange={(values) => console.log(values)}
+      />
+    </div>
   );
+}
+
+/* CustomSelect.css */
+.custom-select-wrapper .react-dropdown-select {
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  padding: 4px 8px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.custom-select-wrapper .react-dropdown-select:hover {
+  border-color: #818cf8;
+}
+
+.custom-select-wrapper .react-dropdown-select:focus-within {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.custom-select-wrapper .react-dropdown-select-dropdown {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.custom-select-wrapper .react-dropdown-select-item {
+  border-radius: 8px;
+  margin: 2px 4px;
+  padding: 8px 12px;
+}
+
+.custom-select-wrapper .react-dropdown-select-item:hover,
+.custom-select-wrapper .react-dropdown-select-item-active {
+  background-color: #eef2ff;
+  color: #4f46e5;
 }`
 
 const customRenderers = `import Select from 'react-dropdown-select';

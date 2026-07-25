@@ -1,22 +1,24 @@
 {
   "name": "react-dropdown-select",
-  "version": "4.12.2",
+  "version": "4.12.2.1",
   "description": "Customizable dropdown select for react",
   "main": "dist/react-dropdown-select.js",
   "module": "lib/index.js",
-  "types": "types.d.ts",
+  "types": "types/index.d.ts",
   "sideEffects": false,
   "files": [
     "dist",
     "lib",
-    "types.d.ts"
+    "types"
   ],
   "scripts": {
+    "typecheck": "tsc --noEmit",
+    "types": "tsc --emitDeclarationOnly",
     "test": "jest --bail",
     "test:watch": "jest --bail --watch",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "build": "webpack && npm run transpile",
-    "transpile": "babel src -d lib",
+    "build": "tsc --noEmit && webpack && npm run transpile && npm run types && bundlesize",
+    "transpile": "babel src --out-dir lib --extensions .ts,.tsx",
     "prepublishOnly": "npm run build",
     "version": "replace \"vPLACEHOLDER\" \"v$npm_package_version\" ./CHANGELOG.md && git add .",
     "preversion": "sh change-log-builder.sh",
@@ -24,7 +26,8 @@
     "release:minor": "npm version minor -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
     "release:major": "npm version major -m \"v%s \nSee changelog: https://github.com/sanusart/react-dropdown-select/blob/master/CHANGELOG.md\"",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "bundlesize": "npx bundlesize"
   },
   "repository": {
     "type": "git",
@@ -50,7 +53,6 @@
   "author": "Sasha Khamkov <sanusart@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "prop-types": ">=15.7.2",
     "react": ">=16.x",
     "react-dom": ">=16.x"
   },
@@ -62,8 +64,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.7.4",
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
-    "@emotion/babel-plugin": "11.11.0",
-    "@emotion/jest": "11.11.0",
+    "@babel/preset-typescript": "^7.29.7",
     "@storybook/addon-docs": "7.1.1",
     "@storybook/addon-essentials": "7.1.1",
     "@storybook/addon-interactions": "7.1.1",
@@ -72,6 +73,8 @@
     "@storybook/react": "7.1.1",
     "@storybook/react-webpack5": "7.1.1",
     "@storybook/testing-library": "^0.2.0",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^25.3.0",
     "babel-loader": "^8.0.6",
@@ -87,27 +90,20 @@
     "jest": "29.6.2",
     "jest-environment-jsdom": "29.6.2",
     "prettier": "1.18.2",
-    "prop-types": "^15.7.2",
     "react": "16.14.0",
     "react-dom": "^16.12.0",
     "react-test-renderer": "^16.12.0",
     "replace": "^1.2.0",
     "storybook": "7.1.1",
     "style-loader": "^3.3.1",
+    "typescript": "^5.9.3",
     "webpack": "5.88.1",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "4.15.1"
   },
-  "dependencies": {
-    "@emotion/react": "11.11.0",
-    "@emotion/styled": "11.11.0"
-  },
   "jest": {
-    "snapshotSerializers": [
-      "@emotion/jest/serializer"
-    ],
     "transform": {
-      "^.+\\.(js)$": "babel-jest"
+      "^.+\\.(js|ts|tsx)$": "babel-jest"
     },
     "testMatch": [
       "**/?(*.)+(spec|test).js?(x)"
@@ -121,8 +117,8 @@
       "<rootDir>/__tests__"
     ],
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!src/**/ClickOutside.js",
+      "src/**/*.{ts,tsx}",
+      "!src/**/ClickOutside.tsx",
       "!node_modules/**",
       "!docs/**",
       "!dist/**",
