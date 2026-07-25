@@ -75,7 +75,6 @@
     "@babel/preset-typescript": "^7.29.7",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@storybook/addon-docs": "10.5.4",
     "@storybook/addon-webpack5-compiler-swc": "4.0.3",
     "@storybook/react-webpack5": "10.5.4",
     "@types/react": "^18.3.31",
