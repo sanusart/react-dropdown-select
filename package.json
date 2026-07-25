@@ -31,7 +31,7 @@
     "version:minor": "npm version minor --no-git-tag-version",
     "release:patch": "pnpm run version:patch && pnpm run changelog && pnpm run commit:changelog",
     "version:patch": "npm version patch --no-git-tag-version",
-    "commit:changelog": "node -e \"const v=require('./package.json').version; const {execSync}=require('child_process'); execSync('git add package.json CHANGELOG.md'); execSync('git commit -m \\\"chore: release v'+v+'\\\"'); execSync('git tag v'+v); execSync('git push && git push --tags');\"",
+    "commit:changelog": "node -e \"const v=require('./package.json').version; const {execSync}=require('child_process'); execSync('git add package.json CHANGELOG.md'); execSync('git commit -m \\\"chore: release v'+v+'\\\"'); execSync('git tag v'+v); execSync('git pull --rebase origin master'); execSync('git push && git push --tags');\"",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
