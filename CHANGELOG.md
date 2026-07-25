@@ -29,6 +29,11 @@ All significant updates and improvements
 ([@sanusart](https://github.com/sanusart))
 ([afc1884](https://github.com/sanusart/react-dropdown-select/commit/afc1884f6603d5ab2ecc1a1b9e477f0e444dc04c))
 
+- And more stories
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([0237237](https://github.com/sanusart/react-dropdown-select/commit/0237237cb7253d95eb31133fb4d8513fe96512ae))
+
 
 ## v5.0.2
 
