@@ -1,16 +1,14 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
-import path from 'path'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
+import path from 'path';
 
-const libSrc = path.resolve(__dirname, '../src/index.tsx')
-const rootPkg = path.resolve(__dirname, '../package.json')
+const libSrc = path.resolve(__dirname, '../src/index.tsx');
+const rootPkg = path.resolve(__dirname, '../package.json');
 
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
+  base: '/react-dropdown-select/',
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       'react-dropdown-select': libSrc,
@@ -24,4 +22,4 @@ export default defineConfig({
       },
     },
   },
-})
+});

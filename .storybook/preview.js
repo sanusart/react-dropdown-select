@@ -1,4 +1,3 @@
-import { DocsPage, Canvas } from '@storybook/addon-docs';
 import React from 'react';
 
 const preview = {
@@ -8,9 +7,9 @@ const preview = {
       controls: { expanded: true },
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/
-      }
-    }
+        date: /Date$/,
+      },
+    },
   },
   decorators: [
     (storyFn) => (
@@ -18,12 +17,12 @@ const preview = {
         style={{
           height: 200,
           width: 400,
-          margin: '0 auto'
+          margin: '0 auto',
         }}>
         {storyFn()}
       </div>
-    )
-  ]
+    ),
+  ],
 };
 
 export default preview;
