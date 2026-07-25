@@ -100,6 +100,14 @@ All significant updates and improvements
 ([9d35b56](https://github.com/sanusart/react-dropdown-select/commit/9d35b5670ddf925836705b27b8589b784be24723))
 
 
+### ⚙️ Miscellaneous Tasks
+
+- Update release
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([6129bd4](https://github.com/sanusart/react-dropdown-select/commit/6129bd49f0d22ca3e438f58119514c4799e01b79))
+
+
 ## v4.11.3
 
 Released on: Jul 19, 2024
