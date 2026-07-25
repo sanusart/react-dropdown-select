@@ -6,3 +6,4 @@ coverage
 dist/
 lib/
 pnpm-lock.yaml
+storybook-static/

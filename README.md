@@ -86,7 +86,7 @@ const options = [
 
 ### Demo
 
-[![Edit react-dropdown-select](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/p54p8y1987?autoresize=1)
+[![Storybook](https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg)](https://sanusart.github.io/react-dropdown-select)
 
 # API
 
