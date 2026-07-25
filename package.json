@@ -104,7 +104,7 @@
     "typescript": "^5.9.3",
     "webpack": "5.88.1",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "4.15.1"
+    "webpack-dev-server": "5.2.6"
   },
   "jest": {
     "transform": {
