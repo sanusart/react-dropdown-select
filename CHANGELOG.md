@@ -72,6 +72,19 @@ All significant updates and improvements
 ([6e8d71a](https://github.com/sanusart/react-dropdown-select/commit/6e8d71a2ec2fcb861bbe051151c3a013f3d0256d))
 
 
+### 📚 Documentation
+
+- Update readme
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([fe06544](https://github.com/sanusart/react-dropdown-select/commit/fe06544b7716d7a32fbaedbb8c0b65d94b1c17ab))
+
+- Update readme
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([94c0b4d](https://github.com/sanusart/react-dropdown-select/commit/94c0b4dea5f4fe53095f59b3a222edd6b2ad1664))
+
+
 ## v4.11.3
 
 Released on: Jul 19, 2024
