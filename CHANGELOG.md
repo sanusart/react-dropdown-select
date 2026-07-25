@@ -12,6 +12,14 @@ All significant updates and improvements
 ([906e244](https://github.com/sanusart/react-dropdown-select/commit/906e2443153bcf4e2776bcb2fd160623eb0f4b62))
 
 
+### ⚙️ Miscellaneous Tasks
+
+- Update site and storybook
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([35ae967](https://github.com/sanusart/react-dropdown-select/commit/35ae967dd5de4e3717e332d32bdc0a0993542301))
+
+
 ## v5.0.2
 
 Released on: Jul 25, 2026
