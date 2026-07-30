@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        task: [lint, typecheck, test]
+        task: [lint, typecheck, prettier, test]
 
     name: ${{ matrix.task }}
 
@@ -30,11 +30,15 @@ jobs:
 
       - name: Run lint
         if: matrix.task == 'lint'
-        run: pnpm exec prettier --check "src/**/*.{ts,tsx}"
+        run: pnpm run lint
 
       - name: Run typecheck
         if: matrix.task == 'typecheck'
         run: pnpm run typecheck
+
+      - name: Run prettier
+        if: matrix.task == 'prettier'
+        run: pnpm run prettier
 
       - name: Run tests
         if: matrix.task == 'test'

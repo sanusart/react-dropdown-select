@@ -1,43 +1,47 @@
 /**
  * @jest-environment jsdom
  */
-import React from 'react';
+import React, { act } from 'react';
 import TestRenderer from 'react-test-renderer';
-import { unmountComponentAtNode, render } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { createRoot } from 'react-dom/client';
 
 import Content from '../../src/components/Content';
 import { options } from '../options';
 
+global.IS_REACT_ACT_ENVIRONMENT = true;
+
 let container = null;
+let root = null;
 
 const props = (props = {}) => ({
   props: {
     contentRenderer: null,
     multi: true,
-    labelField: 'name'
+    labelField: 'name',
   },
   state: {
     search: '',
-    values: [options[0]]
+    values: [options[0]],
   },
   methods: {
     dropDown: jest.fn(),
-    getInputSize: () => undefined
+    getInputSize: () => undefined,
   },
-  ...props
+  ...props,
 });
 
-describe('<Clear/> component', () => {
+describe('<Content/> component', () => {
   beforeEach(() => {
     container = document.createElement('div');
     document.body.appendChild(container);
+    root = createRoot(container);
   });
 
   afterEach(() => {
-    unmountComponentAtNode(container);
+    act(() => root.unmount());
     container.remove();
     container = null;
+    root = null;
   });
 
   it('<Content/> renders correctly', () => {
@@ -50,7 +54,7 @@ describe('<Clear/> component', () => {
     const componentProps = props();
 
     act(() => {
-      render(<Content {...componentProps} />, container);
+      root.render(<Content {...componentProps} />);
     });
 
     const content = document.querySelector('.react-dropdown-select-content');

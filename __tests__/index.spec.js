@@ -5,26 +5,12 @@ import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { LIB_NAME } from '../src/constants';
 
-import Select from '../src/index';
+import { selectWithProps, Select } from './use-cases/helpers';
 
 const props = (props = {}) => ({
   onChange: () => undefined,
-  ...props
+  ...props,
 });
-
-const selectWithProps = (component) => {
-  return TestRenderer.create(component, {
-    createNodeMock: (element) => {
-      if (element.type === 'div') {
-        return {
-          blur: () => {},
-          getBoundingClientRect: () => {}
-        };
-      }
-      return null;
-    }
-  });
-};
 
 describe('<Select/> component', () => {
   it('<Select/> renders correctly', () => {
@@ -64,7 +50,11 @@ describe('<Select/> component', () => {
   });
 
   it('<Select/> renders with custom search function', () => {
-    const options = [{ id: 0, name: 'Zero' }, { id: 1, name: 'One' }, { id: 2, name: 'Two' }];
+    const options = [
+      { id: 0, name: 'Zero' },
+      { id: 1, name: 'One' },
+      { id: 2, name: 'Two' },
+    ];
 
     const searchFn = ({ props, state }) => {
       return props.options.filter(({ name }) => new RegExp(state.search).test(name));
@@ -72,14 +62,14 @@ describe('<Select/> component', () => {
 
     const component = selectWithProps(<Select {...props({ searchFn, options })} />);
 
-    const input = component.root.find((element) => element.props.className && element.props.className.includes(`${LIB_NAME}-input`));
+    const input = component.root.find(
+      (element) => element.props.className && element.props.className.includes(`${LIB_NAME}-input`),
+    );
 
     TestRenderer.act(() => input.props.onChange({ target: { value: 'Zer' } }));
 
-    expect(component.toTree().instance.state.search).toBe('Zer');
-    expect(component.toTree().instance.state.searchResults).toStrictEqual([
-      { id: 0, name: 'Zero' }
-    ]);
+    expect(component.getInstance().state.search).toBe('Zer');
+    expect(component.getInstance().state.searchResults).toStrictEqual([{ id: 0, name: 'Zero' }]);
     expect(component.toJSON()).toMatchSnapshot();
   });
 
