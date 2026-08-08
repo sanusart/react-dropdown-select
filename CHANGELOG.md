@@ -4,6 +4,14 @@ All significant updates and improvements
 
 ## Upcoming version
 
+### 🐛 Bug Fixes
+
+- Package_managers.dependabot.dependabot-missing-cooldown.dependabot-missing-cooldown security vulnerability ([#353](https://github.com/sanusart/react-dropdown-select/issues/353))
+· by Anupam Mediratta
+([@anupamme](https://github.com/anupamme))
+([264687b](https://github.com/sanusart/react-dropdown-select/commit/264687b6007ce5cb13e240c628ad4a876484eb8b))
+
+
 ### 📚 Documentation
 
 - *(add gh pages)* Add github pages ([#354](https://github.com/sanusart/react-dropdown-select/issues/354))
