@@ -1,8 +1,4 @@
 {
-  "src/**/*.{ts,tsx}": [
-    "prettier --write"
-  ],
-  "__tests__/**/*.{js,jsx,ts,tsx}": [
-    "prettier --write"
-  ]
+  "src/**/*.{ts,tsx}": ["eslint --fix", "prettier --write", "bash -c 'pnpm run typecheck'"],
+  "__tests__/**/*.{js,jsx,ts,tsx}": ["prettier --write"]
 }
