@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Clear/> component <Content/> renders correctly 1`] = `
+exports[`<Content/> component <Content/> renders correctly 1`] = `
 <div
   className="react-dropdown-select-content react-dropdown-select-type-multi"
   onClick={[Function]}
