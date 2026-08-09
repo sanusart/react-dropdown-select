@@ -20,6 +20,14 @@ All significant updates and improvements
 ([906e244](https://github.com/sanusart/react-dropdown-select/commit/906e2443153bcf4e2776bcb2fd160623eb0f4b62))
 
 
+### 🧪 Testing
+
+- More tests and better separation ([#355](https://github.com/sanusart/react-dropdown-select/issues/355))
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([62f9d9c](https://github.com/sanusart/react-dropdown-select/commit/62f9d9c4ef73b71a1351ad70a8d1e909c2129e8a))
+
+
 ### ⚙️ Miscellaneous Tasks
 
 - Update site and storybook
