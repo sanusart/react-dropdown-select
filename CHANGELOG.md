@@ -75,6 +75,11 @@ All significant updates and improvements
 ([@sanusart](https://github.com/sanusart))
 ([3802b2e](https://github.com/sanusart/react-dropdown-select/commit/3802b2e306beb651c50ff31f5f3b428891a5c2e3))
 
+- Seperate docs and lib to packages ([#361](https://github.com/sanusart/react-dropdown-select/issues/361))
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([99bd091](https://github.com/sanusart/react-dropdown-select/commit/99bd0918f72d39079eee4482dffd6acb0fd5bf4e))
+
 
 ## v5.0.2
 
