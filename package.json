@@ -1,60 +1,31 @@
 {
-  "name": "react-dropdown-select",
-  "version": "5.0.2",
+  "name": "react-dropdown-select-monorepo",
+  "version": "0.0.0",
+  "private": true,
   "packageManager": "pnpm@9.15.4",
-  "description": "Customizable dropdown select for react",
-  "main": "dist/react-dropdown-select.js",
-  "module": "lib/index.js",
-  "types": "types/index.d.ts",
-  "sideEffects": false,
-  "files": [
-    "dist",
-    "lib",
-    "types"
-  ],
+  "description": "Customizable dropdown select for react — monorepo root",
   "scripts": {
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
-    "prettier": "prettier --check src",
-    "prettier:write": "prettier --write src",
-    "types": "tsc --emitDeclarationOnly",
-    "test": "jest --bail",
-    "test:watch": "jest --bail --watch",
-    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "build": "tsc --noEmit && webpack && pnpm run transpile && pnpm run types && bundlesize",
-    "transpile": "babel src --out-dir lib --extensions .ts,.tsx",
-    "prepublishOnly": "pnpm run build",
+    "typecheck": "pnpm --filter react-dropdown-select run typecheck && pnpm --filter docs-site run typecheck",
+    "lint": "eslint packages",
+    "lint:fix": "eslint packages --fix",
+    "prettier": "prettier --check \"packages/react-dropdown-select/src\" \"packages/docs-site/src\"",
+    "prettier:write": "prettier --write \"packages/react-dropdown-select/src\" \"packages/docs-site/src\"",
+    "test": "pnpm --filter react-dropdown-select run test",
+    "build": "pnpm --filter react-dropdown-select run build",
     "// ℹ️ ------- versioning and release -------": "",
     "commit": "cz",
     "changelog": "npx git-cliff@latest --output CHANGELOG.md",
-    "version": "pnpm run changelog && git add CHANGELOG.md",
-    "release:major": "pnpm run version:major && pnpm run commit:changelog",
-    "version:major": "npm version major --no-git-tag-version",
-    "release:minor": "pnpm run version:minor && pnpm run commit:changelog",
-    "version:minor": "npm version minor --no-git-tag-version",
-    "release:patch": "pnpm run version:patch && pnpm run commit:changelog",
-    "version:patch": "npm version patch --no-git-tag-version",
-    "commit:changelog": "node scripts/release.js",
-    "prepare": "husky",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "bundlesize": "npx bundlesize"
+    "release:major": "pnpm --filter react-dropdown-select run release:major",
+    "release:minor": "pnpm --filter react-dropdown-select run release:minor",
+    "release:patch": "pnpm --filter react-dropdown-select run release:patch",
+    "storybook": "pnpm --filter react-dropdown-select run storybook",
+    "build-storybook": "pnpm --filter react-dropdown-select run build-storybook",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/sanusart/react-dropdown-select"
   },
-  "bundlesize": [
-    {
-      "path": "./dist/react-dropdown-select.js",
-      "maxSize": "20 kB"
-    },
-    {
-      "path": "./lib/index.js",
-      "maxSize": "20 kB"
-    }
-  ],
   "keywords": [
     "react",
     "react component",
@@ -64,88 +35,22 @@
   ],
   "author": "Sasha Khamkov <sanusart@gmail.com>",
   "license": "MIT",
-  "peerDependencies": {
-    "react": ">=16.x",
-    "react-dom": ">=16.x"
-  },
   "devDependencies": {
-    "@babel/cli": "^7.7.7",
-    "@babel/core": "^7.7.7",
-    "@babel/plugin-proposal-class-properties": "^7.7.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
-    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/preset-react": "^7.7.4",
-    "@babel/preset-typescript": "^7.29.7",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^10.0.1",
-    "@storybook/addon-webpack5-compiler-swc": "4.0.3",
-    "@storybook/react-webpack5": "10.5.4",
-    "@types/react": "^18.3.31",
-    "@types/react-dom": "^18.3.7",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^25.3.0",
-    "babel-loader": "^10.1.1",
-    "babel-plugin-transform-dynamic-import": "^2.1.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "babel-preset-minify": "^0.5.1",
-    "bundlesize": "1.0.0-beta.2",
     "commitizen": "^4.3.1",
-    "coveralls": "^3.0.9",
-    "css-loader": "^6.7.3",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^10.8.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.8.0",
-    "html-webpack-plugin": "^5.5.0",
     "husky": "^9.1.7",
-    "jest": "29.6.2",
-    "jest-environment-jsdom": "29.6.2",
     "lint-staged": "^17.3.0",
     "prettier": "^3.4.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-test-renderer": "^18.3.1",
-    "storybook": "10.5.4",
-    "style-loader": "^3.3.1",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.65.0",
-    "webpack": "5.109.2",
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "4.15.1"
+    "typescript-eslint": "^8.65.0"
   },
-  "jest": {
-    "transform": {
-      "^.+\\.(js|ts|tsx)$": "babel-jest"
-    },
-    "testMatch": [
-      "**/?(*.)+(spec|test).js?(x)"
-    ],
-    "testEnvironmentOptions": {
-      "url": "http://localhost/"
-    },
-    "collectCoverage": false,
-    "bail": true,
-    "roots": [
-      "<rootDir>/__tests__"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{ts,tsx}",
-      "!src/**/ClickOutside.tsx",
-      "!node_modules/**",
-      "!docs/**",
-      "!dist/**",
-      "!coverage/**"
-    ]
-  },
-  "browserslist": [
-    "last 2 versions",
-    "not dead",
-    "ie 11"
-  ],
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"

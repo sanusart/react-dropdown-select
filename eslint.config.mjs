@@ -8,13 +8,15 @@ import globals from 'globals';
 export default tseslint.config(
   {
     ignores: [
-      'dist/**',
-      'lib/**',
-      'types/**',
-      'coverage/**',
-      'node_modules/**',
-      'docs/**',
-      'storybook-static/**',
+      '**/node_modules/**',
+      'packages/react-dropdown-select/dist/**',
+      'packages/react-dropdown-select/lib/**',
+      'packages/react-dropdown-select/types/**',
+      'packages/react-dropdown-select/types.d.ts',
+      'packages/react-dropdown-select/coverage/**',
+      'packages/react-dropdown-select/storybook-static/**',
+      'packages/docs-site/dist/**',
+      'packages/docs-site/vendor/**',
     ],
   },
   js.configs.recommended,
@@ -22,26 +24,34 @@ export default tseslint.config(
   react.configs.flat.recommended,
   reactHooks.configs.flat.recommended,
   {
-    files: ['src/**/*.{js,ts,tsx}'],
+    files: [
+      'packages/react-dropdown-select/src/**/*.{js,ts,tsx}',
+      'packages/docs-site/src/**/*.{js,jsx,ts,tsx}',
+    ],
     languageOptions: {
       globals: { ...globals.browser },
     },
   },
   {
-    files: ['__tests__/**/*.{js,ts,tsx}'],
-    languageOptions: {
-      globals: { ...globals.browser, ...globals.jest },
-    },
-  },
-  {
-    files: ['*.{js,mjs,cjs}', 'scripts/**/*.{js,mjs,cjs}', 'eslint.config.mjs'],
+    files: [
+      '*.{js,mjs,cjs}',
+      'packages/react-dropdown-select/scripts/**/*.{js,mjs,cjs}',
+      'packages/react-dropdown-select/webpack.config.js',
+      'packages/docs-site/vite.config.js',
+      'eslint.config.mjs',
+    ],
     languageOptions: {
       globals: { ...globals.node },
+    },
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
   {
     rules: {
       'react/prop-types': 'off',
+      'react/react-in-jsx-scope': 'off',
+      'react/no-unescaped-entities': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-expressions': [
         'error',
@@ -67,6 +77,25 @@ export default tseslint.config(
       react: {
         version: '18',
       },
+    },
+  },
+  {
+    files: ['packages/react-dropdown-select/__tests__/**/*.{js,jsx,ts,tsx}'],
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.jest, ...globals.node },
+    },
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
+    },
+  },
+  {
+    files: ['packages/react-dropdown-select/.storybook/**/*.{js,jsx,ts,tsx}'],
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.node },
+    },
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'off',
     },
   },
   eslintConfigPrettier,

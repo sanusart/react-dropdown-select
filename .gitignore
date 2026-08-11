@@ -1,6 +1,7 @@
 node_modules
+package-lock.json
 .idea
-/src/helpers.js
+/packages/react-dropdown-select/src/helpers.js
 .DS_Store
 coverage
 dist/

@@ -46,7 +46,7 @@ jobs:
       - name: Validate semver
         run: |
           node -e "
-            const v = require('./package.json').version;
+            const v = require('./packages/react-dropdown-select/package.json').version;
             if (!/^\d+\.\d+\.\d+$/.test(v)) {
               console.error('Error: Version \"' + v + '\" is not valid semver (expected MAJOR.MINOR.PATCH)');
               process.exit(1);
