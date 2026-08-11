@@ -4,7 +4,7 @@ Customisable dropdown select for react
 
 [![](https://badgen.net/bundlephobia/minzip/react-dropdown-select)](https://bundlephobia.com/result?p=react-dropdown-select)
 [![](https://img.shields.io/npm/v/react-dropdown-select.svg)](https://www.npmjs.com/package/react-dropdown-select)
-[![Coverage Status](https://coveralls.io/repos/github/sanusart/react-dropdown-select/badge.svg?branch=master&service=github)](https://coveralls.io/github/sanusart/react-dropdown-select?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/sanusart/react-dropdown-select/badge.svg?branch=master)](https://coveralls.io/github/sanusart/react-dropdown-select?branch=master)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/b24446a1398a4308ad5d2b825e61bf76)](https://app.codacy.com/gh/sanusart/react-dropdown-select/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 ### Features
@@ -40,12 +40,12 @@ and use as:
 const options = [
   {
     value: 1,
-    label: 'Leanne Graham'
+    label: 'Leanne Graham',
   },
   {
     value: 2,
-    label: 'Ervin Howell'
-  }
+    label: 'Ervin Howell',
+  },
 ];
 
 <Select options={options} onChange={(values) => this.setValues(values)} />;
@@ -57,12 +57,12 @@ If your options don't have **value** and **label** fields, include **labelField*
 const options = [
   {
     id: 1,
-    name: 'Leanne Graham'
+    name: 'Leanne Graham',
   },
   {
     id: 2,
-    name: 'Ervin Howell'
-  }
+    name: 'Ervin Howell',
+  },
 ];
 
 <Select
@@ -143,7 +143,7 @@ const options = [
 > by using renderer props to override components some of the functionality will have to be handled manually with a help of internal props, states and methods exposed
 
 | Prop                                                                                                     | Type | Default   | Description                                                                                    |
-|----------------------------------------------------------------------------------------------------------| ---- | --------- |------------------------------------------------------------------------------------------------|
+| -------------------------------------------------------------------------------------------------------- | ---- | --------- | ---------------------------------------------------------------------------------------------- |
 | onChange                                                                                                 | func |           | On values change **(user and internally triggered)** callback, returns array of values objects |
 | onSelect                                                                                                 | func |           | On values change (user triggered) callback, returns array of values objects                    |
 | onDeselect                                                                                               | func |           | On values change (user triggered) callback, returns array of values objects                    |
