@@ -2,7 +2,6 @@
 
 Customisable dropdown select for react
 
-[![](https://badgen.net/bundlephobia/minzip/react-dropdown-select)](https://bundlephobia.com/result?p=react-dropdown-select)
 [![](https://img.shields.io/npm/v/react-dropdown-select.svg)](https://www.npmjs.com/package/react-dropdown-select)
 [![Coverage Status](https://coveralls.io/repos/github/sanusart/react-dropdown-select/badge.svg?branch=master)](https://coveralls.io/github/sanusart/react-dropdown-select?branch=master)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/b24446a1398a4308ad5d2b825e61bf76)](https://app.codacy.com/gh/sanusart/react-dropdown-select/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
@@ -76,6 +75,26 @@ const options = [
 > **options** and **onChange** are the minimum required props
 
 ### Help and Contributions
+
+#### Development
+
+The repository is a [pnpm](https://pnpm.io/) workspace. The component lives in `packages/react-dropdown-select` and the docs site in `packages/docs-site`.
+
+```bash
+pnpm install
+
+# run storybook (component development)
+pnpm -w run storybook
+
+# run the docs site
+pnpm --filter docs-site run dev
+
+# validate
+pnpm run lint
+pnpm run typecheck
+pnpm run prettier
+pnpm test
+```
 
 #### How to help/contribute
 
