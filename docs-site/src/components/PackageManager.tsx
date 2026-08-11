@@ -2,7 +2,13 @@ import { useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-const managers = [
+interface Manager {
+  id: string;
+  label: string;
+  command: string;
+}
+
+const managers: Manager[] = [
   { id: 'pnpm', label: 'pnpm', command: 'pnpm add react-dropdown-select' },
   { id: 'npm', label: 'npm', command: 'npm install react-dropdown-select' },
   { id: 'yarn', label: 'yarn', command: 'yarn add react-dropdown-select' },
@@ -14,6 +20,7 @@ export default function PackageManager() {
   const current = managers.find((m) => m.id === active);
 
   const handleCopy = async () => {
+    if (!current) return;
     await navigator.clipboard.writeText(current.command);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -53,7 +60,7 @@ export default function PackageManager() {
           lineHeight: '1.7',
           padding: '1.25rem',
         }}>
-        {current.command}
+        {current?.command ?? ''}
       </SyntaxHighlighter>
     </div>
   );

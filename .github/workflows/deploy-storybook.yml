@@ -31,16 +31,11 @@ jobs:
 
       - run: pnpm install
 
-      - name: Install docs-site dependencies
-        run: npm install
-        working-directory: docs-site
-
       - name: Build docs-site
-        run: npx vite build
-        working-directory: docs-site
+        run: pnpm --filter docs-site build
 
       - name: Build storybook
-        run: pnpm run build-storybook
+        run: pnpm -w run build-storybook
 
       - name: Prepare output
         run: |

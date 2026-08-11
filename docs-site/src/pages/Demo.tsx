@@ -1,7 +1,12 @@
-import { useState } from 'react'
-import Select from 'react-dropdown-select'
+import { useState } from 'react';
+import Select from 'react-dropdown-select';
 
-const options = [
+interface Country {
+  value: string;
+  label: string;
+}
+
+const options: Country[] = [
   { value: 'au', label: 'Australia' },
   { value: 'br', label: 'Brazil' },
   { value: 'cn', label: 'China' },
@@ -22,9 +27,16 @@ const options = [
   { value: 'ch', label: 'Switzerland' },
   { value: 'uk', label: 'United Kingdom' },
   { value: 'us', label: 'United States' },
-]
+];
 
-function Toggle({ label, checked, onChange, description }) {
+interface ToggleProps {
+  label: string;
+  checked: boolean;
+  onChange: (checked: boolean) => void;
+  description?: string;
+}
+
+function Toggle({ label, checked, onChange, description }: ToggleProps) {
   return (
     <label className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer group">
       <div className="mt-0.5">
@@ -34,28 +46,40 @@ function Toggle({ label, checked, onChange, description }) {
           onChange={(e) => onChange(e.target.checked)}
           className="sr-only"
         />
-        <div className={`w-9 h-5 rounded-full transition-colors relative ${checked ? 'bg-indigo-500' : 'bg-gray-300'}`}>
-          <div className={`absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${checked ? 'translate-x-4' : ''}`} />
+        <div
+          className={`w-9 h-5 rounded-full transition-colors relative ${checked ? 'bg-indigo-500' : 'bg-gray-300'}`}>
+          <div
+            className={`absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${checked ? 'translate-x-4' : ''}`}
+          />
         </div>
       </div>
       <div className="min-w-0">
         <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
           {label}
         </span>
-        {description && (
-          <p className="text-xs text-gray-400 mt-0.5">{description}</p>
-        )}
+        {description && <p className="text-xs text-gray-400 mt-0.5">{description}</p>}
       </div>
     </label>
-  )
+  );
 }
 
-function Slider({ label, value, onChange, min, max, description }) {
+interface SliderProps {
+  label: string;
+  value: number;
+  onChange: (value: number) => void;
+  min: number;
+  max: number;
+  description?: string;
+}
+
+function Slider({ label, value, onChange, min, max, description }: SliderProps) {
   return (
     <label className="block p-3 rounded-xl hover:bg-gray-50 transition-colors">
       <div className="flex items-center justify-between mb-1.5">
         <span className="text-sm font-medium text-gray-700">{label}</span>
-        <span className="text-xs font-mono text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md">{value}</span>
+        <span className="text-xs font-mono text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md">
+          {value}
+        </span>
       </div>
       {description && <p className="text-xs text-gray-400 mb-2">{description}</p>}
       <input
@@ -67,30 +91,30 @@ function Slider({ label, value, onChange, min, max, description }) {
         className="w-full h-1.5 rounded-full bg-gray-200 accent-indigo-500 cursor-pointer"
       />
     </label>
-  )
+  );
 }
 
 export default function Demo() {
-  const [multi, setMulti] = useState(false)
-  const [searchable, setSearchable] = useState(true)
-  const [clearable, setClearable] = useState(false)
-  const [disabled, setDisabled] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [separator, setSeparator] = useState(false)
-  const [dropdownHandle, setDropdownHandle] = useState(true)
-  const [create, setCreate] = useState(false)
-  const [selectAll, setSelectAll] = useState(false)
-  const [keepOpen, setKeepOpen] = useState(false)
-  const [autoFocus, setAutoFocus] = useState(false)
-  const [backspaceDelete, setBackspaceDelete] = useState(true)
-  const [closeOnSelect, setCloseOnSelect] = useState(false)
-  const [keepSelectedInList, setKeepSelectedInList] = useState(true)
-  const [defaultMenuIsOpen, setDefaultMenuIsOpen] = useState(false)
-  const [color, setColor] = useState('#6366f1')
-  const [dropdownHeight, setDropdownHeight] = useState(300)
-  const [dropdownPosition, setDropdownPosition] = useState('bottom')
-  const [direction, setDirection] = useState('ltr')
-  const [values, setValues] = useState([])
+  const [multi, setMulti] = useState(false);
+  const [searchable, setSearchable] = useState(true);
+  const [clearable, setClearable] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [separator, setSeparator] = useState(false);
+  const [dropdownHandle, setDropdownHandle] = useState(true);
+  const [create, setCreate] = useState(false);
+  const [selectAll, setSelectAll] = useState(false);
+  const [keepOpen, setKeepOpen] = useState(false);
+  const [autoFocus, setAutoFocus] = useState(false);
+  const [backspaceDelete, setBackspaceDelete] = useState(true);
+  const [closeOnSelect, setCloseOnSelect] = useState(false);
+  const [keepSelectedInList, setKeepSelectedInList] = useState(true);
+  const [defaultMenuIsOpen, setDefaultMenuIsOpen] = useState(false);
+  const [color, setColor] = useState('#6366f1');
+  const [dropdownHeight, setDropdownHeight] = useState(300);
+  const [dropdownPosition, setDropdownPosition] = useState<'bottom' | 'top' | 'auto'>('bottom');
+  const [direction, setDirection] = useState<'ltr' | 'rtl' | 'auto'>('ltr');
+  const [values, setValues] = useState<Country[]>([]);
 
   return (
     <div className="space-y-10">
@@ -112,21 +136,96 @@ export default function Demo() {
               <h3 className="text-sm font-semibold text-gray-700">Features</h3>
             </div>
             <div className="p-2 divide-y divide-gray-100">
-              <Toggle label="Multi-select" checked={multi} onChange={setMulti} description="Allow selecting multiple values" />
-              <Toggle label="Searchable" checked={searchable} onChange={setSearchable} description="Show search input" />
-              <Toggle label="Clearable" checked={clearable} onChange={setClearable} description="Show clear all button" />
-              <Toggle label="Disabled" checked={disabled} onChange={setDisabled} description="Disable all interactions" />
-              <Toggle label="Loading" checked={loading} onChange={setLoading} description="Show loading indicator" />
-              <Toggle label="Separator" checked={separator} onChange={setSeparator} description="Show vertical separator" />
-              <Toggle label="Dropdown handle" checked={dropdownHandle} onChange={setDropdownHandle} description="Show chevron icon" />
-              <Toggle label="Create new" checked={create} onChange={setCreate} description="Allow creating new entries" />
-              <Toggle label="Select all" checked={selectAll} onChange={setSelectAll} description="Show select/clear all buttons" />
-              <Toggle label="Keep open" checked={keepOpen} onChange={setKeepOpen} description="Force dropdown open" />
-              <Toggle label="Auto focus" checked={autoFocus} onChange={setAutoFocus} description="Focus input on mount" />
-              <Toggle label="Backspace delete" checked={backspaceDelete} onChange={setBackspaceDelete} description="Remove last value with backspace" />
-              <Toggle label="Close on select" checked={closeOnSelect} onChange={setCloseOnSelect} description="Close dropdown after selecting" />
-              <Toggle label="Keep selected in list" checked={keepSelectedInList} onChange={setKeepSelectedInList} description="Show selected items in dropdown" />
-              <Toggle label="Default menu open" checked={defaultMenuIsOpen} onChange={setDefaultMenuIsOpen} description="Open dropdown on mount" />
+              <Toggle
+                label="Multi-select"
+                checked={multi}
+                onChange={setMulti}
+                description="Allow selecting multiple values"
+              />
+              <Toggle
+                label="Searchable"
+                checked={searchable}
+                onChange={setSearchable}
+                description="Show search input"
+              />
+              <Toggle
+                label="Clearable"
+                checked={clearable}
+                onChange={setClearable}
+                description="Show clear all button"
+              />
+              <Toggle
+                label="Disabled"
+                checked={disabled}
+                onChange={setDisabled}
+                description="Disable all interactions"
+              />
+              <Toggle
+                label="Loading"
+                checked={loading}
+                onChange={setLoading}
+                description="Show loading indicator"
+              />
+              <Toggle
+                label="Separator"
+                checked={separator}
+                onChange={setSeparator}
+                description="Show vertical separator"
+              />
+              <Toggle
+                label="Dropdown handle"
+                checked={dropdownHandle}
+                onChange={setDropdownHandle}
+                description="Show chevron icon"
+              />
+              <Toggle
+                label="Create new"
+                checked={create}
+                onChange={setCreate}
+                description="Allow creating new entries"
+              />
+              <Toggle
+                label="Select all"
+                checked={selectAll}
+                onChange={setSelectAll}
+                description="Show select/clear all buttons"
+              />
+              <Toggle
+                label="Keep open"
+                checked={keepOpen}
+                onChange={setKeepOpen}
+                description="Force dropdown open"
+              />
+              <Toggle
+                label="Auto focus"
+                checked={autoFocus}
+                onChange={setAutoFocus}
+                description="Focus input on mount"
+              />
+              <Toggle
+                label="Backspace delete"
+                checked={backspaceDelete}
+                onChange={setBackspaceDelete}
+                description="Remove last value with backspace"
+              />
+              <Toggle
+                label="Close on select"
+                checked={closeOnSelect}
+                onChange={setCloseOnSelect}
+                description="Close dropdown after selecting"
+              />
+              <Toggle
+                label="Keep selected in list"
+                checked={keepSelectedInList}
+                onChange={setKeepSelectedInList}
+                description="Show selected items in dropdown"
+              />
+              <Toggle
+                label="Default menu open"
+                checked={defaultMenuIsOpen}
+                onChange={setDefaultMenuIsOpen}
+                description="Open dropdown on mount"
+              />
             </div>
           </div>
 
@@ -159,9 +258,11 @@ export default function Demo() {
               />
 
               <div className="p-3">
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Dropdown position</label>
+                <label className="text-sm font-medium text-gray-700 mb-2 block">
+                  Dropdown position
+                </label>
                 <div className="flex gap-2">
-                  {['bottom', 'top', 'auto'].map((pos) => (
+                  {(['bottom', 'top', 'auto'] as const).map((pos) => (
                     <button
                       key={pos}
                       onClick={() => setDropdownPosition(pos)}
@@ -169,8 +270,7 @@ export default function Demo() {
                         dropdownPosition === pos
                           ? 'bg-indigo-100 text-indigo-700'
                           : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                      }`}
-                    >
+                      }`}>
                       {pos}
                     </button>
                   ))}
@@ -180,7 +280,7 @@ export default function Demo() {
               <div className="p-3">
                 <label className="text-sm font-medium text-gray-700 mb-2 block">Direction</label>
                 <div className="flex gap-2">
-                  {['ltr', 'rtl', 'auto'].map((dir) => (
+                  {(['ltr', 'rtl', 'auto'] as const).map((dir) => (
                     <button
                       key={dir}
                       onClick={() => setDirection(dir)}
@@ -188,8 +288,7 @@ export default function Demo() {
                         direction === dir
                           ? 'bg-indigo-100 text-indigo-700'
                           : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                      }`}
-                    >
+                      }`}>
                       {dir}
                     </button>
                   ))}
@@ -224,7 +323,7 @@ export default function Demo() {
                 color={color}
                 dropdownHeight={`${dropdownHeight}px`}
                 dropdownPosition={dropdownPosition}
-                direction={direction}
+                direction={direction as 'ltr' | 'rtl'}
                 placeholder="Select a country..."
                 labelField="label"
                 valueField="value"
@@ -232,8 +331,8 @@ export default function Demo() {
                 onDropdownOpen={() => console.log('Dropdown opened')}
                 onDropdownClose={() => console.log('Dropdown closed')}
                 onChange={(values) => {
-                  setValues(values)
-                  console.log('Values changed:', values)
+                  setValues(values);
+                  console.log('Values changed:', values);
                 }}
               />
             </div>
@@ -253,15 +352,22 @@ export default function Demo() {
                   {values.map((v) => (
                     <span
                       key={v.value}
-                      className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-medium bg-indigo-50 text-indigo-700 border border-indigo-100"
-                    >
+                      className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-medium bg-indigo-50 text-indigo-700 border border-indigo-100">
                       {v.label}
                       <button
                         onClick={() => setValues(values.filter((x) => x.value !== v.value))}
-                        className="ml-0.5 hover:text-indigo-900 transition-colors"
-                      >
-                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        className="ml-0.5 hover:text-indigo-900 transition-colors">
+                        <svg
+                          className="w-3.5 h-3.5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor">
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                          />
                         </svg>
                       </button>
                     </span>
@@ -278,7 +384,7 @@ export default function Demo() {
             </div>
             <div className="p-4 bg-gray-900 rounded-b-2xl">
               <pre className="text-sm text-gray-300 overflow-x-auto font-mono leading-relaxed">
-{`<Select
+                {`<Select
   options={options}
   values={values}
   onChange={setValues}
@@ -293,5 +399,5 @@ ${multi ? '  multi\n' : ''}${!searchable ? '  searchable={false}\n' : ''}${clear
         </div>
       </div>
     </div>
-  )
+  );
 }

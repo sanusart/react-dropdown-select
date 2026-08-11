@@ -2,7 +2,7 @@ name: Node.js Package
 
 on:
   workflow_run:
-    workflows: ["Automate Release"]
+    workflows: ['Automate Release']
     types:
       - completed
 
@@ -27,5 +27,5 @@ jobs:
       - run: npm install -g npm@latest
       - run: pnpm install
       - run: pnpm test -- --maxWorkers=2 --maxConcurrent=2
-      - run: pnpm run build
+      - run: pnpm -w run build
       - run: npm publish

@@ -8,12 +8,15 @@ import globals from 'globals';
 export default tseslint.config(
   {
     ignores: [
+      '**/node_modules/**',
       'dist/**',
       'lib/**',
       'types/**',
+      'types.d.ts',
       'coverage/**',
-      'node_modules/**',
       'docs/**',
+      'docs-site/dist/**',
+      'docs-site/vendor/**',
       'storybook-static/**',
     ],
   },
@@ -22,26 +25,30 @@ export default tseslint.config(
   react.configs.flat.recommended,
   reactHooks.configs.flat.recommended,
   {
-    files: ['src/**/*.{js,ts,tsx}'],
+    files: ['src/**/*.{js,ts,tsx}', 'docs-site/src/**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       globals: { ...globals.browser },
     },
   },
   {
-    files: ['__tests__/**/*.{js,ts,tsx}'],
-    languageOptions: {
-      globals: { ...globals.browser, ...globals.jest },
-    },
-  },
-  {
-    files: ['*.{js,mjs,cjs}', 'scripts/**/*.{js,mjs,cjs}', 'eslint.config.mjs'],
+    files: [
+      '*.{js,mjs,cjs}',
+      'scripts/**/*.{js,mjs,cjs}',
+      'docs-site/vite.config.js',
+      'eslint.config.mjs',
+    ],
     languageOptions: {
       globals: { ...globals.node },
+    },
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
   {
     rules: {
       'react/prop-types': 'off',
+      'react/react-in-jsx-scope': 'off',
+      'react/no-unescaped-entities': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-expressions': [
         'error',
@@ -67,6 +74,25 @@ export default tseslint.config(
       react: {
         version: '18',
       },
+    },
+  },
+  {
+    files: ['__tests__/**/*.{js,jsx,ts,tsx}'],
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.jest, ...globals.node },
+    },
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
+    },
+  },
+  {
+    files: ['.storybook/**/*.{js,jsx,ts,tsx}', 'stories/**/*.{js,jsx,ts,tsx}'],
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.node },
+    },
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'off',
     },
   },
   eslintConfigPrettier,

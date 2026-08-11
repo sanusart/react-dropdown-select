@@ -1,7 +1,10 @@
 import { version } from 'root-pkg';
 import { Link, useLocation } from 'react-router-dom';
+import type { ReactNode } from 'react';
 
-const icons = {
+type IconName = 'home' | 'install' | 'demo' | 'examples' | 'api' | 'storybook';
+
+const icons: Record<IconName, ReactNode> = {
   home: (
     <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path
@@ -70,7 +73,26 @@ const icons = {
   ),
 };
 
-const navItems = [
+interface NavLinkItem {
+  label: string;
+  icon: IconName;
+  to: string;
+}
+
+interface NavHrefItem {
+  label: string;
+  icon: IconName;
+  href: string;
+}
+
+type NavItem = NavLinkItem | NavHrefItem;
+
+interface NavGroup {
+  title: string;
+  items: NavItem[];
+}
+
+const navItems: NavGroup[] = [
   {
     title: 'Getting Started',
     items: [
@@ -94,7 +116,12 @@ const navItems = [
   },
 ];
 
-export default function Sidebar({ open, onClose }) {
+interface SidebarProps {
+  open: boolean;
+  onClose: () => void;
+}
+
+export default function Sidebar({ open, onClose }: SidebarProps) {
   const location = useLocation();
 
   return (
@@ -112,7 +139,7 @@ export default function Sidebar({ open, onClose }) {
               </h3>
               <ul className="space-y-0.5">
                 {group.items.map((item) => {
-                  const isActive = !item.href && location.pathname === item.to;
+                  const isActive = !('href' in item) && location.pathname === item.to;
                   const linkClass = `flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                     isActive
                       ? 'bg-indigo-50 text-indigo-700'
@@ -120,7 +147,7 @@ export default function Sidebar({ open, onClose }) {
                   }`;
                   return (
                     <li key={item.label}>
-                      {item.href ? (
+                      {'href' in item ? (
                         <a
                           href={item.href}
                           target="_blank"

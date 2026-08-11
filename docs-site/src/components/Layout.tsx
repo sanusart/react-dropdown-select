@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import { Outlet } from 'react-router-dom'
-import Sidebar from './Sidebar'
-import Header from './Header'
+import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
+import Sidebar from './Sidebar';
+import Header from './Header';
 
 export default function Layout() {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-white">
@@ -24,16 +24,14 @@ export default function Layout() {
                     href="https://github.com/sanusart/react-dropdown-select"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-gray-900 transition-colors"
-                  >
+                    className="hover:text-gray-900 transition-colors">
                     GitHub
                   </a>
                   <a
                     href="https://www.npmjs.com/package/react-dropdown-select"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-gray-900 transition-colors"
-                  >
+                    className="hover:text-gray-900 transition-colors">
                     npm
                   </a>
                 </div>
@@ -43,5 +41,5 @@ export default function Layout() {
         </main>
       </div>
     </div>
-  )
+  );
 }

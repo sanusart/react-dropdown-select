@@ -1,21 +1,12 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "target": "ES2015",
-    "module": "ESNext",
     "lib": ["DOM", "ES2015"],
     "jsx": "react",
     "declaration": true,
     "declarationDir": "types",
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "esModuleInterop": true,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
     "outDir": "lib",
     "sourceMap": true,
     "baseUrl": "."

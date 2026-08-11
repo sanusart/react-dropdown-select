@@ -1,7 +1,28 @@
 import { useState } from 'react';
+import type { ReactNode } from 'react';
 import CodeBlock from '../components/CodeBlock';
 
-function PropTable({ title, props }) {
+interface PropRow {
+  name: string;
+  type: string;
+  default?: string | null;
+  description: string;
+  required?: boolean;
+}
+
+interface RendererRow {
+  name: string;
+  receives: string;
+  replaces: string;
+}
+
+interface MethodRow {
+  name: string;
+  signature: string;
+  description: string;
+}
+
+function PropTable({ title, props }: { title?: string; props: PropRow[] }) {
   return (
     <div className="rounded-2xl border border-gray-200 overflow-hidden">
       {title && (
@@ -48,7 +69,7 @@ function PropTable({ title, props }) {
   );
 }
 
-function RendererTable({ renderers }) {
+function RendererTable({ renderers }: { renderers: RendererRow[] }) {
   return (
     <div className="rounded-2xl border border-gray-200 overflow-hidden">
       <div className="overflow-x-auto">
@@ -77,7 +98,7 @@ function RendererTable({ renderers }) {
   );
 }
 
-function MethodTable({ methods }) {
+function MethodTable({ methods }: { methods: MethodRow[] }) {
   return (
     <div className="rounded-2xl border border-gray-200 overflow-hidden">
       <div className="overflow-x-auto">
@@ -106,7 +127,7 @@ function MethodTable({ methods }) {
   );
 }
 
-function Section({ id, title, children }) {
+function Section({ id, title, children }: { id: string; title: string; children: ReactNode }) {
   return (
     <section id={id} className="space-y-6 scroll-mt-24">
       <h2 className="text-2xl font-bold text-gray-900 border-b border-gray-200 pb-3">{title}</h2>
