@@ -28,4 +28,4 @@ jobs:
       - run: pnpm install
       - run: pnpm test -- --maxWorkers=2 --maxConcurrent=2
       - run: pnpm -w run build
-      - run: npm publish
+      - run: cd packages/react-dropdown-select && npm publish

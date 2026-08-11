@@ -34,9 +34,7 @@ jobs:
 
       - name: Run typecheck
         if: matrix.task == 'typecheck'
-        run: |
-          pnpm run typecheck
-          pnpm --filter docs-site run typecheck
+        run: pnpm run typecheck
 
       - name: Run prettier
         if: matrix.task == 'prettier'

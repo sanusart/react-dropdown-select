@@ -40,8 +40,8 @@ jobs:
       - name: Prepare output
         run: |
           mkdir -p output/storybook
-          cp -r docs-site/dist/* output/
-          cp -r storybook-static/* output/storybook/
+          cp -r packages/docs-site/dist/* output/
+          cp -r packages/react-dropdown-select/storybook-static/* output/storybook/
           touch output/.nojekyll
 
       - uses: actions/upload-pages-artifact@v3

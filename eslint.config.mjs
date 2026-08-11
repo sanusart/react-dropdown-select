@@ -9,15 +9,14 @@ export default tseslint.config(
   {
     ignores: [
       '**/node_modules/**',
-      'dist/**',
-      'lib/**',
-      'types/**',
-      'types.d.ts',
-      'coverage/**',
-      'docs/**',
-      'docs-site/dist/**',
-      'docs-site/vendor/**',
-      'storybook-static/**',
+      'packages/react-dropdown-select/dist/**',
+      'packages/react-dropdown-select/lib/**',
+      'packages/react-dropdown-select/types/**',
+      'packages/react-dropdown-select/types.d.ts',
+      'packages/react-dropdown-select/coverage/**',
+      'packages/react-dropdown-select/storybook-static/**',
+      'packages/docs-site/dist/**',
+      'packages/docs-site/vendor/**',
     ],
   },
   js.configs.recommended,
@@ -25,7 +24,10 @@ export default tseslint.config(
   react.configs.flat.recommended,
   reactHooks.configs.flat.recommended,
   {
-    files: ['src/**/*.{js,ts,tsx}', 'docs-site/src/**/*.{js,jsx,ts,tsx}'],
+    files: [
+      'packages/react-dropdown-select/src/**/*.{js,ts,tsx}',
+      'packages/docs-site/src/**/*.{js,jsx,ts,tsx}',
+    ],
     languageOptions: {
       globals: { ...globals.browser },
     },
@@ -33,8 +35,9 @@ export default tseslint.config(
   {
     files: [
       '*.{js,mjs,cjs}',
-      'scripts/**/*.{js,mjs,cjs}',
-      'docs-site/vite.config.js',
+      'packages/react-dropdown-select/scripts/**/*.{js,mjs,cjs}',
+      'packages/react-dropdown-select/webpack.config.js',
+      'packages/docs-site/vite.config.js',
       'eslint.config.mjs',
     ],
     languageOptions: {
@@ -77,7 +80,7 @@ export default tseslint.config(
     },
   },
   {
-    files: ['__tests__/**/*.{js,jsx,ts,tsx}'],
+    files: ['packages/react-dropdown-select/__tests__/**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       globals: { ...globals.browser, ...globals.jest, ...globals.node },
     },
@@ -87,7 +90,7 @@ export default tseslint.config(
     },
   },
   {
-    files: ['.storybook/**/*.{js,jsx,ts,tsx}', 'stories/**/*.{js,jsx,ts,tsx}'],
+    files: ['packages/react-dropdown-select/.storybook/**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       globals: { ...globals.browser, ...globals.node },
     },
