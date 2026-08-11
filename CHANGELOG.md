@@ -11,6 +11,11 @@ All significant updates and improvements
 ([@anupamme](https://github.com/anupamme))
 ([264687b](https://github.com/sanusart/react-dropdown-select/commit/264687b6007ce5cb13e240c628ad4a876484eb8b))
 
+- Coverage track by coveralls ([#360](https://github.com/sanusart/react-dropdown-select/issues/360))
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([b2e8751](https://github.com/sanusart/react-dropdown-select/commit/b2e8751fd0a2c9e52cbea2e8cf78328e45393995))
+
 
 ### 📚 Documentation
 
