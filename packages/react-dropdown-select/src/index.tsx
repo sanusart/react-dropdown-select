@@ -1,6 +1,5 @@
 import React, { forwardRef, useImperativeHandle } from 'react';
 import ClickOutside from './components/ClickOutside';
-import { injectStyles } from './styles';
 
 import Content from './components/Content';
 import Loading from './components/Loading';
@@ -8,12 +7,10 @@ import Clear from './components/Clear';
 import Separator from './components/Separator';
 import DropdownHandle from './components/DropdownHandle';
 
-import { hexToRGBA, isEqual } from './util';
+import { isEqual } from './util';
 import { LIB_NAME } from './constants';
 import { SelectProps } from './select-types';
 import { useSelect } from './hooks/useSelect';
-
-injectStyles();
 
 function SelectInner<T extends Record<string, any>>(
   props: SelectProps<T>,
@@ -39,22 +36,13 @@ function SelectInner<T extends Record<string, any>>(
         className={`${props.disabled ? `${LIB_NAME}-disabled` : ''} ${LIB_NAME} ${
           props.className || ''
         }`}
-        style={
-          {
-            '--select-direction': props.direction,
-            '--select-color': props.color,
-            '--select-color-shadow': props.color
-              ? hexToRGBA(props.color, 0.2)
-              : hexToRGBA('#000', 0.2),
-          } as React.CSSProperties
-        }
         {...props.additionalProps}>
         <Content props={props} state={state} methods={methods} />
 
         {(props.name || props.required) && (
           <input
             tabIndex={-1}
-            style={{ opacity: 0, width: 0, position: 'absolute' } as React.CSSProperties}
+            className={`${LIB_NAME}-hidden-input`}
             name={props.name || ''}
             required={props.required}
             pattern={props.pattern}
@@ -148,6 +136,7 @@ Select.defaultProps = {
   selectAllLabel: 'Select all',
   separator: false,
   sortBy: null,
+  styleNonce: undefined,
   valueField: 'value',
   values: [],
   defaultMenuIsOpen: false,

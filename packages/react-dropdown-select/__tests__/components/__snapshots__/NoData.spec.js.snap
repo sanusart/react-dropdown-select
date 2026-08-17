@@ -3,10 +3,5 @@
 exports[`<NoData/> renders correctly 1`] = `
 <div
   className="react-dropdown-select-no-data"
-  style={
-    {
-      "--select-color": undefined,
-    }
-  }
 />
 `;

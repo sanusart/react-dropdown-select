@@ -5,11 +5,6 @@ exports[`<Clear/> component <DropdownHandle/> renders correctly 1`] = `
   className="react-dropdown-select-dropdown-handle react-dropdown-select-dropdown-handle-closed react-dropdown-select-dropdown-handle-no-rotate-open"
   onClick={[Function]}
   onKeyDown={[Function]}
-  style={
-    {
-      "--select-handle-color": undefined,
-    }
-  }
   tabIndex={-1}
 >
   <svg

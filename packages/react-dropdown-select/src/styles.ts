@@ -247,15 +247,52 @@ const CSS = `
   font-size: x-small;
   text-transform: uppercase;
 }
+.${LIB_NAME}-hidden-input {
+  opacity: 0;
+  width: 0;
+  position: absolute;
+}
 `.trim();
 
-let injected = false;
+let styleTag: HTMLStyleElement | null = null;
+let styleTagNonce: string | undefined;
+const registry = new Map<string, string>();
 
-export function injectStyles(): void {
-  if (injected || typeof document === 'undefined') return;
-  const style = document.createElement('style');
-  style.setAttribute('data-react-dropdown-select', '');
-  style.textContent = CSS;
-  document.head.appendChild(style);
-  injected = true;
+const buildCss = (): string => [CSS, ...Array.from(registry.values())].join('\n');
+
+const ensureStyleTag = (nonce?: string): void => {
+  if (typeof document === 'undefined') return;
+  if (styleTag && styleTagNonce === nonce) return;
+
+  styleTag?.remove();
+  styleTag = document.createElement('style');
+  styleTag.setAttribute('data-react-dropdown-select', '');
+  if (nonce) {
+    styleTag.setAttribute('nonce', nonce);
+  }
+  document.head.appendChild(styleTag);
+  styleTagNonce = nonce;
+};
+
+const render = (): void => {
+  if (styleTag) {
+    styleTag.textContent = buildCss();
+  }
+};
+
+export function injectStyles(nonce?: string): void {
+  ensureStyleTag(nonce);
+  render();
+}
+
+export function registerStyle(id: string, css: string, nonce?: string): void {
+  registry.set(id, css);
+  ensureStyleTag(nonce);
+  render();
+}
+
+export function unregisterStyle(id: string): void {
+  if (registry.delete(id)) {
+    render();
+  }
 }

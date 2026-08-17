@@ -6,14 +6,6 @@ exports[`<Item/> component pass item renderer 1`] = `
   onClick={[Function]}
   onKeyDown={[Function]}
   role="option"
-  style={
-    {
-      "--select-item-active-bg": undefined,
-      "--select-item-hover-bg": undefined,
-      "--select-item-selected-bg": undefined,
-      "--select-item-selected-color": "#fff",
-    }
-  }
   tabIndex={-1}
 >
    
@@ -26,14 +18,6 @@ exports[`<Item/> component renders correctly 1`] = `
   onClick={[Function]}
   onKeyDown={[Function]}
   role="option"
-  style={
-    {
-      "--select-item-active-bg": undefined,
-      "--select-item-hover-bg": undefined,
-      "--select-item-selected-bg": undefined,
-      "--select-item-selected-color": "#fff",
-    }
-  }
   tabIndex={-1}
 >
    

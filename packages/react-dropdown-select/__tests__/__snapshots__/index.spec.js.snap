@@ -8,13 +8,6 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
     className="react-dropdown-select-disabled react-dropdown-select "
     onClick={[Function]}
     onKeyDown={[Function]}
-    style={
-      {
-        "--select-color": "#0074D9",
-        "--select-color-shadow": "rgba(0, 116, 217, 0.2)",
-        "--select-direction": "ltr",
-      }
-    }
     tabIndex={-1}
   >
     <div
@@ -44,11 +37,6 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
       className="react-dropdown-select-dropdown-handle react-dropdown-select-dropdown-handle-closed react-dropdown-select-dropdown-handle-no-rotate-open"
       onClick={[Function]}
       onKeyDown={[Function]}
-      style={
-        {
-          "--select-handle-color": "#0074D9",
-        }
-      }
       tabIndex={-1}
     >
       <svg
@@ -72,13 +60,6 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
     className=" react-dropdown-select "
     onClick={[Function]}
     onKeyDown={[Function]}
-    style={
-      {
-        "--select-color": "#0074D9",
-        "--select-color-shadow": "rgba(0, 116, 217, 0.2)",
-        "--select-direction": "ltr",
-      }
-    }
     tabIndex={0}
   >
     <div
@@ -108,11 +89,6 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
       className="react-dropdown-select-dropdown-handle react-dropdown-select-dropdown-handle-closed react-dropdown-select-dropdown-handle-no-rotate-open"
       onClick={[Function]}
       onKeyDown={[Function]}
-      style={
-        {
-          "--select-handle-color": "#0074D9",
-        }
-      }
       tabIndex={-1}
     >
       <svg
@@ -136,13 +112,6 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
     className=" react-dropdown-select "
     onClick={[Function]}
     onKeyDown={[Function]}
-    style={
-      {
-        "--select-color": "#0074D9",
-        "--select-color-shadow": "rgba(0, 116, 217, 0.2)",
-        "--select-direction": "ltr",
-      }
-    }
     tabIndex={0}
   >
     <div
@@ -180,11 +149,6 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
       className="react-dropdown-select-dropdown-handle react-dropdown-select-dropdown-handle-closed react-dropdown-select-dropdown-handle-no-rotate-open"
       onClick={[Function]}
       onKeyDown={[Function]}
-      style={
-        {
-          "--select-handle-color": "#0074D9",
-        }
-      }
       tabIndex={-1}
     >
       <svg
@@ -208,13 +172,6 @@ exports[`<Select/> component <Select/> renders with custom search function 1`] =
     className=" react-dropdown-select "
     onClick={[Function]}
     onKeyDown={[Function]}
-    style={
-      {
-        "--select-color": "#0074D9",
-        "--select-color-shadow": "rgba(0, 116, 217, 0.2)",
-        "--select-direction": "ltr",
-      }
-    }
     tabIndex={0}
   >
     <div
@@ -244,11 +201,6 @@ exports[`<Select/> component <Select/> renders with custom search function 1`] =
       className="react-dropdown-select-dropdown-handle react-dropdown-select-dropdown-handle-closed react-dropdown-select-dropdown-handle-no-rotate-open"
       onClick={[Function]}
       onKeyDown={[Function]}
-      style={
-        {
-          "--select-handle-color": "#0074D9",
-        }
-      }
       tabIndex={-1}
     >
       <svg
@@ -272,13 +224,6 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
     className=" react-dropdown-select "
     onClick={[Function]}
     onKeyDown={[Function]}
-    style={
-      {
-        "--select-color": "#0074D9",
-        "--select-color-shadow": "rgba(0, 116, 217, 0.2)",
-        "--select-direction": "ltr",
-      }
-    }
     tabIndex={0}
   >
     <div
@@ -306,21 +251,11 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
     </div>
     <div
       className="react-dropdown-select-loading"
-      style={
-        {
-          "--select-loading-color": "#0074D9",
-        }
-      }
     />
     <div
       className="react-dropdown-select-dropdown-handle react-dropdown-select-dropdown-handle-closed react-dropdown-select-dropdown-handle-no-rotate-open"
       onClick={[Function]}
       onKeyDown={[Function]}
-      style={
-        {
-          "--select-handle-color": "#0074D9",
-        }
-      }
       tabIndex={-1}
     >
       <svg
@@ -344,13 +279,6 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
     className=" react-dropdown-select "
     onClick={[Function]}
     onKeyDown={[Function]}
-    style={
-      {
-        "--select-color": "#0074D9",
-        "--select-color-shadow": "rgba(0, 116, 217, 0.2)",
-        "--select-direction": "ltr",
-      }
-    }
     tabIndex={0}
   >
     <div
@@ -377,28 +305,17 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
       />
     </div>
     <input
+      className="react-dropdown-select-hidden-input"
       defaultValue=""
       disabled={false}
       name="form-select"
       required={false}
-      style={
-        {
-          "opacity": 0,
-          "position": "absolute",
-          "width": 0,
-        }
-      }
       tabIndex={-1}
     />
     <div
       className="react-dropdown-select-dropdown-handle react-dropdown-select-dropdown-handle-closed react-dropdown-select-dropdown-handle-no-rotate-open"
       onClick={[Function]}
       onKeyDown={[Function]}
-      style={
-        {
-          "--select-handle-color": "#0074D9",
-        }
-      }
       tabIndex={-1}
     >
       <svg
@@ -422,13 +339,6 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
     className=" react-dropdown-select "
     onClick={[Function]}
     onKeyDown={[Function]}
-    style={
-      {
-        "--select-color": "#0074D9",
-        "--select-color-shadow": "rgba(0, 116, 217, 0.2)",
-        "--select-direction": "ltr",
-      }
-    }
     tabIndex={0}
   >
     <div
@@ -461,11 +371,6 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
       className="react-dropdown-select-dropdown-handle react-dropdown-select-dropdown-handle-closed react-dropdown-select-dropdown-handle-no-rotate-open"
       onClick={[Function]}
       onKeyDown={[Function]}
-      style={
-        {
-          "--select-handle-color": "#0074D9",
-        }
-      }
       tabIndex={-1}
     >
       <svg
@@ -489,13 +394,6 @@ exports[`<Select/> component <Select/> renders with short color 1`] = `
     className=" react-dropdown-select "
     onClick={[Function]}
     onKeyDown={[Function]}
-    style={
-      {
-        "--select-color": "#000",
-        "--select-color-shadow": "rgba(0, 0, 0, 0.2)",
-        "--select-direction": "ltr",
-      }
-    }
     tabIndex={0}
   >
     <div
@@ -525,11 +423,6 @@ exports[`<Select/> component <Select/> renders with short color 1`] = `
       className="react-dropdown-select-dropdown-handle react-dropdown-select-dropdown-handle-closed react-dropdown-select-dropdown-handle-no-rotate-open"
       onClick={[Function]}
       onKeyDown={[Function]}
-      style={
-        {
-          "--select-handle-color": "#000",
-        }
-      }
       tabIndex={-1}
     >
       <svg

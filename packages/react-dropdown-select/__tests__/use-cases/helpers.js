@@ -28,6 +28,7 @@ export const selectWithProps = (component) => {
           blur: () => {},
           scrollIntoView: () => {},
           contains: () => true,
+          setAttribute: () => {},
           getBoundingClientRect: () => ({
             top: 0,
             bottom: 100,

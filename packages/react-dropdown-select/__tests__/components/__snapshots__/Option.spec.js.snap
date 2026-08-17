@@ -4,12 +4,6 @@ exports[`<Option/> component renders correctly 1`] = `
 <span
   className="react-dropdown-select-option"
   role="listitem"
-  style={
-    {
-      "--select-option-color": undefined,
-      "--select-option-direction": "row",
-    }
-  }
 >
   <span
     className="react-dropdown-select-option-label"

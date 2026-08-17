@@ -112,22 +112,29 @@ describe('Select all / Clear all', () => {
 });
 
 describe('Directions and positioning', () => {
-  it('renders with ltr direction', () => {
-    const component = selectWithProps(
-      <Select options={fixture} labelField="name" valueField="id" direction="ltr" />,
-    );
+  const styleTagCss = () => {
+    const styleTag = document.head.querySelector('style[data-react-dropdown-select]');
+    return styleTag ? styleTag.textContent : '';
+  };
 
-    const selectEl = findByClassName(component, 'react-dropdown-select');
-    expect(selectEl.props.style['--select-direction']).toBe('ltr');
+  it('renders with ltr direction', () => {
+    TestRenderer.act(() => {
+      selectWithProps(
+        <Select options={fixture} labelField="name" valueField="id" direction="ltr" />,
+      );
+    });
+
+    expect(styleTagCss()).toContain('--select-direction: ltr');
   });
 
   it('renders with rtl direction', () => {
-    const component = selectWithProps(
-      <Select options={fixture} labelField="name" valueField="id" direction="rtl" />,
-    );
+    TestRenderer.act(() => {
+      selectWithProps(
+        <Select options={fixture} labelField="name" valueField="id" direction="rtl" />,
+      );
+    });
 
-    const selectEl = findByClassName(component, 'react-dropdown-select');
-    expect(selectEl.props.style['--select-direction']).toBe('rtl');
+    expect(styleTagCss()).toContain('--select-direction: rtl');
   });
 
   it('renders dropdown with auto position', () => {

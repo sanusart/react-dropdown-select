@@ -15,11 +15,7 @@ const NoData = <T extends Record<string, any>>({
   props.noDataRenderer ? (
     props.noDataRenderer({ props, state, methods })
   ) : (
-    <div
-      className={`${className || `${LIB_NAME}-no-data`}`}
-      style={{ '--select-color': props.color } as React.CSSProperties}>
-      {props.noDataLabel}
-    </div>
+    <div className={`${className || `${LIB_NAME}-no-data`}`}>{props.noDataLabel}</div>
   );
 
 export default NoData;

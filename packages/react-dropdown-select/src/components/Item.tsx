@@ -1,5 +1,5 @@
 import React, { Component, RefObject } from 'react';
-import { hexToRGBA, getByPath } from '../util';
+import { getByPath } from '../util';
 import { LIB_NAME } from '../constants';
 import { SelectProps, SelectState, SelectMethods } from '../select-types';
 
@@ -76,15 +76,6 @@ class Item<T extends Record<string, any>> extends Component<ItemProps<T>> {
             : (e) => {
                 if (e.key === 'Enter' || e.key === ' ') methods.addItem(item);
               }
-        }
-        style={
-          {
-            '--select-item-active-bg':
-              !isDisabled && props.color ? hexToRGBA(props.color, 0.1) : undefined,
-            '--select-item-hover-bg': props.color ? hexToRGBA(props.color, 0.1) : undefined,
-            '--select-item-selected-bg': isDisabled ? undefined : props.color,
-            '--select-item-selected-color': isDisabled ? undefined : '#fff',
-          } as React.CSSProperties
         }>
         {getByPath(item, props.labelField)} {isDisabled && <ins>{props.disabledLabel}</ins>}
       </span>

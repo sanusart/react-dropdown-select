@@ -4,6 +4,8 @@ package-lock.json
 /packages/react-dropdown-select/src/helpers.js
 .DS_Store
 coverage
-dist/
-lib/
+/packages/react-dropdown-select/dist/
+/packages/react-dropdown-select/lib/
+/packages/docs-site/dist/
+/packages/react-dropdown-select/types/
 storybook-static/

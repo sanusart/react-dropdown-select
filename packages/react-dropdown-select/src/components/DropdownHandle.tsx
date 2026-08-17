@@ -27,8 +27,7 @@ const DropdownHandle = <T extends Record<string, any>>({
         : state.dropdown
           ? `${LIB_NAME}-dropdown-handle-rotate`
           : `${LIB_NAME}-dropdown-handle-no-rotate-open`
-    }`}
-    style={{ '--select-handle-color': props.color } as React.CSSProperties}>
+    }`}>
     {props.dropdownHandleRenderer ? (
       props.dropdownHandleRenderer({ props, state, methods })
     ) : (

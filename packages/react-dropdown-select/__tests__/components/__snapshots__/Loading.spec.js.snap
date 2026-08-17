@@ -3,10 +3,5 @@
 exports[`<Loading/> renders correctly 1`] = `
 <div
   className="react-dropdown-select-loading"
-  style={
-    {
-      "--select-loading-color": undefined,
-    }
-  }
 />
 `;
