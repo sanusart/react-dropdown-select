@@ -1,13 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Select/> component <Select/> is disabled 1`] = `
-<div>
+<div
+  ref={
+    {
+      "current": {
+        "blur": [Function],
+        "contains": [Function],
+        "focus": [Function],
+        "getBoundingClientRect": [Function],
+        "scrollIntoView": [Function],
+        "setAttribute": [Function],
+      },
+    }
+  }
+>
   <div
     aria-expanded={false}
     aria-label="Dropdown select"
     className="react-dropdown-select-disabled react-dropdown-select "
     onClick={[Function]}
     onKeyDown={[Function]}
+    ref={
+      {
+        "current": {
+          "blur": [Function],
+          "contains": [Function],
+          "focus": [Function],
+          "getBoundingClientRect": [Function],
+          "scrollIntoView": [Function],
+          "setAttribute": [Function],
+        },
+      }
+    }
     tabIndex={-1}
   >
     <div
@@ -24,6 +49,15 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
         onKeyDown={[Function]}
         placeholder="Select..."
         readOnly={false}
+        ref={
+          {
+            "current": {
+              "blur": [Function],
+              "focus": [Function],
+              "scrollIntoView": [Function],
+            },
+          }
+        }
         style={
           {
             "--input-size": 9,
@@ -53,13 +87,38 @@ exports[`<Select/> component <Select/> is disabled 1`] = `
 `;
 
 exports[`<Select/> component <Select/> renders correctly 1`] = `
-<div>
+<div
+  ref={
+    {
+      "current": {
+        "blur": [Function],
+        "contains": [Function],
+        "focus": [Function],
+        "getBoundingClientRect": [Function],
+        "scrollIntoView": [Function],
+        "setAttribute": [Function],
+      },
+    }
+  }
+>
   <div
     aria-expanded={false}
     aria-label="Dropdown select"
     className=" react-dropdown-select "
     onClick={[Function]}
     onKeyDown={[Function]}
+    ref={
+      {
+        "current": {
+          "blur": [Function],
+          "contains": [Function],
+          "focus": [Function],
+          "getBoundingClientRect": [Function],
+          "scrollIntoView": [Function],
+          "setAttribute": [Function],
+        },
+      }
+    }
     tabIndex={0}
   >
     <div
@@ -76,6 +135,15 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
         onKeyDown={[Function]}
         placeholder="Select..."
         readOnly={false}
+        ref={
+          {
+            "current": {
+              "blur": [Function],
+              "focus": [Function],
+              "scrollIntoView": [Function],
+            },
+          }
+        }
         style={
           {
             "--input-size": 9,
@@ -105,13 +173,38 @@ exports[`<Select/> component <Select/> renders correctly 1`] = `
 `;
 
 exports[`<Select/> component <Select/> renders with clearable 1`] = `
-<div>
+<div
+  ref={
+    {
+      "current": {
+        "blur": [Function],
+        "contains": [Function],
+        "focus": [Function],
+        "getBoundingClientRect": [Function],
+        "scrollIntoView": [Function],
+        "setAttribute": [Function],
+      },
+    }
+  }
+>
   <div
     aria-expanded={false}
     aria-label="Dropdown select"
     className=" react-dropdown-select "
     onClick={[Function]}
     onKeyDown={[Function]}
+    ref={
+      {
+        "current": {
+          "blur": [Function],
+          "contains": [Function],
+          "focus": [Function],
+          "getBoundingClientRect": [Function],
+          "scrollIntoView": [Function],
+          "setAttribute": [Function],
+        },
+      }
+    }
     tabIndex={0}
   >
     <div
@@ -128,6 +221,15 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
         onKeyDown={[Function]}
         placeholder="Select..."
         readOnly={false}
+        ref={
+          {
+            "current": {
+              "blur": [Function],
+              "focus": [Function],
+              "scrollIntoView": [Function],
+            },
+          }
+        }
         style={
           {
             "--input-size": 9,
@@ -165,13 +267,38 @@ exports[`<Select/> component <Select/> renders with clearable 1`] = `
 `;
 
 exports[`<Select/> component <Select/> renders with custom search function 1`] = `
-<div>
+<div
+  ref={
+    {
+      "current": {
+        "blur": [Function],
+        "contains": [Function],
+        "focus": [Function],
+        "getBoundingClientRect": [Function],
+        "scrollIntoView": [Function],
+        "setAttribute": [Function],
+      },
+    }
+  }
+>
   <div
     aria-expanded={false}
     aria-label="Dropdown select"
     className=" react-dropdown-select "
     onClick={[Function]}
     onKeyDown={[Function]}
+    ref={
+      {
+        "current": {
+          "blur": [Function],
+          "contains": [Function],
+          "focus": [Function],
+          "getBoundingClientRect": [Function],
+          "scrollIntoView": [Function],
+          "setAttribute": [Function],
+        },
+      }
+    }
     tabIndex={0}
   >
     <div
@@ -188,6 +315,15 @@ exports[`<Select/> component <Select/> renders with custom search function 1`] =
         onKeyDown={[Function]}
         placeholder="Select..."
         readOnly={false}
+        ref={
+          {
+            "current": {
+              "blur": [Function],
+              "focus": [Function],
+              "scrollIntoView": [Function],
+            },
+          }
+        }
         style={
           {
             "--input-size": 3,
@@ -217,13 +353,38 @@ exports[`<Select/> component <Select/> renders with custom search function 1`] =
 `;
 
 exports[`<Select/> component <Select/> renders with loading 1`] = `
-<div>
+<div
+  ref={
+    {
+      "current": {
+        "blur": [Function],
+        "contains": [Function],
+        "focus": [Function],
+        "getBoundingClientRect": [Function],
+        "scrollIntoView": [Function],
+        "setAttribute": [Function],
+      },
+    }
+  }
+>
   <div
     aria-expanded={false}
     aria-label="Dropdown select"
     className=" react-dropdown-select "
     onClick={[Function]}
     onKeyDown={[Function]}
+    ref={
+      {
+        "current": {
+          "blur": [Function],
+          "contains": [Function],
+          "focus": [Function],
+          "getBoundingClientRect": [Function],
+          "scrollIntoView": [Function],
+          "setAttribute": [Function],
+        },
+      }
+    }
     tabIndex={0}
   >
     <div
@@ -240,6 +401,15 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
         onKeyDown={[Function]}
         placeholder="Select..."
         readOnly={false}
+        ref={
+          {
+            "current": {
+              "blur": [Function],
+              "focus": [Function],
+              "scrollIntoView": [Function],
+            },
+          }
+        }
         style={
           {
             "--input-size": 9,
@@ -272,13 +442,38 @@ exports[`<Select/> component <Select/> renders with loading 1`] = `
 `;
 
 exports[`<Select/> component <Select/> renders with name 1`] = `
-<div>
+<div
+  ref={
+    {
+      "current": {
+        "blur": [Function],
+        "contains": [Function],
+        "focus": [Function],
+        "getBoundingClientRect": [Function],
+        "scrollIntoView": [Function],
+        "setAttribute": [Function],
+      },
+    }
+  }
+>
   <div
     aria-expanded={false}
     aria-label="Dropdown select"
     className=" react-dropdown-select "
     onClick={[Function]}
     onKeyDown={[Function]}
+    ref={
+      {
+        "current": {
+          "blur": [Function],
+          "contains": [Function],
+          "focus": [Function],
+          "getBoundingClientRect": [Function],
+          "scrollIntoView": [Function],
+          "setAttribute": [Function],
+        },
+      }
+    }
     tabIndex={0}
   >
     <div
@@ -295,6 +490,15 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
         onKeyDown={[Function]}
         placeholder="Select..."
         readOnly={false}
+        ref={
+          {
+            "current": {
+              "blur": [Function],
+              "focus": [Function],
+              "scrollIntoView": [Function],
+            },
+          }
+        }
         style={
           {
             "--input-size": 9,
@@ -332,13 +536,38 @@ exports[`<Select/> component <Select/> renders with name 1`] = `
 `;
 
 exports[`<Select/> component <Select/> renders with separator 1`] = `
-<div>
+<div
+  ref={
+    {
+      "current": {
+        "blur": [Function],
+        "contains": [Function],
+        "focus": [Function],
+        "getBoundingClientRect": [Function],
+        "scrollIntoView": [Function],
+        "setAttribute": [Function],
+      },
+    }
+  }
+>
   <div
     aria-expanded={false}
     aria-label="Dropdown select"
     className=" react-dropdown-select "
     onClick={[Function]}
     onKeyDown={[Function]}
+    ref={
+      {
+        "current": {
+          "blur": [Function],
+          "contains": [Function],
+          "focus": [Function],
+          "getBoundingClientRect": [Function],
+          "scrollIntoView": [Function],
+          "setAttribute": [Function],
+        },
+      }
+    }
     tabIndex={0}
   >
     <div
@@ -355,6 +584,15 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
         onKeyDown={[Function]}
         placeholder="Select..."
         readOnly={false}
+        ref={
+          {
+            "current": {
+              "blur": [Function],
+              "focus": [Function],
+              "scrollIntoView": [Function],
+            },
+          }
+        }
         style={
           {
             "--input-size": 9,
@@ -387,13 +625,38 @@ exports[`<Select/> component <Select/> renders with separator 1`] = `
 `;
 
 exports[`<Select/> component <Select/> renders with short color 1`] = `
-<div>
+<div
+  ref={
+    {
+      "current": {
+        "blur": [Function],
+        "contains": [Function],
+        "focus": [Function],
+        "getBoundingClientRect": [Function],
+        "scrollIntoView": [Function],
+        "setAttribute": [Function],
+      },
+    }
+  }
+>
   <div
     aria-expanded={false}
     aria-label="Dropdown select"
     className=" react-dropdown-select "
     onClick={[Function]}
     onKeyDown={[Function]}
+    ref={
+      {
+        "current": {
+          "blur": [Function],
+          "contains": [Function],
+          "focus": [Function],
+          "getBoundingClientRect": [Function],
+          "scrollIntoView": [Function],
+          "setAttribute": [Function],
+        },
+      }
+    }
     tabIndex={0}
   >
     <div
@@ -410,6 +673,15 @@ exports[`<Select/> component <Select/> renders with short color 1`] = `
         onKeyDown={[Function]}
         placeholder="Select..."
         readOnly={false}
+        ref={
+          {
+            "current": {
+              "blur": [Function],
+              "focus": [Function],
+              "scrollIntoView": [Function],
+            },
+          }
+        }
         style={
           {
             "--input-size": 9,

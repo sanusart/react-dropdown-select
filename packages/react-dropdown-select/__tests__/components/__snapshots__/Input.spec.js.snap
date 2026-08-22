@@ -9,6 +9,11 @@ exports[`<Input/> is disabled 1`] = `
   onKeyDown={[Function]}
   placeholder=""
   readOnly={false}
+  ref={
+    {
+      "current": null,
+    }
+  }
   style={
     {
       "--input-size": undefined,
@@ -27,6 +32,11 @@ exports[`<Input/> renders correctly 1`] = `
   onKeyDown={[Function]}
   placeholder=""
   readOnly={false}
+  ref={
+    {
+      "current": null,
+    }
+  }
   style={
     {
       "--input-size": undefined,
