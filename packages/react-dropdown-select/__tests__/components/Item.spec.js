@@ -28,64 +28,77 @@ describe('<Item/> component', () => {
   });
 
   test('renders correctly', () => {
-    const tree = TestRenderer.create(<Item {...props({ item: options[0] })} />).toJSON();
+    let tree;
+    TestRenderer.act(() => {
+      tree = TestRenderer.create(<Item {...props({ item: options[0] })} />).toJSON();
+    });
 
     expect(tree).toMatchSnapshot();
   });
 
   test('onChange with click', () => {
     const addItemSpy = jest.fn();
-    TestRenderer.create(
-      <Item
-        {...props({
-          item: options[0],
-          methods: { isSelected: () => undefined, addItem: addItemSpy },
-        })}
-      />,
-    )
-      .root.findByType('span')
-      .props.onClick();
+    let instance;
+    TestRenderer.act(() => {
+      instance = TestRenderer.create(
+        <Item
+          {...props({
+            item: options[0],
+            methods: { isSelected: () => undefined, addItem: addItemSpy },
+          })}
+        />,
+      );
+    });
+    instance.root.findByType('span').props.onClick();
 
     expect(addItemSpy).toHaveBeenCalled;
   });
 
   test('onChange with key press', () => {
     const addItemSpy = jest.fn();
-    TestRenderer.create(
-      <Item
-        {...props({
-          item: options[0],
-          methods: { isSelected: () => undefined, addItem: addItemSpy },
-        })}
-      />,
-    )
-      .root.findByType('span')
-      .props.onKeyDown({ key: 'Enter' });
+    let instance;
+    TestRenderer.act(() => {
+      instance = TestRenderer.create(
+        <Item
+          {...props({
+            item: options[0],
+            methods: { isSelected: () => undefined, addItem: addItemSpy },
+          })}
+        />,
+      );
+    });
+    instance.root.findByType('span').props.onKeyDown({ key: 'Enter' });
 
     expect(addItemSpy).toHaveBeenCalled;
   });
 
   test('keepSelectedInList: false', () => {
-    const tree = TestRenderer.create(
-      <Item
-        {...props({
-          item: options[0],
-          parentProps: {
-            itemRenderer: null,
-            keepSelectedInList: false,
-          },
-          parentMethods: {
-            isSelected: () => true,
-          },
-        })}
-      />,
-    ).toJSON();
+    let tree;
+    TestRenderer.act(() => {
+      tree = TestRenderer.create(
+        <Item
+          {...props({
+            item: options[0],
+            parentProps: {
+              itemRenderer: null,
+              keepSelectedInList: false,
+            },
+            parentMethods: {
+              isSelected: () => true,
+            },
+          })}
+        />,
+      ).toJSON();
+    });
   });
 
   test('pass item renderer', () => {
-    const tree = TestRenderer.create(
-      <Item {...props({ item: options[0], itemRenderer: () => <div>item</div> })} />,
-    ).toJSON();
+    let tree;
+    TestRenderer.act(() => {
+      tree = TestRenderer.create(
+        <Item {...props({ item: options[0], itemRenderer: () => <div>item</div> })} />,
+      ).toJSON();
+    });
 
     expect(tree).toMatchSnapshot();
   });

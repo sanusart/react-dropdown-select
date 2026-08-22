@@ -31,23 +31,30 @@ describe('<Clear/> component', () => {
   });
 
   it('<DropdownHandle/> renders correctly', () => {
-    const tree = TestRenderer.create(<DropdownHandle {...props()} />).toJSON();
+    let instance;
+    TestRenderer.act(() => {
+      instance = TestRenderer.create(<DropdownHandle {...props()} />);
+    });
 
-    expect(tree).toMatchSnapshot();
+    expect(instance.toJSON()).toMatchSnapshot();
   });
 
   it('onClick toggles dropdown', () => {
-    TestRenderer.create(<DropdownHandle {...props()} onClick={spy} />)
-      .root.findByType('div')
-      .props.onClick();
+    let instance;
+    TestRenderer.act(() => {
+      instance = TestRenderer.create(<DropdownHandle {...props()} onClick={spy} />);
+    });
+    instance.root.findByType('div').props.onClick();
 
     expect(spy).toHaveBeenCalled;
   });
 
   it('onKeyDown toggles dropdown', () => {
-    TestRenderer.create(<DropdownHandle {...props()} onKeyDown={spy} />)
-      .root.findByType('div')
-      .props.onKeyDown();
+    let instance;
+    TestRenderer.act(() => {
+      instance = TestRenderer.create(<DropdownHandle {...props()} onKeyDown={spy} />);
+    });
+    instance.root.findByType('div').props.onKeyDown();
 
     expect(spy).toHaveBeenCalled;
   });

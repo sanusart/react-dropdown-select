@@ -23,13 +23,19 @@ const props = (props = {}) => ({
 });
 
 it('<Input/> renders correctly', () => {
-  const tree = renderer.create(<Input {...props()} />).toJSON();
+  let instance;
+  renderer.act(() => {
+    instance = renderer.create(<Input {...props()} />);
+  });
 
-  expect(tree).toMatchSnapshot();
+  expect(instance.toJSON()).toMatchSnapshot();
 });
 
 it('<Input/> is disabled', () => {
-  const tree = renderer.create(<Input {...props({ disabled: true })} />).toJSON();
+  let instance;
+  renderer.act(() => {
+    instance = renderer.create(<Input {...props({ disabled: true })} />);
+  });
 
-  expect(tree).toMatchSnapshot();
+  expect(instance.toJSON()).toMatchSnapshot();
 });
