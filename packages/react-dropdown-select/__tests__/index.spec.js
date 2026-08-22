@@ -78,4 +78,24 @@ describe('<Select/> component', () => {
 
     expect(tree).toMatchSnapshot();
   });
+
+  it('<Select/> applies defaults without defaultProps (React 19)', () => {
+    const component = selectWithProps(<Select {...props()} />);
+
+    const placeholderInput = component.root.find(
+      (element) => element.props.placeholder === 'Select...',
+    );
+
+    expect(placeholderInput).toBeTruthy();
+  });
+
+  it('<Select/> falls back to default for explicitly undefined prop (React 19)', () => {
+    const component = selectWithProps(<Select {...props({ placeholder: undefined })} />);
+
+    const placeholderInput = component.root.find(
+      (element) => element.props.placeholder === 'Select...',
+    );
+
+    expect(placeholderInput).toBeTruthy();
+  });
 });

@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle } from 'react';
+import React, { forwardRef, useImperativeHandle, type ReactElement } from 'react';
 import ClickOutside from './components/ClickOutside';
 
 import Content from './components/Content';
@@ -13,9 +13,19 @@ import { SelectProps } from './select-types';
 import { useSelect } from './hooks/useSelect';
 
 function SelectInner<T extends Record<string, any>>(
-  props: SelectProps<T>,
+  rawProps: SelectProps<T>,
   ref: React.ForwardedRef<{ state: any; methods: any }>,
 ) {
+  const props = React.useMemo(() => {
+    const merged = { ...rawProps } as SelectProps<T>;
+    (Object.keys(defaultProps) as (keyof SelectProps<any>)[]).forEach((key) => {
+      if (merged[key] === undefined) {
+        merged[key] = defaultProps[key] as any;
+      }
+    });
+    return merged;
+  }, [rawProps]);
+
   const { state, methods, selectRef, renderDropdown, setState, handleKeyDownFn } = useSelect(props);
 
   useImperativeHandle(
@@ -79,11 +89,11 @@ type SelectRef = {
   methods: any;
 };
 
-const Select = forwardRef(SelectInner) as (<T extends Record<string, any>>(
+const Select = forwardRef(SelectInner) as <T extends Record<string, any>>(
   props: SelectProps<T> & { ref?: React.ForwardedRef<SelectRef> },
-) => JSX.Element) & { defaultProps: Partial<SelectProps<any>> };
+) => ReactElement;
 
-Select.defaultProps = {
+export const defaultProps: Partial<SelectProps<any>> = {
   addPlaceholder: '',
   additionalProps: undefined,
   autoFocus: false,

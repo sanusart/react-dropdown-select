@@ -1,10 +1,10 @@
 import React from 'react';
-import { Select } from '../../src';
+import { Select, defaultProps as selectDefaultProps } from '../../src';
 import { optionsBase } from './options';
 
 const options = optionsBase(10);
 const baseArgs = {
-  ...Select.defaultProps,
+  ...selectDefaultProps,
   options,
   multi: false,
   onChange: (values) => console.log(values),
