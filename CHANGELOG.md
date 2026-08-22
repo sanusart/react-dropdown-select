@@ -11,6 +11,50 @@ All significant updates and improvements
 ([@sanusart](https://github.com/sanusart))
 ([220035f](https://github.com/sanusart/react-dropdown-select/commit/220035f389bf9b46ba6d86756567e4cb9934b42c))
 
+- *(select)* Merge prop defaults in-component for React 19
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([48e8aae](https://github.com/sanusart/react-dropdown-select/commit/48e8aae5885548c6c1ab484a9b9582372442af23))
+
+- *(types)* Adopt React 19 type conventions
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([aae3b54](https://github.com/sanusart/react-dropdown-select/commit/aae3b54a6e0cce8b27a57b369eda5e892a164fa2))
+
+
+### 🛠️️ Build
+
+- *(lib)* Emit ESM with explicit extensions and node marker
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([dd8d9e0](https://github.com/sanusart/react-dropdown-select/commit/dd8d9e0f081f1f11085fb96ea77c60ab5774191d))
+
+
+### 🧪 Testing
+
+- *(jest)* Wrap test renderer calls in act
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([239bbb3](https://github.com/sanusart/react-dropdown-select/commit/239bbb3ed9f7c9f410e1e1c8b463168cd0e944e1))
+
+- *(jest)* Regenerate snapshots for React 19 serialization
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([f54a16b](https://github.com/sanusart/react-dropdown-select/commit/f54a16bff30fde48c20dcdba8a6e9da4aaa8477c))
+
+- *(jest)* Snapshot after act flush so trees are not null
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([d17cb38](https://github.com/sanusart/react-dropdown-select/commit/d17cb385ec59bc12bce382abd8936eac4917f037))
+
+
+### ⚙️ Miscellaneous Tasks
+
+- *(lint)* Apply node globals to babel and jest setup configs
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([1514dc2](https://github.com/sanusart/react-dropdown-select/commit/1514dc23a08d0cc0c33f747ccd4d343cf3e86f9f))
+
 
 ## v5.0.4
 
