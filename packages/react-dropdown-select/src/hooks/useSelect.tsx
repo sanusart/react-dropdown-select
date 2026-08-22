@@ -1,8 +1,41 @@
 import React, { useRef, useCallback, useMemo, useEffect, useLayoutEffect, useReducer } from 'react';
 import ReactDOM from 'react-dom';
 import Dropdown from '../components/Dropdown';
-import { debounce, getByPath, getProp, valueExistInSelected, isomorphicWindow } from '../util';
+import { registerStyle, unregisterStyle } from '../styles';
+import {
+  debounce,
+  getByPath,
+  getProp,
+  hexToRGBA,
+  valueExistInSelected,
+  isomorphicWindow,
+} from '../util';
 import { SelectProps, SelectState, SelectMethods, HandleKeyDownArgs } from '../select-types';
+
+let styleIdCounter = 0;
+
+const getInstanceStyle = <T extends Record<string, any>>(
+  id: string,
+  props: SelectProps<T>,
+): string => {
+  const color = props.color || '#0074D9';
+  const shadow = hexToRGBA(color, 0.2);
+  const hover = hexToRGBA(color, 0.1);
+
+  return `[data-rdrs="${id}"] {
+  --select-direction: ${props.direction || 'ltr'};
+  --select-color: ${color};
+  --select-color-shadow: ${shadow};
+  --select-handle-color: ${color};
+  --select-loading-color: ${color};
+  --select-option-color: ${color};
+  --select-option-direction: ${props.direction === 'rtl' ? 'row-reverse' : 'row'};
+  --select-item-active-bg: ${hover};
+  --select-item-hover-bg: ${hover};
+  --select-item-selected-bg: ${color};
+  --select-item-selected-color: #fff;
+}`;
+};
 
 interface SelectComponentState<T> extends SelectState<T> {
   searchResults: T[];
@@ -34,6 +67,16 @@ export function useSelect<T extends Record<string, any>>(props: SelectProps<T>) 
   const selectRef = useRef<HTMLDivElement>(null);
   const dropdownRootRef = useRef<HTMLDivElement | false>(
     typeof document !== 'undefined' && document.createElement('div'),
+  );
+
+  const styleIdRef = useRef<string | null>(null);
+  if (styleIdRef.current === null) {
+    styleIdRef.current = `rdrs-${++styleIdCounter}`;
+  }
+  const instanceStyle = useMemo(
+    () => getInstanceStyle(styleIdRef.current!, props),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [props.color, props.direction],
   );
 
   const stateRef = useRef(state);
@@ -472,6 +515,17 @@ export function useSelect<T extends Record<string, any>>(props: SelectProps<T>) 
 
   const methodsRef = useRef(methods);
   methodsRef.current = methods;
+
+  useLayoutEffect(() => {
+    const styleId = styleIdRef.current!;
+    selectRef.current?.setAttribute('data-rdrs', styleId);
+    dropdownRootRef.current && dropdownRootRef.current.setAttribute('data-rdrs', styleId);
+    registerStyle(styleId, instanceStyle, props.styleNonce);
+
+    return () => {
+      unregisterStyle(styleId);
+    };
+  }, [instanceStyle, props.styleNonce]);
 
   useLayoutEffect(() => {
     const p = propsRef.current;

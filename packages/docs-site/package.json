@@ -5,9 +5,12 @@
   "type": "module",
   "homepage": "http://sanusart.github.io/react-dropdown-select/",
   "scripts": {
+    "predev": "pnpm --filter react-dropdown-select types",
     "dev": "vite",
+    "prebuild": "pnpm --filter react-dropdown-select types",
     "build": "vite build",
     "preview": "vite preview",
+    "pretypecheck": "pnpm --filter react-dropdown-select types",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",

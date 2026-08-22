@@ -10,10 +10,7 @@ const Loading = <T extends Record<string, any>>({ props }: LoadingProps<T>) =>
   props.loadingRenderer ? (
     props.loadingRenderer({ props })
   ) : (
-    <div
-      className={`${LIB_NAME}-loading`}
-      style={{ '--select-loading-color': props.color } as React.CSSProperties}
-    />
+    <div className={`${LIB_NAME}-loading`} />
   );
 
 export default Loading;

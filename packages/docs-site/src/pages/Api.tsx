@@ -1,6 +1,96 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
 import CodeBlock from '../components/CodeBlock';
+import { parseCssClasses, parseInterface, parseSelectProps } from '../lib/parseSelectProps';
+import rawSelectProps from '../../../react-dropdown-select/src/select-types.ts?raw';
+import rawStyles from '../../../react-dropdown-select/src/styles.ts?raw';
+
+const selectProps = parseSelectProps(rawSelectProps);
+
+const groupProps = (category: string): PropRow[] =>
+  selectProps
+    .filter((prop) => prop.category === category)
+    .map((prop) => ({
+      name: prop.name,
+      type: prop.type,
+      default: prop.default ?? null,
+      description: prop.description,
+      required: prop.required,
+    }));
+
+const rendererProps: RendererRow[] = selectProps
+  .filter((prop) => prop.category === 'renderer')
+  .map((prop) => ({
+    name: prop.name,
+    receives: prop.receives ?? '',
+    replaces: prop.replaces ?? '',
+  }));
+
+const methods: MethodRow[] = parseInterface(rawSelectProps, 'SelectMethods').map((m) => ({
+  name: m.name,
+  signature: m.type
+    .replace(/,\s*\)/g, ')')
+    .replace(/\(\s+/g, '(')
+    .replace(/\s+/g, ' ')
+    .trim(),
+  description: m.description,
+}));
+
+const internalState: PropRow[] = parseInterface(rawSelectProps, 'SelectState').map((s) => ({
+  name: s.name,
+  type: s.type,
+  description: s.description,
+}));
+
+const cssClassDescriptions: Record<string, string> = {
+  'react-dropdown-select-disabled': 'Applied when the select is disabled',
+  'react-dropdown-select-content': 'Content wrapper (selected values + input)',
+  'react-dropdown-select-clear': 'Clear button',
+  'react-dropdown-select-separator': 'Separator line',
+  'react-dropdown-select-loading': 'Loading spinner',
+  'react-dropdown-select-input': 'Search input element',
+  'react-dropdown-select-input-readonly': 'Search input in read-only mode',
+  'react-dropdown-select-dropdown': 'Dropdown container',
+  'react-dropdown-select-dropdown-top': 'Dropdown positioned above (offset helper)',
+  'react-dropdown-select-dropdown-bottom': 'Dropdown positioned below (offset helper)',
+  'react-dropdown-select-dropdown-portal': 'Dropdown rendered through a portal',
+  'react-dropdown-select-dropdown-add-new': '"Add new" button',
+  'react-dropdown-select-dropdown-select-all': 'Select/clear all button',
+  'react-dropdown-select-dropdown-handle': 'Dropdown chevron handle',
+  'react-dropdown-select-dropdown-handle-open': 'Handle state when the dropdown is open',
+  'react-dropdown-select-dropdown-handle-closed': 'Handle state when the dropdown is closed',
+  'react-dropdown-select-dropdown-handle-rotate': 'Handle rotation state',
+  'react-dropdown-select-dropdown-handle-no-rotate-open':
+    'Handle rotation when animations are disabled',
+  'react-dropdown-select-no-data': 'No results container',
+  'react-dropdown-select-option': 'Selected value pill/tag',
+  'react-dropdown-select-option-remove': 'Selected value remove (x) button',
+  'react-dropdown-select-item': 'Dropdown list item',
+  'react-dropdown-select-item-active': 'Keyboard-cursor active item',
+  'react-dropdown-select-item-selected': 'Currently selected item',
+  'react-dropdown-select-item-selected-disabled': 'Selected item that is also disabled',
+  'react-dropdown-select-item-disabled': 'Disabled item',
+  'react-dropdown-select-hidden-input': 'Hidden input used for form integration',
+};
+
+const cssClasses = [
+  { name: 'react-dropdown-select', description: 'Root element' },
+  ...parseCssClasses(rawStyles).map((name) => ({
+    name,
+    description: cssClassDescriptions[name] ?? 'Styled element',
+  })),
+  { name: 'react-dropdown-select-type-multi', description: 'Multi-select mode modifier' },
+  { name: 'react-dropdown-select-type-single', description: 'Single-select mode modifier' },
+  { name: 'react-dropdown-select-option-label', description: 'Option label text' },
+  {
+    name: 'react-dropdown-select-dropdown-position-top',
+    description: 'Dropdown positioned at top',
+  },
+  {
+    name: 'react-dropdown-select-dropdown-position-bottom',
+    description: 'Dropdown positioned at bottom',
+  },
+].map((c) => ({ name: `.${c.name}`, description: c.description }));
 
 interface PropRow {
   name: string;
@@ -46,7 +136,7 @@ function PropTable({ title, props }: { title?: string; props: PropRow[] }) {
                 <td className="px-5 py-3 font-mono text-sm font-medium text-indigo-700 whitespace-nowrap">
                   {prop.name}
                 </td>
-                <td className="px-5 py-3 font-mono text-xs text-gray-500 whitespace-nowrap">
+                <td className="px-5 py-3 font-mono text-xs text-gray-500 break-words max-w-[18rem]">
                   {prop.type}
                 </td>
                 <td className="px-5 py-3 font-mono text-xs text-gray-400 whitespace-nowrap">
@@ -139,515 +229,11 @@ function Section({ id, title, children }: { id: string; title: string; children:
 export default function Api() {
   const [filter, setFilter] = useState('');
 
-  const configurationProps = [
-    {
-      name: 'options',
-      type: 'array',
-      default: '[]',
-      description: 'Available options. Items with disabled: true are disabled.',
-      required: true,
-    },
-    { name: 'values', type: 'array', default: '[]', description: 'Controlled selected values.' },
-    { name: 'multi', type: 'boolean', default: 'false', description: 'Enable multi-select mode.' },
-    {
-      name: 'disabled',
-      type: 'boolean',
-      default: 'false',
-      description: 'Disable all interactions.',
-    },
-    { name: 'searchable', type: 'boolean', default: 'true', description: 'Show search input.' },
-    { name: 'clearable', type: 'boolean', default: 'false', description: 'Show clear-all button.' },
-    {
-      name: 'separator',
-      type: 'boolean',
-      default: 'false',
-      description: 'Show vertical separator line.',
-    },
-    {
-      name: 'dropdownHandle',
-      type: 'boolean',
-      default: 'true',
-      description: 'Show dropdown open/close chevron handle.',
-    },
-    { name: 'loading', type: 'boolean', default: 'false', description: 'Show loading indicator.' },
-    {
-      name: 'keepOpen',
-      type: 'boolean',
-      default: 'false',
-      description: 'Force dropdown to stay open (useful for debugging).',
-    },
-    {
-      name: 'defaultMenuIsOpen',
-      type: 'boolean',
-      default: 'false',
-      description: 'Open dropdown by default on mount.',
-    },
-    {
-      name: 'create',
-      type: 'boolean',
-      default: 'false',
-      description: 'Allow creating new entries from search text.',
-    },
-    {
-      name: 'selectAll',
-      type: 'boolean',
-      default: 'false',
-      description: 'Show select-all / clear-all buttons in dropdown (multi mode only).',
-    },
-    {
-      name: 'portal',
-      type: 'DOMElement',
-      default: 'null',
-      description: 'Render dropdown inside specified DOM element (e.g., document.body).',
-    },
-    {
-      name: 'required',
-      type: 'boolean',
-      default: 'false',
-      description: 'Add hidden input with required attribute for form validation.',
-    },
-    {
-      name: 'autoFocus',
-      type: 'boolean',
-      default: 'false',
-      description: 'Auto-focus the search input on mount.',
-    },
-    {
-      name: 'backspaceDelete',
-      type: 'boolean',
-      default: 'true',
-      description: 'Backspace removes last selected value when search is empty.',
-    },
-    {
-      name: 'keepSelectedInList',
-      type: 'boolean',
-      default: 'true',
-      description: 'Show selected items in the dropdown list.',
-    },
-  ];
-
-  const displayProps = [
-    {
-      name: 'color',
-      type: 'string',
-      default: '"#0074D9"',
-      description: 'Base accent color. Accepts any CSS color value.',
-    },
-    {
-      name: 'style',
-      type: 'object',
-      default: '{}',
-      description: 'Style object applied to root element.',
-    },
-    {
-      name: 'className',
-      type: 'string',
-      default: '""',
-      description: 'CSS class applied to root element.',
-    },
-    {
-      name: 'direction',
-      type: '"ltr" | "rtl" | "auto"',
-      default: '"ltr"',
-      description: 'Text direction for RTL language support.',
-    },
-    {
-      name: 'placeholder',
-      type: 'string',
-      default: '"Select..."',
-      description: 'Placeholder text when nothing is selected.',
-    },
-    {
-      name: 'addPlaceholder',
-      type: 'string',
-      default: '""',
-      description: 'Secondary placeholder on search input when values exist.',
-    },
-    {
-      name: 'disabledLabel',
-      type: 'string',
-      default: '"disabled"',
-      description: 'Label suffix for disabled items.',
-    },
-    {
-      name: 'noDataLabel',
-      type: 'string',
-      default: '"No data"',
-      description: 'Text displayed when no search results.',
-    },
-    {
-      name: 'createNewLabel',
-      type: 'string',
-      default: '"add {search}"',
-      description: 'Label for the "add new" button. {search} is replaced with input value.',
-    },
-    {
-      name: 'selectAllLabel',
-      type: 'string',
-      default: '"Select all"',
-      description: 'Label for select-all button.',
-    },
-    {
-      name: 'clearAllLabel',
-      type: 'string',
-      default: '"Clear all"',
-      description: 'Label for clear-all button.',
-    },
-    {
-      name: 'dropdownHeight',
-      type: 'string',
-      default: '"300px"',
-      description: 'Minimum dropdown height.',
-    },
-    {
-      name: 'dropdownGap',
-      type: 'number',
-      default: '5',
-      description: 'Gap in pixels between select and dropdown.',
-    },
-  ];
-
-  const behaviorProps = [
-    {
-      name: 'dropdownPosition',
-      type: '"top" | "bottom" | "auto"',
-      default: '"bottom"',
-      description: 'Dropdown position. Auto adjusts based on viewport.',
-    },
-    {
-      name: 'closeOnScroll',
-      type: 'boolean',
-      default: 'false',
-      description: 'Close dropdown when page scrolls.',
-    },
-    {
-      name: 'closeOnSelect',
-      type: 'boolean',
-      default: 'false',
-      description: 'Close dropdown after selecting an item.',
-    },
-    {
-      name: 'closeOnClickInput',
-      type: 'boolean',
-      default: 'false',
-      description: 'Close dropdown when clicking input area (if not searching).',
-    },
-    {
-      name: 'clearOnBlur',
-      type: 'boolean',
-      default: 'true',
-      description: 'Clear search text when input loses focus.',
-    },
-    {
-      name: 'clearOnSelect',
-      type: 'boolean',
-      default: 'true',
-      description: 'Clear search text on item select/deselect.',
-    },
-    {
-      name: 'debounceDelay',
-      type: 'number',
-      default: '0',
-      description: 'Debounce delay in ms for resize/scroll handlers.',
-    },
-    {
-      name: 'labelField',
-      type: 'string',
-      default: '"label"',
-      description: 'Field name for display label. Supports dot notation.',
-    },
-    {
-      name: 'valueField',
-      type: 'string',
-      default: '"value"',
-      description: 'Field name for value. Supports dot notation.',
-    },
-    {
-      name: 'searchBy',
-      type: 'string',
-      default: '"label"',
-      description: 'Field to search by. Supports dot notation.',
-    },
-    {
-      name: 'sortBy',
-      type: 'string',
-      default: 'null',
-      description: 'Field to sort options by. Supports dot notation.',
-    },
-    {
-      name: 'name',
-      type: 'string',
-      default: 'null',
-      description: 'Hidden input name for form integration.',
-    },
-    {
-      name: 'pattern',
-      type: 'string',
-      default: 'undefined',
-      description: 'Hidden input pattern (regex) for form validation.',
-    },
-    {
-      name: 'additionalProps',
-      type: 'object',
-      default: 'null',
-      description: 'Additional HTML attributes passed to root div.',
-    },
-    {
-      name: 'compareValuesFunc',
-      type: 'function',
-      default: 'JSON.stringify',
-      description: 'Custom comparison function for controlled mode value syncing.',
-    },
-  ];
-
-  const callbackProps = [
-    {
-      name: 'onChange',
-      type: 'function(values)',
-      default: '-',
-      description: 'Fires on any values change. Returns array of value objects.',
-      required: true,
-    },
-    {
-      name: 'onSelect',
-      type: 'function(values)',
-      default: null,
-      description: 'Fires on user-triggered value add.',
-    },
-    {
-      name: 'onDeselect',
-      type: 'function(values)',
-      default: null,
-      description: 'Fires on user-triggered value remove.',
-    },
-    {
-      name: 'onDropdownOpen',
-      type: 'function()',
-      default: null,
-      description: 'Fires when dropdown opens.',
-    },
-    {
-      name: 'onDropdownClose',
-      type: 'function()',
-      default: null,
-      description: 'Fires when dropdown closes.',
-    },
-    {
-      name: 'onCreateNew',
-      type: 'function(newItem)',
-      default: null,
-      description: 'Fires when creating a new entry. Requires create: true.',
-    },
-    { name: 'onClearAll', type: 'function()', default: null, description: 'Fires on clear all.' },
-    { name: 'onSelectAll', type: 'function()', default: null, description: 'Fires on select all.' },
-    {
-      name: 'onDropdownCloseRequest',
-      type: 'function({ props, state, methods, close })',
-      default: null,
-      description:
-        'Intercepts dropdown close. Call close() to actually close. Used for animations.',
-    },
-  ];
-
-  const functionOverrideProps = [
-    {
-      name: 'searchFn',
-      type: 'function({ state, props, methods })',
-      default: null,
-      description: 'Override default search logic. Must return filtered array.',
-    },
-    {
-      name: 'handleKeyDownFn',
-      type: 'function({ event, state, props, methods, setState })',
-      default: null,
-      description: 'Override keyboard event handling.',
-    },
-  ];
-
-  const rendererProps = [
-    {
-      name: 'contentRenderer',
-      receives: '{ props, state, methods }',
-      replaces: 'Entire content area (selected values + input)',
-    },
-    {
-      name: 'dropdownRenderer',
-      receives: '{ props, state, methods }',
-      replaces: 'Entire dropdown container',
-    },
-    {
-      name: 'itemRenderer',
-      receives: '{ item, itemIndex, props, state, methods }',
-      replaces: 'Individual dropdown list item',
-    },
-    {
-      name: 'optionRenderer',
-      receives: '{ item, props, state, methods }',
-      replaces: 'Selected value pill/tag',
-    },
-    {
-      name: 'inputRenderer',
-      receives: '{ props, state, methods, inputRef }',
-      replaces: 'Search input element',
-    },
-    {
-      name: 'noDataRenderer',
-      receives: '{ props, state, methods }',
-      replaces: '"No data" message',
-    },
-    { name: 'loadingRenderer', receives: '{ props }', replaces: 'Loading indicator' },
-    { name: 'clearRenderer', receives: '{ props, state, methods }', replaces: 'Clear button' },
-    {
-      name: 'separatorRenderer',
-      receives: '{ props, state, methods }',
-      replaces: 'Separator line',
-    },
-    {
-      name: 'dropdownHandleRenderer',
-      receives: '{ props, state, methods }',
-      replaces: 'Dropdown arrow handle',
-    },
-  ];
-
-  const methods = [
-    {
-      name: 'addItem',
-      signature: '(item) => true',
-      description: 'Add item to selection (or toggle in multi mode).',
-    },
-    {
-      name: 'removeItem',
-      signature: '(event, item, close) => void',
-      description: 'Remove item from selection.',
-    },
-    { name: 'clearAll', signature: '() => void', description: 'Clear all selected values.' },
-    {
-      name: 'selectAll',
-      signature: '(valuesList?) => void',
-      description: 'Select all items, or a specific list of values.',
-    },
-    {
-      name: 'toggleSelectAll',
-      signature: '() => void',
-      description: 'Toggle between select all / clear all.',
-    },
-    {
-      name: 'areAllSelected',
-      signature: '() => boolean',
-      description: 'Check if all non-disabled items are selected.',
-    },
-    {
-      name: 'isSelected',
-      signature: '(item) => boolean',
-      description: 'Check if a specific item is selected.',
-    },
-    {
-      name: 'dropDown',
-      signature: '(action, event?, force?) => void',
-      description: 'Open ("open"), close ("close"), or toggle ("toggle") the dropdown.',
-    },
-    { name: 'setSearch', signature: '(event) => void', description: 'Update the search text.' },
-    {
-      name: 'searchResults',
-      signature: '() => array',
-      description: 'Get filtered items based on current search.',
-    },
-    {
-      name: 'getInputSize',
-      signature: '() => number',
-      description: 'Get current input character count.',
-    },
-    {
-      name: 'getSelectBounds',
-      signature: '() => object',
-      description: 'Get the bounding rectangle of the select.',
-    },
-    {
-      name: 'getSelectRef',
-      signature: '() => DOMElement',
-      description: 'Get the select DOM reference.',
-    },
-    {
-      name: 'handleKeyDown',
-      signature: '(event) => void',
-      description: 'Process a keyboard event.',
-    },
-    {
-      name: 'sortBy',
-      signature: '() => array',
-      description: 'Get options sorted by sortBy field.',
-    },
-    {
-      name: 'safeString',
-      signature: '(string) => string',
-      description: 'Escape regex special characters in a string.',
-    },
-    {
-      name: 'createNew',
-      signature: '(item) => void',
-      description: 'Create a new entry from search text.',
-    },
-    {
-      name: 'activeCursorItem',
-      signature: '(item) => void',
-      description: 'Set the active cursor item.',
-    },
-  ];
-
-  const internalState = [
-    { name: 'dropdown', type: 'boolean', description: 'Whether the dropdown is open.' },
-    { name: 'values', type: 'array', description: 'Currently selected values.' },
-    { name: 'search', type: 'string', description: 'Current search text.' },
-    {
-      name: 'selectBounds',
-      type: 'object',
-      description: 'getBoundingClientRect() result for the select.',
-    },
-    {
-      name: 'cursor',
-      type: 'number',
-      description: 'Keyboard cursor position in the dropdown list.',
-    },
-    {
-      name: 'searchResults',
-      type: 'array',
-      description: 'Filtered items from the current search.',
-    },
-  ];
-
-  const cssClasses = [
-    { name: '.react-dropdown-select', description: 'Root element' },
-    {
-      name: '.react-dropdown-select-content',
-      description: 'Content wrapper (selected values + input)',
-    },
-    { name: '.react-dropdown-select-type-multi', description: 'Multi-select mode modifier' },
-    { name: '.react-dropdown-select-type-single', description: 'Single-select mode modifier' },
-    { name: '.react-dropdown-select-input', description: 'Search input element' },
-    { name: '.react-dropdown-select-option', description: 'Selected value pill/tag' },
-    { name: '.react-dropdown-select-option-label', description: 'Option label text' },
-    { name: '.react-dropdown-select-option-remove', description: 'Option remove (x) button' },
-    { name: '.react-dropdown-select-dropdown', description: 'Dropdown container' },
-    {
-      name: '.react-dropdown-select-dropdown-position-top',
-      description: 'Dropdown positioned at top',
-    },
-    {
-      name: '.react-dropdown-select-dropdown-position-bottom',
-      description: 'Dropdown positioned at bottom',
-    },
-    { name: '.react-dropdown-select-item', description: 'Dropdown list item' },
-    { name: '.react-dropdown-select-item-selected', description: 'Currently selected item' },
-    { name: '.react-dropdown-select-item-active', description: 'Keyboard-cursor active item' },
-    { name: '.react-dropdown-select-item-disabled', description: 'Disabled item' },
-    { name: '.react-dropdown-select-no-data', description: 'No results container' },
-    { name: '.react-dropdown-select-clear', description: 'Clear button' },
-    { name: '.react-dropdown-select-loading', description: 'Loading spinner' },
-    { name: '.react-dropdown-select-separator', description: 'Separator line' },
-    { name: '.react-dropdown-select-dropdown-handle', description: 'Dropdown chevron handle' },
-    { name: '.react-dropdown-select-dropdown-add-new', description: '"Add new" button' },
-    { name: '.react-dropdown-select-dropdown-select-all', description: 'Select/clear all button' },
-  ];
+  const configurationProps = groupProps('configuration');
+  const displayProps = groupProps('display');
+  const behaviorProps = groupProps('behavior');
+  const callbackProps = groupProps('callback');
+  const functionOverrideProps = groupProps('override');
 
   const navItems = [
     { id: 'installation', label: 'Installation' },
@@ -959,7 +545,7 @@ const options = [
         </p>
         <CodeBlock
           code={`import Select from 'react-dropdown-select';
-import type { TProps as SelectProps } from 'react-dropdown-select/types';
+import type { SelectProps } from 'react-dropdown-select/types';
 
 // All props are fully typed
 const MySelect: React.FC<SelectProps> = (props) => (
@@ -970,9 +556,11 @@ const MySelect: React.FC<SelectProps> = (props) => (
         />
         <div className="p-4 rounded-xl bg-green-50 border border-green-200">
           <p className="text-sm text-green-800">
-            <strong>Tip:</strong> The component ships with{' '}
-            <code className="font-mono text-xs bg-green-100 px-1.5 py-0.5 rounded">types.d.ts</code>{' '}
-            in the package root. No additional @types package is needed.
+            <strong>Tip:</strong> The component ships with generated{' '}
+            <code className="font-mono text-xs bg-green-100 px-1.5 py-0.5 rounded">
+              types/select-types.d.ts
+            </code>{' '}
+            declaration files. No additional @types package is needed.
           </p>
         </div>
       </Section>

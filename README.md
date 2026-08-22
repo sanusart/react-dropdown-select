@@ -129,6 +129,7 @@ pnpm test
 | addPlaceholder                                                                              | string      | ""             | Secondary placeholder on search field if any value selected                                                                            |
 | disabled                                                                                    | bool        | false          | Disable select and all interactions                                                                                                    |
 | style                                                                                       | object      | {}             | Style object to pass to select                                                                                                         |
+| styleNonce                                                                                  | string      |                | Nonce value for the `<style>` tag injected by the component, useful to satisfy a strict Content Security Policy                         |
 | className                                                                                   | string      |                | CSS class attribute to pass to select                                                                                                  |
 | loading                                                                                     | bool        | false          | Loading indicator                                                                                                                      |
 | clearable                                                                                   | bool        | false          | Clear all indicator                                                                                                                    |
@@ -184,6 +185,33 @@ pnpm test
 | [dropdownHandleRenderer](https://sanusart.github.io/react-dropdown-select/prop/dropdown-handle-renderer) | func |           | Overrides internal dropdown handle                                                             |
 | searchFn                                                                                                 | func | undefined | Overrides internal search function                                                             |
 | handleKeyDownFn                                                                                          | func | undefined | Overrides internal keyDown function                                                            |
+
+### Content Security Policy
+
+The component serves its base styles and per-component CSS variables through a `<style>` tag added to
+`document.head`. Under a strict CSP (e.g. `style-src 'self' 'nonce-…'`) that tag is blocked unless it
+carries a nonce. Pass the nonce via the `styleNonce` prop:
+
+```jsx
+<Select styleNonce={window.NONCE_ID} ... />
+```
+
+The remaining runtime values (such as dropdown positioning) are applied through the DOM style API
+(`element.style.setProperty`), which Content Security Policy does not block.
+
+#### Testing against a strict CSP in the docs site
+
+The docs dev server ships a self-contained CSP test page. It is served with a strict
+`style-src 'self' 'nonce-…'` header and renders a `<Select styleNonce={…}>`, then verifies that the
+injected stylesheet carried the matching nonce and that its rules actually applied:
+
+```sh
+pnpm --filter docs-site dev
+# open http://localhost:5173/react-dropdown-select/csp-test.html
+```
+
+The page reports PASS/FAIL per check; a clean run shows no CSP violations in the DevTools console.
+This is a dev-only entry and is not part of the static docs build.
 
 ### License
 
