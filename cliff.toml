@@ -57,7 +57,7 @@ commit_parsers = [
   { message = "^test", group = "<!-- 7 -->🧪 Testing" },
   { message = "^i18n", group = "<!-- 8 -->🌍 Translations" },
   { message = "^chore\\(release\\): prepare for", skip = true },
-  { message = "^chore: release \\d+\\.\\d+\\.\\d+$", skip = true },
+  { message = "^chore: release v?\\d+\\.\\d+\\.\\d+$", skip = true },
   { message = "^chore: update changelog", skip = true },
   { message = "^chore\\(deps.*\\)", skip = true },
   { message = "^chore\\(pr\\)", skip = true },

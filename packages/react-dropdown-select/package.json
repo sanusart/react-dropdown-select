@@ -25,7 +25,7 @@
     "transpile": "babel src --out-dir lib --extensions .ts,.tsx",
     "prepublishOnly": "pnpm run build",
     "// ℹ️ ------- versioning and release -------": "",
-    "changelog": "npx git-cliff@latest -c ../../cliff.toml --output ../../CHANGELOG.md",
+    "changelog": "cd ../.. && npx git-cliff@2.13.1 -c cliff.toml --output CHANGELOG.md",
     "version": "pnpm run changelog && git add ../../CHANGELOG.md",
     "release:major": "pnpm run version:major && pnpm run commit:changelog",
     "version:major": "npm version major --no-git-tag-version",

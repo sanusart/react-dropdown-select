@@ -9,7 +9,7 @@ execSync(`git tag v${v}`);
 execSync('git pull --rebase origin master');
 execSync('git push && git push --tags');
 
-const changelog = fs.readFileSync(path.join(__dirname, '../../CHANGELOG.md'), 'utf8');
+const changelog = fs.readFileSync(path.join(__dirname, '../../../CHANGELOG.md'), 'utf8');
 const parts = changelog.split(/\n(?=## v)/);
 const entry = parts.find((p) => p.startsWith(`## v${v}`));
 const notes = entry ? entry.trim() : '';
