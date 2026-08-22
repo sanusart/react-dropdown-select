@@ -1,3 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Content/> component <Content/> renders correctly 1`] = `null`;
+exports[`<Content/> component <Content/> renders correctly 1`] = `
+<div
+  className="react-dropdown-select-content react-dropdown-select-type-multi"
+  onClick={[Function]}
+>
+  <span
+    className="react-dropdown-select-option"
+    role="listitem"
+  >
+    <span
+      className="react-dropdown-select-option-label"
+    >
+      Leanne Graham
+    </span>
+    <span
+      className="react-dropdown-select-option-remove"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+  </span>
+  <input
+    className="react-dropdown-select-input react-dropdown-select-input-readonly"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    placeholder=""
+    readOnly={true}
+    ref={
+      {
+        "current": null,
+      }
+    }
+    style={
+      {
+        "--input-size": undefined,
+      }
+    }
+    tabIndex={-1}
+    value=""
+  />
+</div>
+`;

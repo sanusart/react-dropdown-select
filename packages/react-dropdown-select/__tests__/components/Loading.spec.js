@@ -13,7 +13,10 @@ const props = {
 };
 
 it('<Loading/> renders correctly', () => {
-  const tree = renderer.create(<Loading {...props} />).toJSON();
+  let tree;
+  renderer.act(() => {
+    tree = renderer.create(<Loading {...props} />);
+  });
 
-  expect(tree).toMatchSnapshot();
+  expect(tree.toJSON()).toMatchSnapshot();
 });

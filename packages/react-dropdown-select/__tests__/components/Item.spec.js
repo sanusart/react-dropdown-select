@@ -28,10 +28,11 @@ describe('<Item/> component', () => {
   });
 
   test('renders correctly', () => {
-    let tree;
+    let renderer;
     TestRenderer.act(() => {
-      tree = TestRenderer.create(<Item {...props({ item: options[0] })} />).toJSON();
+      renderer = TestRenderer.create(<Item {...props({ item: options[0] })} />);
     });
+    const tree = renderer.toJSON();
 
     expect(tree).toMatchSnapshot();
   });
@@ -93,12 +94,13 @@ describe('<Item/> component', () => {
   });
 
   test('pass item renderer', () => {
-    let tree;
+    let renderer;
     TestRenderer.act(() => {
-      tree = TestRenderer.create(
+      renderer = TestRenderer.create(
         <Item {...props({ item: options[0], itemRenderer: () => <div>item</div> })} />,
-      ).toJSON();
+      );
     });
+    const tree = renderer.toJSON();
 
     expect(tree).toMatchSnapshot();
   });
