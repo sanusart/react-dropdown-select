@@ -18,16 +18,16 @@
     "prettier:write": "prettier --write src"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.2",
     "react-syntax-highlighter": "^16.1.1",
     "react-dropdown-select": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.2",
-    "@types/react": "^18.3.31",
-    "@types/react-dom": "^18.3.7",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
     "@types/react-syntax-highlighter": "^15.5.13",
     "@vitejs/plugin-react": "^4.7.0",
     "eslint": "^10.8.0",
