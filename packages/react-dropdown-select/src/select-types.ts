@@ -3,6 +3,7 @@ import {
   HTMLAttributes,
   KeyboardEvent,
   MouseEvent,
+  ReactElement,
   RefObject,
   ChangeEvent,
 } from 'react';
@@ -448,70 +449,70 @@ export interface SelectProps<T> {
    * @receives { props, state, methods }
    * @replaces Clear button
    */
-  clearRenderer?: (args: RendererArgs<T>) => JSX.Element | null;
+  clearRenderer?: (args: RendererArgs<T>) => ReactElement | null;
   /**
    * Replaces the entire content area (selected values + input).
    * @category renderer
    * @receives { props, state, methods }
    * @replaces Entire content area (selected values + input)
    */
-  contentRenderer?: (args: RendererArgs<T>) => JSX.Element | null;
+  contentRenderer?: (args: RendererArgs<T>) => ReactElement | null;
   /**
    * Replaces the entire dropdown container.
    * @category renderer
    * @receives { props, state, methods }
    * @replaces Entire dropdown container
    */
-  dropdownRenderer?: (args: RendererArgs<T>) => JSX.Element | null;
+  dropdownRenderer?: (args: RendererArgs<T>) => ReactElement | null;
   /**
    * Replaces the dropdown arrow handle.
    * @category renderer
    * @receives { props, state, methods }
    * @replaces Dropdown arrow handle
    */
-  dropdownHandleRenderer?: (args: RendererArgs<T>) => JSX.Element | null;
+  dropdownHandleRenderer?: (args: RendererArgs<T>) => ReactElement | null;
   /**
    * Replaces the search input element.
    * @category renderer
    * @receives { props, state, methods, inputRef }
    * @replaces Search input element
    */
-  inputRenderer?: (args: InputRendererArgs<T>) => JSX.Element | null;
+  inputRenderer?: (args: InputRendererArgs<T>) => ReactElement | null;
   /**
    * Replaces individual dropdown list items.
    * @category renderer
    * @receives { item, itemIndex, props, state, methods }
    * @replaces Individual dropdown list item
    */
-  itemRenderer?: (args: ItemRendererArgs<T>) => JSX.Element | null;
+  itemRenderer?: (args: ItemRendererArgs<T>) => ReactElement | null;
   /**
    * Replaces the loading indicator.
    * @category renderer
    * @receives { props }
    * @replaces Loading indicator
    */
-  loadingRenderer?: (args: { props: SelectProps<T> }) => JSX.Element | null;
+  loadingRenderer?: (args: { props: SelectProps<T> }) => ReactElement | null;
   /**
    * Replaces the "No data" message.
    * @category renderer
    * @receives { props, state, methods }
    * @replaces "No data" message
    */
-  noDataRenderer?: (args: RendererArgs<T>) => JSX.Element | null;
+  noDataRenderer?: (args: RendererArgs<T>) => ReactElement | null;
   /**
    * Replaces selected value pills/tags.
    * @category renderer
    * @receives { item, props, state, methods }
    * @replaces Selected value pill/tag
    */
-  optionRenderer?: (args: ItemRendererArgs<T>) => JSX.Element | null;
+  optionRenderer?: (args: ItemRendererArgs<T>) => ReactElement | null;
   /**
    * Replaces the separator line.
    * @category renderer
    * @receives { props, state, methods }
    * @replaces Separator line
    */
-  separatorRenderer?: (args: RendererArgs<T>) => JSX.Element | null;
+  separatorRenderer?: (args: RendererArgs<T>) => ReactElement | null;
   /**
    * Additional HTML attributes passed to the root element.
    * @category behavior
@@ -548,7 +549,7 @@ export interface RendererArgs<T> {
 }
 
 export interface InputRendererArgs<T> extends RendererArgs<T> {
-  inputRef: RefObject<HTMLInputElement>;
+  inputRef: RefObject<HTMLInputElement | null>;
 }
 
 export interface ItemRendererArgs<T> {

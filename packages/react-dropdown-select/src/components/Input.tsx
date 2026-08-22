@@ -33,7 +33,7 @@ const handlePlaceHolder = <T extends Record<string, any>>(
 };
 
 class Input<T extends Record<string, any>> extends Component<InputProps<T>> {
-  input: RefObject<HTMLInputElement> = React.createRef();
+  input: RefObject<HTMLInputElement | null> = React.createRef();
 
   componentDidUpdate(prevProps: InputProps<T>) {
     if (

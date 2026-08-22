@@ -12,7 +12,7 @@ interface ItemProps<T> {
 }
 
 class Item<T extends Record<string, any>> extends Component<ItemProps<T>> {
-  item: RefObject<HTMLSpanElement> = React.createRef();
+  item: RefObject<HTMLSpanElement | null> = React.createRef();
 
   componentDidMount() {
     const { props, methods } = this.props;
