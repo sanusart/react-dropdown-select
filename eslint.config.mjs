@@ -35,6 +35,8 @@ export default tseslint.config(
   {
     files: [
       '*.{js,mjs,cjs}',
+      'packages/react-dropdown-select/babel.*.js',
+      'packages/react-dropdown-select/jest.setup.js',
       'packages/react-dropdown-select/scripts/**/*.{js,mjs,cjs}',
       'packages/react-dropdown-select/webpack.config.js',
       'packages/docs-site/vite.config.js',
