@@ -1,3 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Clear/> component <Clear/> renders correctly 1`] = `null`;
+exports[`<Clear/> component <Clear/> renders correctly 1`] = `
+<div
+  className="react-dropdown-select-clear"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  tabIndex={-1}
+>
+  ×
+</div>
+`;

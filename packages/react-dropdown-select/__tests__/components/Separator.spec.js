@@ -13,7 +13,10 @@ const props = {
 };
 
 it('<Separator/> renders correctly', () => {
-  const tree = renderer.create(<Separator {...props} />).toJSON();
+  let tree;
+  renderer.act(() => {
+    tree = renderer.create(<Separator {...props} />);
+  });
 
-  expect(tree).toMatchSnapshot();
+  expect(tree.toJSON()).toMatchSnapshot();
 });

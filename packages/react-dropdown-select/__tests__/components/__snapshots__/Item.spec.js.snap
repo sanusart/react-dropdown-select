@@ -1,5 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Item/> component pass item renderer 1`] = `null`;
+exports[`<Item/> component pass item renderer 1`] = `
+<span
+  className="react-dropdown-select-item"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  ref={
+    {
+      "current": null,
+    }
+  }
+  role="option"
+  tabIndex={-1}
+>
+   
+</span>
+`;
 
-exports[`<Item/> component renders correctly 1`] = `null`;
+exports[`<Item/> component renders correctly 1`] = `
+<span
+  className="react-dropdown-select-item"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  ref={
+    {
+      "current": null,
+    }
+  }
+  role="option"
+  tabIndex={-1}
+>
+   
+</span>
+`;

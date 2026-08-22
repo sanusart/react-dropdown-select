@@ -35,10 +35,11 @@ describe('<Option/> component', () => {
   });
 
   it('renders correctly', () => {
-    let tree;
+    let renderer;
     TestRenderer.act(() => {
-      tree = TestRenderer.create(<Option {...props({ item: options[0] })} />).toJSON();
+      renderer = TestRenderer.create(<Option {...props({ item: options[0] })} />);
     });
+    const tree = renderer.toJSON();
 
     expect(tree).toMatchSnapshot();
   });

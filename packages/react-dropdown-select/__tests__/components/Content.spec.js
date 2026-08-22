@@ -45,9 +45,12 @@ describe('<Content/> component', () => {
   });
 
   it('<Content/> renders correctly', () => {
-    const tree = TestRenderer.create(<Content {...props()} />).toJSON();
+    let tree;
+    TestRenderer.act(() => {
+      tree = TestRenderer.create(<Content {...props()} />);
+    });
 
-    expect(tree).toMatchSnapshot();
+    expect(tree.toJSON()).toMatchSnapshot();
   });
 
   it('onClick opens dropdown', () => {

@@ -26,7 +26,10 @@ const props = {
 };
 
 it('<Dropdown/> renders correctly', () => {
-  const tree = renderer.create(<Dropdown {...props} />).toJSON();
+  let tree;
+  renderer.act(() => {
+    tree = renderer.create(<Dropdown {...props} />);
+  });
 
-  expect(tree).toMatchSnapshot();
+  expect(tree.toJSON()).toMatchSnapshot();
 });

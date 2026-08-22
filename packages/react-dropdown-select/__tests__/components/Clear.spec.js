@@ -29,10 +29,11 @@ describe('<Clear/> component', () => {
   });
 
   it('<Clear/> renders correctly', () => {
-    let tree;
+    let renderer;
     TestRenderer.act(() => {
-      tree = TestRenderer.create(<Clear {...props()} />).toJSON();
+      renderer = TestRenderer.create(<Clear {...props()} />);
     });
+    const tree = renderer.toJSON();
 
     expect(tree).toMatchSnapshot();
   });
