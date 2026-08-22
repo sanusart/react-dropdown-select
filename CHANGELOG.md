@@ -16,6 +16,11 @@ All significant updates and improvements
 ([@sanusart](https://github.com/sanusart))
 ([b2e8751](https://github.com/sanusart/react-dropdown-select/commit/b2e8751fd0a2c9e52cbea2e8cf78328e45393995))
 
+- *(styles)* Add nonce for injected styles CSP and handle css vars outside of components ([#365](https://github.com/sanusart/react-dropdown-select/issues/365))
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([7e324ca](https://github.com/sanusart/react-dropdown-select/commit/7e324caea3a8aa5d6b71a1e5280236d77156c2b5))
+
 
 ### 📚 Documentation
 
