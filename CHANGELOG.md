@@ -2,7 +2,9 @@
 
 All significant updates and improvements
 
-## Upcoming version
+## v5.0.5
+
+Released on: Aug 22, 2026
 
 ### 🐛 Bug Fixes
 
