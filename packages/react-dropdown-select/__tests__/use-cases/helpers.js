@@ -6,41 +6,44 @@ import { options } from '../options';
 
 export const selectWithProps = (component) => {
   const testRef = createRef();
-  const renderer = TestRenderer.create(React.cloneElement(component, { ref: testRef }), {
-    createNodeMock: (element) => {
-      if (element.type === 'input') {
-        return {
-          focus: () => {},
-          blur: () => {},
-          scrollIntoView: () => {},
-        };
-      }
-      if (element.type === 'span') {
-        return {
-          focus: () => {},
-          blur: () => {},
-          scrollIntoView: () => {},
-        };
-      }
-      if (element.type === 'div') {
-        return {
-          focus: () => {},
-          blur: () => {},
-          scrollIntoView: () => {},
-          contains: () => true,
-          setAttribute: () => {},
-          getBoundingClientRect: () => ({
-            top: 0,
-            bottom: 100,
-            height: 100,
-            width: 400,
-            left: 0,
-            right: 400,
-          }),
-        };
-      }
-      return null;
-    },
+  let renderer;
+  TestRenderer.act(() => {
+    renderer = TestRenderer.create(React.cloneElement(component, { ref: testRef }), {
+      createNodeMock: (element) => {
+        if (element.type === 'input') {
+          return {
+            focus: () => {},
+            blur: () => {},
+            scrollIntoView: () => {},
+          };
+        }
+        if (element.type === 'span') {
+          return {
+            focus: () => {},
+            blur: () => {},
+            scrollIntoView: () => {},
+          };
+        }
+        if (element.type === 'div') {
+          return {
+            focus: () => {},
+            blur: () => {},
+            scrollIntoView: () => {},
+            contains: () => true,
+            setAttribute: () => {},
+            getBoundingClientRect: () => ({
+              top: 0,
+              bottom: 100,
+              height: 100,
+              width: 400,
+              left: 0,
+              right: 400,
+            }),
+          };
+        }
+        return null;
+      },
+    });
   });
   const origUpdate = renderer.update.bind(renderer);
   renderer.getInstance = () =>
@@ -50,7 +53,8 @@ export const selectWithProps = (component) => {
         get: (_, prop) => (testRef.current ? testRef.current[prop] : undefined),
       },
     );
-  renderer.update = (el) => origUpdate(React.cloneElement(el, { ref: testRef }));
+  renderer.update = (el) =>
+    TestRenderer.act(() => origUpdate(React.cloneElement(el, { ref: testRef })));
   return renderer;
 };
 

@@ -35,15 +35,20 @@ describe('<Option/> component', () => {
   });
 
   it('renders correctly', () => {
-    const tree = TestRenderer.create(<Option {...props({ item: options[0] })} />).toJSON();
+    let tree;
+    TestRenderer.act(() => {
+      tree = TestRenderer.create(<Option {...props({ item: options[0] })} />).toJSON();
+    });
 
     expect(tree).toMatchSnapshot();
   });
 
   it('onClick remove item', () => {
-    TestRenderer.create(<Option {...props({ item: options[0] })} onClick={spy} />)
-      .root.findByProps({ className: 'react-dropdown-select-option-remove' })
-      .props.onClick();
+    let instance;
+    TestRenderer.act(() => {
+      instance = TestRenderer.create(<Option {...props({ item: options[0] })} onClick={spy} />);
+    });
+    instance.root.findByProps({ className: 'react-dropdown-select-option-remove' }).props.onClick();
 
     expect(spy).toHaveBeenCalled;
   });

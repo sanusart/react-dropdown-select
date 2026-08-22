@@ -13,7 +13,10 @@ const props = {
 };
 
 it('<NoData/> renders correctly', () => {
-  const tree = renderer.create(<NoData {...props} />).toJSON();
+  let instance;
+  renderer.act(() => {
+    instance = renderer.create(<NoData {...props} />);
+  });
 
-  expect(tree).toMatchSnapshot();
+  expect(instance.toJSON()).toMatchSnapshot();
 });
