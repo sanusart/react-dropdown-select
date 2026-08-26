@@ -2,6 +2,16 @@
 
 All significant updates and improvements
 
+## Upcoming version
+
+### 🐛 Bug Fixes
+
+- *(default values)* HandleKeyDownFn closes #367
+· by Sasha Khamkov
+([@sanusart](https://github.com/sanusart))
+([ebf4ed0](https://github.com/sanusart/react-dropdown-select/commit/ebf4ed02f69026acc8ff3979bd78ae8d2d220170))
+
+
 ## v5.0.5
 
 Released on: Aug 22, 2026
