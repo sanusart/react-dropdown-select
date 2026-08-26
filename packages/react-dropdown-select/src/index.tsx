@@ -117,7 +117,7 @@ export const defaultProps: Partial<SelectProps<any>> = {
   dropdownHandle: true,
   dropdownHeight: '300px',
   dropdownPosition: 'bottom',
-  handleKeyDownFn: () => undefined,
+  handleKeyDownFn: undefined,
   keepOpen: false,
   keepSelectedInList: true,
   labelField: 'label',

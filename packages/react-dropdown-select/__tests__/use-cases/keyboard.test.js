@@ -250,6 +250,54 @@ describe('Backspace delete', () => {
 
     expect(inst.state.values).toHaveLength(2);
   });
+
+  it('removes last value via onKeyDown on the select div (DOM path)', () => {
+    const component = selectWithProps(
+      <Select
+        multi
+        options={fixture}
+        values={[fixture[0], fixture[1]]}
+        labelField="name"
+        valueField="id"
+        placeholder=""
+        backspaceDelete
+      />,
+    );
+
+    const inst = component.getInstance();
+    expect(inst.state.values).toHaveLength(2);
+
+    const selectDiv = findByClassName(component, 'react-dropdown-select');
+    TestRenderer.act(() => {
+      selectDiv.props.onKeyDown({ key: 'Backspace', preventDefault: () => {} });
+    });
+
+    expect(inst.state.values).toHaveLength(1);
+    expect(inst.state.values[0].name).toBe('Leanne Graham');
+  });
+
+  it('does not remove via onKeyDown when backspaceDelete is false (DOM path)', () => {
+    const component = selectWithProps(
+      <Select
+        multi
+        options={fixture}
+        values={[fixture[0], fixture[1]]}
+        labelField="name"
+        valueField="id"
+        backspaceDelete={false}
+      />,
+    );
+
+    const inst = component.getInstance();
+    expect(inst.state.values).toHaveLength(2);
+
+    const selectDiv = findByClassName(component, 'react-dropdown-select');
+    TestRenderer.act(() => {
+      selectDiv.props.onKeyDown({ key: 'Backspace', preventDefault: () => {} });
+    });
+
+    expect(inst.state.values).toHaveLength(2);
+  });
 });
 
 describe('ArrowUp navigation', () => {
