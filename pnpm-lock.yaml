@@ -76,8 +76,8 @@ importers:
         specifier: ^19.2.18
         version: 19.2.18
       '@types/react-dom':
-        specifier: ^19.2.4
-        version: 19.2.4(@types/react@19.2.18)
+        specifier: ^19.2.5
+        version: 19.2.5(@types/react@19.2.18)
       '@types/react-syntax-highlighter':
         specifier: ^15.5.13
         version: 15.5.13
@@ -131,13 +131,13 @@ importers:
         version: 4.0.3(storybook@10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))(webpack@5.109.2)
       '@storybook/react-webpack5':
         specifier: 10.5.4
-        version: 10.5.4(@swc/core@1.15.43)(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(postcss@8.5.16)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(storybook@10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))(typescript@5.9.3)(webpack-cli@5.1.4)
+        version: 10.5.4(@swc/core@1.15.43)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(postcss@8.5.16)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(storybook@10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))(typescript@5.9.3)(webpack-cli@5.1.4)
       '@types/react':
         specifier: ^19.2.18
         version: 19.2.18
       '@types/react-dom':
-        specifier: ^19.2.4
-        version: 19.2.4(@types/react@19.2.18)
+        specifier: ^19.2.5
+        version: 19.2.5(@types/react@19.2.18)
       babel-core:
         specifier: ^7.0.0-bridge.0
         version: 7.0.0-bridge.0(@babel/core@7.29.7)
@@ -2227,8 +2227,8 @@ packages:
   '@types/range-parser@1.2.7':
     resolution: {integrity: sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==}
 
-  '@types/react-dom@19.2.4':
-    resolution: {integrity: sha512-Bsc+QHgp+P/F02XDzNCY9jnZNCUuLki36KT7VKrTXXLdHf+vHMNZnW1rVu5DNW/rCK+fya3DATySbLM4yhtKUw==}
+  '@types/react-dom@19.2.5':
+    resolution: {integrity: sha512-fMPwH9v7r/pp43yUd2/Mbiex5KouJwwR3dzHkhLREUC6764VyDsqxhAxv6OFEYR1RhjOyD1naqba8ECDBe7ZQg==}
     peerDependencies:
       '@types/react': ^19.2.0
 
@@ -8654,20 +8654,20 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@storybook/react-dom-shim@10.5.4(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(storybook@10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))':
+  '@storybook/react-dom-shim@10.5.4(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(storybook@10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))':
     dependencies:
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
       storybook: 10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8)
     optionalDependencies:
       '@types/react': 19.2.18
-      '@types/react-dom': 19.2.4(@types/react@19.2.18)
+      '@types/react-dom': 19.2.5(@types/react@19.2.18)
 
-  '@storybook/react-webpack5@10.5.4(@swc/core@1.15.43)(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(postcss@8.5.16)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(storybook@10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))(typescript@5.9.3)(webpack-cli@5.1.4)':
+  '@storybook/react-webpack5@10.5.4(@swc/core@1.15.43)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(postcss@8.5.16)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(storybook@10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))(typescript@5.9.3)(webpack-cli@5.1.4)':
     dependencies:
       '@storybook/builder-webpack5': 10.5.4(@swc/core@1.15.43)(postcss@8.5.16)(storybook@10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))(typescript@5.9.3)(webpack-cli@5.1.4)
       '@storybook/preset-react-webpack': 10.5.4(@swc/core@1.15.43)(postcss@8.5.16)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(storybook@10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))(typescript@5.9.3)(webpack-cli@5.1.4)
-      '@storybook/react': 10.5.4(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(storybook@10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))(typescript@5.9.3)
+      '@storybook/react': 10.5.4(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(storybook@10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))(typescript@5.9.3)
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
       storybook: 10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8)
@@ -8692,10 +8692,10 @@ snapshots:
       - uglify-js
       - webpack-cli
 
-  '@storybook/react@10.5.4(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(storybook@10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))(typescript@5.9.3)':
+  '@storybook/react@10.5.4(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(storybook@10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))(typescript@5.9.3)':
     dependencies:
       '@storybook/global': 5.0.0
-      '@storybook/react-dom-shim': 10.5.4(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(storybook@10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))
+      '@storybook/react-dom-shim': 10.5.4(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(storybook@10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))
       react: 19.2.8
       react-docgen: 8.0.3
       react-docgen-typescript: 2.4.0(typescript@5.9.3)
@@ -8703,7 +8703,7 @@ snapshots:
       storybook: 10.5.4(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8)
     optionalDependencies:
       '@types/react': 19.2.18
-      '@types/react-dom': 19.2.4(@types/react@19.2.18)
+      '@types/react-dom': 19.2.5(@types/react@19.2.18)
       typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
@@ -9008,7 +9008,7 @@ snapshots:
 
   '@types/range-parser@1.2.7': {}
 
-  '@types/react-dom@19.2.4(@types/react@19.2.18)':
+  '@types/react-dom@19.2.5(@types/react@19.2.18)':
     dependencies:
       '@types/react': 19.2.18
 
