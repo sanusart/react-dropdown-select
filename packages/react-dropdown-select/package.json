@@ -89,7 +89,7 @@
     "@storybook/addon-webpack5-compiler-swc": "4.0.3",
     "@storybook/react-webpack5": "10.5.4",
     "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.4",
+    "@types/react-dom": "^19.2.5",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^25.3.0",
     "babel-loader": "^10.1.1",
